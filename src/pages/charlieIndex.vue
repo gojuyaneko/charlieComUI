@@ -3,17 +3,6 @@
   <div>
     <div class="pc-nav-theme">
       <myNavbar> </myNavbar>
-      <span
-        style="
-          height: 65px;
-          display: flex;
-          align-items: center;
-          letter-spacing: 10px;
-          color: #d6b367;
-          padding: 0px 30px;
-        "
-        >流星大道888号</span
-      >
     </div>
 
     <!-- 首页背景 -->
@@ -86,12 +75,6 @@ export default {
   border: 0px;
 }
 
-/* 导航栏组件及其背景  */
-.pc-nav-theme {
-  background-image: url(./../assets/HomePage/Page1/导航.png);
-  width: 100%;
-  height: 65px;
-}
 
 .pc-homepage-background {
   background-image: url(./../assets/HomePage/Page1/背景.png);

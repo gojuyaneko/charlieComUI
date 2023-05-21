@@ -1,7 +1,6 @@
 <template>
-  <div class="pc-nav-theme">
+  <div>
    <span class="nav-theme">流星大道888号</span>
-   <img src="../assets/HomePage/Page1/multipolygon.png" alt="" class="nav-multipolygon"> 
     <el-menu
       text-color="#d6b367 "
       active-text-color="#af9356"
@@ -151,14 +150,6 @@ export default {
 </script>
 
 <style scope>
-/* 导航栏组件及其背景  */
-.pc-nav-theme {
-  background-image: url(./../assets/HomePage/Page1/导航.png);
-  background-size:100% 100% no-repeat ;
-  width: 100%;
-  height: 65px;
-  font-family: "nansongshuju";
-}
 /* 整体的背景 */
 .el-menu {
   background-color: transparent;
@@ -167,23 +158,11 @@ export default {
 /* 导航栏主题跳转至首页 */
 .nav-theme {
   height: 65px;
-  position:absolute;
-  top: 0;
-  left: 65px;
-  text-align: center;
-  line-height: 65px;
+  display: flex;
+  align-items: center;
   letter-spacing: 10px;
-  color: #d6b367 ; 
-  font-size: 41px;
-  font-family: "nansongshuju";
-}
-
-.nav-multipolygon {
-  width: 469px;
-  height: 70px;
-  position:absolute;
-  top: 0;
-  left: 444px;
+  color: #d6b367;
+  padding: 0px 30px;
 }
 /* 整体的下划线进行隐藏 */
 .el-menu.el-menu--horizontal {
@@ -209,7 +188,6 @@ export default {
   padding: 0px 30px;
   background-color: transparent !important;
   text-align: center;
-  font-size: 25px;
 }
 
 
@@ -220,7 +198,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 0px;
-  width: 140px;
+  width: 120px;
   background: transparent !important ;
   border-bottom: transparent;
 }
@@ -231,7 +209,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 140px;
+  width: 120px;
   height: 65px;
   background-color: rgb(103, 77, 151, 0.3) !important;
 }

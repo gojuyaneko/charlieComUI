@@ -204,12 +204,14 @@ export default {
 .el-menu--horizontal > .el-menu-item.is-active {
   border-bottom: transparent;
 }
+.el-submenu {
+  font-size: 29px;
+}
 /* 中间部分的样式 */
 .el-submenu__title {
   padding: 0px 30px;
   background-color: transparent !important;
   text-align: center;
-  font-size: 25px;
 }
 
 
@@ -220,7 +222,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 0px;
-  width: 140px;
+  width: 120px;
   background: transparent !important ;
   border-bottom: transparent;
 }
@@ -231,7 +233,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 140px;
+  width: 120px;
   height: 65px;
   background-color: rgb(103, 77, 151, 0.3) !important;
 }

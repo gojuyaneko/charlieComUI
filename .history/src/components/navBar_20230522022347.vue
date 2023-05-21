@@ -209,7 +209,6 @@ export default {
   padding: 0px 30px;
   background-color: transparent !important;
   text-align: center;
-  font-size: 25px;
 }
 
 
@@ -220,7 +219,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 0px;
-  width: 140px;
+  width: 120px;
   background: transparent !important ;
   border-bottom: transparent;
 }
@@ -231,7 +230,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 140px;
+  width: 120px;
   height: 65px;
   background-color: rgb(103, 77, 151, 0.3) !important;
 }
@@ -244,5 +243,6 @@ export default {
   padding: 0px;
   background: transparent !important;
   color: #af9356 !important;
+  font-size: 31px;
 }
 </style>

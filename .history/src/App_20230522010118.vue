@@ -26,6 +26,30 @@ body {
   height: 100%;
   -webkit-user-drag: none;
 }
+@media screen and (min-width: 480px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  html,
+  body {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 992px) {
+  html,
+  body {
+    font-size: 20px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  html,
+  body {
+    font-size: 22px;
+  }
+}
 li {
   list-style: none;
 }
@@ -37,9 +61,5 @@ li {
   position: sticky;
   top: 0;
   z-index: 2;
-}
-@font-face {
-  font-family: 'nansongshuju';
-  src: url('../public/font/南宋书局体.ttf');
 }
 </style>

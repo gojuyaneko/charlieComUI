@@ -1,7 +1,23 @@
 <template>
-  <div class="pc-nav-theme">
-   <span class="nav-theme">流星大道888号</span>
-   <img src="../assets/HomePage/Page1/multipolygon.png" alt="" class="nav-multipolygon"> 
+  <div>
+   <span class="nav-theme">
+    <svg 
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="321px" height="47px">
+    <defs>
+    <linearGradient id="PSgrad_0" x1="3.49%" x2="0%" y1="99.939%" y2="0%">
+      <stop offset="0%" stop-color="rgb(255,252,224)" stop-opacity="0.93" />
+      <stop offset="23%" stop-color="rgb(226,211,166)" stop-opacity="0.93" />
+      <stop offset="53%" stop-color="rgb(196,169,108)" stop-opacity="0.93" />
+      <stop offset="99%" stop-color="rgb(255,248,220)" stop-opacity="0.93" />
+    </linearGradient>
+
+    </defs>
+    <text kerning="auto" font-family="Adobe Heiti Std" fill="rgb(0, 0, 0)" transform="matrix( 1.56760990619659, -3.48079322297988e-16, 3.48079322297988e-16, 1.56760990619659,-7.40042661309241, 4.29207581937318)" font-size="30.811px"><tspan font-size="30.811px" font-family="nansongshuju" fill="#D5B265">&#27969;&#26143;&#22823;</tspan><tspan font-size="30.811px" font-family="nansongshuju" fill="#D5B265">&#36947;&#32;&#56;</tspan><tspan font-size="30.811px" font-family="nansongshuju" fill="#D5B265">&#56;</tspan><tspan font-size="30.811px" font-family="nansongshuju" fill="#D5B265">&#56;&#21495;</tspan></text>
+    <text kerning="auto" font-family="Adobe Heiti Std" fill="url(#PSgrad_0)" transform="matrix( 1.56760990619659, -3.48079322297988e-16, 3.48079322297988e-16, 1.56760990619659,-7.40042661309241, 4.29207581937318)" font-size="30.811px"><tspan font-size="30.811px" font-family="nansongshuju" fill="#D5B265">&#27969;&#26143;&#22823;</tspan><tspan font-size="30.811px" font-family="nansongshuju" fill="#D5B265">&#36947;&#32;&#56;</tspan><tspan font-size="30.811px" font-family="nansongshuju" fill="#D5B265">&#56;</tspan><tspan font-size="30.811px" font-family="nansongshuju" fill="#D5B265">&#56;&#21495;</tspan></text>
+    </svg>
+   </span>
     <el-menu
       text-color="#d6b367 "
       active-text-color="#af9356"
@@ -151,14 +167,6 @@ export default {
 </script>
 
 <style scope>
-/* 导航栏组件及其背景  */
-.pc-nav-theme {
-  background-image: url(./../assets/HomePage/Page1/导航.png);
-  background-size:100% 100% no-repeat ;
-  width: 100%;
-  height: 65px;
-  font-family: "nansongshuju";
-}
 /* 整体的背景 */
 .el-menu {
   background-color: transparent;
@@ -169,22 +177,14 @@ export default {
   height: 65px;
   position:absolute;
   top: 0;
-  left: 65px;
+  left: 10px;
   text-align: center;
-  line-height: 65px;
-  letter-spacing: 10px;
-  color: #d6b367 ; 
-  font-size: 41px;
+  color: #d6b367;
+  padding: 0px 30px;
+  font-size: 31px;
   font-family: "nansongshuju";
 }
 
-.nav-multipolygon {
-  width: 469px;
-  height: 70px;
-  position:absolute;
-  top: 0;
-  left: 444px;
-}
 /* 整体的下划线进行隐藏 */
 .el-menu.el-menu--horizontal {
   border-bottom: none;
@@ -209,7 +209,6 @@ export default {
   padding: 0px 30px;
   background-color: transparent !important;
   text-align: center;
-  font-size: 25px;
 }
 
 
@@ -220,7 +219,7 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 0px;
-  width: 140px;
+  width: 120px;
   background: transparent !important ;
   border-bottom: transparent;
 }
@@ -231,7 +230,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 140px;
+  width: 120px;
   height: 65px;
   background-color: rgb(103, 77, 151, 0.3) !important;
 }
