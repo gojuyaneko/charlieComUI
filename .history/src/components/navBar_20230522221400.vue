@@ -149,13 +149,8 @@ export default {
   mounted() {},
   methods: {
     gotoUrl(url) {
-      if(this.$router.path !=='/'){
-        if(url === '/') {
-          this.$router.push(url)
-        }
-      }
-      
-      
+      console.log(url)
+      this.$router.push(url)
     }
   },
 };

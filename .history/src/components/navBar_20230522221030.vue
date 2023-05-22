@@ -15,7 +15,7 @@
         v-for="item in navItems"
         :index="item.nextUrl"
         :key="item.name"
-        @click.native="gotoUrl(item.nextUrl)"
+        @click="gotoUrl(item.nextUrl)"
         popper-class="pclass"
         show-timeout="100"
         hide-timeout="100"
@@ -149,13 +149,7 @@ export default {
   mounted() {},
   methods: {
     gotoUrl(url) {
-      if(this.$router.path !=='/'){
-        if(url === '/') {
-          this.$router.push(url)
-        }
-      }
-      
-      
+      this.$router.push(url)
     }
   },
 };

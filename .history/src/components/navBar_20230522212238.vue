@@ -13,9 +13,8 @@
     >
       <el-submenu
         v-for="item in navItems"
-        :index="item.nextUrl"
+        :index="`/${item.nextUrl}`"
         :key="item.name"
-        @click.native="gotoUrl(item.nextUrl)"
         popper-class="pclass"
         show-timeout="100"
         hide-timeout="100"
@@ -25,7 +24,7 @@
         </template>
         <el-menu-item-group>
           <el-menu-item
-            :index="childItems.nextUrl"
+            :index="`/${childItems.nextUrl}`"
             v-for="childItems in item.childItems"
             :key="childItems.name"
           >
@@ -104,7 +103,7 @@ export default {
             },
             {
               name: "真话冒险",
-              nextUrl: "/truthordare",
+              nextUrl: "",
             },
             {
               name: "织梦迷境",
@@ -147,17 +146,7 @@ export default {
     };
   },
   mounted() {},
-  methods: {
-    gotoUrl(url) {
-      if(this.$router.path !=='/'){
-        if(url === '/') {
-          this.$router.push(url)
-        }
-      }
-      
-      
-    }
-  },
+  methods: {},
 };
 </script>
 

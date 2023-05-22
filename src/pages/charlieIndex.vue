@@ -9,7 +9,7 @@
       </div>
       <!-- 查理苏字体加宝石 -->
       <div class="pc-charlie-name">
-        <img src="./../assets/HomePage/Page1/查理苏.png" alt="" />
+        <img src="./../assets/HomePage/Page1/查理苏.png" alt="" class="pc-charlie-nameimg" />
       </div>
       <!-- 关于charlie图标-->
       <div class="pc-icon-aboutcharlie">
@@ -104,6 +104,11 @@ export default {
   position: absolute;
   top: 195px;
   left: 175px;
+
+}
+.pc-charlie-nameimg {
+  width: 507px;
+  height: 254px;
 }
 /* 关于charlie图标 */
 .pc-icon-aboutcharlie img {
