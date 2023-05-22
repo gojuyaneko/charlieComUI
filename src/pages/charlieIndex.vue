@@ -1,10 +1,6 @@
 <template>
   <!-- 导航栏组件及其背景 -->
-  <div>
-    <div class="pc-nav-theme">
-      <myNavbar> </myNavbar>
-    </div>
-
+  <div class="homepage">
     <!-- 首页背景 -->
     <div class="pc-homepage-background">
       <!-- 查理苏人像 -->
@@ -68,14 +64,12 @@ export default {
 };
 </script>
 
-<style>
-* {
-  padding: 0px;
-  margin: 0px;
-  border: 0px;
+<style scoped>
+.homepage {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
 }
-
-
 .pc-homepage-background {
   background-image: url(./../assets/HomePage/Page1/背景.png);
   background-position: center center;
@@ -83,7 +77,7 @@ export default {
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
   background-size: cover;
   position: relative;
-  height: 1080px;
+  height: 100%;
 }
 
 .pc-homepage-background2 {
@@ -93,7 +87,7 @@ export default {
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
   background-size: cover;
   position: relative;
-  height: 1080px;
+  height: 100%;
 }
 /* 首页 */
 /* 查理苏人像 */
@@ -101,6 +95,8 @@ export default {
   position: absolute;
   bottom: 0px;
   right: 0px;
+  width: 100%;
+  height: 100%;
   /* transform: scale(0.9, 0.9); */
 }
 /* 查理苏字体加宝石 */
@@ -111,11 +107,11 @@ export default {
 }
 /* 关于charlie图标 */
 .pc-icon-aboutcharlie img {
-  width: 350px;
-  height: 109px;
+  width: 372px;
+  height: 145px;
   position: absolute;
-  left: 80px;
-  bottom: 120px;
+  left: 100px;
+  bottom: 125px;
 }
 
 .pc-homepage-background2 {
@@ -125,7 +121,7 @@ export default {
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
   background-size: cover;
   position: relative;
-  height: 1080px;
+  height: 100%;
 }
 
 /* 光夜变奏 */

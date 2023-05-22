@@ -153,8 +153,8 @@ export default {
 <style scope>
 /* 导航栏组件及其背景  */
 .pc-nav-theme {
-  background-image: url(./../assets/HomePage/Page1/导航.png);
-  background-size:100% 100% no-repeat ;
+  background: url("./../assets/HomePage/Page1/导航.png") no-repeat;
+  background-size:100% 100%;
   width: 100%;
   height: 65px;
   font-family: "nansongshuju";
@@ -189,6 +189,9 @@ export default {
 .el-menu.el-menu--horizontal {
   border-bottom: none;
   background-color: transparent !important;
+  display:flex;
+  align-items: center;
+  height: 100%;
 }
 /* 点击二级菜单的下划线进行隐藏 */
 .el-menu--horizontal > .el-submenu.is-active .el-submenu__title {

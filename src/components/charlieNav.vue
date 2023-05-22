@@ -96,7 +96,6 @@ export default {
   display: grid;
   height: 2.5rem;
   grid-template-columns:auto auto ;
-  max-width: 1600px;
   -webkit-user-select: none;
 }
 .pc-nav-itembar {
