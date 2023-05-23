@@ -23,6 +23,10 @@
           <img :src="cardImg" alt="" class="td-card-img">
           <h4 class="td-card-h4"> {{ diaContent }}</h4>
         </div>
+        <el-radio-group  v-model="yesOrNo">
+          <el-radio-button label="YES"><div style="position: absolute;left: 12px;">YES</div> </el-radio-button>
+          <el-radio-button label="NO"><div style="position: absolute;left: 14px;">NO</div></el-radio-button>
+        </el-radio-group>
         <span slot="footer" class="dialog-footer">
         </span>
       </el-dialog>
@@ -58,7 +62,8 @@ export default {
       ],
       dialogVisible:false,
       cardImg:require('./img/metruth.png'),
-      diaContent:'你曾有过一见钟情的感觉吗？'
+      diaContent:'你曾有过一见钟情的感觉吗？',
+      yesOrNo:"YES"
     }
   }
 }
@@ -157,10 +162,50 @@ export default {
 @font-face {
   font-family: 'Branch';
   src: url('../../../../../public/font/branch-regular.ttf');
-}</style>
-
-<style>
- .el-dialog__wrapper .td-dialog {
+}
+.el-radio-button__inner, .el-radio-group  {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  position: absolute;
+  top:420px;
+  left: 300px;
+}
+.el-radio-button {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  z-index: 4;
+  margin-top: 5px;
+}
+::v-deep{
+.el-radio-button:first-child .el-radio-button__inner {
+  border-radius: 40px;
+  border: 2px #b99950 solid;
+  background: transparent;
+  width: 80px;
+  height: 80px;
+  top: 0px;
+  left: 2px;
+  z-index: 0;
+  color: #b99950;
+  display: flex;
+  align-items: center;
+}
+.el-radio-button:last-child .el-radio-button__inner  {
+  border-radius: 40px;
+  border: 2px #b99950 solid;
+  background: transparent;
+  width: 80px;
+  height: 80px;
+  top: 0px;
+  left: 2px;
+  z-index: 0;
+  color: #b99950;
+  display: flex;
+  align-items: center;
+}
+.el-dialog__wrapper .td-dialog {
   background:url('./img/dialog.png') no-repeat;
   background-size: 100% 100%;
   height: 640px;
@@ -168,4 +213,13 @@ export default {
   margin-left: 50%;
   transform: translate(-45%);
 }
+.is-active {
+ background-image: linear-gradient( #674d97,black);
+}
+.el-radio-button__orig-radio:checked+.el-radio-button__inner {
+  -webkit-box-shadow:none;
+  box-shadow:none
+}
+}
+
 </style>
