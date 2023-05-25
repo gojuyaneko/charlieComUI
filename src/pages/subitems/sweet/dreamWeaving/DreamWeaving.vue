@@ -2,8 +2,8 @@
   <div class="dream_weaving">
     <div class="titles">
       <ul class="btns">
-          <li class="angle-btn"><img src="./image/btn.png" alt="button"></li>
-          <li class="evil-btn"><img src="./image/btn.png" alt="button"></li>
+          <li class="angle-btn" @click="angelVisible=true"><img src="./image/btn.png" alt="button" height="37.5" width="110"></li>
+          <li class="evil-btn" @click="evilVisible=true"><img src="./image/btn.png" alt="button" height="37.5" width="110"></li>
       </ul>
     </div>
 
@@ -17,9 +17,13 @@
 
 <script>
 export default {
-  name: "dream_weaving",
-  angelVisible:false,
-  evilVisible:false
+  data(){
+    return {
+      angelVisible:false,
+      evilVisible:false
+    }
+
+  }
 }
 </script>
 
@@ -37,17 +41,16 @@ export default {
   background-size: 100% 100%;
 }
 
-
 .btns {
   display: flex;
   position: absolute;
-  bottom:0.725rem;
-  left:2.75rem;
+  bottom:0.775rem;
+  left:3rem;
 }
 
 .angle-btn {
   cursor: pointer;
-  margin-right: 3.525rem;
+  margin-right: 3.73rem;
 }
 .angle-btn:hover {
   transform: scale(1.05);
