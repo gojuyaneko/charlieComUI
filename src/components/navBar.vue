@@ -108,7 +108,7 @@ export default {
             },
             {
               name: "织梦迷境",
-              nextUrl: "",
+              nextUrl: "/dream_weaving",
             },
           ],
         },
