@@ -69,6 +69,11 @@ export default {
   width: 100%;
   height: 100%;
   overflow: scroll;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none; 
 }
 .pc-homepage-background {
   background-image: url(./../assets/HomePage/Page1/背景.png);

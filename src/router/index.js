@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import charlieIndex from '../pages/charlieIndex'
-import truthOrDare from '../pages/subitems/sweet/truthOrDare/truthOrDare.vue'
-import DreamWeaving from "../pages/subitems/sweet/dreamWeaving/DreamWeaving.vue";
+const charlieIndex = () => import('../pages/charlieIndex') 
+const truthOrDare = () => import('../pages/subitems/sweet/truthOrDare/truthOrDare.vue')
+const DreamWeaving = () => import('../pages/subitems/sweet/dreamWeaving/DreamWeaving.vue')
 
 Vue.use(Router);
 export default new Router({

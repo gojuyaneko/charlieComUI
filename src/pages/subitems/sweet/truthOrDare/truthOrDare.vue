@@ -18,15 +18,30 @@
     </div>
     <div class=" td-dialog">
       <el-dialog custom-class="td-dialog" :modal="false" top="11%" :visible.sync="dialogVisible"  :before-close="handleClose">
-        <span>这是一段信息</span>
         <div class="td-dia-card">
           <img :src="cardImg" alt="" class="td-card-img">
-          <h4 class="td-card-h4"> {{ diaContent }}</h4>
+          <h4 class="td-card-h4"> {{ diaCardText }}</h4>
         </div>
         <el-radio-group  v-model="yesOrNo">
-          <el-radio-button label="YES"><div style="position: absolute;left: 12px;">YES</div> </el-radio-button>
-          <el-radio-button label="NO"><div style="position: absolute;left: 14px;">NO</div></el-radio-button>
+          <el-radio-button label="YES"><div class="radio-group-div" >YES</div> </el-radio-button>
+          <el-radio-button label="NO"><div  class="radio-group-div" >NO</div></el-radio-button>
         </el-radio-group>
+        <div class="td-dialog-right">
+          <div class="td-dialog-content">
+            <div v-for="item in diaContent" :key="item"  class="td-dialog-div">
+              <span class="td-dialog-span" >
+                <span v-if="item.name!=='我'" :data-person="item.name"> {{ item.name }}</span>
+              </span>
+              <p class="td-dialog-p" :data-person-p="item.name">
+                {{item.content}}
+              </p>
+              <span class="td-dialog-span" >
+                <span v-if="item.name==='我'" :data-person="item.name"> {{ item.name }}</span>
+              </span>
+            </div>
+          </div>
+          <div class="td-dialog-page"> </div>
+        </div>
         <span slot="footer" class="dialog-footer">
         </span>
       </el-dialog>
@@ -62,8 +77,70 @@ export default {
       ],
       dialogVisible:false,
       cardImg:require('./img/metruth.png'),
-      diaContent:'你曾有过一见钟情的感觉吗？',
-      yesOrNo:"YES"
+      diaCardText:'你曾有过一见钟情的感觉吗？',
+      yesOrNo:"YES",
+      diaContent:[
+        {
+          name:'我',
+          content:'饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪'
+        },
+        {
+          name:'查理苏',
+          content:'完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。'
+        },
+        {
+          name:'旁白',
+          content:'你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。'
+        },
+        {
+          name:'我',
+          content:'饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪'
+        },
+        {
+          name:'查理苏',
+          content:'完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。'
+        },
+        {
+          name:'旁白',
+          content:'你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。'
+        },
+        {
+          name:'我',
+          content:'饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪'
+        },
+        {
+          name:'查理苏',
+          content:'完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。'
+        },
+        {
+          name:'旁白',
+          content:'你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。'
+        },
+        {
+          name:'我',
+          content:'饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪'
+        },
+        {
+          name:'查理苏',
+          content:'完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。'
+        },
+        {
+          name:'旁白',
+          content:'你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。'
+        },
+        {
+          name:'我',
+          content:'饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪'
+        },
+        {
+          name:'查理苏',
+          content:'完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。'
+        },
+        {
+          name:'旁白',
+          content:'你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。'
+        }
+      ]
     }
   }
 }
@@ -180,6 +257,7 @@ export default {
 }
 ::v-deep{
 .el-radio-button:first-child .el-radio-button__inner {
+  font-size: 18px;
   border-radius: 40px;
   border: 2px #b99950 solid;
   background: transparent;
@@ -193,6 +271,7 @@ export default {
   align-items: center;
 }
 .el-radio-button:last-child .el-radio-button__inner  {
+  font-size: 18px;
   border-radius: 40px;
   border: 2px #b99950 solid;
   background: transparent;
@@ -206,7 +285,7 @@ export default {
   align-items: center;
 }
 .el-dialog__wrapper .td-dialog {
-  background:url('./img/dialog.png') no-repeat;
+  background:url("./img/dialog.png") no-repeat;
   background-size: 100% 100%;
   height: 640px;
   width: 1415px;
@@ -220,6 +299,60 @@ export default {
   -webkit-box-shadow:none;
   box-shadow:none
 }
+.el-dialog__header {
+  display: none;
 }
-
+}
+.radio-group-div {
+  position: absolute;
+  left: 22px;
+}
+.td-dialog-right {
+  background-color: rgba(172, 255, 47, 0.178);
+  width: 980px;
+  height: 620px;
+  position:absolute ;
+  top: 25px;
+  right: 0;
+}
+.td-dialog-content {
+  width: 980px;
+  height: 540px;
+  overflow-y:scroll;
+  background-color: rgba(255, 192, 203, 0.411);
+}
+.td-dialog-div {
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  color:black;
+  font-family: 'nansongshuju';
+}
+.td-dialog-p {
+  width: 550px;
+}
+.td-dialog-span {
+  width: 85px;
+}
+span[data-person="我"]{
+  color: #eb4982;
+  margin-left: 16px;
+}
+span[data-person="查理苏"]{
+  color: #674d97;
+  margin-right: 16px;
+}
+span[data-person="旁白"]{
+  display: none;
+}
+p[data-person-p="旁白"] {
+  color:#848484
+}
+/* 浏览器滚动条样式 */
+::-webkit-scrollbar {
+  background-color: #848484b2;
+}
+::-webkit-scrollbar-button {
+  
+}
 </style>
