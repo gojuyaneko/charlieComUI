@@ -9,8 +9,9 @@
 
     <el-dialog class="angel-dia" :visible.sync="angelVisible" :show-close="false" >
       <h4>{{cardText}}</h4>
-      <li class="slide"><img src="./image/滑轨.png" height="485" width="30"></li>
+      <li class="slide"><img src="./image/滑轨.png" height="465" width="30"></li>
       <li class="x" @click="angelVisible=false"><img src="./image/x.png" height="30" width="30"></li>
+      <li class="next-btn"><img src="./image/下一幕.png" height="37.5" width="110"></li>
     </el-dialog>
 
   </div>
@@ -101,6 +102,14 @@ h4 {
   top:-8px;
   left:6.25rem;
   display: inline-block;
+}
+
+.next-btn {
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  top: 562px;
+  left: 5.2rem;
 }
 
 </style>
