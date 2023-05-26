@@ -82,7 +82,7 @@ export default {
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
   background-size: cover;
   position: relative;
-  height: 100%;
+  height: 1080px;
 }
 
 .pc-homepage-background2 {
@@ -124,15 +124,6 @@ export default {
   bottom: 125px;
 }
 
-.pc-homepage-background2 {
-  background-image: url(./../assets/HomePage/Page4/背景2.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
-  background-size: cover;
-  position: relative;
-  height: 100%;
-}
 
 /* 光夜变奏 */
 .pc-page2-img-left img {
