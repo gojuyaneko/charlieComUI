@@ -5,7 +5,7 @@
         v-for="item in tdItems"
         :key="item"
         class="td-item-li"
-        @click="dialogVisible = true"
+        @click="cvisivle(item)"
       >
         <img :src="item.bgImg" alt="" class="td-item-img" />
       </li>
@@ -22,12 +22,12 @@
           <img :src="cardImg" alt="" class="td-card-img" />
           <h4 class="td-card-h4">{{ diaCardText }}</h4>
         </div>
-        <el-radio-group v-model="yesOrNo">
+        <el-radio-group v-model="yesOrNo" v-if="mytruth" >
           <el-radio-button label="YES"
             ><div class="radio-group-div">YES</div>
           </el-radio-button>
           <el-radio-button label="NO">
-            <div class="radio-group-div">NO</div>
+            <div class="radio-group-div" style="letter-spacing:2px ;">NO</div>
           </el-radio-button>
         </el-radio-group>
         <div class="td-dialog-right">
@@ -48,21 +48,22 @@
               </span>
             </div>
           </div>
-          <div class="td-dialog-page"></div>
+          <div class="td-dialog-page">
+            <td-pagi></td-pagi>
+          </div>
+          <a class="td-dialog-video" target="_blank" href="http://www.bilibili.com"> 
+          </a>
         </div>
-        <span slot="footer" class="dialog-footer"> 
-          <td-pagi></td-pagi>
-        </span>
       </el-dialog>
     </div>
   </div>
 </template>
 
 <script>
-import tdPagi from '@/pages/subitems/sweet/truthOrDare/components/tdPagi'
+import tdPagi from '../components/tdPagi.vue'
 export default {
-  components: {},
-  props: {tdPagi},
+  components: {tdPagi},
+  props: {},
   data() {
     return {
       tdItems: [
@@ -90,12 +91,12 @@ export default {
       dialogVisible: false,
       cardImg: require("../img/metruth.png"),
       diaCardText: "你曾有过一见钟情的感觉吗？",
-      yesOrNo: "YES",
+      mytruth:false,
       diaContent: [
         {
           name: "我",
           content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
+            "饿了想吃饭，不想上班，想打王国之泪。"
         },
         {
           name: "查理苏",
@@ -168,10 +169,34 @@ export default {
             "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
         },
       ],
+      type:'truth',
+      person:'charlie',
+      num:1,
+      yesOrNo: "YES"
     };
   },
   mounted() {},
-  methods: {},
+  methods: {
+    cvisivle (obj) {
+      this.dialogVisible = true
+      let type = obj.type
+      let person = obj.person
+      let bntVis 
+      if(type==='truth'&&person === 'me') {
+        bntVis = true
+      }
+      else {
+        bntVis = false
+      }
+      this.mytruth = bntVis
+      // getDiaContent( type, person, 1, bntVis)
+    },
+    // getDiaContent ( type, person, num, yOrN) {
+    //   get().then(() => {
+        
+    //   })
+    // }
+  },
 };
 </script>
 
@@ -179,22 +204,18 @@ export default {
 .td-com-card {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 .td-items {
   display: flex;
-  position: absolute;
-  top: 260px;
-  left: 210px;
 }
-
 .td-item-li {
   margin-right: 60px;
   cursor: pointer;
 }
-
 .td-item-img {
-  width: 337px;
-  height: 513px;
+  width: 330px;
+  height: 500px;
 }
 .td-dia-card {
   position: absolute;
@@ -297,21 +318,19 @@ export default {
 }
 .radio-group-div {
   position: absolute;
-  left: 22px;
+  left: 24px;
 }
 .td-dialog-right {
-  background-color: rgba(172, 255, 47, 0.178);
-  width: 980px;
-  height: 620px;
+  width: 960px;
+  height: 610px;
   position: absolute;
   top: 25px;
   right: 0;
 }
 .td-dialog-content {
-  width: 980px;
-  height: 540px;
+  width: 960px;
+  height: 530px;
   overflow-y: scroll;
-  background-color: rgba(255, 192, 203, 0.411);
 }
 .td-dialog-div {
   display: flex;
@@ -322,23 +341,28 @@ export default {
 }
 .td-dialog-p {
   width: 550px;
+  margin-bottom: 30px;
 }
 .td-dialog-span {
-  width: 85px;
+  width: 105px;
 }
 span[data-person="我"] {
   color: #eb4982;
-  margin-left: 16px;
+  margin-left: 55px;
 }
 span[data-person="查理苏"] {
   color: #674d97;
-  margin-right: 16px;
+  margin-right: 35px;
 }
 span[data-person="旁白"] {
   display: none;
 }
 p[data-person-p="旁白"] {
   color: #848484;
+  text-indent: 2em;
+}
+p[data-person-p="我"] {
+  text-align: right;
 }
 /* 浏览器滚动条样式 */
 ::-webkit-scrollbar {
@@ -352,5 +376,19 @@ p[data-person-p="旁白"] {
 }
 .dialog-footer {
   background-color: rgba(22, 163, 81, 0.548);
+}
+.td-dialog-page {
+  margin-top:16px ;
+  margin-left: 85px;
+}
+.td-dialog-video {
+  display: inline-block;
+  width: 148px;
+  height: 47px;
+  background-image: url('../img/watchvideo.png');
+  background-size: 100% 100%;
+  position: relative;
+  bottom: 60px;
+  left: 760px;
 }
 </style>

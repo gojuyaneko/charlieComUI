@@ -11,7 +11,10 @@
         Truth or dare
       </h4>
     </div>
-    <td-card></td-card>
+   <div class="td-com-card">
+      <td-card></td-card> 
+    </div>
+    
   </div>
 </template>
 
@@ -28,6 +31,7 @@ export default {
   height: 100%;
   background: url('./img/tdbg.png') no-repeat;
   background-size: 100% 100%;
+  overflow: hidden;
 }
 .td-l-n {
   writing-mode: vertical-lr;
@@ -45,7 +49,6 @@ export default {
   z-index: 18;
 
 }
-
 .td-h3-text {
   font-size: 86px;
   font-family: "nansongshuju";
@@ -54,15 +57,13 @@ export default {
   -moz-transform: scale(1.07, 1);
   -webkit-transform: scale(1.07, 1);
   -ms-transform: scale(1.07, 1);
-  position: absolute;
-  left: 1232.162px;
-  top: 809.406px;
+  position: relative;
+  left: 1232px;
+  top: 748px;
   width: 542.413px;
   height: 79.867px;
   z-index: 21;
-
 }
-
 .td-h4-text {
   font-size: 70px;
   font-family: "Branch";
@@ -71,9 +72,15 @@ export default {
   -moz-transform: matrix(1.09559805446257, 0, 0, 1.02392341538558, 0, 0);
   -webkit-transform: matrix(1.09559805446257, 0, 0, 1.02392341538558, 0, 0);
   -ms-transform: matrix(1.09559805446257, 0, 0, 1.02392341538558, 0, 0);
-  position: absolute;
-  left: 1364px;
-  top: 852px;
+  position: relative;
+  left: 1440px;
+  top: 712px;
   z-index: 20;
+}
+.td-com-card {
+  position: relative;
+  top: 40px;
+  left:110px;
+  z-index: 99;
 }
 </style>

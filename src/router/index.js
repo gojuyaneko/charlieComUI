@@ -4,6 +4,7 @@ const charlieIndex = () => import('../pages/charlieIndex')
 const truthOrDare = () => import('../pages/subitems/sweet/truthOrDare/truthOrDare.vue')
 const DreamWeaving = () => import('../pages/subitems/sweet/dreamWeaving/DreamWeaving.vue')
 
+
 Vue.use(Router);
 export default new Router({
     mode:'history',
