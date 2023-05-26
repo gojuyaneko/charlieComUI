@@ -49,7 +49,7 @@
             </div>
           </div>
           <div class="td-dialog-page">
-            <td-pagi @changeCurPa="getDiaContent"></td-pagi>
+            <td-pagi></td-pagi>
           </div>
           <a class="td-dialog-video" target="_blank" href="http://www.bilibili.com"> 
           </a>
@@ -189,14 +189,13 @@ export default {
         bntVis = false
       }
       this.mytruth = bntVis
-      this.getDiaContent(1)
+      // getDiaContent( type, person, 1, bntVis)
     },
-    getDiaContent ( num) {
-      console.log(num)
-      // get().then(() => {
-           
-      // })
-    }
+    // getDiaContent ( type, person, num, yOrN) {
+    //   get().then(() => {
+        
+    //   })
+    // }
   },
 };
 </script>

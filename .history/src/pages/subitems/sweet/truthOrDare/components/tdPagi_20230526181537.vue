@@ -25,7 +25,8 @@ export default {
   mounted () {},
   methods: {
     curChange (currentPage) {
-      this.$emit('changeCurPa',currentPage)
+      console.log(currentPage)
+      this.$emit('curPage',currentPage)
     }
   }
 }

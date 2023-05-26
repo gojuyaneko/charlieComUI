@@ -189,7 +189,7 @@ export default {
         bntVis = false
       }
       this.mytruth = bntVis
-      this.getDiaContent(1)
+      getDiaContent(1)
     },
     getDiaContent ( num) {
       console.log(num)
