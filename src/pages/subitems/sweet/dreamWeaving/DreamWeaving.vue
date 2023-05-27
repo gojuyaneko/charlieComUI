@@ -2,15 +2,31 @@
   <div class="dream_weaving">
     <div class="titles">
       <ul class="btns">
-          <li class="angel-btn" @click="angelVisible=true"><img src="./image/btn.png" alt="button" height="37.5" width="110"></li>
-          <li class="evil-btn" @click="evilVisible=true"><img src="./image/btn.png" alt="button" height="37.5" width="110"></li>
+          <li class="angel-btn" @click="angelVisible=true"><img src="./image/btn.png" height="37.5" width="110"></li>
+          <li class="evil-btn" @click="evilVisible=true"><img src="./image/btn.png" height="37.5" width="110"></li>
       </ul>
     </div>
 
-    <el-dialog class="angel-dia" :visible.sync="angelVisible" :show-close="false" >
+    <div class="angel-dia">
+      <el-dialog class="meet" :visible.sync="angelVisible" :show-close="false" v-if="angelVisible">
+        <h4>{{cardText}}</h4>
+        <li class="slide"><img src="./image/滑轨.png" height="460" width="30"></li>
+        <li class="x" @click="angelVisible=false"><img src="./image/x.png" height="30" width="30"></li>
+        <li class="next-btn" @click="tripVisible=true;angelVisible=false" ><img src="./image/下一幕.png" height="37.5" width="110"></li>
+      </el-dialog>
+
+      <el-dialog class="trip" :visible.sync="tripVisible" :show-close="false" v-if="tripVisible">
+        <h4>{{cardText1}}</h4>
+        <li class="slide"><img src="./image/滑轨.png" height="460" width="30"></li>
+        <li class="x" @click="tripVisible=false"><img src="./image/x.png" height="30" width="30"></li>
+        <li class="next-btn" @click="angelVisible=true;tripVisible=false"><img src="./image/下一幕.png" height="37.5" width="110"></li>
+      </el-dialog>
+    </div>
+
+    <el-dialog class="evil-dia" :visible.sync="evilVisible" :show-close="false" >
       <h4>{{cardText}}</h4>
       <li class="slide"><img src="./image/滑轨.png" height="460" width="30"></li>
-      <li class="x" @click="angelVisible=false"><img src="./image/x.png" height="30" width="30"></li>
+      <li class="x" @click="evilVisible=false"><img src="./image/x.png" height="30" width="30"></li>
       <li class="next-btn"><img src="./image/下一幕.png" height="37.5" width="110"></li>
     </el-dialog>
 
@@ -24,7 +40,9 @@ export default {
     return {
       angelVisible:false,
       evilVisible:false,
-      cardText:'刚走进餐馆坐下'
+      tripVisible:false,
+      cardText:'刚走进餐馆坐下',
+      cardText1:'完美啊你的名字是charlie'
     }
 
   }
@@ -48,13 +66,13 @@ export default {
 .btns {
   display: flex;
   position: absolute;
-  bottom:0.775rem;
-  left:3rem;
+  bottom:148px;
+  left:577px;
 }
 
 .angel-btn {
   cursor: pointer;
-  margin-right: 3.73rem;
+  margin-right: 720px;
 }
 .angel-btn:hover {
   transform: scale(1.05);
@@ -71,18 +89,19 @@ export default {
   display: inline-block;
   position: absolute;
   top:-15px;
-  left:6.25rem;
+  left: 1200px;
 }
 .x:hover {
   transform: scale(1.05);
 }
 
-.angel-dia{
+.meet, .trip {
   background:url("./image/卡牌.png") no-repeat;
   background-size: 79% 70%;
   background-position: center;
   top: 120px;
 }
+
 
 ::v-deep .el-dialog {
   background-color: transparent;
@@ -100,7 +119,7 @@ h4 {
 .slide {
   position: absolute;
   top:-8px;
-  left:6.25rem;
+  left:1200px;
   display: inline-block;
 }
 
@@ -109,7 +128,7 @@ h4 {
   display: inline-block;
   position: absolute;
   top: 555px;
-  left: 5.2rem;
+  left: 1000px;
 }
 
 .next-btn:hover {
