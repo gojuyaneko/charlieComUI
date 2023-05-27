@@ -98,12 +98,10 @@ export default {
 <style scoped lang="scss">
 .dream_weaving {
   text-align: center;
-  position: absolute;
   width: 100%;
   height: 100%;
   background: url('./image/背景.png') no-repeat;
   background-size: 100% 100%;
-  
 }
 
 .titles {
@@ -186,7 +184,7 @@ h4 {
 
 .diapage {
   top:560px;
-  left:450px;
+  left:250px;
   display: inline-block;
   position: absolute;
 
