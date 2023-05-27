@@ -1,18 +1,21 @@
 <template>
   <div id="app">
     <myNavbar class="sticky"> </myNavbar>
+
     <div class="position-absolute">
       <router-view></router-view>
     </div>
-    
   </div>
 </template>
 
 <script>
-
+import charlieIndex from "./pages/charlieIndex.vue";
 
 export default {
-    name: "App"
+  name: "App",
+  components: {
+    charlieIndex,
+  },
 };
 </script>
 
@@ -20,16 +23,6 @@ export default {
 * {
   margin: 0;
   padding: 0;
-}
-h1,h2,h3,h4,h5,h6 {
-  font-weight: 400;
-}
-.position-absolute {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 .sticky {
   position: sticky;
@@ -42,7 +35,8 @@ body {
   width: 100%;
   height: 100%;
   -webkit-user-drag: none;
-  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 li {
   list-style: none;
@@ -51,11 +45,20 @@ li {
   width: 100%;
   height: 100%;
 }
-a {
-  text-decoration: none;
-}
+
 @font-face {
-  font-family: 'nansongshuju';
-  src: url('../public/font/南宋书局体.ttf');
+  font-family: "nansongshuju";
+  src: url("../public/font/南宋书局体.ttf");
+}
+::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+
+.position-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
