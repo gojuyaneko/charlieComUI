@@ -16,13 +16,13 @@
       router
     >
       <el-submenu
-        v-for="(item, index) in navItems"
+        v-for="item in navItems"
         :index="item.nextUrl"
-        :key="index"
-        @click.native="gotoUrl(item.nextUrl)"
+        :key="item.name"
+        @click.native="($event) => gotoUrl(item.nextUrl)"
         popper-class="pclass"
-        :show-timeout=100
-        :hide-timeout=100
+        show-timeout="100"
+        hide-timeout="100"
       >
         <template slot="title">
           <span>
@@ -157,11 +157,7 @@ export default {
   mounted() {},
   methods: {
     gotoUrl(url) {
-      if(this.$router.path !=='/'){
-        if(url === '/') {
-          this.$router.push(url)
-        }
-      }
+      this.$router.push(url)
     }
   },
 };

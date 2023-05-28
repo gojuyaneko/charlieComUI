@@ -4,7 +4,7 @@
       <ul class="pc-menu">
         <li
           v-for="(item, index) in navItems"
-          :key="index"
+          :key="item"
           @click="goTo(item.nextUrl)"
           @mouseover="changeColor"
           :style="{ paddingBottom: boxPadding(index) }"

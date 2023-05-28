@@ -4,15 +4,16 @@
       <ul class="pc-menu">
         <li
           v-for="(item, index) in navItems"
-          :key="index"
+          :key="item"
           @click="goTo(item.nextUrl)"
+          @mouseover="hover"
           :style="{ paddingBottom: boxPadding(index) }"
         >
           <span>{{ item.name }}</span>
           <ul class="pc-submenu">
             <li
-              v-for="(childitem,index) in item.childItems"
-              :key="index"
+              v-for="childitem in item.childItems"
+              :key="childitem"
               @click="goTo(childitem.nextUrl)"
             >
               <span>{{ childitem.name }}</span>

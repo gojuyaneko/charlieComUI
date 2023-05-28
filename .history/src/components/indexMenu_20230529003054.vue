@@ -4,7 +4,7 @@
       <ul class="pc-menu">
         <li
           v-for="(item, index) in navItems"
-          :key="index"
+          :key="item.id"
           @click="goTo(item.nextUrl)"
           @mouseover="changeColor"
           :style="{ paddingBottom: boxPadding(index) }"
@@ -28,14 +28,17 @@ export default {
       isHover: false,
       navItems: [
         {
+          id:'0',
           name: "光夜变奏",
           nextUrl: "/lightandnight",
         },
         {
+          id:'1',
           name: "灵犀相册",
           nextUrl: "/memory",
         },
         {
+          id:'2',
           name: "记忆收藏",
           nextUrl: "/listen",
         },

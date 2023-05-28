@@ -17,8 +17,8 @@
     >
       <el-submenu
         v-for="(item, index) in navItems"
-        :index="item.nextUrl"
-        :key="index"
+        :index="index"
+        :key="item.name"
         @click.native="gotoUrl(item.nextUrl)"
         popper-class="pclass"
         :show-timeout=100

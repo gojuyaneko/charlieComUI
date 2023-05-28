@@ -4,15 +4,15 @@
       <ul class="pc-menu">
         <li
           v-for="(item, index) in navItems"
-          :key="index"
+          :key="item.id"
           @click="goTo(item.nextUrl)"
           :style="{ paddingBottom: boxPadding(index) }"
         >
           <span>{{ item.name }}</span>
           <ul class="pc-submenu">
             <li
-              v-for="(childitem,index) in item.childItems"
-              :key="index"
+              v-for="childitem in item.childItems"
+              :key="childitem.id"
               @click="goTo(childitem.nextUrl)"
             >
               <span>{{ childitem.name }}</span>
@@ -35,54 +35,66 @@ export default {
     return {
       navItems: [
         {
+          id:'0',
           name: "< 邂逅",
           nextUrl: "/encounter",
           childItems: [
             {
+              id:'0',
               name: '第一章/ "援塞"之行',
               nextUrl: "",
             },
             {
+              id:'1',
               name: "第二章/ 无名侵蚀",
               nextUrl: "",
             },
             {
+              id:'2',
               name: "第三章/ 真相大白",
               nextUrl: "",
             },
           ],
         },
         {
+          id:'1',
           name: "< 记忆",
           nextUrl: "/memory",
           childItems: [
             {
+              id:'0',
               name: "约会",
               nextUrl: "/date",
             },
             {
+              id:'1',
               name: "胶片",
               nextUrl: "film",
             },
             {
+              id:'2',
               name: "轨迹",
               nextUrl: "/track",
             },
             {
+              id:'3',
               name: "侧影",
               nextUrl: "/profile",
             },
           ],
         },
         {
+          id:'2',
           name: "< 倾听",
           nextUrl: "/listen",
           childItems: [
             {
+              id:'0',
               name: "余音",
               nextUrl: "",
             },
             {
+              id:'1',
               name: "倒带",
               nextUrl: "rewind",
             },

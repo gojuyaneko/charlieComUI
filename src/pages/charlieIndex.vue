@@ -77,11 +77,11 @@
 <script>
 export default {
   name: "myContainer",
-  created() {
-    window.addEventListener("hashchange", function () {
-      location.reload();
-    });
-  },
+  // created() {
+  //   window.addEventListener("hashchange", function () {
+  //     location.reload();
+  //   });
+  // },
 };
 </script>
 

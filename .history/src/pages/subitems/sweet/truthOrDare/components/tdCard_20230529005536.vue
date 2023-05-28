@@ -2,8 +2,8 @@
   <div class="td-com-card">
     <ul class="td-items">
       <li
-        v-for="(item,index) in tdItems"
-        :key="index"
+        v-for="item in tdItems"
+        :key="item.id"
         class="td-item-li"
         @click="cvisivle(item)"
       >
@@ -16,6 +16,7 @@
         :modal="false"
         top="11%"
         :visible.sync="dialogVisible"
+        :before-close="handleClose"
       >
         <div class="td-dia-card">
           <img :src="cardImg" alt="" class="td-card-img" />
@@ -31,7 +32,7 @@
         </el-radio-group>
         <div class="td-dialog-right">
           <div class="td-dialog-content">
-            <div v-for="( item,index) in diaContent" :key="index" class="td-dialog-div">
+            <div v-for="(item,index) in diaContent" :key="index" class="td-dialog-div">
               <span class="td-dialog-span">
                 <span v-if="item.name !== '我'" :data-person="item.name">{{
                   item.name
@@ -67,21 +68,25 @@ export default {
     return {
       tdItems: [
         {
+          id:'0',
           type: "truth",
           person: "charlie",
           bgImg: require("../img/charlietruth.png"),
         },
         {
+          id:'1',
           type: "truth",
           person: "me",
           bgImg: require("../img/metruth.png"),
         },
         {
+          id:'2',
           type: "dare",
           person: "charlie",
           bgImg: require("../img/charliedare.png"),
         },
         {
+          id:'3',
           type: "dare",
           person: "me",
           bgImg: require("../img/medare.png"),

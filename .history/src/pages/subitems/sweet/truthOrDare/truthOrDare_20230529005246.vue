@@ -31,7 +31,7 @@ export default {
   height: 100%;
   background: url('./img/tdbg.png') no-repeat;
   background-size: 100% 100%;
-  overflow: hidden;
+  overflow: hidden;/
   user-select: none;
 }
 

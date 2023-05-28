@@ -4,15 +4,16 @@
       <ul class="pc-menu">
         <li
           v-for="(item, index) in navItems"
-          :key="index"
+          :key="item.id"
           @click="goTo(item.nextUrl)"
+          @mouseover="hover"
           :style="{ paddingBottom: boxPadding(index) }"
         >
           <span>{{ item.name }}</span>
           <ul class="pc-submenu">
             <li
-              v-for="(childitem,index) in item.childItems"
-              :key="index"
+              v-for="childitem in item.childItems"
+              :key="childitem"
               @click="goTo(childitem.nextUrl)"
             >
               <span>{{ childitem.name }}</span>
@@ -35,6 +36,7 @@ export default {
     return {
       navItems: [
         {
+          id:'0',
           name: "< 邂逅",
           nextUrl: "/encounter",
           childItems: [
@@ -53,6 +55,7 @@ export default {
           ],
         },
         {
+          id:'1',
           name: "< 记忆",
           nextUrl: "/memory",
           childItems: [
@@ -75,6 +78,7 @@ export default {
           ],
         },
         {
+          id:'2',
           name: "< 倾听",
           nextUrl: "/listen",
           childItems: [
