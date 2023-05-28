@@ -4,6 +4,8 @@ const charlieIndex = () => import('../pages/charlieIndex')
 const truthOrDare = () => import('../pages/subitems/sweet/truthOrDare/truthOrDare.vue')
 const DreamWeaving = () => import('../pages/subitems/sweet/dreamWeaving/DreamWeaving.vue')
 const lightAndNight = () => import('../pages/lightAndNight/lightAndNight.vue')
+const allGoods = () => import('../pages/subitems/goods/allGoods.vue')
+const badge = () => import('../pages/subitems/goods/badge.vue')
 
 Vue.use(Router);
 export default new Router({
@@ -28,6 +30,16 @@ export default new Router({
             path:'/lightandnight',
             name:'lightandnight',
             component: lightAndNight
-        }
+        },
+        {
+            path:'/allGoods',
+            name:'allGoods',
+            component: allGoods
+        },
+        {
+            path:'/badge',
+            name:'allGoods',
+            component: badge
+        },
     ]
 })

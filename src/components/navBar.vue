@@ -114,11 +114,11 @@ export default {
         },
         {
           name: "官方周边",
-          nextUrl: "/1",
+          nextUrl: "/allGoods",
           childItems: [
             {
               name: "徽章类",
-              nextUrl: "",
+              nextUrl: "/badge",
             },
             {
               name: "亚克力类",
