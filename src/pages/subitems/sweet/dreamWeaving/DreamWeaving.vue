@@ -10,7 +10,7 @@
     <div class="angel-dia">
       <el-dialog class="meet" :visible.sync="meetVisible" :show-close="false" v-if="meetVisible" :close-on-click-modal ="false">
         <h4>{{cardText}}</h4>
-        <li class="x" @click="meetVisible=false"><img src="./image/x.png" height="30" width="30"></li>
+        <li class="x" @click="meetVisible=false"><img src="./image/x.png" height="28" width="28"></li>
         <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
@@ -24,7 +24,7 @@
 
       <el-dialog class="trip" :visible.sync="tripVisible" :show-close="false" v-if="tripVisible" :close-on-click-modal ="false">
         <h4>{{cardText1}}</h4>
-        <li class="x" @click="tripVisible=false"><img src="./image/x.png" height="30" width="30"></li>
+        <li class="x" @click="tripVisible=false"><img src="./image/x.png" height="28" width="28"></li>
         <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
@@ -39,7 +39,7 @@
     <div class="evil-dia">
       <el-dialog class="sky" :visible.sync="skyVisible" :show-close="false" v-if="skyVisible" :close-on-click-modal ="false">
         <h4>{{cardText}}</h4>
-        <li class="x" @click="skyVisible=false"><img src="./image/x.png" height="30" width="30"></li>
+        <li class="x" @click="skyVisible=false"><img src="./image/x.png" height="28" width="28"></li>
         <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
@@ -52,7 +52,7 @@
 
       <el-dialog class="moon" :visible.sync="moonVisible" :show-close="false" v-if="moonVisible" :close-on-click-modal ="false">
         <h4>{{cardText1}}</h4>
-        <li class="x" @click="moonVisible=false"><img src="./image/x.png" height="30" width="30"></li>
+        <li class="x" @click="moonVisible=false"><img src="./image/x.png" height="28" width="28"></li>
         <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
@@ -131,7 +131,7 @@ export default {
   display: inline-block;
   position: absolute;
   top:-15px;
-  left: 1200px;
+  left: 1202px;
 }
 .x:hover {
   transform: scale(1.05);
