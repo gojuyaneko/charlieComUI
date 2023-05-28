@@ -2,7 +2,7 @@
   <div class="dream_weaving">
     <div class="titles">
       <ul class="btns">
-          <li class="angel-btn" @click="meetVisible=true"><img src="./image/btn.png" height="37.5" width="110"></li>
+          <li class="angel-btn" @click="meetVisible=true;"><img src="./image/btn.png" height="37.5" width="110"></li>
           <li class="evil-btn" @click="skyVisible=true"><img src="./image/btn.png" height="37.5" width="110"></li>
       </ul>
     </div>
@@ -10,14 +10,13 @@
     <div class="angel-dia">
       <el-dialog class="meet" :visible.sync="meetVisible" :show-close="false" v-if="meetVisible" :close-on-click-modal ="false">
         <h4>{{cardText}}</h4>
-        <li class="slide"><img src="./image/滑轨.png" height="460" width="30"></li>
         <li class="x" @click="meetVisible=false"><img src="./image/x.png" height="30" width="30"></li>
         <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
         </ul>
         <div class="diapage">
-          <dw-pagi @changeCurPa="getDiaContent"></dw-pagi>
+          <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
         </div>
         <li class="next-btn" @click="tripVisible=true;meetVisible=false" ><img src="./image/下一幕.png" height="37.5" width="110"></li>
 
@@ -25,14 +24,13 @@
 
       <el-dialog class="trip" :visible.sync="tripVisible" :show-close="false" v-if="tripVisible" :close-on-click-modal ="false">
         <h4>{{cardText1}}</h4>
-        <li class="slide"><img src="./image/滑轨.png" height="460" width="30"></li>
         <li class="x" @click="tripVisible=false"><img src="./image/x.png" height="30" width="30"></li>
         <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
         </ul>
         <div class="diapage">
-          <dw-pagi @changeCurPa="getDiaContent"></dw-pagi>
+          <dw-pagi @changeCurPa="getContent_trip"></dw-pagi>
         </div>
         <li class="next-btn" @click="meetVisible=true;tripVisible=false"><img src="./image/下一幕.png" height="37.5" width="110"></li>
       </el-dialog>
@@ -41,34 +39,30 @@
     <div class="evil-dia">
       <el-dialog class="sky" :visible.sync="skyVisible" :show-close="false" v-if="skyVisible" :close-on-click-modal ="false">
         <h4>{{cardText}}</h4>
-        <li class="slide"><img src="./image/滑轨.png" height="460" width="30"></li>
         <li class="x" @click="skyVisible=false"><img src="./image/x.png" height="30" width="30"></li>
         <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
         </ul>
         <div class="diapage">
-          <dw-pagi @changeCurPa="getDiaContent"></dw-pagi>
+          <dw-pagi @changeCurPa="getContent_sky"></dw-pagi>
         </div>
         <li class="next-btn" @click="moonVisible=true;skyVisible=false"><img src="./image/下一幕.png" height="37.5" width="110"></li>
       </el-dialog>
 
       <el-dialog class="moon" :visible.sync="moonVisible" :show-close="false" v-if="moonVisible" :close-on-click-modal ="false">
         <h4>{{cardText1}}</h4>
-        <li class="slide"><img src="./image/滑轨.png" height="460" width="30"></li>
         <li class="x" @click="moonVisible=false"><img src="./image/x.png" height="30" width="30"></li>
         <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
         </ul>
         <div class="diapage">
-          <dw-pagi @changeCurPa="getDiaContent"></dw-pagi>
+          <dw-pagi @changeCurPa="getContent_moon"></dw-pagi>
         </div>
         <li class="next-btn" @click="skyVisible=true;moonVisible=false"><img src="./image/下一幕.png" height="37.5" width="110"></li>
       </el-dialog>
     </div>
-
-
   </div>
 
 </template>
@@ -83,7 +77,7 @@ export default {
       skyVisible:false,
       tripVisible:false,
       moonVisible:false,
-      cardText:'刚走进餐馆坐下',
+      cardText:'刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n走进餐馆坐下刚走进餐馆刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n',
       cardText1:'完美啊你的名字是charlie'
     }
 
@@ -158,15 +152,31 @@ export default {
 h4 {
   font-family: "nansongshuju";
   color: rgb(214, 179, 103);
+  display: inline-block;
   position: absolute;
   top:40px;
-  left:300px;
+  left:298px;
+  width: 940px;
+  height: 475px;
+  margin-right: 100px;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+}
+
+::-webkit-scrollbar {
+  width: 35px;
+}
+::-webkit-scrollbar-track {
+  background-color:#352802;
+}
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(black, #674d97);
 }
 
 .slide {
   position: absolute;
-  top:-8px;
-  left:1200px;
+  top:10px;
+  left:1205px;
   display: inline-block;
 }
 
@@ -187,7 +197,6 @@ h4 {
   left:250px;
   display: inline-block;
   position: absolute;
-
 }
 
 .elements {
