@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <myNavbar class="sticky"> </myNavbar>
-
     <div class="position-absolute">
       <router-view></router-view>
     </div>
