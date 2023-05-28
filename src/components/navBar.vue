@@ -1,35 +1,43 @@
 <template>
   <div class="pc-nav-theme">
-   <span class="nav-theme">流星大道888号</span>
-   <img src="../assets/HomePage/Page1/multipolygon.png" alt="" class="nav-multipolygon"> 
+    <span class="nav-theme">流星大道888号</span>
+    <img
+      src="../assets/HomePage/Page1/multipolygon.png"
+      alt=""
+      class="nav-multipolygon"
+    />
     <el-menu
       text-color="#d6b367 "
       active-text-color="#af9356"
       class="el-menu-demo"
       mode="horizontal"
       style="float: right"
-      :default-active="path"
+      :default-active="$router.path"
       router
     >
       <el-submenu
         v-for="item in navItems"
-        :index="item.nextUrl"
+        :index="`/${item.nextUrl}`"
         :key="item.name"
-        @click.native="gotoUrl(item.nextUrl)"
+        @click.native="($event) => gotoUrl(item.nextUrl)"
         popper-class="pclass"
         show-timeout="100"
         hide-timeout="100"
       >
         <template slot="title">
-          <span>{{ item.name }} </span>
+          <span>
+            {{ item.name }}
+          </span>
         </template>
         <el-menu-item-group>
           <el-menu-item
-            :index="childItems.nextUrl"
+            :index="`/${childItems.nextUrl}`"
             v-for="childItems in item.childItems"
             :key="childItems.name"
           >
-            <span> {{ childItems.name }}</span>
+            <span>
+              {{ childItems.name }}
+            </span>
           </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
@@ -56,7 +64,7 @@ export default {
           childItems: [
             {
               name: "个人活动",
-              nextUrl: "/1",
+              nextUrl: "/review/1",
             },
             {
               name: "全体活动",
@@ -70,23 +78,23 @@ export default {
           childItems: [
             {
               name: "外出",
-              nextUrl: "",
+              nextUrl: "/studio/goout",
             },
             {
               name: "家具",
-              nextUrl: "",
+              nextUrl: "/studio/furniture",
             },
             {
               name: "陪伴",
-              nextUrl: "",
+              nextUrl: "/studio/accompany",
             },
             {
               name: "闲聊",
-              nextUrl: "",
+              nextUrl: "/studio/chat",
             },
             {
               name: "唱片",
-              nextUrl: "",
+              nextUrl: "/studio/record",
             },
           ],
         },
@@ -100,7 +108,7 @@ export default {
             },
             {
               name: "聊天记录",
-              nextUrl: "",
+              nextUrl: "/",
             },
             {
               name: "真话冒险",
@@ -114,7 +122,7 @@ export default {
         },
         {
           name: "官方周边",
-          nextUrl: "/1",
+          nextUrl: "/goods",
           childItems: [
             {
               name: "徽章类",
@@ -147,17 +155,7 @@ export default {
     };
   },
   mounted() {},
-  methods: {
-    gotoUrl(url) {
-      if(this.$router.path !=='/'){
-        if(url === '/') {
-          this.$router.push(url)
-        }
-      }
-      
-      
-    }
-  },
+  methods: {},
 };
 </script>
 
@@ -165,7 +163,7 @@ export default {
 /* 导航栏组件及其背景  */
 .pc-nav-theme {
   background: url("./../assets/HomePage/Page1/导航.png") no-repeat;
-  background-size:100% 100%;
+  background-size: 100% 100%;
   width: 100%;
   height: 65px;
   font-family: "nansongshuju";
@@ -178,13 +176,13 @@ export default {
 /* 导航栏主题跳转至首页 */
 .nav-theme {
   height: 65px;
-  position:absolute;
+  position: absolute;
   top: 0;
   left: 65px;
   text-align: center;
   line-height: 65px;
   letter-spacing: 10px;
-  color: #d6b367 ; 
+  color: #d6b367;
   font-size: 41px;
   font-family: "nansongshuju";
 }
@@ -192,7 +190,7 @@ export default {
 .nav-multipolygon {
   width: 469px;
   height: 70px;
-  position:absolute;
+  position: absolute;
   top: 0;
   left: 444px;
 }
@@ -200,7 +198,7 @@ export default {
 .el-menu.el-menu--horizontal {
   border-bottom: none;
   background-color: transparent !important;
-  display:flex;
+  display: flex;
   align-items: center;
   height: 100%;
 }
@@ -210,9 +208,14 @@ export default {
 }
 /* 首页+联系我们的样式 */
 .el-menu-item {
-  padding: 0px 30px;
+  padding: 0px;
   background-color: transparent;
   text-align: center;
+}
+
+.el-menu--collapse .el-submenu,
+.el-menu-item {
+  margin: 0px !important;
 }
 /* 首页+联系我们点击时候的效果颜色加深*/
 .el-menu--horizontal > .el-menu-item.is-active {
@@ -226,7 +229,6 @@ export default {
   font-size: 25px;
 }
 
-
 /* hove和active */
 .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
 .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
@@ -234,20 +236,41 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 0px;
-  width: 140px;
-  background: transparent !important ;
+  margin: 0px;
+  width: 135px;
+  background: transparent;
   border-bottom: transparent;
+  box-shadow: none;
+}
+
+.el-menu--popup {
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0px;
+  left: 15px;
+  min-width: 125px;
 }
 
 /* 二级菜单 */
 .el-menu--horizontal .el-menu .el-menu-item,
 .el-menu--horizontal .el-menu .el-submenu__title {
   display: flex;
+  padding: 0px !important;
+  margin: 0px !important;
   align-items: center;
   justify-content: center;
-  width: 140px;
+  width: 130px;
   height: 65px;
   background-color: rgb(103, 77, 151, 0.3) !important;
+  font-size: 18px;
+  font-family: "nansongshuju";
+  position: static;
+}
+
+/* 二级菜单 展开*/
+.el-menu-item-group__title {
+  padding: 1.5px !important;
 }
 /* 消除下拉三角 */
 .el-icon-arrow-down:before {
@@ -256,7 +279,9 @@ export default {
 
 .pclass {
   padding: 0px;
-  background: transparent !important;
+  border: none;
+  margin: 0px;
   color: #af9356 !important;
+  min-width: 65px !important;
 }
 </style>
