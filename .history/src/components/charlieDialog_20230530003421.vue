@@ -42,10 +42,9 @@ export default {
 }
 .ln-dia-main {
   position: relative;
-  left: 25px;
-  top: 25px;
+  left: 15px;
   width: 1470px;
-  height: 94.5%;
+  height: 98%;
   background-color: rgba(255, 192, 203, 0.683);
 }
 .ln-dialog-left {

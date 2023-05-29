@@ -122,11 +122,11 @@ export default {
         },
         {
           name: "官方周边",
-          nextUrl: "/allGoods",
+          nextUrl: "/goods",
           childItems: [
             {
               name: "徽章类",
-              nextUrl: "/badge",
+              nextUrl: "",
             },
             {
               name: "亚克力类",
@@ -158,7 +158,7 @@ export default {
   methods: {
     gotoUrl(url) {
       if(this.$router.path !=='/'){
-        if(url === '/'|| url === '/allGoods') {
+        if(url === '/') {
           this.$router.push(url)
         }
       }
@@ -167,7 +167,7 @@ export default {
 };
 </script>
 
-<style>
+<style scope>
 /* 导航栏组件及其背景  */
 .pc-nav-theme {
   background: url("./../assets/HomePage/Page1/导航.png") no-repeat;

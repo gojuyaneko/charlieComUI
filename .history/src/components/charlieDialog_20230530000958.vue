@@ -1,12 +1,10 @@
 <template>
   <div class="com-charlie-dia">
     <div class="ln-dialog-box">
-      <div class="ln-dia-main">
-        <div class="ln-dialog-left">
-          <div class="ln-dia-l-box">
-            <span class="ln-dia-wavideo"></span>
-            <img :src="charliePhoto" alt="" class="ln-dia-charlie">
-          </div>
+      <div class="ln-dialog-left">
+        <div class="ln-dia-l-box">
+          <span class="ln-dia-wavideo"></span>
+          <img :src="charliePhoto" alt="" class="ln-dia-charlie">
         </div>
       </div>
     </div>
@@ -33,6 +31,7 @@ export default {
 }
 
 .ln-dialog-box {
+  position: relative;
   background: url('../assets/dialogbg1.png') no-repeat;
   background-size: 100% 100%;
   margin-top: 168px;
@@ -40,31 +39,16 @@ export default {
   width: 1510px;
   height: 72.22%;
 }
-.ln-dia-main {
-  position: relative;
-  left: 25px;
-  top: 25px;
-  width: 1470px;
-  height: 94.5%;
-  background-color: rgba(255, 192, 203, 0.683);
-}
 .ln-dialog-left {
-  width: 576px;
-  height: 100%;
-  overflow: hidden;
-}
-
-.ln-dia-l-box {
-  position: relative;
-  top: 0;
+  position: absolute;
+  bottom: 0;
   left: 0;
-  width: 576px;
-  height: 100%;
+  width: 573px;
+  height:612.37px;
 }
-
 .ln-dia-charlie {
-  width: 576px;
-  height: 615.57px;
+  width: 590px;
+  height: 650px;
 }
 </style>
   
