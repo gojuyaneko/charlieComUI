@@ -37,11 +37,12 @@ export default {
   overflow: hidden;
 }
 .ln-dialog-box {
-  margin-top: 168px;
-  margin-left: 202px;
-  width: 1510px;
-  height: 70%;
-  background-color: rgba(255, 192, 203, 0.418);
+  background: url("./img/dialogbg1.png") no-repeat;
+  background-size: 100% 100%;
+  margin-top: 149px;
+  margin-left: 191px;
+  width: 1533px;
+  height: 781px;
 }
 .ln-dia-charlie {
   width: 590px;
