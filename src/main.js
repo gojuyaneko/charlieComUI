@@ -5,20 +5,16 @@ import router from "./router"; //router
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import navBar from "./components/navBar.vue";
-import 'lib-flexible'
-import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
+import charlieMenu from "./components/charlieMenu.vue";
+import indexMenu from "./components/indexMenu.vue";
 
+import "lib-flexible";
 Vue.config.productionTip = false;
-
 
 Vue.use(ElementUI);
 Vue.component("myNavbar", navBar);
-
-zhLocale.el.pagination = {
-  pagesize: '期',
-  goto: '前往',
-  pageClassifier: '期'
-}
+Vue.component("myMenu", charlieMenu);
+Vue.component("myIndex", indexMenu);
 
 new Vue({
   render: (h) => h(App),

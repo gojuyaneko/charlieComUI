@@ -27,8 +27,10 @@
               <img src='./images/goods/满赠透卡.png' alt="">
               <!-- <img :src="v.src" alt=""> -->
             </div>
-            <h4>{{ v.des }}</h4>
-            <p>{{ v.price }}</p>
+            <div class="details">
+              <h4>{{ v.des }}</h4>
+              <p>¥{{ v.price }}</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -64,15 +66,15 @@
               price: 212
             },          {
               src: '../images/goods/满赠透卡.png',
-              des: '这是第三个描述',
+              des: '完美',
               price: 222
             },          {
-              src: '../images/goods/满赠透卡.png',
-              des: '这是第三个描述',
+              src: '../images/goods/长梦烬余痕徽章.png',
+              des: '嘎嘎',
               price: 112
             },          {
               src: '../images/goods/满赠透卡.png',
-              des: '这是第三个描述',
+              des: '啾啾',
               price: 12
             },          {
               src: '../images/goods/满赠透卡.png',
@@ -102,40 +104,47 @@
     .all_goods {
       background: url('./images/background.png') center center no-repeat;
       background-attachment: fixed;
-      /* width: 1200px; */
+      
+      height: 100%;
       justify-content: center;
       align-items: center;
       background-size: 100% 100%;
       overflow: hidden;
     }
     .subTitle_search_subNav {
-      /* width: 1200px; */
+      height: 20%;
+      margin-bottom: -3%;
       display: flex;
       align-items: center;
       justify-content: space-between; 
+      /* background-color: blue; */
     }
   
     .subTitle {
       text-align: left;
-      text-indent: 2em;
+      margin-left: 10%;
       font-weight: bold;
-      margin-right: 10px;
+      font-size: 150%;
+      font-family: "nansongshuju";
+    }
+    .search_btn{
+      width: 100%;
     }
     .search {
       outline-style: none;
       background-color: transparent;
       border: 0px;
       border-bottom: 1px solid #d6b367;
-      width: 100px;
-      height: 30px;
+      width: 80%;
+      height: 100%;
       background-color: transparent;
     }
     .btn {
       background: url("images/search.png") no-repeat ;
       /* background-position: right 100% bottom 100%; */
-      background-size: 25px,25px;
-      width: 25px;
-      height: 25px; 
+      background-size: 100%,100%;
+      width: 20%;
+      height: 100%; 
       border: none;
       outline: none;
       cursor: pointer;
@@ -143,31 +152,32 @@
   
     .rightSection {
       display: flex;
+      margin-right: 10%;
       align-items: center;
   }
     .subNav{
-      width: 137px;
-      height: 45px;
+      width: 100%;
+      height: 167px;
       background: url('./images/button.png') center center no-repeat;
-      line-height: 45px;
+      background-size: 100%,100%;
+      line-height: 167px;
       text-align: center;
       font-size: 15px;
-      margin-left: 10px;
+      margin-left: 20px;
       position: relative;
-      /* overflow: hidden; */
-      /* 设置相对定位 */
       display: inline-block;/* 让元素具有块级元素和行内元素的特性,即将块级元素转化为内联元素 */
   }
   a{
       color: #d6b367;
-      padding: 20px;
-      margin: 0px;
       text-decoration: none;
+      font-size: 150%;
+      font-family: "nansongshuju";
   }
   .subNavContent {
       display: none;/* 将某元素隐藏起来 */  
       width: 70%;
-      position: relative;
+      margin-top: -35px;
+      position: absolute;
       left: 50%;
       transform: translateX(-50%);
       background-color: rgba(103,77,151,0.5);
@@ -176,8 +186,10 @@
   
   .subNavContent a {
       color: #d6b367;
+      /* height: 80px; */
       text-shadow: -0.1em 0.2em 0.3em black;
       padding: 12px 16px;
+      /* padding-bottom: 20px; */
       display: block;
       /* 将a标签设置为块级标签 */
   }
@@ -191,16 +203,17 @@
   }
   
   #goods ul{
-          display: flex;
-          flex-wrap: wrap;
-      width:1200px;
+      display: flex;
+      flex-wrap: wrap;
+      width:100%;
+      height:80%;
       overflow: hidden;
       }
   #goods li {
-    width: 180px;
+    width: 15.9%;
+    /* height: 1000px; */
     padding: 5px;
     list-style:none;
-    /* margin-right: 15px; */
     border: 1px solid #b99950;
     margin:0 0 -1px -1px;
     display: flex;
@@ -215,21 +228,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 200px; /* 设置图片容器的高度 */
+    height: 75%; /* 设置图片容器的高度 */
   }
   
   .image-wrapper img {
     max-height: 100%; /* 图片最大高度为容器高度的百分之百 */
-    max-width: 100%; /* 图片最大宽度为容器宽度的百分之百 */
+    max-width:100%; /* 图片最大宽度为容器宽度的百分之百 */
   }
-  #goods li h4{
+
+  .details {
     text-align: left;
     padding-left: 20px;
+    margin-top: 10px;
+    font-size: 150%;
+    font-family: "nansongshuju";
   }
-  #goods li p{
-    text-align: left;
-    padding-left: 20px;
-    
-  }
+
+
   </style>
   

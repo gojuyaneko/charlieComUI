@@ -29,6 +29,9 @@ html,
 body {
   width: 100%;
   height: 100%;
+  -webkit-user-drag: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 li {
   list-style: none;
@@ -41,6 +44,9 @@ li {
 @font-face {
   font-family: "nansongshuju";
   src: url("../public/font/南宋书局体.ttf");
+}
+::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
 }
 
 .position-absolute {

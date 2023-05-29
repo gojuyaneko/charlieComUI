@@ -42,6 +42,9 @@ li {
   font-family: "nansongshuju";
   src: url("../public/font/南宋书局体.ttf");
 }
+::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
 
 .position-absolute {
   position: absolute;

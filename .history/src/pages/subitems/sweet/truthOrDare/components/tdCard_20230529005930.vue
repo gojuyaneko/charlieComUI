@@ -2,8 +2,8 @@
   <div class="td-com-card">
     <ul class="td-items">
       <li
-        v-for="(item,index) in tdItems"
-        :key="index"
+        v-for="item in tdItems"
+        :key="item.id"
         class="td-item-li"
         @click="cvisivle(item)"
       >
@@ -67,21 +67,25 @@ export default {
     return {
       tdItems: [
         {
+          id:'0',
           type: "truth",
           person: "charlie",
           bgImg: require("../img/charlietruth.png"),
         },
         {
+          id:'1',
           type: "truth",
           person: "me",
           bgImg: require("../img/metruth.png"),
         },
         {
+          id:'2',
           type: "dare",
           person: "charlie",
           bgImg: require("../img/charliedare.png"),
         },
         {
+          id:'3',
           type: "dare",
           person: "me",
           bgImg: require("../img/medare.png"),
@@ -371,6 +375,7 @@ p[data-person-p="我"] {
 /* 浏览器滚动条样式 */
 ::-webkit-scrollbar {
   width: 25px;
+  display: block;
 }
 ::-webkit-scrollbar-track {
   background-color: #efedf4ad;

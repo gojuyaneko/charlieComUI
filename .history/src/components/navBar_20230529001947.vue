@@ -16,13 +16,13 @@
       router
     >
       <el-submenu
-        v-for="(item, index) in navItems"
+        v-for="item in navItems"
         :index="item.nextUrl"
-        :key="index"
+        :key="item.name"
         @click.native="gotoUrl(item.nextUrl)"
         popper-class="pclass"
-        :show-timeout=100
-        :hide-timeout=100
+        show-timeout="100"
+        hide-timeout="100"
       >
         <template slot="title">
           <span>
@@ -122,11 +122,11 @@ export default {
         },
         {
           name: "官方周边",
-          nextUrl: "/allGoods",
+          nextUrl: "/goods",
           childItems: [
             {
               name: "徽章类",
-              nextUrl: "/badge",
+              nextUrl: "",
             },
             {
               name: "亚克力类",
@@ -157,11 +157,7 @@ export default {
   mounted() {},
   methods: {
     gotoUrl(url) {
-      if(this.$router.path !=='/'){
-        if(url === '/'|| url === '/allGoods') {
-          this.$router.push(url)
-        }
-      }
+      this.$router.push(url)
     }
   },
 };

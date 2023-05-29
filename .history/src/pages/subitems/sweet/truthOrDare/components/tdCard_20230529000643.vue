@@ -2,8 +2,8 @@
   <div class="td-com-card">
     <ul class="td-items">
       <li
-        v-for="(item,index) in tdItems"
-        :key="index"
+        v-for="item in tdItems"
+        :key="item"
         class="td-item-li"
         @click="cvisivle(item)"
       >
@@ -16,6 +16,7 @@
         :modal="false"
         top="11%"
         :visible.sync="dialogVisible"
+        :before-close="handleClose"
       >
         <div class="td-dia-card">
           <img :src="cardImg" alt="" class="td-card-img" />
@@ -31,7 +32,7 @@
         </el-radio-group>
         <div class="td-dialog-right">
           <div class="td-dialog-content">
-            <div v-for="( item,index) in diaContent" :key="index" class="td-dialog-div">
+            <div v-for="item in diaContent" :key="item" class="td-dialog-div">
               <span class="td-dialog-span">
                 <span v-if="item.name !== '我'" :data-person="item.name">{{
                   item.name
@@ -214,7 +215,7 @@ export default {
   cursor: pointer;
 }
 .td-item-li:hover {
-  scale: calc(1.005);
+  scale: calc(1.02);
 }
 .td-item-img {
   width: 330px;

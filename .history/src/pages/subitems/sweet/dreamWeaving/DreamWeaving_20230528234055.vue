@@ -84,7 +84,8 @@ export default {
     }
   },
     mounted() {},
-    methods: {
+    methods() {
+
     }
 }
 </script>
@@ -154,30 +155,29 @@ h4 {
   display: inline-block;
   position: absolute;
   top:50px;
-  left:227px;
-  width: 1000px;
-  height: 450px;
+  left:298px;
+  width: 940px;
+  height: 475px;
   overflow-y: scroll;
   white-space: pre-wrap;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 35px;
   display: block;
 }
 ::-webkit-scrollbar-track {
-  background-color:transparent;
+  background-color:#22180f;
 }
 ::-webkit-scrollbar-thumb {
   background-image: linear-gradient(black, #674d97);
-  -webkit-border-radius: 6px;
 }
 .next-btn {
   cursor: pointer;
   display: inline-block;
   position: absolute;
-  top: 548px;
-  left: 1030px;
+  top: 555px;
+  left: 1000px;
 }
 
 .next-btn:hover {
