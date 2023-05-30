@@ -1,6 +1,8 @@
 <template>
   <div class="light-and-night">
-    <charlieDialog></charlieDialog>
+    <charlieDialog>
+      123
+    </charlieDialog>
   </div>
 </template>
   
@@ -23,24 +25,6 @@ export default {
   background-size: 100% 100%;
   width: 100%;
   height: 100%;
-}
-.ln-dialog-mask {
-  background: url("./img/dialogbg.png") no-repeat;
-  background-size: 100% 100%;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
-}
-.ln-dialog-box {
-  background: url("./img/dialogbg1.png") no-repeat;
-  background-size: 100% 100%;
-  margin-top: 149px;
-  margin-left: 191px;
-  width: 1533px;
-  height: 781px;
-}
-.ln-dia-charlie {
-  width: 590px;
-  height: 650px;
 }
 </style>

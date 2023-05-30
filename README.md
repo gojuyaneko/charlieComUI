@@ -44,7 +44,11 @@ pages——存放页面
             a.truthOrDare：真心话大冒险
             b.dreamWeaving：织梦
     3.lightAndNight：光夜变奏
-request——存放
+request——存放api接口文件
+    1.api：后续请求接口请放置在这里
+router——存放控制路由跳转文件
+store——存放vuex管理文件
+
 删除node——modules 重新npminstall 找到node_modules中的lib-flexible 修改 第二个540为width
 refreshRem(){
         var width = docEl.getBoundingClientRect().width;
