@@ -20,49 +20,55 @@
               <li class="ch">节</li>
             </ul>
           <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
-        </div>
-        <a class="next-btn" @click="tripVisible=true;meetVisible=false" ><img src="./image/下一幕.png" height="35" width="100"></a>
-
+          </div>
+          <a class="next-btn" @click="tripVisible=true;meetVisible=false" ><img src="./image/下一幕.png" height="35" width="100"></a>
         </div>
 
       </el-dialog>
 
       <el-dialog custom-class="trip" :visible.sync="tripVisible" v-if="tripVisible">
-        <h4>{{cardText1}}</h4>
-        <div class="diapage">
-          <ul class="elements">
-            <li class="co">第</li>
-            <li class="ch">节</li>
-          </ul>
-          <dw-pagi @changeCurPa="getContent_trip"></dw-pagi>
+        <div class="dia-text">
+          <h4>{{cardText1}}</h4>
+          <div class="diapage">
+            <ul class="elements">
+              <li class="co">第</li>
+              <li class="ch">节</li>
+            </ul>
+          <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
+          </div>
+          <a class="next-btn" @click="meetVisible=true;tripVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
         </div>
-        <a class="next-btn" @click="meetVisible=true;tripVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
       </el-dialog>
     </div>
 
     <div class="evil-dia">
       <el-dialog custom-class="sky" :visible.sync="skyVisible" v-if="skyVisible">
-        <h4>{{cardText}}</h4>
-        <div class="diapage">
-          <ul class="elements">
-            <li class="co">第</li>
-            <li class="ch">节</li>
-          </ul>
+        <div class="dia-text">
+          <h4>{{cardText}}</h4>
+          <div class="diapage">
+            <ul class="elements">
+              <li class="co">第</li>
+              <li class="ch">节</li>
+            </ul>
           <dw-pagi @changeCurPa="getContent_sky"></dw-pagi>
+          </div>
+          <a class="next-btn" @click="moonVisible=true;skyVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
         </div>
-        <a class="next-btn" @click="moonVisible=true;skyVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
+
       </el-dialog>
 
       <el-dialog custom-class="moon" :visible.sync="moonVisible"  v-if="moonVisible" >
-        <h4>{{cardText1}}</h4>
-        <div class="diapage">
-          <ul class="elements">
-            <li class="co">第</li>
-            <li class="ch">节</li>
-          </ul>
+         <div class="dia-text">
+          <h4>{{cardText1}}</h4>
+          <div class="diapage">
+            <ul class="elements">
+              <li class="co">第</li>
+              <li class="ch">节</li>
+            </ul>
           <dw-pagi @changeCurPa="getContent_moon"></dw-pagi>
-        </div>
-        <a class="next-btn" @click="skyVisible=true;moonVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
+          </div>
+          <a class="next-btn" @click="skyVisible=true;moonVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
+         </div>
       </el-dialog>
     </div>
 
@@ -166,33 +172,30 @@ export default {
 ::v-deep .el-dialog__wrapper .trip {
   background:url("./image/卡牌.png") no-repeat;
   background-size: 100% 100%;
-  background-position: center;
-  top: 90px;
+  top: 96px;
   margin-left: 9.5%;
   position: absolute;
-  height: 655px;
+  height: 660px;
   width: 1550px;
 }
 
 ::v-deep .el-dialog__wrapper .sky {
   background:url("./image/卡牌.png") no-repeat;
   background-size: 100% 100%;
-  background-position: center;
-  top: 90px;
+  top: 96px;
   margin-left: 9.5%;
   position: absolute;
-  height: 655px;
+  height: 660px;
   width: 1550px;
 }
 
 ::v-deep .el-dialog__wrapper .moon {
   background:url("./image/卡牌.png") no-repeat;
   background-size: 100% 100%;
-  background-position: center;
-  top: 90px;
+  top: 96px;
   margin-left: 9.5%;
   position: absolute;
-  height: 655px;
+  height: 660px;
   width: 1550px;
 }
 
