@@ -202,7 +202,7 @@ h4 {
   top:60px;
   left:530px;
   width: 1012px;
-  height: 480px;
+  height: 460px;
   overflow-y: scroll;
   white-space: pre-wrap;
 }
