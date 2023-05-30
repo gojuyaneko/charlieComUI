@@ -40,21 +40,21 @@ export default {
     font-size: 18px;
     background: transparent;
     font-weight: 400;
-    min-width: 40px;
+    min-width: 32px;
     color: grey;
   }
   .el-pager li:hover {
     color:#7C69A1;
-    transform: scale(1.5);
+    transform: scale(1.25);
   }
   .el-pager li.active {
     color:#7C69A1;
-    transform: scale(1.5);
+    transform: scale(1.25);
   }
 
   .el-pagination button:hover {
     color:#7C69A1;
-    transform: scale(1.5);
+    transform: scale(1.25);
   }
   .el-pagination .btn-next, .el-pagination .btn-prev {
     background: transparent;
@@ -66,11 +66,11 @@ export default {
   }
 
   .el-pagination .btn-next {
-    padding-left: 40px;;
+    padding-left: 35px;
   }
 
   .el-pagination .btn-prev {
-    padding-right: 40px;
+    padding-right: 35px;
   }
 
 }

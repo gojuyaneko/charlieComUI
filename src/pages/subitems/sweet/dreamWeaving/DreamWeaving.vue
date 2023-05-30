@@ -1,5 +1,6 @@
 <template>
   <div class="dream_weaving">
+
     <div class="titles">
       <ul class="btns">
           <li class="angel-btn" @click="meetVisible=true;"><img src="./image/btn.png" height="37.5" width="110"></li>
@@ -8,28 +9,26 @@
     </div>
 
     <div class="angel-dia">
-      <el-dialog class="meet" :visible.sync="meetVisible" :show-close="false" v-if="meetVisible" :close-on-click-modal ="false">
+      <el-dialog custom-class="meet" :visible.sync="meetVisible" v-if="meetVisible">
         <h4>{{cardText}}</h4>
-        <li class="x" @click="meetVisible=false"><img src="./image/x.png" height="28" width="28"></li>
-        <ul class="elements">
+        <div class="diapage">
+          <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
-        </ul>
-        <div class="diapage">
+          </ul>
           <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
         </div>
         <li class="next-btn" @click="tripVisible=true;meetVisible=false" ><img src="./image/下一幕.png" height="37.5" width="110"></li>
 
       </el-dialog>
 
-      <el-dialog class="trip" :visible.sync="tripVisible" :show-close="false" v-if="tripVisible" :close-on-click-modal ="false">
+      <el-dialog custom-class="trip" :visible.sync="tripVisible" v-if="tripVisible">
         <h4>{{cardText1}}</h4>
-        <li class="x" @click="tripVisible=false"><img src="./image/x.png" height="28" width="28"></li>
-        <ul class="elements">
+        <div class="diapage">
+          <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
-        </ul>
-        <div class="diapage">
+          </ul>
           <dw-pagi @changeCurPa="getContent_trip"></dw-pagi>
         </div>
         <li class="next-btn" @click="meetVisible=true;tripVisible=false"><img src="./image/下一幕.png" height="37.5" width="110"></li>
@@ -37,27 +36,25 @@
     </div>
 
     <div class="evil-dia">
-      <el-dialog class="sky" :visible.sync="skyVisible" :show-close="false" v-if="skyVisible" :close-on-click-modal ="false">
+      <el-dialog class="sky" :visible.sync="skyVisible" v-if="skyVisible">
         <h4>{{cardText}}</h4>
-        <li class="x" @click="skyVisible=false"><img src="./image/x.png" height="28" width="28"></li>
-        <ul class="elements">
+        <div class="diapage">
+          <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
-        </ul>
-        <div class="diapage">
+          </ul>
           <dw-pagi @changeCurPa="getContent_sky"></dw-pagi>
         </div>
         <li class="next-btn" @click="moonVisible=true;skyVisible=false"><img src="./image/下一幕.png" height="37.5" width="110"></li>
       </el-dialog>
 
-      <el-dialog class="moon" :visible.sync="moonVisible" :show-close="false" v-if="moonVisible" :close-on-click-modal ="false">
+      <el-dialog class="moon" :visible.sync="moonVisible"  v-if="moonVisible" >
         <h4>{{cardText1}}</h4>
-        <li class="x" @click="moonVisible=false"><img src="./image/x.png" height="28" width="28"></li>
-        <ul class="elements">
+        <div class="diapage">
+          <ul class="elements">
             <li class="co">第</li>
             <li class="ch">节</li>
-        </ul>
-        <div class="diapage">
+          </ul>
           <dw-pagi @changeCurPa="getContent_moon"></dw-pagi>
         </div>
         <li class="next-btn" @click="skyVisible=true;moonVisible=false"><img src="./image/下一幕.png" height="37.5" width="110"></li>
@@ -93,15 +90,18 @@ export default {
 .dream_weaving {
   text-align: center;
   width: 100%;
-  height: 100%;
   background: url('./image/背景.png') no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  height: 100%;
+  background-position: center;
 }
 
 .titles {
-  height: 100%;
   background: url('./image/2.png') no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-position: center;
 }
 
 .btns {
@@ -125,24 +125,70 @@ export default {
   transform: scale(1.05);
 }
 
-.x {
-  cursor: pointer;
+::v-deep .el-dialog__header {
+  .el-dialog__headerbtn {
+    top: 2px;
+    right: 2px;
+    font-size: 25px;
+    width: 27px;
+    height: 25px;
+    background-color: transparent;
+  }
+}
+::v-deep .el-dialog__headerbtn .el-dialog__close {
+  color: #b99950;
   display: inline-block;
-  position: absolute;
-  top:-15px;
-  left: 1202px;
-}
-.x:hover {
-  transform: scale(1.05);
 }
 
-.meet, .trip, .sky, .moon {
+::v-deep .el-dialog__headerbtn .el-dialog__close:hover{
+  border-style: solid ;
+  border-radius: 5px;
+}
+
+::v-deep .el-dialog__wrapper .meet {
   background:url("./image/卡牌.png") no-repeat;
-  background-size: 79% 70%;
-  background-position: center;
-  top: 120px;
-
+  background-size: 100% 100%;
+  top: 90px;
+  margin-left: 9.5%;
+  position: absolute;
+  height: 655px;
+  width: 1550px;
 }
+
+::v-deep .el-dialog__wrapper .trip {
+  background:url("./image/卡牌.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  top: 90px;
+  margin-left: 9.5%;
+  position: absolute;
+  height: 655px;
+  width: 1550px;
+}
+
+::v-deep .el-dialog__wrapper .sky {
+  background:url("./image/卡牌.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  top: 90px;
+  margin-left: 9.5%;
+  position: absolute;
+  height: 655px;
+  width: 1550px;
+}
+
+::v-deep .el-dialog__wrapper .moon {
+  background:url("./image/卡牌.png") no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  top: 90px;
+  margin-left: 9.5%;
+  position: absolute;
+  height: 655px;
+  width: 1550px;
+}
+
+
 ::v-deep .el-dialog {
   background-color: transparent;
   box-shadow: none;
@@ -153,10 +199,10 @@ h4 {
   color: rgb(214, 179, 103);
   display: inline-block;
   position: absolute;
-  top:50px;
-  left:227px;
-  width: 1000px;
-  height: 450px;
+  top:60px;
+  left:530px;
+  width: 1012px;
+  height: 480px;
   overflow-y: scroll;
   white-space: pre-wrap;
 }
@@ -172,12 +218,13 @@ h4 {
   background-image: linear-gradient(black, #674d97);
   -webkit-border-radius: 6px;
 }
+
 .next-btn {
   cursor: pointer;
   display: inline-block;
   position: absolute;
-  top: 548px;
-  left: 1030px;
+  top:565px;
+  left: 1350px;
 }
 
 .next-btn:hover {
@@ -185,21 +232,24 @@ h4 {
 }
 
 .diapage {
-  top:560px;
-  left:250px;
+  top:580px;
+  left:580px;
   display: inline-block;
   position: absolute;
+  object-fit: cover;
+  object-position: center;
 }
 
 .elements {
   display: flex;
-  position: relative;
-  top: 490px;
-  left:495px;
+  position: absolute;
+  top:8px;
+  left:290px;
+  font-size: 18px;
 }
 
 .co {
-  margin-right: 185px;
+  margin-right: 150px;
 }
 
 </style>
