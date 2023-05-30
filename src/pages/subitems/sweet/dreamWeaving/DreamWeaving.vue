@@ -1,24 +1,29 @@
 <template>
   <div class="dream_weaving">
-
     <div class="titles">
-      <ul class="btns">
-          <li class="angel-btn" @click="meetVisible=true;"><img src="./image/btn.png" height="37.5" width="110"></li>
-          <li class="evil-btn" @click="skyVisible=true"><img src="./image/btn.png" height="37.5" width="110"></li>
-      </ul>
+      <div class="button">
+        <ul class="btns">
+          <li class="angel-btn" @click="meetVisible=true;"><img src="./image/btn.png" height="35" width="100"></li>
+          <li class="evil-btn" @click="skyVisible=true"><img src="./image/btn.png" height="35" width="100"></li>
+        </ul>
+      </div>
+
     </div>
 
     <div class="angel-dia">
       <el-dialog custom-class="meet" :visible.sync="meetVisible" v-if="meetVisible">
-        <h4>{{cardText}}</h4>
-        <div class="diapage">
-          <ul class="elements">
-            <li class="co">第</li>
-            <li class="ch">节</li>
-          </ul>
+        <div class="dia-text">
+          <h4>{{cardText}}</h4>
+          <div class="diapage">
+            <ul class="elements">
+              <li class="co">第</li>
+              <li class="ch">节</li>
+            </ul>
           <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
         </div>
-        <li class="next-btn" @click="tripVisible=true;meetVisible=false" ><img src="./image/下一幕.png" height="37.5" width="110"></li>
+        <a class="next-btn" @click="tripVisible=true;meetVisible=false" ><img src="./image/下一幕.png" height="35" width="100"></a>
+
+        </div>
 
       </el-dialog>
 
@@ -31,12 +36,12 @@
           </ul>
           <dw-pagi @changeCurPa="getContent_trip"></dw-pagi>
         </div>
-        <li class="next-btn" @click="meetVisible=true;tripVisible=false"><img src="./image/下一幕.png" height="37.5" width="110"></li>
+        <a class="next-btn" @click="meetVisible=true;tripVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
       </el-dialog>
     </div>
 
     <div class="evil-dia">
-      <el-dialog class="sky" :visible.sync="skyVisible" v-if="skyVisible">
+      <el-dialog custom-class="sky" :visible.sync="skyVisible" v-if="skyVisible">
         <h4>{{cardText}}</h4>
         <div class="diapage">
           <ul class="elements">
@@ -45,10 +50,10 @@
           </ul>
           <dw-pagi @changeCurPa="getContent_sky"></dw-pagi>
         </div>
-        <li class="next-btn" @click="moonVisible=true;skyVisible=false"><img src="./image/下一幕.png" height="37.5" width="110"></li>
+        <a class="next-btn" @click="moonVisible=true;skyVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
       </el-dialog>
 
-      <el-dialog class="moon" :visible.sync="moonVisible"  v-if="moonVisible" >
+      <el-dialog custom-class="moon" :visible.sync="moonVisible"  v-if="moonVisible" >
         <h4>{{cardText1}}</h4>
         <div class="diapage">
           <ul class="elements">
@@ -57,7 +62,7 @@
           </ul>
           <dw-pagi @changeCurPa="getContent_moon"></dw-pagi>
         </div>
-        <li class="next-btn" @click="skyVisible=true;moonVisible=false"><img src="./image/下一幕.png" height="37.5" width="110"></li>
+        <a class="next-btn" @click="skyVisible=true;moonVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
       </el-dialog>
     </div>
 
@@ -104,11 +109,14 @@ export default {
   background-position: center;
 }
 
+.button {
+  position: relative;
+  top:860px;
+  left:127px;
+  display: inline-block;
+}
 .btns {
   display: flex;
-  position: absolute;
-  bottom:148px;
-  left:577px;
 }
 
 .angel-btn {
@@ -119,7 +127,7 @@ export default {
   transform: scale(1.05);
 }
 .evil-btn {
-    cursor: pointer;
+  cursor: pointer;
 }
 .evil-btn:hover {
   transform: scale(1.05);
@@ -148,10 +156,10 @@ export default {
 ::v-deep .el-dialog__wrapper .meet {
   background:url("./image/卡牌.png") no-repeat;
   background-size: 100% 100%;
-  top: 90px;
+  top: 96px;
   margin-left: 9.5%;
   position: absolute;
-  height: 655px;
+  height: 660px;
   width: 1550px;
 }
 
@@ -194,13 +202,22 @@ export default {
   box-shadow: none;
 }
 
+
+.dia-text {
+  width: 1000px;
+  height: 610px;
+  position: absolute;
+  top: 25px;
+  right: 0;
+}
+
 h4 {
   font-family: "nansongshuju";
   color: rgb(214, 179, 103);
   display: inline-block;
   position: absolute;
-  top:60px;
-  left:530px;
+  top:40px;
+  left:-20px;
   width: 1012px;
   height: 460px;
   overflow-y: scroll;
@@ -222,9 +239,11 @@ h4 {
 .next-btn {
   cursor: pointer;
   display: inline-block;
-  position: absolute;
-  top:565px;
-  left: 1350px;
+  position: relative;
+  top: 540px;
+  left: -50px;
+  width: 100px;
+  height: 45px;
 }
 
 .next-btn:hover {
@@ -232,10 +251,10 @@ h4 {
 }
 
 .diapage {
-  top:580px;
-  left:580px;
+  top:560px;
+  left:40px;
   display: inline-block;
-  position: absolute;
+  position: relative;
   object-fit: cover;
   object-position: center;
 }
