@@ -108,6 +108,6 @@ export default {
 
 @font-face {
   font-family: "Branch";
-  src: url("../../../../../public/font/branch-regular.ttf");
+  src: url("../../../../../../public/font/branch-regular.ttf");
 }
 </style>

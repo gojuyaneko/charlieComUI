@@ -255,7 +255,7 @@ p[data-person-p="我"] {
 //   background-color: #efedf4ad;
 // }
 ::-webkit-scrollbar-thumb {
-  background-color: #d6b36788;
+  background-color: #d6b367;
   border-radius: 6px;
   width: 18px;
   border: 3px solid transparent;

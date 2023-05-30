@@ -13,26 +13,25 @@
         </div>
         <div class="com-dia-right">
           <h2 class="com-dia-title">
-            {{ diaTitle }}
+            <slot></slot>
           </h2>
           <article class="com-dia-content">
-            <div v-for="( item, index) in diaContent" :key="index" class="com-dialog-div">
-              <span class="com-dialog-span">
+            <div v-for="( item, index) in diaContent" :key="index" class="td-dialog-div">
+              <span class="td-dialog-span">
                 <span v-if="item.name !== '我'" :data-person="item.name">{{
                   item.name
                 }}</span>
               </span>
-              <p class="com-dialog-p" :data-person-p="item.name">
+              <p class="td-dialog-p" :data-person-p="item.name">
                 {{ item.content }}
               </p>
-              <span class="com-dialog-span">
+              <span class="td-dialog-span">
                 <span v-if="item.name === '我'" :data-person="item.name">
                   {{ item.name }}
                 </span>
               </span>
             </div>
           </article>
-
         </div>
       </div>
     </div>
@@ -45,7 +44,6 @@ export default {
     return {
       charliePhoto: require("../assets/charlie/c-6-allback.png"),
       chapter: 6,
-      diaTitle:'',
       diaContent: [
         {
           name: "我",
@@ -133,6 +131,7 @@ export default {
 .com-charlie-dialog {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .com-dia-box {
@@ -202,64 +201,6 @@ export default {
   top: 0;
   transform: translateY(-100%);
   z-index: 99;
-}
-.com-dia-right {
-  height:100%;
-}
-.com-dia-content {
-  height: 80%;
-  margin-top: 3%;
-  overflow-y: scroll;
-}
-.com-dialog-div {
-  margin-left: 60px;
-  display: flex;
-  flex-direction: row;
-  font-size: 18px;
-  padding-right: 60px;
-  color: white;
-  font-family: "nansongshuju";
-}
-.com-dialog-p {
-  width: 550px;
-  margin-bottom: 30px;
-}
-.com-dialog-span {
-  width: 105px;
-}
-span[data-person="我"] {
-  color: #eb4982;
-  margin-left: 55px;
-}
-span[data-person="查理苏"] {
-  color: #674d97;
-  margin-right: 35px;
-}
-span[data-person="旁白"] {
-  display: none;
-}
-p[data-person-p="旁白"] {
-  color: #848484;
-  text-indent: 2em;
-}
-p[data-person-p="我"] {
-  text-align: right;
-}
-/* 浏览器滚动条样式 */
-::-webkit-scrollbar {
-  width: 20px;
-  border:1px solid #d6b367;
-  border-radius: 6px;
-}
-// ::-webkit-scrollbar-track {
-//   background-color: #efedf4ad;
-// }
-::-webkit-scrollbar-thumb {
-  background-color: #d6b36788;
-  border-radius: 6px;
-  width: 18px;
-  border: 3px solid transparent;
-  background-clip: content-box;
 }
 </style>
   

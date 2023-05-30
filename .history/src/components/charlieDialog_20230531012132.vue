@@ -32,7 +32,6 @@
               </span>
             </div>
           </article>
-
         </div>
       </div>
     </div>
@@ -247,19 +246,13 @@ p[data-person-p="我"] {
 }
 /* 浏览器滚动条样式 */
 ::-webkit-scrollbar {
-  width: 20px;
-  border:1px solid #d6b367;
-  border-radius: 6px;
+  width: 25px;
 }
-// ::-webkit-scrollbar-track {
-//   background-color: #efedf4ad;
-// }
+::-webkit-scrollbar-track {
+  background-color: #efedf4ad;
+}
 ::-webkit-scrollbar-thumb {
-  background-color: #d6b36788;
-  border-radius: 6px;
-  width: 18px;
-  border: 3px solid transparent;
-  background-clip: content-box;
+  background-image: linear-gradient(black, #674d97);
 }
 </style>
   

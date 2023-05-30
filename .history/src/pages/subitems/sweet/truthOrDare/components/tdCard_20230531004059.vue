@@ -241,7 +241,10 @@ export default {
   width: 320px;
   font-weight: 400;
 }
-
+@font-face {
+  font-family: "Branch";
+  src: url("../../../../../../public/font/branch-regular.ttf");
+}
 .el-radio-button__inner,
 .el-radio-group {
   display: flex;
@@ -375,11 +378,11 @@ p[data-person-p="我"] {
   background-color: #efedf4ad;
 }
 ::-webkit-scrollbar-thumb {
-  border: 3px solid transparent;
-  background-clip: content-box;
   background-image: linear-gradient(black, #674d97);
 }
-
+.dialog-footer {
+  background-color: rgba(22, 163, 81, 0.548);
+}
 .td-dialog-page {
   margin-top:16px ;
   margin-left: 85px;

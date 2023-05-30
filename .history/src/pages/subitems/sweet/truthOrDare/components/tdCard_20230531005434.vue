@@ -375,11 +375,11 @@ p[data-person-p="我"] {
   background-color: #efedf4ad;
 }
 ::-webkit-scrollbar-thumb {
-  border: 3px solid transparent;
-  background-clip: content-box;
   background-image: linear-gradient(black, #674d97);
 }
-
+.dialog-footer {
+  background-color: rgba(22, 163, 81, 0.548);
+}
 .td-dialog-page {
   margin-top:16px ;
   margin-left: 85px;

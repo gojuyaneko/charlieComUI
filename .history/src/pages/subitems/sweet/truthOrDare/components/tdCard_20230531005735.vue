@@ -375,8 +375,6 @@ p[data-person-p="我"] {
   background-color: #efedf4ad;
 }
 ::-webkit-scrollbar-thumb {
-  border: 3px solid transparent;
-  background-clip: content-box;
   background-image: linear-gradient(black, #674d97);
 }
 

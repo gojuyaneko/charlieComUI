@@ -32,7 +32,6 @@
               </span>
             </div>
           </article>
-
         </div>
       </div>
     </div>
@@ -205,10 +204,6 @@ export default {
 }
 .com-dia-right {
   height:100%;
-}
-.com-dia-content {
-  height: 80%;
-  margin-top: 3%;
   overflow-y: scroll;
 }
 .com-dialog-div {
@@ -216,12 +211,11 @@ export default {
   display: flex;
   flex-direction: row;
   font-size: 18px;
-  padding-right: 60px;
-  color: white;
+  color: black;
   font-family: "nansongshuju";
 }
 .com-dialog-p {
-  width: 550px;
+  width: 600px;
   margin-bottom: 30px;
 }
 .com-dialog-span {
@@ -247,19 +241,13 @@ p[data-person-p="我"] {
 }
 /* 浏览器滚动条样式 */
 ::-webkit-scrollbar {
-  width: 20px;
-  border:1px solid #d6b367;
-  border-radius: 6px;
+  width: 25px;
 }
-// ::-webkit-scrollbar-track {
-//   background-color: #efedf4ad;
-// }
+::-webkit-scrollbar-track {
+  background-color: #efedf4ad;
+}
 ::-webkit-scrollbar-thumb {
-  background-color: #d6b36788;
-  border-radius: 6px;
-  width: 18px;
-  border: 3px solid transparent;
-  background-clip: content-box;
+  background-image: linear-gradient(black, #674d97);
 }
 </style>
   

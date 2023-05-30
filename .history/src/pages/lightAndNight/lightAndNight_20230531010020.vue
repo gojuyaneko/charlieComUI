@@ -1,6 +1,7 @@
 <template>
   <div class="light-and-night">
     <charlieDialog>
+      123
     </charlieDialog>
   </div>
 </template>
