@@ -1,13 +1,10 @@
 <template>
   <div class="dream_weaving">
     <div class="titles">
-      <div class="button">
-        <ul class="btns">
-          <li class="angel-btn" @click="meetVisible=true;"><img src="./image/btn.png" height="35" width="100"></li>
-          <li class="evil-btn" @click="skyVisible=true"><img src="./image/btn.png" height="35" width="100"></li>
-        </ul>
-      </div>
-
+      <ul class="btns">
+        <li class="angel-btn" @click="meetVisible=true"></li>
+          <li class="evil-btn" @click="skyVisible=true"></li>
+      </ul>
     </div>
 
     <div class="angel-dia">
@@ -21,7 +18,7 @@
             </ul>
           <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
           </div>
-          <a class="next-btn" @click="tripVisible=true;meetVisible=false" ><img src="./image/下一幕.png" height="35" width="100"></a>
+          <a class="next-btn" @click="tripVisible=true;meetVisible=false" ></a>
         </div>
 
       </el-dialog>
@@ -36,7 +33,7 @@
             </ul>
           <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
           </div>
-          <a class="next-btn" @click="meetVisible=true;tripVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
+          <a class="next-btn" @click="meetVisible=true;tripVisible=false"></a>
         </div>
       </el-dialog>
     </div>
@@ -52,7 +49,7 @@
             </ul>
           <dw-pagi @changeCurPa="getContent_sky"></dw-pagi>
           </div>
-          <a class="next-btn" @click="moonVisible=true;skyVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
+          <a class="next-btn" @click="moonVisible=true;skyVisible=false"></a>
         </div>
 
       </el-dialog>
@@ -67,7 +64,7 @@
             </ul>
           <dw-pagi @changeCurPa="getContent_moon"></dw-pagi>
           </div>
-          <a class="next-btn" @click="skyVisible=true;moonVisible=false"><img src="./image/下一幕.png" height="35" width="100"></a>
+          <a class="next-btn" @click="skyVisible=true;moonVisible=false"></a>
          </div>
       </el-dialog>
     </div>
@@ -109,31 +106,42 @@ export default {
 
 .titles {
   background: url('./image/2.png') no-repeat;
-  background-size: cover;
+  background-size: contain;
   height: 100%;
   width: 100%;
-  background-position: center;
+  position: absolute;
 }
 
-.button {
-  position: relative;
-  top:860px;
-  left:127px;
-  display: inline-block;
-}
 .btns {
   display: flex;
-}
+  top:750px;
+  left:565px;
+  position: absolute;
 
+}
 .angel-btn {
   cursor: pointer;
-  margin-right: 720px;
+  margin-right: 705px;
+  display: inline-block;
+  background-image: url("./image/btn.png");
+  background-size: 100% 100%;
+  height: 45px;
+  width: 139px;
+  position: relative;
+  margin-top: 11%;
 }
 .angel-btn:hover {
   transform: scale(1.05);
 }
 .evil-btn {
   cursor: pointer;
+  display: inline-block;
+  background-image: url("./image/btn.png");
+  background-size: 100% 100%;
+  height: 45px;
+  width: 139px;
+  position: relative;
+  margin-top: 11%;
 }
 .evil-btn:hover {
   transform: scale(1.05);
@@ -240,12 +248,14 @@ h4 {
 }
 
 .next-btn {
+  background-image: url("./image/下一幕.png");
+  background-size: 100% 100%;
   cursor: pointer;
   display: inline-block;
   position: relative;
   top: 540px;
   left: -50px;
-  width: 100px;
+  width: 141px;
   height: 45px;
 }
 
