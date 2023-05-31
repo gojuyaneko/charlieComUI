@@ -21,8 +21,8 @@
         :key="index"
         @click.native="gotoUrl(item.nextUrl)"
         popper-class="pclass"
-        :show-timeout=100
-        :hide-timeout=100
+        :show-timeout="100"
+        :hide-timeout="100"
       >
         <template slot="title">
           <span>
@@ -157,12 +157,12 @@ export default {
   mounted() {},
   methods: {
     gotoUrl(url) {
-      if(this.$router.path !=='/'){
-        if(url === '/'|| url === '/allGoods') {
-          this.$router.push(url)
+      if (this.$router.path !== "/") {
+        if (url === "/" || url === "/allGoods") {
+          this.$router.push(url);
         }
       }
-    }
+    },
   },
 };
 </script>
@@ -291,5 +291,10 @@ export default {
   margin: 0px;
   color: #af9356 !important;
   min-width: 65px !important;
+}
+
+::v-deep .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+  margin: 0px !important;
 }
 </style>

@@ -131,6 +131,8 @@ export default {
 /* 查理苏字体加宝石 */
 .pc-charlie-name {
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 175px;
   left: 175px;
 }
@@ -158,7 +160,8 @@ export default {
 /* 灵犀相册 */
 .pc-icon-enter img {
   position: absolute;
-
+  width: 372px;
+  height: 145px;
   left: 290px;
   bottom: 180px;
 }
