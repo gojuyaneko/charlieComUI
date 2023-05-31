@@ -75,7 +75,7 @@ export default {
   width: 115px;
   height: 30px;
   background-image: url('../../assets/diacata.png') no-repeat;
-  background-size: 100% ;
+  background-size: 100% 100%;
   outline: 0;
   border: 0;
 }

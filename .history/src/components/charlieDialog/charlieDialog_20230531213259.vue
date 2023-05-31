@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script> 
+<script>
 import CharlieDiaArti from './charlieDiaArti.vue';
 import charlieDiaMenu from './charlieDiaMenu.vue';
 export default {

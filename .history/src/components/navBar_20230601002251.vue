@@ -181,12 +181,6 @@ export default {
   background-color: transparent;
   border-bottom: none;
 }
-::v-deep {
-  .el-menu--popup {
-    -webkit-box-shadow:none;
-    box-shadow: none;
-  }
-}
 /* 导航栏主题跳转至首页 */
 .nav-theme {
   height: 65px;
@@ -242,6 +236,13 @@ export default {
   text-align: center;
   font-size: 25px;
 }
+::v-deep {
+   .el-menu--popup{
+    -webkit-box-shadow:none;
+    box-shadow: none;
+}
+}
+
 /* hove和active */
 .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
 .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
@@ -259,6 +260,7 @@ export default {
 .el-menu--popup {
   position: absolute;
   padding: 0px;
+  margin: 0px;
   border-radius: 0px;
   left: 15px;
   min-width: 125px;
@@ -274,7 +276,7 @@ export default {
   justify-content: center;
   width: 130px;
   height: 65px;
-  background-color: rgb(103, 77, 151, 0.5) !important;
+  background-color: rgb(103, 77, 151, 0.3) !important;
   font-size: 18px;
   font-family: "nansongshuju";
   position: static;
@@ -297,4 +299,8 @@ export default {
   min-width: 65px !important;
 }
 
+::v-deep .el-menu--horizontal .el-menu-item:not(.is-disabled):focus,
+.el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+  margin: 0px !important;
+}
 </style>

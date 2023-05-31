@@ -6,14 +6,18 @@
           v-for="(item, index) in navItems"
           :key="index"
           @click="goTo(item.nextUrl)"
-          :style="{ paddingBottom: boxPadding(index) }"
+          :style="{ paddingBottom: boxPadding1(index) }"
         >
           <span>{{ item.name }}</span>
           <ul class="pc-submenu">
             <li
-              v-for="(childitem,index) in item.childItems"
+              v-for="(childitem, index) in item.childItems"
               :key="index"
               @click="goTo(childitem.nextUrl)"
+              :style="{
+                paddingBottom:
+                  index === item.childItems.length - 1 ? boxPadding : '40px',
+              }"
             >
               <span>{{ childitem.name }}</span>
             </li>
@@ -96,12 +100,16 @@ export default {
     goTo(url) {
       this.$router.push(url);
     },
-    boxPadding(index) {
+    boxPadding1(index) {
       if (index === 2) {
         return "0px";
       } else {
         return "30px";
       }
+    },
+
+    boxPadding() {
+      return "0px";
     },
   },
 };
@@ -143,6 +151,8 @@ ul {
 .pc-menu li:hover .pc-submenu {
   display: block; /*或者 visibility:visible;*/
   position: absolute;
+  right: 60%;
+  transform: translate(0, -60%);
   // background-color: orange;
   width: max-content;
   border-right: #d6b367 solid 3px;

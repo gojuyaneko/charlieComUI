@@ -181,12 +181,6 @@ export default {
   background-color: transparent;
   border-bottom: none;
 }
-::v-deep {
-  .el-menu--popup {
-    -webkit-box-shadow:none;
-    box-shadow: none;
-  }
-}
 /* 导航栏主题跳转至首页 */
 .nav-theme {
   height: 65px;
@@ -297,4 +291,10 @@ export default {
   min-width: 65px !important;
 }
 
+::v-deep {
+  .el-menu--popup {
+    -webkit-box-shadow:none;
+    box-shadow: none;
+  }
+}
 </style>

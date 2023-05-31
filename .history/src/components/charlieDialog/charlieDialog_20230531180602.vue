@@ -18,18 +18,16 @@
           <article class="com-dia-content">
             <charlie-dia-arti></charlie-dia-arti>
           </article>
-          <charlie-dia-menu></charlie-dia-menu>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script> 
+<script>
 import CharlieDiaArti from './charlieDiaArti.vue';
-import charlieDiaMenu from './charlieDiaMenu.vue';
 export default {
-  components: {CharlieDiaArti, charlieDiaMenu},
+  components: {CharlieDiaArti},
   data() {
     return {
       charliePhoto: require("../../assets/charlie/c-6-allback.png"),
