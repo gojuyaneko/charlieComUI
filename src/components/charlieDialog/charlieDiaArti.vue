@@ -1,0 +1,277 @@
+<template>
+  <div class="charlie-dialog-arti">
+    <div v-for="(item, index) in diaContent" :key="index" class="com-dia-div">
+      <div class="com-dia-main" v-if="item.para_type === 'normal'">
+        <span class="com-dia-span">
+          <span v-if="item.tag !== 'me'" :data-tag="item.tag">
+            {{ item.speaker }}</span
+          >
+        </span>
+        <div class="com-dia-text">
+          <p
+            class="com-dia-p"
+            :data-tag-p="item.tag"
+            v-for="(cnt, index) in item.content"
+            :key="index"
+          >
+            {{ cnt }}
+          </p>
+        </div>
+        <span class="com-dia-span">
+          <span v-if="item.tag === 'me'" :data-tag="item.tag">
+            {{ item.speaker }}
+          </span>
+        </span>
+      </div>
+      <div class="com-dia-choose" v-if="item.para_type !== 'normal'">
+        <charlie-dia-btn
+          :diaBtnData="diaBtnData"
+          class="com-dia-btn"
+          @getYoN="chooseCnt"
+        ></charlie-dia-btn>
+        <br />
+        <div v-if="item.xuanxiang[0].para_type === choice">
+          <div
+            class="com-dia-main"
+            v-for="(chooseItem, index) in item.xuanxiang[0].choice_para"
+            :key="index"
+          >
+            <span class="com-dia-span">
+              <span v-if="chooseItem.tag !== 'me'" :data-tag="chooseItem.tag">
+                {{ chooseItem.speaker }}</span
+              >
+            </span>
+            <div class="com-dia-text">
+              <p
+                class="com-dia-p"
+                :data-tag-p="chooseItem.tag"
+                v-for="(cnt, index) in chooseItem.content"
+                :key="index"
+              >
+                {{ cnt }}
+              </p>
+            </div>
+            <span class="com-dia-span">
+              <span v-if="chooseItem.tag === 'me'" :data-tag="chooseItem.tag">
+                {{ chooseItem.speaker }}
+              </span>
+            </span>
+          </div>
+        </div>
+        <div v-if="item.xuanxiang[1].para_type === choice">
+          <div
+            class="com-dia-main"
+            v-for="(chooseItem, index) in item.xuanxiang[1].choice_para"
+            :key="index"
+          >
+            <span class="com-dia-span">
+              <span v-if="chooseItem.tag !== 'me'" :data-tag="chooseItem.tag">
+                {{ chooseItem.speaker }}</span
+              >
+            </span>
+            <div class="com-dia-text">
+              <p
+                class="com-dia-p"
+                :data-tag-p="chooseItem.tag"
+                v-for="(cnt, index) in chooseItem.content"
+                :key="index"
+              >
+                {{ cnt }}
+              </p>
+            </div>
+            <span class="com-dia-span">
+              <span v-if="chooseItem.tag === 'me'" :data-tag="chooseItem.tag">
+                {{ chooseItem.speaker }}
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+    
+<script>
+import charlieDiaBtn from "@/components/charlieDialog/charlieDiaBtn";
+export default {
+  components: { charlieDiaBtn },
+  data() {
+    return {
+      diaTitle: "",
+      diaContent: [
+        {
+          para_type: "normal",
+          speaker: "我",
+          content: [
+            "饿了想吃饭，不想上班，想打王国之泪。",
+            "饿了想吃饭，不想上班，想打王国之泪。",
+            "饿了想吃饭，不想上班，想打王国之泪。",
+          ],
+          tag: "me",
+        },
+        {
+          para_type: "normal",
+          speaker: "查理苏",
+          content: [
+            "完美的男人，完美的男人",
+            "完美的男人，完美的男人。",
+            "完美的男人，完美的男人,完美的男人，完美的男人。",
+          ],
+          tag: "charlie",
+        },
+        {
+          para_type: "normal",
+          speaker: "旁白",
+          content: [
+            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+          ],
+          tag: "pb",
+        },
+        {
+          para_type: "choice",
+          xuanxiang: [
+            {
+              para_type: "light",
+              choice_name: "回答他",
+              choice_para: [
+                {
+                  para_type: "normal",
+                  speaker: "我",
+                  content: [
+                    "1饿了想吃饭，不想上班，想打王国之泪。",
+                    "饿了想吃饭，不想上班，想打王国之泪。",
+                    "饿了想吃饭，不想上班，想打王国之泪。",
+                  ],
+                  tag: "me",
+                },
+                {
+                  para_type: "normal",
+                  speaker: "查理苏",
+                  content: [
+                    "完美的男人，完美的男人",
+                    "完美的男人，完美的男人。",
+                    "完美的男人，完美的男人,完美的男人，完美的男人。",
+                  ],
+                  tag: "charlie",
+                },
+                {
+                  para_type: "normal",
+                  speaker: "旁白",
+                  content: [
+                    "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+                    "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+                  ],
+                  tag: "pb",
+                },
+              ],
+              tag: "me",
+            },
+            {
+              para_type: "night",
+              choice_name: "回答他",
+              choice_para: [
+                {
+                  para_type: "normal",
+                  speaker: "我",
+                  content: [
+                    "2饿了想吃饭，不想上班，想打王国之泪。",
+                    "饿了想吃饭，不想上班，想打王国之泪。",
+                    "饿了想吃饭，不想上班，想打王国之泪。",
+                  ],
+                  tag: "me",
+                },
+                {
+                  para_type: "normal",
+                  speaker: "查理苏",
+                  content: [
+                    "完美的男人，完美的男人",
+                    "完美的男人，完美的男人。",
+                    "完美的男人，完美的男人,完美的男人，完美的男人。",
+                  ],
+                  tag: "charlie",
+                },
+                {
+                  para_type: "normal",
+                  speaker: "旁白",
+                  content: [
+                    "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+                    "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+                  ],
+                  tag: "pb",
+                },
+              ],
+              tag: "me",
+            },
+          ],
+        },
+      ],
+      diaBtnData: [
+        {
+          label: "light",
+          text: "回答他",
+          bgimg: require("../../assets/diabtnl.png"),
+        },
+        {
+          label: "night",
+          text: "拒绝回答",
+          bgimg: require("../../assets/diabtnn.png"),
+        },
+      ],
+      choice: "light",
+    };
+  },
+  mounted() {},
+  methods: {
+    chooseCnt(choice) {
+        this.choice = choice
+    }
+  },
+};
+</script>
+    
+<style scoped lang="scss">
+.com-dia-div {
+  margin-left: 60px;
+  font-size: 18px;
+  padding-right: 60px;
+  color: white;
+  font-family: "nansongshuju";
+}
+.com-dia-main {
+  display: flex;
+  flex-direction: row;
+}
+.com-dia-text {
+  width: 550px;
+  margin-bottom: 30px;
+}
+.com-dia-p {
+}
+.com-dia-span {
+  width: 105px;
+}
+span[data-tag="me"] {
+  color: #eb4982;
+  margin-left: 55px;
+}
+span[data-tag="charlie"] {
+  color: #674d97;
+  margin-right: 35px;
+}
+span[data-tag="pb"] {
+  display: none;
+}
+p[data-tag-p="pb"] {
+  color: #848484;
+  text-indent: 2em;
+}
+p[data-tag-p="me"] {
+  text-align: right;
+}
+.com-dia-btn {
+  margin-left: 180px;
+  margin-top: 4%;
+}
+</style>
+    

@@ -32,7 +32,7 @@
               <li class="ch">节</li>
             </ul>
           <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
-          </div>
+    </div>
           <a class="next-btn" @click="meetVisible=true;tripVisible=false"></a>
         </div>
       </el-dialog>
@@ -98,6 +98,7 @@ export default {
 .dream_weaving {
   text-align: center;
   width: 100%;
+  height: 100%;
   background: url('./image/背景.png') no-repeat;
   background-size: cover;
   height: 100%;
@@ -105,6 +106,7 @@ export default {
 }
 
 .titles {
+  height: 100%;
   background: url('./image/2.png') no-repeat;
   background-size: contain;
   height: 100%;
@@ -134,7 +136,7 @@ export default {
   transform: scale(1.05);
 }
 .evil-btn {
-  cursor: pointer;
+    cursor: pointer;
   display: inline-block;
   background-image: url("./image/btn.png");
   background-size: 100% 100%;

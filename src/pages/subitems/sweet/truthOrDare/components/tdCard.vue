@@ -258,8 +258,12 @@ export default {
   z-index: 4;
   margin-top: 5px;
 }
+.el-radio-button:focus:not(.is-focus):not(:active):not(.is-disabled) {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
 ::v-deep {
-  .el-radio-button:first-child .el-radio-button__inner {
+  .el-radio-button .el-radio-button__inner {
     font-size: 18px;
     border-radius: 40px;
     border: 3px #b99950 solid;
@@ -273,19 +277,9 @@ export default {
     display: flex;
     align-items: center;
   }
-  .el-radio-button:last-child .el-radio-button__inner {
-    font-size: 18px;
-    border-radius: 40px;
-    border: 3px #b99950 solid;
-    background: transparent;
-    width: 80px;
-    height: 80px;
-    top: 0px;
-    left: 2px;
-    z-index: 0;
-    color: #b99950;
-    display: flex;
-    align-items: center;
+  .el-radio-button__orig-radio:checked + .el-radio-button__inner {
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
   .el-dialog__wrapper .td-dialog {
     background: url("../img/dialog.png") no-repeat;
@@ -297,10 +291,6 @@ export default {
   }
   .is-active {
     background-image: linear-gradient(#674d97, black);
-  }
-  .el-radio-button__orig-radio:checked + .el-radio-button__inner {
-    -webkit-box-shadow: none;
-    box-shadow: none;
   }
   .el-dialog__header {
     .el-dialog__headerbtn {

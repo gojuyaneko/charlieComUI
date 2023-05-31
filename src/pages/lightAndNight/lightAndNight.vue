@@ -6,7 +6,7 @@
 </template>
   
 <script>
-import charlieDialog from '@/components/charlieDialog.vue';
+import charlieDialog from '@/components/charlieDialog/charlieDialog.vue';
 export default {
   data(){
     return {
