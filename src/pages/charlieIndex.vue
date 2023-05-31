@@ -156,12 +156,14 @@ export default {
   position: absolute;
   right: 30px;
   top: 135px;
+  width: 638px;
+  height: 119px;
 }
 /* 灵犀相册 */
 .pc-icon-enter img {
   position: absolute;
   width: 372px;
-  height: 145px;
+  height: 125px;
   left: 290px;
   bottom: 180px;
 }
@@ -175,6 +177,8 @@ export default {
   position: absolute;
   left: 30px;
   top: 135px;
+  width: 638px;
+  height: 119px;
 }
 
 /* 记忆收藏 */
@@ -185,8 +189,8 @@ export default {
   /* top: 3430px; */
 }
 .pc-page4-title-memory img {
-  width: 662px;
-  height: 117px;
+  width: 638px;
+  height: 119px;
   position: absolute;
   right: 30px;
   top: 135px;
