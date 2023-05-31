@@ -19,17 +19,21 @@
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
-    .badgeDetails{
-      margin-top: 65px;
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+  }
+    .badgeDetails{    
+      width: 100%;
+      height: 100%;
       background: url('./images/background.png') center center no-repeat;
-      background-attachment: fixed;
-      /* width: 1200px; */
-      justify-content: center;
-      align-items: center;
+      background-attachment: fixed; 
       background-size: 100% 100%;
       overflow: hidden;
     }
-    .subTitle {
+    .subTitle {   
+      top: 260px;
       text-align: center;
       text-indent: 2em;
       font-weight: bold;

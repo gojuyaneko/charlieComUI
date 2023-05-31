@@ -21,10 +21,11 @@
         </div>
       </div>
       <div id="goods">
-        <ul>
+        <ul class="goods_contents">
           <li v-for="(v, index) in json.list" :key="index">
             <div class="image-wrapper">
-              <img src='./images/goods/满赠透卡.png' alt="">
+              <el-image :src="url"></el-image>
+              <!-- <img src='./images/goods/满赠透卡.png' alt=""> --> 
               <!-- <img :src="v.src" alt=""> -->
             </div>
             <div class="details">
@@ -48,6 +49,9 @@
   
     data() {
       return {
+        fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
+        url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+        //图片链接，名字，价格，详情，时间，种类
         json: {
           list: [
             {
@@ -80,11 +84,11 @@
               src: '../images/goods/满赠透卡.png',
               des: '这是第三个描述',
               price: 20
-            },          {
+            },     {
               src: '../images/goods/满赠透卡.png',
               des: '这是第三个描述',
-              price: 43
-            },
+              price: 20
+            },          
   
           ]
         }
@@ -96,28 +100,27 @@
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    .all_goods {
-      background: url('./images/background.png') center center no-repeat;
-      background-attachment: fixed;
-      
-      height: 100%;
-      justify-content: center;
-      align-items: center;
-      background-size: 100% 100%;
-      overflow: hidden;
-    }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .all_goods {
+    width: 100%;
+    height: 100%;
+    background: url('./images/background.png') center center no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    overflow: scroll;
+    user-select: none;
+  }
     .subTitle_search_subNav {
+      margin-top: 5%;
       height: 20%;
       margin-bottom: -3%;
       display: flex;
       align-items: center;
       justify-content: space-between; 
-      /* background-color: blue; */
     }
   
     .subTitle {
@@ -170,7 +173,7 @@
   a{
       color: #d6b367;
       text-decoration: none;
-      font-size: 150%;
+      /* font-size: 150%; */
       font-family: "nansongshuju";
   }
   .subNavContent {
@@ -185,11 +188,7 @@
   }
   
   .subNavContent a {
-      color: #d6b367;
-      /* height: 80px; */
       text-shadow: -0.1em 0.2em 0.3em black;
-      padding: 12px 16px;
-      /* padding-bottom: 20px; */
       display: block;
       /* 将a标签设置为块级标签 */
   }
@@ -201,34 +200,38 @@
   .subNav:hover .subNavContent {
       display: block;
   }
-  
-  #goods ul{
-      display: flex;
-      flex-wrap: wrap;
-      width:100%;
-      height:80%;
-      overflow: hidden;
-      }
-  #goods li {
-    width: 15.9%;
-    /* height: 1000px; */
-    padding: 5px;
-    list-style:none;
-    border: 1px solid #b99950;
-    margin:0 0 -1px -1px;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: flex-end; /* 图片靠下对齐 */
-    /* text-align: center; */
-    background: linear-gradient(rgba(103,77,151,0.3), transparent);
+
+  #goods{
+    margin-top: 5%;
   }
+  #goods ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+}
+
+#goods li {
+  flex: 0 0 calc(16.6667% - 2px); /* 一行固定六个元素，考虑边框的宽度 */
+  
+  margin:0 0 -1px -1px;
+  padding: 10px;
+  border: 1px solid #b99950;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* 图片靠下对齐 */
+  background: linear-gradient(rgba(103, 77, 151, 0.3), transparent);
+}
   
   .image-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 75%; /* 设置图片容器的高度 */
+      display: flex;
+      /* align-items: center; */
+      justify-content: center;
+      height: 75%; /* 设置图片容器的高度 */
   }
   
   .image-wrapper img {
