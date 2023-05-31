@@ -74,8 +74,7 @@ export default {
 .dia-menu-catalog {
   width: 115px;
   height: 30px;
-  background-image: url('../../assets/diacata.png') no-repeat;
-  background-size: 100% ;
+  background-color: rgba(255, 255, 255, 0.477);
   outline: 0;
   border: 0;
 }

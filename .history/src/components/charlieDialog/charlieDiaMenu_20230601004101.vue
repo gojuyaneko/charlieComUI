@@ -67,15 +67,14 @@ export default {
 <style scoped lang="scss">
 .com-dialog-menu {
   position: absolute;
-  bottom: 10%;
-  right: 50px;
+  bottom: 0;
+  right: 0;
   width: 115px;
 }
 .dia-menu-catalog {
   width: 115px;
   height: 30px;
-  background-image: url('../../assets/diacata.png') no-repeat;
-  background-size: 100% ;
+  background-color: rgba(255, 255, 255, 0.477);
   outline: 0;
   border: 0;
 }

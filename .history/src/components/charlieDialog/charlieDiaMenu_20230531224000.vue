@@ -1,7 +1,7 @@
 <template>
-  <div class="com-dialog-menu">
+  <div class="com-dialog-menu ">
     <button class="dia-menu-catalog" >目录</button>
-    <el-collapse v-model="activeChap" accordion class="dia-menu-col" v-if="show"> 
+    <el-collapse v-model="activeChap" accordion>
       <el-collapse-item :title="item.name" :name="item.chap" v-for="(item, index) in menuData " :key="index">
         <a href="#" rel="nofollow" v-for="(seItem, index) in item.subChap" :key="index">
           <br>
@@ -52,8 +52,7 @@ export default {
           ]
         }
       ],
-      activeChap: 6,
-      show:false
+      activeChap: 6
     };
   },
   mounted() {
@@ -65,25 +64,8 @@ export default {
 </script>
     
 <style scoped lang="scss">
-.com-dialog-menu {
-  position: absolute;
-  bottom: 10%;
-  right: 50px;
-  width: 115px;
-}
-.dia-menu-catalog {
-  width: 115px;
-  height: 30px;
-  background-image: url('../../assets/diacata.png') no-repeat;
-  background-size: 100% ;
-  outline: 0;
-  border: 0;
-}
-.dia-menu-col {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+.com-dialog-menu {}
+
 .el-radio-button__inner,
 .el-radio-group {
   display: flex;
