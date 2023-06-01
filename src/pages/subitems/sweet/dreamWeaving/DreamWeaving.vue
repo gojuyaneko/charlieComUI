@@ -1,11 +1,12 @@
 <template>
   <div class="dream_weaving">
-    <div class="titles">
-      <ul class="btns">
-        <li class="angel-btn" @click="meetVisible=true"></li>
+      <div class="titles">
+        <ul class="btns">
+          <li class="angel-btn" @click="meetVisible=true"></li>
           <li class="evil-btn" @click="skyVisible=true"></li>
-      </ul>
-    </div>
+        </ul>
+
+      </div>
 
     <div class="angel-dia">
       <el-dialog custom-class="meet" :visible.sync="meetVisible" v-if="meetVisible">
@@ -69,7 +70,6 @@
       </el-dialog>
     </div>
 
-
   </div>
 
 </template>
@@ -101,49 +101,46 @@ export default {
   height: 100%;
   background: url('./image/背景.png') no-repeat;
   background-size: cover;
-  height: 100%;
   background-position: center;
 }
 
 .titles {
   height: 100%;
   background: url('./image/2.png') no-repeat;
-  background-size: contain;
-  height: 100%;
+  background-size: 100% 100%;
   width: 100%;
   position: absolute;
+  background-position: center;
 }
 
 .btns {
+  top: 81%;
+  left: 585px;
   display: flex;
-  top:750px;
-  left:565px;
   position: absolute;
 
 }
 .angel-btn {
   cursor: pointer;
-  margin-right: 705px;
+  margin-right: 723px;
   display: inline-block;
   background-image: url("./image/btn.png");
   background-size: 100% 100%;
   height: 45px;
   width: 139px;
   position: relative;
-  margin-top: 11%;
 }
 .angel-btn:hover {
   transform: scale(1.05);
 }
 .evil-btn {
-    cursor: pointer;
+  cursor: pointer;
   display: inline-block;
   background-image: url("./image/btn.png");
   background-size: 100% 100%;
   height: 45px;
   width: 139px;
   position: relative;
-  margin-top: 11%;
 }
 .evil-btn:hover {
   transform: scale(1.05);
