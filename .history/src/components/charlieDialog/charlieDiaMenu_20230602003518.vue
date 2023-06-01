@@ -1,11 +1,12 @@
 <template>
   <div class="com-dialog-menu">
-    <button class="dia-menu-catalog" @click="controlShow">目录</button>
-    <el-collapse v-model="activeChap" accordion class="dia-menu-col" v-if="show">
+    <button class="dia-menu-catalog" >目录</button>
+    <el-collapse v-model="activeChap" accordion class="dia-menu-col" v-if="show"> 
       <el-collapse-item :title="item.name" :name="item.chap" v-for="(item, index) in menuData " :key="index">
-        <div class="dia-menu-div" v-for="(seItem, index) in item.subChap" :key="index">
+        <a href="#" rel="nofollow" v-for="(seItem, index) in item.subChap" :key="index">
+          <br>
           {{ seItem.name }}
-        </div>
+        </a>
       </el-collapse-item>
     </el-collapse>
   </div>
@@ -52,16 +53,13 @@ export default {
         }
       ],
       activeChap: 6,
-      show: true
+      show:false
     };
   },
   mounted() {
   },
   methods: {
-    controlShow(){
-      this.show=!this.show
-      console.log(this.show)
-    }
+
   },
 };
 </script>
@@ -73,46 +71,69 @@ export default {
   right: 50px;
   width: 115px;
 }
-
 .dia-menu-catalog {
   width: 115px;
   height: 30px;
-  background: url('../../assets/diacata.png') no-repeat;
-  background-size: 100% 100%;
+  background-image: url('../../assets/diacata.png') no-repeat;
+  background-size: 100% ;
   outline: 0;
   border: 0;
-  color: #848484;
   cursor: pointer;
 }
-
 .dia-menu-col {
   position: absolute;
   top: 0;
-  transform: translateY(-100%);
   left: 0;
 }
-.dia-menu-div {
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  cursor: pointer;
+.el-radio-button__inner,
+.el-radio-group {
+  display: flex;
+  flex-direction: row;
 }
- ::v-deep {
 
-  .el-collapse {
+.el-radio-button {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  margin-right: 60px;
+
+}
+
+.el-radio-button:focus:not(.is-focus):not(:active):not(.is-disabled) {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+::v-deep {
+  .el-radio-button .el-radio-button__inner {
+    font-size: 18px;
     border: 0;
+    background: transparent;
+    width: 220px;
+    color: #b99950;
+    padding: 8px 0;
   }
-  .el-collapse-item__header {
-    width: 115px;
-    height: 30px;
-    color: #674d97;
-    background-color: rgba(255, 255, 255, 0.1);
+
+  .is-active {
+    scale: calc(1.08);
+    border: 0;
+    background-image: linear-gradient(to left, transparent, #674d97);
+    border-radius: 28px;
   }
-  .el-collapse-item__wrap {
-    background-color: rgba(255, 255, 255, 0.1);
+
+  .el-radio-button__orig-radio:checked+.el-radio-button__inner {
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
-  .el-collapse-item__content  {
-    padding-bottom: 0;
-    color: #848484;
-    text-align: center;
-  }
-}</style>
+}
+
+.dia-btn-bg {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  height: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
     

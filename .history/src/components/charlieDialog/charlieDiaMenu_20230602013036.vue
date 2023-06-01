@@ -59,8 +59,7 @@ export default {
   },
   methods: {
     controlShow(){
-      this.show=!this.show
-      console.log(this.show)
+      this.show!=this.show
     }
   },
 };
@@ -93,7 +92,6 @@ export default {
 }
 .dia-menu-div {
   border-top: 1px solid rgba(255, 255, 255, 0.4);
-  cursor: pointer;
 }
  ::v-deep {
 

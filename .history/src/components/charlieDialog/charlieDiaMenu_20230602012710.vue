@@ -1,9 +1,9 @@
 <template>
   <div class="com-dialog-menu">
-    <button class="dia-menu-catalog" @click="controlShow">目录</button>
+    <button class="dia-menu-catalog">目录</button>
     <el-collapse v-model="activeChap" accordion class="dia-menu-col" v-if="show">
       <el-collapse-item :title="item.name" :name="item.chap" v-for="(item, index) in menuData " :key="index">
-        <div class="dia-menu-div" v-for="(seItem, index) in item.subChap" :key="index">
+        <div  v-for="(seItem, index) in item.subChap" :key="index">
           {{ seItem.name }}
         </div>
       </el-collapse-item>
@@ -58,10 +58,7 @@ export default {
   mounted() {
   },
   methods: {
-    controlShow(){
-      this.show=!this.show
-      console.log(this.show)
-    }
+
   },
 };
 </script>
@@ -91,10 +88,6 @@ export default {
   transform: translateY(-100%);
   left: 0;
 }
-.dia-menu-div {
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-}
  ::v-deep {
 
   .el-collapse {
@@ -112,6 +105,7 @@ export default {
   .el-collapse-item__content  {
     padding-bottom: 0;
     color: #848484;
+    border-top: 1px solid white;
     text-align: center;
   }
 }</style>

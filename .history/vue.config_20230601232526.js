@@ -8,7 +8,7 @@ module.exports = {
   //构建时输出目录
   outputDir: "dist",
   //放置静态资源的目录
-  assetsDir: "static",
+  // assetsDir: "static",
   //html 的输出路径
   indexPath: "index.html",
   // 文件名哈希

@@ -1,11 +1,12 @@
 <template>
   <div class="com-dialog-menu">
-    <button class="dia-menu-catalog" @click="controlShow">目录</button>
-    <el-collapse v-model="activeChap" accordion class="dia-menu-col" v-if="show">
+    <button class="dia-menu-catalog" >目录</button>
+    <el-collapse v-model="activeChap" accordion class="dia-menu-col" v-if="show"> 
       <el-collapse-item :title="item.name" :name="item.chap" v-for="(item, index) in menuData " :key="index">
-        <div class="dia-menu-div" v-for="(seItem, index) in item.subChap" :key="index">
+        <a href="#" rel="nofollow" v-for="(seItem, index) in item.subChap" :key="index">
+          <br>
           {{ seItem.name }}
-        </div>
+        </a>
       </el-collapse-item>
     </el-collapse>
   </div>
@@ -52,16 +53,13 @@ export default {
         }
       ],
       activeChap: 6,
-      show: true
+      show:true
     };
   },
   mounted() {
   },
   methods: {
-    controlShow(){
-      this.show=!this.show
-      console.log(this.show)
-    }
+
   },
 };
 </script>
@@ -73,7 +71,6 @@ export default {
   right: 50px;
   width: 115px;
 }
-
 .dia-menu-catalog {
   width: 115px;
   height: 30px;
@@ -81,38 +78,16 @@ export default {
   background-size: 100% 100%;
   outline: 0;
   border: 0;
-  color: #848484;
   cursor: pointer;
 }
-
 .dia-menu-col {
   position: absolute;
   top: 0;
-  transform: translateY(-100%);
   left: 0;
 }
-.dia-menu-div {
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  cursor: pointer;
+.el-collapse-item__header {
+  width: 115px;
+  height: 30px;
 }
- ::v-deep {
-
-  .el-collapse {
-    border: 0;
-  }
-  .el-collapse-item__header {
-    width: 115px;
-    height: 30px;
-    color: #674d97;
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  .el-collapse-item__wrap {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  .el-collapse-item__content  {
-    padding-bottom: 0;
-    color: #848484;
-    text-align: center;
-  }
-}</style>
+</style>
     
