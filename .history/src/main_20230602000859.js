@@ -44,6 +44,8 @@ Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(Image);
 
+
+
 // Vue.use(ElementUI);
 Vue.component("myNavbar", navBar);
 Vue.component("myMenu", charlieMenu);
