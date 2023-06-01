@@ -89,5 +89,6 @@ ul {
   font-family: "nansongshuju";
   text-align: left;
   color: #d6b367;
+  cursor: pointer;
 }
 </style>

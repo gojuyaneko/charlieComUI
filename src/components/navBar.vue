@@ -183,7 +183,7 @@ export default {
 }
 ::v-deep {
   .el-menu--popup {
-    -webkit-box-shadow:none;
+    -webkit-box-shadow: none;
     box-shadow: none;
   }
 }
@@ -256,14 +256,6 @@ export default {
   box-shadow: none;
 }
 
-.el-menu--popup {
-  position: absolute;
-  padding: 0px;
-  border-radius: 0px;
-  left: 15px;
-  min-width: 125px;
-}
-
 /* 二级菜单 */
 .el-menu--horizontal .el-menu .el-menu-item,
 .el-menu--horizontal .el-menu .el-submenu__title {
@@ -297,4 +289,13 @@ export default {
   min-width: 65px !important;
 }
 
+.el-menu--popup {
+  position: absolute;
+  padding: 0px;
+  border-radius: 0px;
+  left: 15px;
+  min-width: 125px;
+  -webkit-box-shadow: 0 0px 0px 0 white !important;
+  box-shadow: 0 0px 0px 0 white !important;
+}
 </style>

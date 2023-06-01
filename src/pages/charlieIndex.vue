@@ -29,6 +29,14 @@
     <!-- 光夜变奏 -->
     <div>
       <div class="pc-homepage-background2">
+        <div class="pc-picBorder">
+          <img src="@/assets/HomePage/picBorder.png" />
+        </div>
+
+        <div class="pc-carousel">
+          <myPic :list="images"></myPic>
+        </div>
+
         <div class="pc-page2-img-left">
           <img src="../assets//HomePage/Page2/左.png" alt="" />
         </div>
@@ -77,11 +85,19 @@
 <script>
 export default {
   name: "myContainer",
-  // created() {
-  //   window.addEventListener("hashchange", function () {
-  //     location.reload();
-  //   });
-  // },
+  data() {
+    return {
+      images: [
+        require("@/assets/HomePage/111.png"),
+        require("@/assets/HomePage/222.png"),
+        require("@/assets/HomePage/111.png"),
+        require("@/assets/HomePage/222.png"),
+        require("@/assets/HomePage/111.png"),
+        require("@/assets/HomePage/111.png"),
+        require("@/assets/HomePage/111.png"),
+      ],
+    };
+  },
 };
 </script>
 
@@ -123,8 +139,8 @@ export default {
   position: absolute;
   bottom: 0px;
   right: 0px;
-  width: 100%;
-  height: 100%;
+  width: 1920px;
+  height: 1080px;
   z-index: 0;
   /* transform: scale(0.9, 0.9); */
 }
@@ -224,5 +240,19 @@ export default {
   font-size: 41px;
   font-family: "nansongshuju";
   color: #d6b367;
+}
+
+.pc-carousel {
+  z-index: 100;
+  position: absolute;
+  right: 150px;
+  top: 280px;
+}
+
+.pc-picBorder {
+  z-index: 101;
+  position: absolute;
+  right: 100px;
+  top: 363px;
 }
 </style>

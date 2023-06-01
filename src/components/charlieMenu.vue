@@ -133,6 +133,7 @@ ul {
   font-family: "nansongshuju";
   text-align: right;
   color: #d6b367;
+  cursor: pointer;
 }
 
 .pc-menu li .pc-submenu {
