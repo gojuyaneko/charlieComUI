@@ -40,7 +40,7 @@ li {
 
 @font-face {
   font-family: "nansongshuju";
-  src: url("../public/font/南宋书局体.ttf");
+  src: url("../public/fonts/南宋书局体.ttf");
 }
 
 .position-absolute {

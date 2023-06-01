@@ -30,7 +30,7 @@ module.exports = {
             mediaQuery: false,
             minPixelValue: 12,
             exclude: /node_modules/i
- 
+
           }),
         ]
       }

@@ -21,6 +21,7 @@
           <charlie-dia-menu></charlie-dia-menu>
         </div>
       </div>
+      <charlie-dia-menu></charlie-dia-menu>
     </div>
   </div>
 </template>
@@ -32,7 +33,7 @@ export default {
   components: {CharlieDiaArti, charlieDiaMenu},
   data() {
     return {
-      charliePhoto: require("../../assets/charlie/c-6-allback.png"),
+      charliePhoto: require("/src/assets/charlie/c-6-allback.png"),
       chapter: 6,
       diaTitle:'',
       diaContent: [

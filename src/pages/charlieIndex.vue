@@ -11,16 +11,16 @@
 
       <!-- 查理苏人像 -->
       <div class="pc-charlie-portrait">
-        <img src="./../assets/HomePage/Page1/查理.png" alt="" />
+        <img src="../assets/HomePage/Page1/查理.png" alt="" />
       </div>
       <!-- 查理苏字体加宝石 -->
       <div class="pc-charlie-name">
-        <img src="./../assets/HomePage/Page1/查理苏.png" alt="" />
+        <img src="../assets/HomePage/Page1/查理苏.png" alt="" />
       </div>
       <!-- 关于charlie图标-->
       <div class="pc-icon-aboutcharlie">
         <router-link to="/about">
-          <img src="./../assets//HomePage/Page1/关于.png" alt="" />
+          <img src="../assets//HomePage/Page1/关于.png" alt="" />
         </router-link>
       </div>
     </div>
@@ -30,10 +30,10 @@
     <div>
       <div class="pc-homepage-background2">
         <div class="pc-page2-img-left">
-          <img src="./../assets//HomePage/Page2/左.png" alt="" />
+          <img src="../assets//HomePage/Page2/左.png" alt="" />
         </div>
         <div class="pc-page2-title-lightnight">
-          <img src="./../assets//HomePage/Page2/标题.png" alt="" />
+          <img src="../assets//HomePage/Page2/标题.png" alt="" />
         </div>
       </div>
     </div>
@@ -42,15 +42,15 @@
     <!-- 灵犀相册 -->
     <div class="pc-homepage-background2">
       <div class="pc-img-right">
-        <img src="./../assets//HomePage/Page3/右.png" alt="" />
+        <img src="../assets//HomePage/Page3/右.png" alt="" />
       </div>
       <div class="pc-icon-enter">
         <router-link to="/enter">
-          <img src="./../assets//HomePage/Page3/进入.png" alt="" />
+          <img src="../assets//HomePage/Page3/进入.png" alt="" />
         </router-link>
       </div>
       <div class="pc-page3-title-photograph">
-        <img src="./../assets//HomePage/Page3/标题.png" alt="" />
+        <img src="../assets//HomePage/Page3/标题.png" alt="" />
       </div>
     </div>
 
@@ -61,10 +61,10 @@
         <myMenu></myMenu>
       </div>
       <div class="pc-page4-img-left">
-        <img src="./../assets//HomePage/Page4/左.png" alt="" />
+        <img src="../assets//HomePage/Page4/左.png" alt="" />
       </div>
       <div class="pc-page4-title-memory">
-        <img src="./../assets//HomePage/Page4/标题.png" alt="" />
+        <img src="../assets//HomePage/Page4/标题.png" alt="" />
       </div>
     </div>
 
