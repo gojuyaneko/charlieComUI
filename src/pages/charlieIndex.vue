@@ -130,8 +130,8 @@ export default {
 /* 查理苏字体加宝石 */
 .pc-charlie-name {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 507px;
+  height: 253px;
   top: 175px;
   left: 175px;
 }
