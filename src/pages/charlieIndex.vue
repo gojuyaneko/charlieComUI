@@ -9,15 +9,12 @@
         <myIndex></myIndex>
       </div>
 
-      <!-- 查理苏人像 -->
       <div class="pc-charlie-portrait">
         <img src="../assets/HomePage/Page1/查理.png" alt="" />
       </div>
-      <!-- 查理苏字体加宝石 -->
       <div class="pc-charlie-name">
         <img src="../assets/HomePage/Page1/查理苏.png" alt="" />
       </div>
-      <!-- 关于charlie图标-->
       <div class="pc-icon-aboutcharlie">
         <router-link to="/about">
           <img src="../assets//HomePage/Page1/关于.png" alt="" />
@@ -32,9 +29,8 @@
         <div class="pc-picBorder">
           <img src="@/assets/HomePage/picBorder.png" />
         </div>
-
         <div class="pc-carousel">
-          <myPic :list="images"></myPic>
+          <myPic></myPic>
         </div>
 
         <div class="pc-page2-img-left">
@@ -85,19 +81,6 @@
 <script>
 export default {
   name: "myContainer",
-  data() {
-    return {
-      images: [
-        require("@/assets/HomePage/111.png"),
-        require("@/assets/HomePage/222.png"),
-        require("@/assets/HomePage/111.png"),
-        require("@/assets/HomePage/222.png"),
-        require("@/assets/HomePage/111.png"),
-        require("@/assets/HomePage/111.png"),
-        require("@/assets/HomePage/111.png"),
-      ],
-    };
-  },
 };
 </script>
 
@@ -147,8 +130,8 @@ export default {
 /* 查理苏字体加宝石 */
 .pc-charlie-name {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 507px;
+  height: 253px;
   top: 175px;
   left: 175px;
 }
@@ -164,6 +147,7 @@ export default {
 
 /* 光夜变奏 */
 .pc-page2-img-left img {
+  z-index: auto;
   position: absolute;
   width: 100%;
   bottom: 0px;
@@ -175,6 +159,7 @@ export default {
   width: 638px;
   height: 119px;
 }
+
 /* 灵犀相册 */
 .pc-icon-enter img {
   position: absolute;
@@ -243,16 +228,16 @@ export default {
 }
 
 .pc-carousel {
-  z-index: 100;
+  z-index: 3;
   position: absolute;
-  right: 150px;
-  top: 280px;
+  right: 130px;
+  top: 340px;
 }
 
 .pc-picBorder {
-  z-index: 101;
+  z-index: 4;
   position: absolute;
-  right: 100px;
-  top: 363px;
+  right: 130px;
+  top: 380px;
 }
 </style>

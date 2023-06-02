@@ -11,6 +11,7 @@
         </div>
       </div>
     </div>
+
     <div class="carousel-arrows">
       <span class="carousel-arrow prev" @click="prev">
         <img src="@/assets/HomePage/pre.png" />
@@ -83,7 +84,6 @@ export default {
 
 <style scoped>
 .Swiper {
-  z-index: 1;
   width: 100%;
   height: 100%;
   position: relative;
@@ -109,7 +109,7 @@ export default {
 .one {
   z-index: 1;
   transform: scale(0.8);
-  left: 200px;
+  left: 100px;
 }
 .two {
   z-index: 2;
@@ -131,7 +131,27 @@ export default {
   transform: scale(0.8);
 }
 
-/* 圆点 */
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 20;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  color: #d6b367;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: -90px;
+  left: 40%;
+  /* transform: translateX(60%); */
+}
+
 .carousel-dots {
   position: absolute;
   top: 530px;
@@ -152,7 +172,7 @@ export default {
 
 .carousel-arrows {
   position: absolute;
-  z-index: 6;
+  z-index: 100;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
