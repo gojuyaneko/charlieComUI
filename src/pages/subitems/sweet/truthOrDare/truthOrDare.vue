@@ -1,40 +1,40 @@
 <template>
   <div class="truth-or-dare">
-    <div class="td-l-n">
-      LIGHT AND NIGHT
+    <div class="truth-or-dare-bg">
+      <div class="td-l-n">LIGHT AND NIGHT</div>
+      <div>
+        <h3 class="td-h3-text">真心话大冒险</h3>
+        <h4 class="td-h4-text">Truth or dare</h4>
+      </div>
+      <div class="td-com-card">
+        <td-card></td-card>
+      </div>
     </div>
-    <div>
-      <h3 class="td-h3-text">
-        真心话大冒险
-      </h3>
-      <h4 class="td-h4-text">
-        Truth or dare
-      </h4>
-    </div>
-   <div class="td-com-card">
-      <td-card></td-card> 
-        </div>
-    
   </div>
 </template>
 
 <script>
-import tdCard from '@/pages/subitems/sweet/truthOrDare/components/tdCard'
+import tdCard from "@/pages/subitems/sweet/truthOrDare/components/tdCard";
 export default {
-  components:{ tdCard }
-}
+  components: { tdCard },
+};
 </script>
 
 <style scoped lang="scss">
 .truth-or-dare {
   width: 100%;
   height: 100%;
-  background: url('./img/tdbg.png') no-repeat;
+  background: url("./img/tdbg-min.jpg") no-repeat;
   background-size: 100% 100%;
   overflow: hidden;
   user-select: none;
 }
-
+.truth-or-dare-bg {
+  width: 100%;
+  height: 100%;
+  background: url("./img/tdbg.png") no-repeat;
+  background-size: 100% 100%;
+}
 .td-items {
   display: flex;
   position: absolute;
@@ -66,7 +66,6 @@ export default {
   top: 225px;
   width: 76px;
   z-index: 18;
-
 }
 .td-h3-text {
   font-size: 86px;
@@ -102,7 +101,7 @@ export default {
 .td-com-card {
   position: relative;
   top: 40px;
-  left:110px;
+  left: 110px;
   z-index: 99;
 }
 
