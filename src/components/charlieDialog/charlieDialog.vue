@@ -5,16 +5,14 @@
       <img class="com-dia-star2" src="../../assets/bgstar.png" />
       <div class="com-dia-main">
         <div class="com-dia-left">
-          <a class="com-dia-video" target="_blank" href="http://www.bilibili.com">
+          <a class="com-dia-video" target="_blank" :href="videoUrl">
           </a>
           <picture>
-            <img :src="charliePhoto" alt="" class="com-dia-charlie" />
+            <img :src="asideImg" alt="" class="com-dia-aside-img" />
           </picture>
         </div>
         <div class="com-dia-right">
-          <h2 class="com-dia-title">
-            {{ diaTitle }}
-          </h2>
+          <img :src="diaTitle" alt="" class="com-dia-title">
           <article class="com-dia-content">
             <charlie-dia-arti></charlie-dia-arti>
           </article>
@@ -30,11 +28,15 @@ import CharlieDiaArti from './charlieDiaArti.vue';
 import charlieDiaMenu from './charlieDiaMenu.vue';
 export default {
   components: {CharlieDiaArti, charlieDiaMenu},
+  props:{
+    videoUrl:String, // 传入地址链接需为完整地址，如 http://www.bilibili.com
+    asideImg:String,
+    diaTitle:String
+  },
   data() {
     return {
-      charliePhoto: require("/src/assets/charlie/c-6-allback.png"),
+      quarter:'Quarter01',
       chapter: 6,
-      diaTitle:'',
       diaContent: [
         {
           name: "我",
@@ -184,7 +186,7 @@ export default {
   height: 100%;
 }
 
-.com-dia-charlie {
+.com-dia-aside-img {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -205,6 +207,13 @@ export default {
 }
 .com-dia-right {
   height:100%;
+}
+.com-dia-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 381px;
+  transform: translateY(-100%);
 }
 .com-dia-content {
   height: 80%;

@@ -108,6 +108,7 @@ export default {
 .Swiper-content img {
   height: 100%;
   width: 100%;
+  
 }
 .one {
   z-index: 1;

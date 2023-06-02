@@ -155,7 +155,8 @@ export default {
   top: 135px;
   width: 638px;
   height: 119px;
-}
+  overflow: hidden;
+} 
 
 /* 灵犀相册 */
 .pc-icon-enter img {

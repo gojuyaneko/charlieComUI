@@ -1,6 +1,6 @@
 <template>
   <div class="light-and-night">
-    <charlieDialog>
+    <charlieDialog :videoUrl="videoUrl" :asideImg="asideImg" :diaTitle="diaTitle"> 
     </charlieDialog>
   </div>
 </template>
@@ -11,7 +11,10 @@ export default {
   data(){
     return {
       charliePhoto:require('../../assets/charlie/c-6-allback.png'),
-      chapter:6
+      chapter:6,
+      videoUrl:'http://www.bilibili.com',
+      asideImg:require('../../assets/charlie/c-6-allback.png'),
+      diaTitle:require('./img/diatitle.png')
     }
   },
   components: {charlieDialog}
