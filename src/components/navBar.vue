@@ -181,12 +181,6 @@ export default {
   background-color: transparent;
   border-bottom: none;
 }
-::v-deep {
-  .el-menu--popup {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-  }
-}
 /* 导航栏主题跳转至首页 */
 .nav-theme {
   height: 65px;
@@ -240,6 +234,7 @@ export default {
   padding: 0px 30px;
   background-color: transparent !important;
   text-align: center;
+  color: #d6b367 !important;
   font-size: 25px;
 }
 /* hove和active */

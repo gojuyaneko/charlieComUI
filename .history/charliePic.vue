@@ -109,7 +109,7 @@ export default {
 .one {
   z-index: 1;
   transform: scale(0.8);
-  left: 200px;
+  left: 100px;
 }
 .two {
   z-index: 2;
@@ -130,10 +130,10 @@ export default {
   z-index: 1;
   transform: scale(0.8);
 }
-/* 箭头 */
+
 .carousel-control-prev,
 .carousel-control-next {
-  z-index: 120;
+  z-index: 20;
   position: absolute;
   top: 40%;
   transform: translateY(-50%);
@@ -151,7 +151,7 @@ export default {
   left: 40%;
   /* transform: translateX(60%); */
 }
-/* 圆点 */
+
 .carousel-dots {
   position: absolute;
   top: 530px;
