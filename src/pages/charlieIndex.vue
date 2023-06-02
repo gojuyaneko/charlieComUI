@@ -26,9 +26,6 @@
     <!-- 光夜变奏 -->
     <div>
       <div class="pc-homepage-background2">
-        <div class="pc-picBorder">
-          <img src="@/assets/HomePage/picBorder.png" />
-        </div>
         <div class="pc-carousel">
           <myPic></myPic>
         </div>
@@ -128,12 +125,12 @@ export default {
   /* transform: scale(0.9, 0.9); */
 }
 /* 查理苏字体加宝石 */
-.pc-charlie-name {
+.pc-charlie-name img {
   position: absolute;
   width: 507px;
   height: 253px;
-  top: 175px;
-  left: 175px;
+  top: 230px;
+  left: 185px;
 }
 
 /* 关于charlie图标 */
@@ -152,7 +149,7 @@ export default {
   width: 100%;
   bottom: 0px;
 }
-.pc-page2-title-lightnight {
+.pc-page2-title-lightnight img {
   position: absolute;
   right: 30px;
   top: 135px;
@@ -232,12 +229,5 @@ export default {
   position: absolute;
   right: 130px;
   top: 340px;
-}
-
-.pc-picBorder {
-  z-index: 4;
-  position: absolute;
-  right: 130px;
-  top: 380px;
 }
 </style>

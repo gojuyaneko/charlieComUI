@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="pc-picBorder">
+      <img src="@/assets/HomePage/picBorder.png" />
+    </div>
     <div class="Swiper">
       <div class="Swiper-content">
         <div
@@ -39,7 +42,7 @@ export default {
       currentIndex: 0,
       imageUrl: [
         require("@/assets/HomePage/222.png"),
-        require("@/assets/HomePage/222.png"),
+        require("@/assets/HomePage/111.png"),
         require("@/assets/HomePage/222.png"),
         require("@/assets/HomePage/111.png"),
         require("@/assets/HomePage/111.png"),
@@ -152,7 +155,7 @@ export default {
 
 .carousel-arrows {
   position: absolute;
-  z-index: 6;
+  z-index: 3;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -165,12 +168,20 @@ export default {
 }
 .carousel-arrow.prev {
   position: relative;
-  top: 80px;
+  top: 60px;
   left: 20px;
 }
 .carousel-arrow.next {
   position: relative;
   left: 860px;
-  top: 80px;
+  top: 60px;
+}
+.pc-picBorder img {
+  z-index: 2;
+  position: absolute;
+  width: 960px;
+  height: 450px;
+  bottom: -70px;
+  right: 5px;
 }
 </style>
