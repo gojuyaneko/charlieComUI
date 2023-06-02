@@ -228,14 +228,14 @@ export default {
 }
 
 .pc-carousel {
-  z-index: 0;
+  z-index: 3;
   position: absolute;
   right: 130px;
   top: 340px;
 }
 
 .pc-picBorder {
-  z-index: 1;
+  z-index: 4;
   position: absolute;
   right: 130px;
   top: 380px;
