@@ -13,17 +13,13 @@ export default new Router({
     base:process.env.BASE_URL,
     routes:[
         {
-            path: '/home',
+            path: '/',
             name: 'home',
             component: charlieIndex
         },
         {
-            path: '/',
-            redirect:'/home'
-        },
-        {
             path: '/index.html',
-            redirect:'/home'
+            redirect:'/'
         },
         {
             path:'/truthordare',
