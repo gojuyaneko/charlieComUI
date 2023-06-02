@@ -8,14 +8,16 @@
             <input class="btn" type="button">
           </span>
           <div class="subNav">
-            <a href="#">时间顺序</a>
+            <span class="subNav_title">
+            <a  href="#">时间顺序</a>
+            </span>
             <div class="subNavContent">
-              <a href="#">时间顺序</a>
-              <a href="#">时间倒序</a>
-              <a href="#">价格升序</a>
-              <a href="#">价格降序</a>
-              <a href="#">名称</a>
-              <a href="#">种类</a>
+              <li><a href="#">时间顺序</a></li>
+              <li><a href="#">时间倒序</a></li>
+              <li><a href="#">价格升序</a></li>
+              <li><a href="#">价格降序</a></li>
+              <li><a href="#">名称</a></li>
+              <li><a href="#">种类</a></li>
             </div>
           </div>
         </div>
@@ -160,34 +162,37 @@
   }
     .subNav{
       width: 100%;
-      height: 167px;
+      /* height: 167px; */
       background: url('./images/button.png') center center no-repeat;
       background-size: 100%,100%;
-      line-height: 167px;
+      line-height: 50px;
       text-align: center;
       font-size: 15px;
       margin-left: 20px;
       position: relative;
       display: inline-block;/* 让元素具有块级元素和行内元素的特性,即将块级元素转化为内联元素 */
   }
+
   a{
       color: #d6b367;
       text-decoration: none;
-      /* font-size: 150%; */
       font-family: "nansongshuju";
   }
   .subNavContent {
       display: none;/* 将某元素隐藏起来 */  
       width: 70%;
-      margin-top: -35px;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      z-index:999;
       background-color: rgba(103,77,151,0.5);
   
   }
-  
+  /* .subNavContent li{
+    height: 20px
+  } */
   .subNavContent a {
+    /* height: 50px; */
       text-shadow: -0.1em 0.2em 0.3em black;
       display: block;
       /* 将a标签设置为块级标签 */
