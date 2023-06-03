@@ -167,43 +167,47 @@ export default {
 }
 
 ::v-deep .el-dialog__wrapper .meet {
-  background:url("./image/卡牌.png") no-repeat;
+  background:url("./image/meet.png") no-repeat;
   background-size: 100% 100%;
   top: 96px;
   margin-left: 9.5%;
   position: absolute;
-  height: 660px;
-  width: 1550px;
+  height:650px;
+  width: 1500px;
+  background-position: center;
 }
 
 ::v-deep .el-dialog__wrapper .trip {
-  background:url("./image/卡牌.png") no-repeat;
+  background:url("./image/trip.png") no-repeat;
   background-size: 100% 100%;
   top: 96px;
   margin-left: 9.5%;
   position: absolute;
-  height: 660px;
-  width: 1550px;
+  height:650px;
+  width: 1500px;
+  background-position: center;
 }
 
 ::v-deep .el-dialog__wrapper .sky {
-  background:url("./image/卡牌.png") no-repeat;
+  background:url("./image/sky.png") no-repeat;
   background-size: 100% 100%;
   top: 96px;
   margin-left: 9.5%;
   position: absolute;
-  height: 660px;
-  width: 1550px;
+  height:650px;
+  width: 1500px;
+  background-position: center;
 }
 
 ::v-deep .el-dialog__wrapper .moon {
-  background:url("./image/卡牌.png") no-repeat;
+  background: url("./image/moon.png") no-repeat;
   background-size: 100% 100%;
   top: 96px;
   margin-left: 9.5%;
   position: absolute;
-  height: 660px;
-  width: 1550px;
+  height: 650px;
+  width: 1500px;
+  background-position: center;
 }
 
 
@@ -252,7 +256,7 @@ h4 {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  top: 540px;
+  top: 550px;
   left: -50px;
   width: 141px;
   height: 45px;
@@ -263,7 +267,7 @@ h4 {
 }
 
 .diapage {
-  top:560px;
+  top:550px;
   left:40px;
   display: inline-block;
   position: relative;
