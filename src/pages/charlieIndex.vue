@@ -227,7 +227,7 @@ export default {
 /* 记忆收藏页上的组件 */
 .pc-menu {
   position: absolute;
-  right: 330px;
+  right: 355px;
   top: 408px;
   z-index: 100;
 }

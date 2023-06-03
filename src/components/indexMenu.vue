@@ -90,9 +90,9 @@ ul {
 }
 ul img {
   position: absolute;
-  width: 30px;
-  height: 25px;
+  width: 35px;
+  height: 30px;
   top: 42%;
-  left: 96%;
+  left: 345px;
 }
 </style>

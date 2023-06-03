@@ -68,6 +68,10 @@ export default {
           url: require("@/assets/HomePage/111.png"),
           link: "/detail/3",
         },
+        {
+          url: require("@/assets/HomePage/111.png"),
+          link: "/detail/3",
+        },
       ],
     };
   },
