@@ -40,19 +40,19 @@ export default {
       navItems: [
         {
           name: "< 邂逅",
-          nextUrl: "/encounter",
+          nextUrl: "",
           childItems: [
             {
               name: '第一章/ "援塞"之行',
-              nextUrl: "",
+              nextUrl: "/rescueTrip",
             },
             {
               name: "第二章/ 无名侵蚀",
-              nextUrl: "",
+              nextUrl: "/erosion",
             },
             {
               name: "第三章/ 真相大白",
-              nextUrl: "",
+              nextUrl: "/truth",
             },
           ],
         },
