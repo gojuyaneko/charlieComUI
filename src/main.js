@@ -27,7 +27,7 @@ import {
   Collapse,
   CollapseItem,
   Image,
-} from 'element-ui';
+} from "element-ui";
 
 Vue.use(Pagination);
 Vue.use(Dialog);

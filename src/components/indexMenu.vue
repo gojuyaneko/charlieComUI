@@ -3,15 +3,18 @@
     <div>
       <ul class="pc-menu">
         <li
-          v-for="(item, index) in navItems"
-          :key="index"
-          @click="goTo(item.nextUrl)"
+          v-for="(section, index) in sections"
+          :key="section.ref"
           @mouseover="changeColor"
           :style="{ paddingBottom: boxPadding(index) }"
         >
-          <span>{{ item.name }}</span>
+          <a @click="jump(section)">{{ section.name }}</a>
         </li>
+        <img src="@/assets/HomePage/star.png" />
       </ul>
+      <div v-for="section in sections" :key="section.ref" :ref="section.ref">
+        {{ section.content }}
+      </div>
     </div>
   </div>
 
@@ -22,31 +25,25 @@
 export default {
   name: "indexMenu",
   components: {},
-  props: {},
+  props: {
+    sections: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
       isHover: false,
-      navItems: [
-        {
-          name: "光夜变奏",
-          nextUrl: "/lightandnight",
-        },
-        {
-          name: "灵犀相册",
-          nextUrl: "/memory",
-        },
-        {
-          name: "记忆收藏",
-          nextUrl: "/listen",
-        },
-      ],
     };
   },
   mounted() {},
   methods: {
-    goTo(url) {
-      this.$router.push(url);
+    jump(section) {
+      this.$refs[section.ref][0].scrollIntoView({
+        behavior: "smooth",
+      });
     },
+
     changeColor() {
       const lis = document.querySelectorAll("li");
       for (var i = 0; i < lis.length; i++) {
@@ -90,5 +87,12 @@ ul {
   text-align: left;
   color: #d6b367;
   cursor: pointer;
+}
+ul img {
+  position: absolute;
+  width: 30px;
+  height: 25px;
+  top: 42%;
+  left: 96%;
 }
 </style>
