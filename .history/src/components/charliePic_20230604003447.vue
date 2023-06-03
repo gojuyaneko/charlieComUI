@@ -50,10 +50,10 @@ export default {
       imageData: [
         {
           url: require("@/assets/HomePage/111.png"),
-          link: "/lightandnight",
+          link: "/detail/1",
         },
         {
-          url: require("@/assets/HomePage/111.png"),
+          url: require("@/assets/dialogbg1.png"),
           link: "/detail/2",
         },
         {
