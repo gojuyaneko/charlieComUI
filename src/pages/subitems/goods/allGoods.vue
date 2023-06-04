@@ -221,7 +221,6 @@
 
 #goods li {
   flex: 0 0 calc(16.6667% - 2px); /* 一行固定六个元素，考虑边框的宽度 */
-  
   margin:0 0 -1px -1px;
   padding: 10px;
   border: 1px solid #b99950;
