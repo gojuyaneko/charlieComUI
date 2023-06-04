@@ -25,7 +25,7 @@
     <!-- 背景2 -->
     <!-- 光夜变奏 -->
     <div>
-      <div class="pc-homepage-background2" id="1">
+      <div class="pc-homepage-background2" ref="pcBg2">
         <div class="pc-carousel">
           <myPic></myPic>
         </div>
@@ -41,7 +41,7 @@
 
     <!-- 背景2 -->
     <!-- 灵犀相册 -->
-    <div class="pc-homepage-background2" id="2">
+    <div class="pc-homepage-background2" ref="pcBg3">
       <div class="pc-img-right">
         <img src="../assets//HomePage/Page3/右.png" alt="" />
       </div>
@@ -57,7 +57,7 @@
 
     <!-- 背景3 -->
     <!-- 记忆收藏 -->
-    <div class="pc-homepage-background2" id="3">
+    <div class="pc-homepage-background2" ref="pcBg4">
       <div class="pc-menu">
         <myMenu></myMenu>
       </div>
@@ -83,19 +83,16 @@ export default {
       sections: [
         {
           name: "光夜变奏",
-          ref: "section1",
-          content: ' <div class="pc-homepage-background2" id="1"> </div>',
+          ref: "pcBg2",
         },
         {
           name: "灵犀相册",
 
-          ref: "section2",
-          content: ' <div class="pc-homepage-background2" id="2"> </div>',
+          ref: "pcBg3",
         },
         {
           name: "记忆收藏",
-          ref: "section1",
-          content: ' <div class="pc-homepage-background2" id="3"> </div>',
+          ref: "pcBg4",
         },
       ],
     };
