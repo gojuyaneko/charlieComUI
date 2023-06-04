@@ -11,12 +11,26 @@
       <span class="title3" tabindex="3" @click="show(3)" :class="index===3"></span>
     </ul>
     <div class="text-bg">
-      <div class="text">
-        <ul class="choice">
+      <div class="text" v-show="index===1">
+        <div v-for="( item,index) in meetContent" :key="index" class="text-div">
+          <span class="dialog-span">
+            <span v-if="item.name !== '我' && item.name !== '查理苏'" :data-person="item.name" style="color:#CCFFE5;margin-right: 20px;">{{item.name }}</span>
+            <span v-if="item.name === '查理苏'" :data-person="item.name">{{item.name }}</span>
+          </span>
+          <p class="dialog-p" :data-person-p="item.name">
+            {{ item.content }}
+          </p>
+          <span class="dialog-span">
+            <span v-if="item.name === '我'" :data-person="item.name">
+              {{ item.name }}
+            </span>
+          </span>
+        </div>
+      </div>
+      <ul class="choice">
           <li class="choice1" v-show="index===1"></li>
           <li class="choice2" v-show="index===1"></li>
         </ul>
-      </div>
     </div>
 
     <a class="video-btn" target="_blank" href="http://www.bilibili.com"></a>
@@ -28,6 +42,83 @@ export default {
   data() {
     return {
       index: 1,
+      meetContent: [
+        {
+          name: "旁白",
+          content:
+            "嘀——"
+        },
+        {
+          name: "护士",
+          content:
+            "查医生，7号床发生窦性心动过速！心率已达160次！",
+        },
+        {
+          name: "查理苏",
+          content:
+            "血压尿量如何？",
+        },
+        {
+          name: "我",
+          content:
+            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
+        },
+        {
+          name: "查理苏",
+          content:
+            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
+        },
+        {
+          name: "旁白",
+          content:
+            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+        },
+        {
+          name: "我",
+          content:
+            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
+        },
+        {
+          name: "查理苏",
+          content:
+            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
+        },
+        {
+          name: "旁白",
+          content:
+            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+        },
+        {
+          name: "我",
+          content:
+            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
+        },
+        {
+          name: "查理苏",
+          content:
+            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
+        },
+        {
+          name: "旁白",
+          content:
+            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+        },
+        {
+          name: "我",
+          content:
+            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
+        },
+        {
+          name: "查理苏",
+          content:
+            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
+        },
+        {
+          name: "旁白",
+          content:
+            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+        },
+      ],
     }
   },
   methods: {
@@ -64,7 +155,7 @@ export default {
   background-size: 100% 100%;
   position: relative;
   top:85px;
-  left: 200px;
+  left: 110px;
   height: 20px;
   width: 188px;
 }
@@ -74,7 +165,7 @@ export default {
   background-size: 100% 100%;
   position: relative;
   top:85px;
-  left: 200px;
+  left: 110px;
   height: 21px;
   width: 322px;
 }
@@ -84,7 +175,7 @@ export default {
   background-size: 100% 100%;
   position: relative;
   top:85px;
-  left: 200px;
+  left: 110px;
   height: 21px;
   width: 417px;
 }
@@ -108,7 +199,7 @@ export default {
   background: url('./邂逅1/text.png') no-repeat;
   background-size: 100% 97%;
   height: 760px;
-  width: 1630px;
+  width: 1680px;
   position: relative;
   float: right;
   top:120px;
@@ -120,7 +211,7 @@ export default {
   position: relative;
   float: left;
   top:300px;
-  left: 70px;
+  left: 40px;
 }
 
 .title1 {
@@ -178,14 +269,12 @@ export default {
   margin-bottom: 20px;
 }
 
-
-
 .choice {
   display: flex;
   flex-direction: column;
   position: relative;
   float: left;
-  top: 405px;
+  top: -100px;
   left: 27px;
 }
 
@@ -209,5 +298,63 @@ export default {
   position: relative;
   cursor: pointer;
 }
+
+.text {
+  width: 900px;
+  height: 500px;
+  overflow-y: scroll;
+  position: relative;
+  top:150px;
+  left:110px
+}
+.text-div {
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  color: white;
+  font-family: "nansongshuju";
+}
+.dialog-p {
+  width: 600px;
+  margin-bottom: 20px;
+}
+.dialog-span {
+  width: 110px;
+}
+
+span[data-person="我"] {
+  color: #eb4982;
+  margin-left: 18px;
+}
+span[data-person="查理苏"] {
+  color: #b99e63;
+  margin-right: 35px;
+}
+span[data-person="旁白"] {
+  display: none;
+}
+p[data-person-p="旁白"] {
+  color: #848484;
+  text-indent: 2em;
+}
+p[data-person-p="我"] {
+  text-align: right;
+}
+
+::-webkit-scrollbar {
+  width: 25px;
+}
+::-webkit-scrollbar-track {
+  box-shadow:inset 0 0 5px #b99e63;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border: 4.5px solid transparent;
+  background-clip: content-box;
+  background-color: rgb(185,158,99,0.5);
+  border-radius: 10px;
+
+}
+
 
 </style>

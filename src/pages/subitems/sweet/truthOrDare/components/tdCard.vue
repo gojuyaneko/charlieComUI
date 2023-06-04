@@ -33,9 +33,7 @@
           <div class="td-dialog-content">
             <div v-for="( item,index) in diaContent" :key="index" class="td-dialog-div">
               <span class="td-dialog-span">
-                <span v-if="item.name !== '我'" :data-person="item.name">{{
-                  item.name
-                }}</span>
+                <span v-if="item.name !== '我'" :data-person="item.name">{{item.name }}</span>
               </span>
               <p class="td-dialog-p" :data-person-p="item.name">
                 {{ item.content }}
