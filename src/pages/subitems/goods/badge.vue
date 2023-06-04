@@ -115,7 +115,6 @@
     
     font-size: 400%;
     font-weight: normal;
-    /* background-color: blue; */
     text-align: right;
   }
 
@@ -123,7 +122,6 @@
     display: flex;
     text-align: right;
     font-size: 150%;
-    /* margin-top: 20px; */
     justify-content: space-between;
   }
   .leftColumn,.rightColumn {
