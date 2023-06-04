@@ -12,9 +12,6 @@
         </li>
         <img src="@/assets/HomePage/star.png" />
       </ul>
-      <div v-for="section in sections" :key="section.ref" :ref="section.ref">
-        {{ section.content }}
-      </div>
     </div>
   </div>
 

@@ -39,7 +39,9 @@ export default {
   mounted() {},
   methods: {
     jump(section) {
-      this.$parent.$refs[section.ref].scrollIntoView({
+      let target = document.querySelector('#'+section.id)
+      console.log(target)
+      this.$refs[section.ref][0].scrollIntoView({
         behavior: "smooth",
       });
     },

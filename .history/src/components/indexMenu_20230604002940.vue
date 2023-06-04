@@ -12,9 +12,6 @@
         </li>
         <img src="@/assets/HomePage/star.png" />
       </ul>
-      <div v-for="section in sections" :key="section.ref" :ref="section.ref">
-        {{ section.content }}
-      </div>
     </div>
   </div>
 
@@ -39,7 +36,11 @@ export default {
   mounted() {},
   methods: {
     jump(section) {
-      this.$parent.$refs[section.ref].scrollIntoView({
+      console.log(section.ref)
+      let target = document.querySelector(section.ref)
+      console.log(target)
+      console.log(this.$parent.$refs)
+      this.$parent.$refs[section.ref][0].scrollIntoView({
         behavior: "smooth",
       });
     },

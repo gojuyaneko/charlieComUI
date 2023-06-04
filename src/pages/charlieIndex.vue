@@ -6,7 +6,7 @@
 
     <div class="pc-homepage-background">
       <div class="pc-myIndex">
-        <myIndex></myIndex>
+        <myIndex :sections="sections"> </myIndex>
       </div>
 
       <div class="pc-charlie-portrait">
@@ -25,7 +25,7 @@
     <!-- 背景2 -->
     <!-- 光夜变奏 -->
     <div>
-      <div class="pc-homepage-background2">
+      <div class="pc-homepage-background2" ref="pcBg2">
         <div class="pc-carousel">
           <myPic></myPic>
         </div>
@@ -41,7 +41,7 @@
 
     <!-- 背景2 -->
     <!-- 灵犀相册 -->
-    <div class="pc-homepage-background2">
+    <div class="pc-homepage-background2" ref="pcBg3">
       <div class="pc-img-right">
         <img src="../assets//HomePage/Page3/右.png" alt="" />
       </div>
@@ -57,7 +57,7 @@
 
     <!-- 背景3 -->
     <!-- 记忆收藏 -->
-    <div class="pc-homepage-background2">
+    <div class="pc-homepage-background2" ref="pcBg4">
       <div class="pc-menu">
         <myMenu></myMenu>
       </div>
@@ -78,6 +78,25 @@
 <script>
 export default {
   name: "myContainer",
+  data() {
+    return {
+      sections: [
+        {
+          name: "光夜变奏",
+          ref: "pcBg2",
+        },
+        {
+          name: "灵犀相册",
+
+          ref: "pcBg3",
+        },
+        {
+          name: "记忆收藏",
+          ref: "pcBg4",
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -156,7 +175,7 @@ export default {
   width: 638px;
   height: 119px;
   overflow: hidden;
-} 
+}
 
 /* 灵犀相册 */
 .pc-icon-enter img {
@@ -205,7 +224,7 @@ export default {
 /* 记忆收藏页上的组件 */
 .pc-menu {
   position: absolute;
-  right: 330px;
+  right: 355px;
   top: 408px;
   z-index: 100;
 }
@@ -226,7 +245,7 @@ export default {
 }
 
 .pc-carousel {
-  z-index: 3;
+  z-index: 1;
   position: absolute;
   right: 130px;
   top: 340px;

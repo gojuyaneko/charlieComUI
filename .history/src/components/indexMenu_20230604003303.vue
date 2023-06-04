@@ -39,7 +39,7 @@ export default {
   mounted() {},
   methods: {
     jump(section) {
-      this.$parent.$refs[section.ref].scrollIntoView({
+      this.$refs[section.ref][0].scrollIntoView({
         behavior: "smooth",
       });
     },

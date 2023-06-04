@@ -2,6 +2,9 @@
   <div data-device="pc">
     <div>
       <ul class="pc-menu">
+        <span>
+          <img src="@/assets/HomePage/star.png" />
+        </span>
         <li
           v-for="(item, index) in navItems"
           :key="index"
@@ -9,7 +12,9 @@
           :style="{ paddingBottom: boxPadding1(index) }"
         >
           <span>{{ item.name }}</span>
+
           <ul class="pc-submenu">
+            <img src="@/assets/HomePage/star.png" />
             <li
               v-for="(childitem, index) in item.childItems"
               :key="index"
@@ -157,10 +162,24 @@ ul {
   // background-color: orange;
   width: max-content;
   border-right: #d6b367 solid 3px;
-  padding-right: 30px;
+  padding-right: 35px;
   color: #d6b367;
   font-size: 35px;
   font-family: "nansongshuju";
   text-align: right;
+}
+.pc-submenu img {
+  position: absolute;
+  width: 30px;
+  height: 25px;
+  top: 43%;
+  right: -15%;
+}
+.pc-menu span img {
+  position: absolute;
+  width: 35px;
+  height: 30px;
+  top: 40%;
+  right: -5%;
 }
 </style>
