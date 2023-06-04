@@ -5,26 +5,28 @@
     <!-- 首页背景 -->
 
     <div class="pc-homepage-background">
-      <div class="pc-myIndex">
-        <myIndex :sections="sections"> </myIndex>
-      </div>
+      <div class="pc-homepage-background-h">
+        <div class="pc-myIndex">
+          <myIndex :sections="sections"> </myIndex>
+        </div>
 
-      <div class="pc-charlie-portrait">
-        <img src="../assets/HomePage/Page1/查理.png" alt="" />
-      </div>
-      <div class="pc-charlie-name">
-        <img src="../assets/HomePage/Page1/查理苏.png" alt="" />
-      </div>
-      <div class="pc-icon-aboutcharlie">
-        <router-link to="/about">
-          <img src="../assets//HomePage/Page1/关于.png" alt="" />
-        </router-link>
+        <div class="pc-charlie-portrait">
+          <img src="../assets/HomePage/Page1/查理.png" alt="" />
+        </div>
+        <div class="pc-charlie-name">
+          <img src="../assets/HomePage/Page1/查理苏.png" alt="" />
+        </div>
+        <div class="pc-icon-aboutcharlie">
+          <router-link to="/about">
+            <img src="../assets//HomePage/Page1/关于.png" alt="" />
+          </router-link>
+        </div>
       </div>
     </div>
 
     <!-- 背景2 -->
     <!-- 光夜变奏 -->
-    <div>
+    <div class="pc-homepage-background2-l">
       <div class="pc-homepage-background2" ref="pcBg2">
         <div class="pc-carousel">
           <myPic></myPic>
@@ -41,36 +43,40 @@
 
     <!-- 背景2 -->
     <!-- 灵犀相册 -->
-    <div class="pc-homepage-background2" ref="pcBg3">
-      <div class="pc-img-right">
-        <img src="../assets//HomePage/Page3/右.png" alt="" />
-      </div>
-      <div class="pc-icon-enter">
-        <router-link to="/enter">
-          <img src="../assets//HomePage/Page3/进入.png" alt="" />
-        </router-link>
-      </div>
-      <div class="pc-page3-title-photograph">
-        <img src="../assets//HomePage/Page3/标题.png" alt="" />
+    <div class="pc-homepage-background2-l">
+      <div class="pc-homepage-background2" ref="pcBg3">
+        <div class="pc-img-right">
+          <img src="../assets//HomePage/Page3/右.png" alt="" />
+        </div>
+        <div class="pc-icon-enter">
+          <router-link to="/enter">
+            <img src="../assets//HomePage/Page3/进入.png" alt="" />
+          </router-link>
+        </div>
+        <div class="pc-page3-title-photograph">
+          <img src="../assets//HomePage/Page3/标题.png" alt="" />
+        </div>
       </div>
     </div>
 
     <!-- 背景3 -->
     <!-- 记忆收藏 -->
-    <div class="pc-homepage-background2" ref="pcBg4">
-      <div class="pc-menu">
-        <myMenu></myMenu>
+    <div class="pc-homepage-background2-l">
+      <div class="pc-homepage-background2" ref="pcBg4">
+        <div class="pc-menu">
+          <myMenu></myMenu>
+        </div>
+        <div class="pc-page4-img-left">
+          <img src="../assets//HomePage/Page4/左.png" alt="" />
+        </div>
+        <div class="pc-page4-title-memory">
+          <img src="../assets//HomePage/Page4/标题.png" alt="" />
+        </div>
       </div>
-      <div class="pc-page4-img-left">
-        <img src="../assets//HomePage/Page4/左.png" alt="" />
-      </div>
-      <div class="pc-page4-title-memory">
-        <img src="../assets//HomePage/Page4/标题.png" alt="" />
-      </div>
-    </div>
 
-    <div class="pc-indexFooter">
-      <span class="pc-footerFont">1111</span>
+      <div class="pc-indexFooter">
+        <span class="pc-footerFont">1111</span>
+      </div>
     </div>
   </div>
 </template>
@@ -111,9 +117,18 @@ export default {
 ::-webkit-scrollbar {
   display: none;
 }
-
 .pc-homepage-background {
-  background-image: url(./../assets/HomePage/Page1/背景.png);
+  background-image: url(./../assets/HomePage/Page1/首页l.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+  background-size: cover;
+  position: relative;
+  height: 1080px;
+  z-index: 0;
+}
+.pc-homepage-background-h {
+  background-image: url(./../assets/HomePage/Page1/首页.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
@@ -124,7 +139,18 @@ export default {
 }
 
 .pc-homepage-background2 {
-  background-image: url(./../assets/HomePage/Page4/背景2.png);
+  background-image: url(./../assets/HomePage/首页2.jpg);
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+  background-size: cover;
+  position: relative;
+  height: 1080px;
+}
+.pc-homepage-background2-l {
+  background-image: url(./../assets/HomePage/首页2l.jpg);
+
   background-position: center center;
   background-repeat: no-repeat;
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
