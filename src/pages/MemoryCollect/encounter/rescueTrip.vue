@@ -1,10 +1,12 @@
 <template>
   <div class="rescue_trip">
-    <div class="major-title"></div>
+    <div class="major-title">
+      <div class="content"></div>
+    </div>
     <ul class="minor-titles">
-      <li class="title1"></li>
-      <li class="title2"></li>
-      <li class="title3"></li>
+      <li class="title1" tabindex="1" ></li>
+      <li class="title2" tabindex="2"></li>
+      <li class="title3" tabindex="3"></li>
     </ul>
     <div class="text-bg">
       <div class="text">
@@ -12,7 +14,6 @@
           <li class="choice1"></li>
           <li class="choice2"></li>
         </ul>
-        <h4>你好</h4>
       </div>
     </div>
 
@@ -22,7 +23,11 @@
 
 <script>
 export default {
-  name: "rescueTrip"
+    data () {
+    return {
+
+    }
+  },
 }
 </script>
 
@@ -39,11 +44,17 @@ export default {
 .major-title {
   background: url("./邂逅1/title1.png") no-repeat;
   background-size: 95% 95%;
-  height: 121px;
-  width: 416px;
+  height: 70px;
+  width: 406px;
   position: relative;
-  top:150px;
+  top:165px;
   left:145px;
+}
+
+.content {
+  position: relative;
+  top:100px;
+  left: 100px;
 }
 
 .video-btn {
@@ -51,7 +62,7 @@ export default {
   background-size: 100% 100%;
   cursor: pointer;
   position: relative;
-  top: -220px;
+  top: -120px;
   left: 1640px;
   width: 145px;
   height: 50px;
@@ -64,11 +75,11 @@ export default {
 .text-bg {
   background: url('./邂逅1/text.png') no-repeat;
   background-size: 100% 97%;
-  height: 740px;
+  height: 760px;
   width: 1630px;
   position: relative;
   float: right;
-  top:60px;
+  top:120px;
 }
 
 .minor-titles {
@@ -76,42 +87,63 @@ export default {
   flex-direction: column;
   position: relative;
   float: left;
-  top:250px;
+  top:300px;
   left: 70px;
 }
 
 .title1 {
-  background: url("./邂逅1/title2-1.png");
+  background: url("./邂逅1/暗2-1.png");
   background-size: 100% 100%;
-  height: 69px;
-  width: 197px;
+  height: 47px;
+  width: 190px;
   display: inline-block;
   position: relative;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.title1:hover, .title1:focus {
+  background: url("./邂逅1/title2-1.png");
+  background-size: 100% 100%;
   cursor: pointer;
   margin-bottom: 20px;
 }
 
 .title2 {
-  background: url("./邂逅1/title2-2.png");
+  background: url("./邂逅1/暗2-2.png");
   background-size: 100% 100%;
-  height: 69px;
-  width: 197px;
+  height: 47px;
+  width: 190px;
   display: inline-block;
   position: relative;
   cursor: pointer;
   margin-bottom: 20px;
+}
 
+.title2:hover, .title2:focus {
+  background: url("./邂逅1/title2-2.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .title3 {
-  background: url("./邂逅1/title2-3.png");
+  background: url("./邂逅1/暗2-3.png");
   background-size: 100% 100%;
-  height: 69px;
-  width: 197px;
+  height: 47px;
+  width: 190px;
   display: inline-block;
   position: relative;
   cursor: pointer;
+  margin-bottom: 20px;
 }
+
+.title3:hover, .title3:focus {
+  background: url("./邂逅1/title2-3.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
 
 
 .choice {
@@ -119,7 +151,7 @@ export default {
   flex-direction: column;
   position: relative;
   float: left;
-  top: 380px;
+  top: 405px;
   left: 27px;
 }
 
