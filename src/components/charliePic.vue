@@ -10,9 +10,9 @@
           :key="index"
           :class="['carousel-item', { active: index === currentIndex }]"
         >
-          <a :href="item.link">
+          <router-link :to="item.link">
             <img :src="item.url" alt="" />
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@ export default {
       imageData: [
         {
           url: require("@/assets/HomePage/111.png"),
-          link: "/lightandnight",
+          link: "./lightandnight",
         },
         {
           url: require("@/assets/HomePage/111.png"),

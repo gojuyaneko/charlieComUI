@@ -7,6 +7,7 @@ const lightAndNight = () => import('../pages/lightAndNight/lightAndNight.vue')
 const allGoods = () => import('../pages/subitems/goods/allGoods.vue')
 const badge = () => import('../pages/subitems/goods/badge.vue')
 const rescueTrip = () => import('../pages/MemoryCollect/encounter/rescueTrip.vue')
+const charlieFurniture = () => import('../pages/subitems/furniture/charlieFurniture.vue')
 
 Vue.use(Router);
 export default new Router({
@@ -15,7 +16,7 @@ export default new Router({
     routes:[
         {
             path: '/',
-            name: 'home',
+            name: '/',
             component: charlieIndex
         },
         {
@@ -51,6 +52,11 @@ export default new Router({
             path:'/rescueTrip',
             name:'rescueTrip',
             component: rescueTrip
+        },
+        {
+            path:'/furniture',
+            name:'furniture',
+            component: charlieFurniture
         },
     ]
 })

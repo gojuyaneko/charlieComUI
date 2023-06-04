@@ -1,12 +1,11 @@
 <template>
     <div>
-        fhdsfdskfsj
+        123
     </div>
 </template>
 
 <script>
 export default{
-    name: 'furniture',
     components: {},
     data() {
         return{

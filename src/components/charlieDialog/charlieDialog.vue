@@ -32,7 +32,7 @@ export default {
     videoUrl:String, // 传入地址链接需为完整地址，如 http://www.bilibili.com
     asideImg:String,
     diaTitle:String
-  },
+  }, 
   data() {
     return {
       quarter:'Quarter01',
