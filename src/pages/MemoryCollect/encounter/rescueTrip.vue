@@ -1,18 +1,20 @@
 <template>
   <div class="rescue_trip">
     <div class="major-title">
-      <div class="content"></div>
+      <div class="content1" v-show="index===1"></div>
+      <div class="content2" v-show="index===2"></div>
+      <div class="content3" v-show="index===3"></div>
     </div>
     <ul class="minor-titles">
-      <li class="title1" tabindex="1" ></li>
-      <li class="title2" tabindex="2"></li>
-      <li class="title3" tabindex="3"></li>
+      <span class="title1" tabindex="1" @click="show(1)" :class="index===1? 'active':''" ></span>
+      <span class="title2" tabindex="2" @click="show(2)" :class="index===2"></span>
+      <span class="title3" tabindex="3" @click="show(3)" :class="index===3"></span>
     </ul>
     <div class="text-bg">
       <div class="text">
         <ul class="choice">
-          <li class="choice1"></li>
-          <li class="choice2"></li>
+          <li class="choice1" v-show="index===1"></li>
+          <li class="choice2" v-show="index===1"></li>
         </ul>
       </div>
     </div>
@@ -23,11 +25,17 @@
 
 <script>
 export default {
-    data () {
+  data() {
     return {
-
+      index: 1,
     }
   },
+  methods: {
+    show(value) {
+      this.index === value ? this.isShow = !this.isShow : this.isShow = true
+      this.index = value
+    }
+  }
 }
 </script>
 
@@ -51,10 +59,34 @@ export default {
   left:145px;
 }
 
-.content {
+.content1 {
+  background: url("./邂逅1/content1.png");
+  background-size: 100% 100%;
   position: relative;
-  top:100px;
-  left: 100px;
+  top:85px;
+  left: 200px;
+  height: 20px;
+  width: 188px;
+}
+
+.content2 {
+  background: url("./邂逅1/content2.png");
+  background-size: 100% 100%;
+  position: relative;
+  top:85px;
+  left: 200px;
+  height: 21px;
+  width: 322px;
+}
+
+.content3 {
+   background: url("./邂逅1/content3.png");
+  background-size: 100% 100%;
+  position: relative;
+  top:85px;
+  left: 200px;
+  height: 21px;
+  width: 417px;
 }
 
 .video-btn {
@@ -101,7 +133,9 @@ export default {
   cursor: pointer;
   margin-bottom: 20px;
 }
-.title1:hover, .title1:focus {
+
+.title1:hover, .title1:focus, .title1.active,
+{
   background: url("./邂逅1/title2-1.png");
   background-size: 100% 100%;
   cursor: pointer;
