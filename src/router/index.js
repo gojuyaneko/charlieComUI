@@ -10,6 +10,7 @@ const rescueTrip = () => import('../pages/MemoryCollect/encounter/rescueTrip.vue
 const unknownErosion = () => import('../pages/MemoryCollect/encounter/unknownErosion.vue')
 const truthCameout = () => import('../pages/MemoryCollect/encounter/truthCameout.vue')
 const wechatMoments = () => import('../pages/subitems/sweet/wechatMoments/wechatMoments.vue')
+const charlieFurniture = () => import('../pages/subitems/furniture/charlieFurniture.vue')
 
 
 Vue.use(Router);
@@ -70,7 +71,12 @@ export default new Router({
             path:'/wechatmoments',
             name:'wechatmoments',
             component: wechatMoments
-        }
+        },
+        {
+            path:'/studio/furniture',
+            name:'charlieFurniture',
+            component: charlieFurniture
+        },
 
     ]
 })
