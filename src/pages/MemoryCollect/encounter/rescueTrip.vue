@@ -14,7 +14,7 @@
       <div class="text" v-show="index===1">
         <div v-for="( item,index) in meetContent" :key="index" class="text-div">
           <span class="dialog-span">
-            <span v-if="item.name !== '我' && item.name !== '查理苏'" :data-person="item.name" style="color:#CCFFE5;margin-right: 25px;">{{item.name }}</span>
+            <span v-if="item.name !== '我' && item.name !== '查理苏'" :data-person="item.name" style="color:#b99e63;margin-right: 25px;">{{item.name }}</span>
             <span v-if="item.name === '查理苏'" :data-person="item.name">{{item.name }}</span>
           </span>
           <p class="dialog-p" :data-person-p="item.name">
@@ -323,11 +323,11 @@ export default {
 }
 
 span[data-person="我"] {
-  color: #eb4982;
+  color: #f38aaf;
   margin-left: 18px;
 }
 span[data-person="查理苏"] {
-  color: #b99e63;
+  color: #bea7d5;
   margin-right: 35px;
 }
 span[data-person="旁白"] {
