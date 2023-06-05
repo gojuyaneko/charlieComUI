@@ -53,11 +53,11 @@ export default {
             },
             {
               name: "第二章/ 无名侵蚀",
-              nextUrl: "/erosion",
+              nextUrl: "/unknownErosion",
             },
             {
               name: "第三章/ 真相大白",
-              nextUrl: "/truth",
+              nextUrl: "/truthCameout",
             },
           ],
         },

@@ -1,5 +1,5 @@
 <template>
-  <div class="rescue_trip">
+  <div class="truth_cameout">
     <div class="major-title">
       <div class="content1" v-show="index===1"></div>
       <div class="content2" v-show="index===2"></div>
@@ -131,7 +131,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.rescue_trip {
+.truth_cameout {
   text-align: center;
   width: 100%;
   height: 100%;
@@ -141,7 +141,7 @@ export default {
 }
 
 .major-title {
-  background: url("./邂逅1/title1.png") no-repeat;
+  background: url("./邂逅3/title1.png") no-repeat;
   background-size: 95% 95%;
   height: 70px;
   width: 406px;
@@ -151,37 +151,36 @@ export default {
 }
 
 .content1 {
-  background: url("./邂逅1/content1.png");
-  background-size: 100% 100%;
-  position: relative;
-  top:85px;
-  left: 110px;
-  height: 20px;
-  width: 188px;
-}
-
-.content2 {
-  background: url("./邂逅1/content2.png");
+  background: url("./邂逅3/content1.png");
   background-size: 100% 100%;
   position: relative;
   top:85px;
   left: 110px;
   height: 21px;
-  width: 322px;
+  width: 447px;}
+
+.content2 {
+  background: url("./邂逅3/content2.png");
+  background-size: 100% 100%;
+  position: relative;
+  top:85px;
+  left: 110px;
+  height: 21px;
+  width: 291px;
 }
 
 .content3 {
-   background: url("./邂逅1/content3.png");
+   background: url("./邂逅3/content3.png");
   background-size: 100% 100%;
   position: relative;
   top:85px;
   left: 110px;
   height: 21px;
-  width: 417px;
+  width: 342px;
 }
 
 .video-btn {
-  background-image: url("./邂逅1/video.png");
+  background-image: url("./邂逅3/video.png");
   background-size: 100% 100%;
   cursor: pointer;
   position: relative;
@@ -196,7 +195,7 @@ export default {
 }
 
 .text-bg {
-  background: url('./邂逅1/text.png') no-repeat;
+  background: url('./邂逅3/text.png') no-repeat;
   background-size: 100% 97%;
   height: 760px;
   width: 1680px;
@@ -215,7 +214,7 @@ export default {
 }
 
 .title1 {
-  background: url("./邂逅1/暗2-1.png");
+  background: url("./邂逅3/暗2-1.png");
   background-size: 100% 100%;
   height: 47px;
   width: 190px;
@@ -227,14 +226,14 @@ export default {
 
 .title1:hover, .title1:focus, .title1.active,
 {
-  background: url("./邂逅1/title2-1.png");
+  background: url("./邂逅3/title2-1.png");
   background-size: 100% 100%;
   cursor: pointer;
   margin-bottom: 20px;
 }
 
 .title2 {
-  background: url("./邂逅1/暗2-2.png");
+  background: url("./邂逅3/暗2-2.png");
   background-size: 100% 100%;
   height: 47px;
   width: 190px;
@@ -245,14 +244,14 @@ export default {
 }
 
 .title2:hover, .title2:focus {
-  background: url("./邂逅1/title2-2.png");
+  background: url("./邂逅3/title2-2.png");
   background-size: 100% 100%;
   cursor: pointer;
   margin-bottom: 20px;
 }
 
 .title3 {
-  background: url("./邂逅1/暗2-3.png");
+  background: url("./邂逅3/暗2-3.png");
   background-size: 100% 100%;
   height: 47px;
   width: 190px;
@@ -263,7 +262,7 @@ export default {
 }
 
 .title3:hover, .title3:focus {
-  background: url("./邂逅1/title2-3.png");
+  background: url("./邂逅3/title2-3.png");
   background-size: 100% 100%;
   cursor: pointer;
   margin-bottom: 20px;

@@ -7,7 +7,10 @@ const lightAndNight = () => import('../pages/lightAndNight/lightAndNight.vue')
 const allGoods = () => import('../pages/subitems/goods/allGoods.vue')
 const badge = () => import('../pages/subitems/goods/badge.vue')
 const rescueTrip = () => import('../pages/MemoryCollect/encounter/rescueTrip.vue')
-const charlieFurniture = () => import('../pages/subitems/furniture/charlieFurniture.vue')
+const unknownErosion = () => import('../pages/MemoryCollect/encounter/unknownErosion.vue')
+const truthCameout = () => import('../pages/MemoryCollect/encounter/truthCameout.vue')
+
+
 
 Vue.use(Router);
 export default new Router({
@@ -16,7 +19,7 @@ export default new Router({
     routes:[
         {
             path: '/',
-            name: '/',
+            name: 'home',
             component: charlieIndex
         },
         {
@@ -54,9 +57,15 @@ export default new Router({
             component: rescueTrip
         },
         {
-            path:'/furniture',
-            name:'furniture',
-            component: charlieFurniture
+            path:'/unknownErosion',
+            name:'unknownErosion',
+            component: unknownErosion
         },
+        {
+            path:'/truthCameout',
+            name:'truthCameout',
+            component: truthCameout
+        }
+
     ]
 })
