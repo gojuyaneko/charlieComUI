@@ -376,7 +376,7 @@ p[data-person-p="我"] {
   display: inline-block;
   width: 148px;
   height: 47px;
-  background-image: url('../img/watchvideo.png');
+  background-image: url('../../../../../assets/watchvideo.png');
   background-size: 100% 100%;
   position: relative;
   bottom: 60px;

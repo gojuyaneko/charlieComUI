@@ -104,7 +104,7 @@ export default {
           childItems: [
             {
               name: "朋友圈",
-              nextUrl: "",
+              nextUrl: "/wechatmoments",
             },
             {
               name: "聊天记录",

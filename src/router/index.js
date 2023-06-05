@@ -9,7 +9,7 @@ const badge = () => import('../pages/subitems/goods/badge.vue')
 const rescueTrip = () => import('../pages/MemoryCollect/encounter/rescueTrip.vue')
 const unknownErosion = () => import('../pages/MemoryCollect/encounter/unknownErosion.vue')
 const truthCameout = () => import('../pages/MemoryCollect/encounter/truthCameout.vue')
-
+const wechatMoments = () => import('../pages/subitems/sweet/wechatMoments/wechatMoments.vue')
 
 
 Vue.use(Router);
@@ -65,6 +65,11 @@ export default new Router({
             path:'/truthCameout',
             name:'truthCameout',
             component: truthCameout
+        },
+        {
+            path:'/wechatmoments',
+            name:'wechatmoments',
+            component: wechatMoments
         }
 
     ]
