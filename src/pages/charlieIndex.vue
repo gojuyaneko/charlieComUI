@@ -18,7 +18,7 @@
         </div>
         <div class="pc-icon-aboutcharlie">
           <router-link to="/about">
-            <img src="../assets//HomePage/Page1/关于.png" alt="" />
+            <img src="../assets/HomePage/Page1/关于.png" alt="" />
           </router-link>
         </div>
       </div>
@@ -33,10 +33,10 @@
         </div>
 
         <div class="pc-page2-img-left">
-          <img src="../assets//HomePage/Page2/左.png" alt="" />
+          <img src="../assets/HomePage/Page2/左.png" alt="" />
         </div>
         <div class="pc-page2-title-lightnight">
-          <img src="../assets//HomePage/Page2/标题.png" alt="" />
+          <img src="../assets/HomePage/Page2/标题.png" alt="" />
         </div>
       </div>
     </div>
@@ -46,15 +46,15 @@
     <div class="pc-homepage-background2-l">
       <div class="pc-homepage-background2" ref="pcBg3">
         <div class="pc-img-right">
-          <img src="../assets//HomePage/Page3/右.png" alt="" />
+          <img src="../assets/HomePage/Page3/右.png" alt="" />
         </div>
         <div class="pc-icon-enter">
           <router-link to="/enter">
-            <img src="../assets//HomePage/Page3/进入.png" alt="" />
+            <img src="../assets/HomePage/Page3/进入.png" alt="" />
           </router-link>
         </div>
         <div class="pc-page3-title-photograph">
-          <img src="../assets//HomePage/Page3/标题.png" alt="" />
+          <img src="../assets/HomePage/Page3/标题.png" alt="" />
         </div>
       </div>
     </div>
@@ -67,10 +67,10 @@
           <myMenu></myMenu>
         </div>
         <div class="pc-page4-img-left">
-          <img src="../assets//HomePage/Page4/左.png" alt="" />
+          <img src="../assets/HomePage/Page4/左.png" alt="" />
         </div>
         <div class="pc-page4-title-memory">
-          <img src="../assets//HomePage/Page4/标题.png" alt="" />
+          <img src="../assets/HomePage/Page4/标题.png" alt="" />
         </div>
       </div>
 
