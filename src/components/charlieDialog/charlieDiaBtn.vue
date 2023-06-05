@@ -1,8 +1,8 @@
 <template>
   <el-radio-group v-model="yesOrNo" @input="pushYoN" >
-    <el-radio-button :label="item.label" v-for="(item,index) in diaBtnData" :key="index">
-      <img  draggable="false" :src="item.bgimg" alt="" class="dia-btn-bg">
-      <div class="radio-group-div">{{ item.text}}</div>
+    <el-radio-button :label="item.para_type" v-for="(item,index) in diaBtnData" :key="index">
+      <img  draggable="false" :src="diaBtnImg[index].bgimg" alt="" class="dia-btn-bg">
+      <div class="radio-group-div">{{ item.choice_name}}</div>
     </el-radio-button>
   </el-radio-group>
 </template>
@@ -10,21 +10,24 @@
     <script>
 export default {
   components: {},
-  props: { diaBtnData:Array },
+  props: { 
+    diaBtnData:Array,
+    diaBtnImg:Array,
+    },
   data() {
     return {
-      yesOrNo:'light',
-      buttonData:[]
+      yesOrNo:'',
     };
   },
   mounted() {
+    this.yesOrNo = this.diaBtnData[0].para_type
+    this.pushYoN()
   },
   methods: {
     pushYoN(){
-      console.log(this.yesOrNo)
       this.$emit('getYoN',this.yesOrNo)
     }
-  },
+  }
 };
 </script>
     

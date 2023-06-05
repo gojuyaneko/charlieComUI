@@ -25,7 +25,8 @@
       </div>
       <div class="com-dia-choose" v-if="item.para_type !== 'normal'">
         <charlie-dia-btn
-          :diaBtnData="diaBtnData"
+          v-bind="$attrs"
+          :diaBtnData="item.xuanxiang"
           class="com-dia-btn"
           @getYoN="chooseCnt"
         ></charlie-dia-btn>
@@ -95,133 +96,18 @@
 import charlieDiaBtn from "@/components/charlieDialog/charlieDiaBtn";
 export default {
   components: { charlieDiaBtn },
+  props:{
+    diaContent:Array
+    },
   data() {
     return {
       diaTitle: "",
-      diaContent: [
-        {
-          para_type: "normal",
-          speaker: "我",
-          content: [
-            "饿了想吃饭，不想上班，想打王国之泪。",
-            "饿了想吃饭，不想上班，想打王国之泪。",
-            "饿了想吃饭，不想上班，想打王国之泪。",
-          ],
-          tag: "me",
-        },
-        {
-          para_type: "normal",
-          speaker: "查理苏",
-          content: [
-            "完美的男人，完美的男人",
-            "完美的男人，完美的男人。",
-            "完美的男人，完美的男人,完美的男人，完美的男人。",
-          ],
-          tag: "charlie",
-        },
-        {
-          para_type: "normal",
-          speaker: "旁白",
-          content: [
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-          ],
-          tag: "pb",
-        },
-        {
-          para_type: "choice",
-          xuanxiang: [
-            {
-              para_type: "light",
-              choice_name: "回答他",
-              choice_para: [
-                {
-                  para_type: "normal",
-                  speaker: "我",
-                  content: [
-                    "1饿了想吃饭，不想上班，想打王国之泪。",
-                    "饿了想吃饭，不想上班，想打王国之泪。",
-                    "饿了想吃饭，不想上班，想打王国之泪。",
-                  ],
-                  tag: "me",
-                },
-                {
-                  para_type: "normal",
-                  speaker: "查理苏",
-                  content: [
-                    "完美的男人，完美的男人",
-                    "完美的男人，完美的男人。",
-                    "完美的男人，完美的男人,完美的男人，完美的男人。",
-                  ],
-                  tag: "charlie",
-                },
-                {
-                  para_type: "normal",
-                  speaker: "旁白",
-                  content: [
-                    "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-                    "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-                  ],
-                  tag: "pb",
-                },
-              ],
-              tag: "me",
-            },
-            {
-              para_type: "night",
-              choice_name: "回答他",
-              choice_para: [
-                {
-                  para_type: "normal",
-                  speaker: "我",
-                  content: [
-                    "2饿了想吃饭，不想上班，想打王国之泪。",
-                    "饿了想吃饭，不想上班，想打王国之泪。",
-                    "饿了想吃饭，不想上班，想打王国之泪。",
-                  ],
-                  tag: "me",
-                },
-                {
-                  para_type: "normal",
-                  speaker: "查理苏",
-                  content: [
-                    "完美的男人，完美的男人",
-                    "完美的男人，完美的男人。",
-                    "完美的男人，完美的男人,完美的男人，完美的男人。",
-                  ],
-                  tag: "charlie",
-                },
-                {
-                  para_type: "normal",
-                  speaker: "旁白",
-                  content: [
-                    "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-                    "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-                  ],
-                  tag: "pb",
-                },
-              ],
-              tag: "me",
-            },
-          ],
-        },
-      ],
-      diaBtnData: [
-        {
-          label: "light",
-          text: "回答他",
-          bgimg: require("../../assets/diabtnl.png"),
-        },
-        {
-          label: "night",
-          text: "拒绝回答",
-          bgimg: require("../../assets/diabtnn.png"),
-        },
-      ],
-      choice: "light",
+      choice:''
     };
   },
-  mounted() {},
+  mounted() {
+
+  },
   methods: {
     chooseCnt(choice) {
         this.choice = choice
@@ -236,7 +122,6 @@ export default {
   font-size: 18px;
   padding-right: 60px;
   color: white;
-  font-family: "nansongshuju";
 }
 .com-dia-main {
   display: flex;

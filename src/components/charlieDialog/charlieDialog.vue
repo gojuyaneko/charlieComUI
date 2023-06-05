@@ -14,9 +14,9 @@
         <div class="com-dia-right">
           <img :src="diaTitle" alt="" class="com-dia-title">
           <article class="com-dia-content">
-            <charlie-dia-arti></charlie-dia-arti>
+            <charlie-dia-arti v-bind="$attrs" v-on="$listeners"></charlie-dia-arti>
           </article>
-          <charlie-dia-menu></charlie-dia-menu>
+          <charlie-dia-menu v-bind="$attrs" v-on="$listeners"> </charlie-dia-menu>
         </div>
       </div>
     </div>
@@ -36,96 +36,7 @@ export default {
   data() {
     return {
       quarter:'Quarter01',
-      chapter: 6,
-      diaContent: [
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。"
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-      ],
-      diaBtnData:[
-        {
-          label:'first',
-          text:'回答他',
-          bgimg:require('../../assets/diabtnl.png')
-        },
-        {
-          label:'second',
-          text:'拒绝回答',
-          bgimg:require('../../assets/diabtnn.png')
-        }
-      ]
+      chapter: 6
     };
   }
 };
