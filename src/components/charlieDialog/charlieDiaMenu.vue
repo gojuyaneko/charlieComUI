@@ -1,7 +1,7 @@
 <template>
   <div class="com-dialog-menu">
     <button class="dia-menu-catalog" @click="controlShow">目录</button>
-    <transition name="dia-menu-transition" >
+    <transition name="el-fade-in-linear" >
     <el-collapse v-model="activeChap" accordion class="dia-menu-col" v-show="show">
       <el-collapse-item :title="item.name" :name="item.chap" v-for="(item, index) in menuData " :key="index">
         <div class="dia-menu-div" v-for="(seItem, index) in item.subChap" :key="index" @click="comitIndex(seItem.name)">

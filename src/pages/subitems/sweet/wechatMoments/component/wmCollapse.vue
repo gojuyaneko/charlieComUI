@@ -1,33 +1,28 @@
 <template>
-  <el-collapse v-model="activeName" accordion>
-    <el-collapse-item title="一致性 Consistency" name="1">
-      <div>
-        与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；
-      </div>
-      <div>
-        在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。
-      </div>
-    </el-collapse-item>
-    <el-collapse-item title="反馈 Feedback" name="2">
-      <div>
-        控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；
-      </div>
-      <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
-    </el-collapse-item>
-    <el-collapse-item title="效率 Efficiency" name="3">
-      <div>简化流程：设计简洁直观的操作流程；</div>
-      <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
-      <div>
-        帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。
-      </div>
-    </el-collapse-item>
-    <el-collapse-item title="可控 Controllability" name="4">
-      <div>
-        用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；
-      </div>
-      <div>
-        结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。
-      </div>
+  <el-collapse v-model="activeName" accordion class="weMoments-collapse">
+    <el-collapse-item
+      :name="index"
+      v-for="(item, index) in collapseData"
+      :key="index"
+      @click.native="show_collapse(item,index)"
+    >
+      <span slot="title" class="collapse-title">
+        <i  :class="['el-icon-d-arrow-right' ,'wm-title-icon',{'wm-title-icon.is-active':item.isActive}]" ></i>{{item.className}}
+      </span>
+      <el-table
+        :ref="'id'+index"
+        fit="true"
+        height="300px"
+        stripe="true"
+        :data="item.items"
+        style="width: 100%"
+        empty-text="暂无数据，请刷新重试"
+        :header-row-class-name="tableHeaderStyle"
+        :header-cell-style="{background:'rgb(225, 220, 235)',color:'#000',fontSize:'16px',fontWeight:'400',height:'20px'}"
+      >
+        <el-table-column prop="name" label="获取途径"> </el-table-column>
+        <el-table-column prop="content" label="内容"> </el-table-column>
+      </el-table>
     </el-collapse-item>
   </el-collapse>
 </template>
@@ -35,14 +30,71 @@
 <script>
 export default {
   components: {},
-  props: {},
+  props: { collapseData: Array },
   data() {
-    return {};
+    return {
+      activeName:'',
+    };
   },
+
   mounted() {},
-  methods: {},
+  methods: {
+    tableHeaderStyle() {
+      return "wm-table-header";
+    },
+    show_collapse(item,index) {
+      
+      if (index==this.activeName) {
+        item.isActive = true
+      }
+      else {
+        item.isActive = false
+      }
+      
+    }
+  },
 };
 </script>
 
 <style scoped lang="scss">
+.weMoments-collapse {
+  ::v-deep {
+    .el-collapse-item__header {
+      font-size: 32px;
+      font-family: "nansongshuju";
+      height: 90px;
+      background-color: rgba(184, 171, 206, 0.7);
+    }
+    .el-collapse-item__header.focusing:focus:not(:hover) {
+      color: white;
+    }
+    .el-collapse-item__content {
+      padding-bottom: 0;
+    }
+    .el-table .el-table__cell {
+      padding:8px 0;
+      padding-left: 90px;
+    }
+    .el-collapse-item__arrow {
+      display: none;
+    }
+    .wm-title-icon {
+      width: 25px;
+      height: 26px;
+      margin: 0 10px 0 40px;
+      color: #d6b367;
+      font-weight: 700;
+    }
+    .wm-title-icon.is-active {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+    .wm-table-header {
+      color: black;
+    }
+  }
+  .marg {
+    margin-left: 10px;
+  }
+}
 </style>

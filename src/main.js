@@ -27,6 +27,8 @@ import {
   Collapse,
   CollapseItem,
   Image,
+  Table,
+  TableColumn,
 } from "element-ui";
 
 Vue.use(Pagination);
@@ -43,6 +45,8 @@ Vue.use(ButtonGroup);
 Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(Image);
+Vue.use(Table);
+Vue.use(TableColumn);
 
 // Vue.use(ElementUI);
 Vue.component("myNavbar", navBar);

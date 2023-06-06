@@ -59,27 +59,9 @@ export default {
           childItems: [],
         },
         {
-          name: "活动回顾",
-          nextUrl: "/review",
-          childItems: [
-            {
-              name: "个人活动",
-              nextUrl: "/review/1",
-            },
-            {
-              name: "全体活动",
-              nextUrl: "",
-            },
-          ],
-        },
-        {
           name: "工作室",
           nextUrl: "/studio",
           childItems: [
-            {
-              name: "外出",
-              nextUrl: "/studio/goout",
-            },
             {
               name: "家具",
               nextUrl: "/studio/furniture",
