@@ -6,7 +6,11 @@
       <div class="content3" v-show="index===3"></div>
     </div>
     <ul class="minor-titles">
-      <span class="title1" tabindex="1" @click="show(1); choiceshow=true;choiceContent1Visible=false" :class="index===1? 'active':''" ></span>
+      <span class="title1" tabindex="1"
+            @click="show(1);
+            choiceshow=true; choiceContent1Visible=false"
+            :class="index===1? 'active':''"
+      ></span>
       <span class="title2" tabindex="2" @click="show(2)" :class="index===2"></span>
       <span class="title3" tabindex="3" @click="show(3)" :class="index===3"></span>
     </ul>
