@@ -5,70 +5,75 @@
           <li class="angel-btn" @click="meetVisible=true"></li>
           <li class="evil-btn" @click="skyVisible=true"></li>
         </ul>
-
       </div>
 
     <div class="angel-dia">
       <el-dialog custom-class="meet" :visible.sync="meetVisible" v-if="meetVisible">
         <div class="dia-text">
-          <h4 class="card-text">{{cardText}}
-            <span>{{choice}}</span>
-          </h4>
-          <div class="diapage">
+          <div v-for="( item,index) in cardText" :key="index" class="card-text">
+            <h4 :datatype="item.type">{{item.content}}</h4>
+          </div>
+        </div>
+        <div class="diapage">
             <ul class="elements">
               <li class="co">第</li>
               <li class="ch">节</li>
             </ul>
           <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
           </div>
-          <a class="next-btn" @click="tripVisible=true;meetVisible=false" ></a>
-        </div>
+        <a class="next-btn" @click="tripVisible=true;meetVisible=false" ></a>
 
       </el-dialog>
 
       <el-dialog custom-class="trip" :visible.sync="tripVisible" v-if="tripVisible">
         <div class="dia-text">
-          <h4>{{cardText1}}</h4>
-          <div class="diapage">
+          <div v-for="( item,index) in cardText" :key="index" class="card-text">
+            <h4 :datatype="item.type">{{item.content}}</h4>
+          </div>
+        </div>
+        <div class="diapage">
             <ul class="elements">
               <li class="co">第</li>
               <li class="ch">节</li>
             </ul>
           <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
-    </div>
+          </div>
           <a class="next-btn" @click="meetVisible=true;tripVisible=false"></a>
-        </div>
       </el-dialog>
     </div>
 
     <div class="evil-dia">
       <el-dialog custom-class="sky" :visible.sync="skyVisible" v-if="skyVisible">
         <div class="dia-text">
-          <h4>{{cardText}}</h4>
-          <div class="diapage">
+          <div v-for="( item,index) in cardText" :key="index" class="card-text">
+            <h4 :datatype="item.type">{{item.content}}</h4>
+          </div>
+        </div>
+        <div class="diapage">
             <ul class="elements">
               <li class="co">第</li>
               <li class="ch">节</li>
             </ul>
-          <dw-pagi @changeCurPa="getContent_sky"></dw-pagi>
+          <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
           </div>
           <a class="next-btn" @click="moonVisible=true;skyVisible=false"></a>
-        </div>
 
       </el-dialog>
 
       <el-dialog custom-class="moon" :visible.sync="moonVisible"  v-if="moonVisible" >
-         <div class="dia-text">
-          <h4>{{cardText1}}</h4>
-          <div class="diapage">
+        <div class="dia-text">
+          <div v-for="( item,index) in cardText" :key="index" class="card-text">
+            <h4 :datatype="item.type">{{item.content}}</h4>
+          </div>
+        </div>
+        <div class="diapage">
             <ul class="elements">
               <li class="co">第</li>
               <li class="ch">节</li>
             </ul>
-          <dw-pagi @changeCurPa="getContent_moon"></dw-pagi>
+          <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
           </div>
           <a class="next-btn" @click="skyVisible=true;moonVisible=false"></a>
-         </div>
       </el-dialog>
     </div>
 
@@ -86,9 +91,30 @@ export default {
       skyVisible:false,
       tripVisible:false,
       moonVisible:false,
-      cardText:'刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐\n下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进\n餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆坐下刚走进餐馆\n刚走进餐馆坐下\n走进餐馆坐下刚走进餐馆',
+      cardText:[
+        {
+          type:"intro",
+          content:"刚走进餐馆坐下，我的肚子就不争气的叫了一声 啊啊啊啊啊啊啊啊啊啊啊啊"
+        },
+        {
+          type:"choice",
+          content: "来一份Charlie烤鸡"
+        },
+        {
+          type:"choice-content",
+          content: "没有人能抵御烧烤的香味"
+        },
+        {
+          type: "choice",
+          content: "来一份Charlie啤酒"
+        },
+        {
+          type: "choice-content",
+          content: "店主呈上酒杯"
+        },
+
+      ],
       cardText1:'完美啊你的名字是charlie',
-      choice:'来一份Charlie烤鸡'
     }
   },
     mounted() {},
@@ -221,30 +247,31 @@ export default {
 
 
 .dia-text {
-  width: 1000px;
-  height: 610px;
+  width: 890px;
+  height: 500px;
   position: absolute;
-  top: 25px;
-  right: 0;
+  top: 40px;
+  left:600px;
+  overflow-y: scroll;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: row;
+  width: 750px;
 }
 
 h4 {
   font-family: "nansongshuju";
   color: rgb(214, 179, 103);
-  display: inline-block;
-  position: absolute;
+  margin-bottom: 10px;
   top:40px;
   left:-20px;
-  width: 1012px;
-  height: 460px;
-  overflow-y: scroll;
-  white-space: pre-wrap;
 }
-.card-text span  {
+
+h4[datatype="choice"]  {
   font-family: "nansongshuju";
   color: #848484;
-  display: inline-block;
-  position: absolute;
 
 }
 
@@ -266,8 +293,8 @@ h4 {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  top: 550px;
-  left: -50px;
+  top: 480px;
+  left: 250px;
   width: 141px;
   height: 45px;
 }
@@ -277,8 +304,8 @@ h4 {
 }
 
 .diapage {
-  top:550px;
-  left:40px;
+  top:480px;
+  left:200px;
   display: inline-block;
   position: relative;
   object-fit: cover;

@@ -6,38 +6,33 @@
       <div class="content3" v-show="index===3"></div>
     </div>
     <ul class="minor-titles">
-      <span class="title1" tabindex="1" @click="show(1)" :class="index===1? 'active':''" ></span>
+      <span class="title1" tabindex="1"
+            @click="show(1);
+            choiceshow=true; choiceContent1Visible=false"
+            :class="index===1? 'active':''"
+      ></span>
       <span class="title2" tabindex="2" @click="show(2)" :class="index===2"></span>
       <span class="title3" tabindex="3" @click="show(3)" :class="index===3"></span>
     </ul>
     <div class="text-bg">
+      <ul class="choice" v-show="choiceshow">
+        <li class="choice1" v-show="index===1" @click="choiceshow=false; choiceContent1Visible=true"></li>
+        <li class="choice2" v-show="index===1" @click="choiceshow=false"></li>
+      </ul>
       <div class="text" v-show="index===1">
-        <div v-for="( item,index) in meetContent" :key="index" class="text-div">
-          <span class="dialog-span">
-            <span v-if="item.name !== '我' && item.name !== '查理苏'" :data-person="item.name" style="color:#b99e63;margin-right: 25px;">{{item.name }}</span>
-            <span v-if="item.name === '查理苏'" :data-person="item.name">{{item.name }}</span>
-          </span>
-          <p class="dialog-p" :data-person-p="item.name" v-if="item.name !== '我' && item.name!=='旁白'" style="text-align: left">{{ item.content }}</p>
-          <p class="dialog-p" :data-person-p="item.name" v-if="item.name === '我' || item.name==='旁白'">{{ item.content }}</p>
-          <span class="dialog-span">
-            <span v-if="item.name === '我'" :data-person="item.name">
-              {{ item.name }}
-            </span>
-          </span>
-        </div>
+        <encounterContent :sendName="meetContent" ></encounterContent>
+        <encounterContent :sendName="choiceContent1" v-if="choiceContent1Visible"></encounterContent>
       </div>
-      <ul class="choice">
-          <li class="choice1" v-show="index===1"></li>
-          <li class="choice2" v-show="index===1"></li>
-        </ul>
-    </div>
 
+    </div>
     <a class="video-btn" target="_blank" href="http://www.bilibili.com"></a>
   </div>
 </template>
 
 <script>
+import encounterContent from "@/pages/MemoryCollect/encounter/encounterContent.vue";
 export default {
+  components:{encounterContent},
   data() {
     return {
       index: 1,
@@ -116,6 +111,20 @@ export default {
           name: "旁白",
           content:
             "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
+        },
+      ],
+      choiceshow:true,
+      choiceContent1Visible:false,
+      choiceContent1: [
+          {
+          name: "旁白",
+          content:
+            "嘀——12345"
+        },
+        {
+          name: "护士",
+          content:
+            "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
     }
@@ -268,12 +277,22 @@ export default {
   margin-bottom: 20px;
 }
 
+
+.text {
+  width: 900px;
+  height: 500px;
+  overflow-y: scroll;
+  position: absolute;
+  top:150px;
+  left:110px
+}
+
 .choice {
   display: flex;
   flex-direction: column;
   position: relative;
   float: left;
-  top: -100px;
+  top: 400px;
   left: 27px;
 }
 
@@ -298,51 +317,6 @@ export default {
   cursor: pointer;
 }
 
-.text {
-  width: 900px;
-  height: 500px;
-  overflow-y: scroll;
-  position: relative;
-  top:150px;
-  left:110px
-}
-.text-div {
-  display: flex;
-  flex-direction: row;
-  font-size: 18px;
-  color: white;
-  font-family: "nansongshuju";
-}
-.dialog-p {
-  width: 600px;
-  margin-bottom: 20px;
-}
-.dialog-span {
-  width: 110px;
-}
-
-span[data-person="我"] {
-  color: #f38aaf;
-  margin-left: 18px;
-}
-span[data-person="查理苏"] {
-  color: #bea7d5;
-  margin-right: 35px;
-}
-span[data-person="旁白"] {
-  display: none;
-}
-p[data-person-p="旁白"] {
-  color: #848484;
-  text-indent: 2em;
-}
-
-p[data-person-p="查理苏"] {
-  text-align: left;
-}
-p[data-person-p="我"] {
-  text-align: right;
-}
 
 ::-webkit-scrollbar {
   width: 25px;
