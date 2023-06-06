@@ -4,10 +4,9 @@
       :name="index"
       v-for="(item, index) in collapseData"
       :key="index"
-      @click.native="show_collapse(item,index)"
     >
       <span slot="title" class="collapse-title">
-        <i  :class="['el-icon-d-arrow-right' ,'wm-title-icon',{'wm-title-icon.is-active':item.isActive}]" ></i>{{item.className}}
+        <i  :class="['el-icon-d-arrow-right wm-title-icon ' ,{'wm-title-icon-active':index===activeName}]"></i>{{item.className}}
       </span>
       <el-table
         :ref="'id'+index"
@@ -33,7 +32,8 @@ export default {
   props: { collapseData: Array },
   data() {
     return {
-      activeName:'',
+      activeName:'1',
+      mactive: -1
     };
   },
 
@@ -41,16 +41,6 @@ export default {
   methods: {
     tableHeaderStyle() {
       return "wm-table-header";
-    },
-    show_collapse(item,index) {
-      
-      if (index==this.activeName) {
-        item.isActive = true
-      }
-      else {
-        item.isActive = false
-      }
-      
     }
   },
 };
@@ -58,11 +48,18 @@ export default {
 
 <style scoped lang="scss">
 .weMoments-collapse {
-  ::v-deep {
+  height: 700px;
+  overflow: scroll;
+  border-bottom: 0;
+  .marg {
+    margin-left: 10px;
+  }
+}
+::v-deep {
     .el-collapse-item__header {
       font-size: 32px;
       font-family: "nansongshuju";
-      height: 90px;
+      height: 80px;
       background-color: rgba(184, 171, 206, 0.7);
     }
     .el-collapse-item__header.focusing:focus:not(:hover) {
@@ -84,8 +81,9 @@ export default {
       margin: 0 10px 0 40px;
       color: #d6b367;
       font-weight: 700;
+      transition: 0.2s linear;
     }
-    .wm-title-icon.is-active {
+    .wm-title-icon-active {
       -webkit-transform: rotate(90deg);
       transform: rotate(90deg);
     }
@@ -93,8 +91,4 @@ export default {
       color: black;
     }
   }
-  .marg {
-    margin-left: 10px;
-  }
-}
 </style>

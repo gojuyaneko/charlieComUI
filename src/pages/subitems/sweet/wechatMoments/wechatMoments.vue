@@ -1,7 +1,7 @@
 <template>
   <div class="wechat-moments">
+    <div class="wm-l-n">LIGHT AND NIGHT</div>
     <div class="wechat-moments-bg">
-      <div class="wm-l-n">LIGHT AND NIGHT</div>
       <main class="wm-main">
         <section class="wm-main-header">
           <a class="wm-video" target="_blank" href="http://www.bilibili.com">
@@ -284,7 +284,7 @@ export default {
   height: 100%;
   background: url("../../../../assets/charlieCretsBG/tdbg-min.jpg") no-repeat;
   background-size: 100% 100%;
-  overflow: scroll;
+  overflow: hidden;
   user-select: none;
   position: relative;
   scrollbar-width: none;
@@ -294,6 +294,7 @@ export default {
     height: 100%;
     background: url("../../../../assets/charlieCretsBG/tdbg.png") no-repeat;
     background-size: 100% 100%;
+    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
@@ -315,8 +316,7 @@ export default {
   }
   .wm-main {
     width: 1500px;
-    margin: 10% auto;
-    // background-color: rgba(255, 192, 203, 0.301);
+    margin: 7% auto;
     .wm-main-header {
       height: 60px;
       position: relative;
