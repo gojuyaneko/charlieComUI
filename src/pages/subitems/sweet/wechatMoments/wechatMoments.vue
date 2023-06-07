@@ -50,7 +50,7 @@ export default {
           }
         ],
         lingXi:[
-          {
+        {
             className:'3星灵犀',
             items:[
               {
@@ -60,6 +60,50 @@ export default {
               {
                 name:'获取途径2',
                 content:'内容2'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'l获取途径1',
+                content:'内容1'
+              },
+              {
+                name:'获取途径2',
+                content:'内容2'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
               },
               {
                 name:'获取途径3',
