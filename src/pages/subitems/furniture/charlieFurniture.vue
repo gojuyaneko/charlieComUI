@@ -16,20 +16,52 @@
                 @click="showDeatil(item.key)"
             >{{item.name}}</div>
         </div>
+        <record-detail v-if="isRecordDeatilV" :isVisible.sync="isRecordDeatilV" :playerList="playerList"></record-detail>
     </div>
 </template>
 
 <script>
 import btnList from './components/btnList'
+import RecordDetail from './components/RecordDetail.vue'
 export default {
+    components: {
+        RecordDetail
+    },
     mixins: [btnList],
     data() {
        return {
+        playerList: [
+            {
+                url: '',
+                name: '生而有翼'
+            },
+            {
+                url: '',
+                name: '与你出逃'
+            },
+            {
+                url: '',
+                name: '沐野拾趣'
+            },
+            {
+                url: '',
+                name: '异乡风景'
+            },
+            {
+                url: '',
+                name: 'Summer Delight'
+            },
+        ],
+        isRecordDeatilV: true,
+        isFurnitureDetailV: false
        } 
     },
     methods: {
         showDeatil(e) {
             console.log('event type:',e);
+            if(e === 'record') {
+                this.isRecordDeatilV = true
+            }
         }
     }
 }
