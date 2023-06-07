@@ -1,14 +1,21 @@
 <template>
   <div class="wechat-moments">
     <div class="wm-l-n">LIGHT AND NIGHT</div>
+    <h4 class="wm-h4-text">Memories Album</h4>
     <div class="wechat-moments-bg">
       <main class="wm-main">
         <section class="wm-main-header">
-          <a class="wm-video" target="_blank" href="http://www.bilibili.com">
-          </a>
+          <el-select class="wm-classbtn" :popper-append-to-body="false" v-model="selectValue" placeholder="请选择" popper-class='wm-select-pop' @change="getCollapseData">
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
         </section>
         <div class="wm-collapse">
-          <wm-collapse :collapseData="collapseData"></wm-collapse>
+          <wm-collapse :collapseData="collapseData" ref="wmCollapse" ></wm-collapse>
         </div>
       </main>
     </div>
@@ -216,6 +223,38 @@ export default {
               {
                 name:'获取途径3',
                 content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
               }
             ]
           },
@@ -270,11 +309,44 @@ export default {
               }
             ]
           }
-        ],
+      ],
+      options:[
+        {
+          value:'lingXi',
+          label:'灵犀'
+        },
+        {
+          value:'mainStory',
+          label:'主线'
+        },
+        {
+          value:'xieHou',
+          label:'邂逅'
+        },
+        {
+          value:'activities',
+          label:'活动'
+        },
+        {
+          value:'truthOrDare',
+          label:'真话冒险'
+        },
+        {
+          value:'teaParty',
+          label:'茶歇小憩'
+        }
+      ],
+      selectValue:'lingXi',
     }
   },
   mounted() {},
-  methods: {},
+  methods: {
+    getCollapseData(data){
+      this.collapseData=[]
+      this.collapseData = this.collapseDataEntire[data]
+      this.$refs['wmCollapse'].freshPage()
+    }
+  },
 };
 </script>
 
@@ -316,25 +388,98 @@ export default {
   }
   .wm-main {
     width: 1500px;
-    margin: 7% auto;
+    margin: 8% auto;
+    position: relative;
+    z-index: 20;
     .wm-main-header {
       height: 60px;
       position: relative;
-      .wm-video {
-        display: inline-block;
-        width: 148px;
-        height: 47px;
-        background-image: url("../../../../assets/watchvideo.png");
-        background-size: 100% 100%;
+      .wm-classbtn{
+        width: 150px;
+        height: 46px;
         position: absolute;
         top: 0px;
         right: 10px;
       }
     }
   }
-  
+  .wm-h4-text {
+    font-size: 70px;
+    font-family: "Branch";
+    font-weight: 400;
+    color: rgba(65, 32, 128, 0.502);
+    line-height: 1.2;
+    -moz-transform: matrix(1.09559805446257, 0, 0, 1.02392341538558, 0, 0);
+    -webkit-transform: matrix(1.09559805446257, 0, 0, 1.02392341538558, 0, 0);
+    -ms-transform: matrix(1.09559805446257, 0, 0, 1.02392341538558, 0, 0);
+    position: relative;
+    left: 1200px;
+    top:80%;
+    z-index: 10;
+  }
 }
-
+::v-deep {
+  .el-input {
+    color: rgb(214, 179, 103);
+    background-image: url("./image/redBtn.png");
+    background-size: 100% 100%;
+    width: 150px;
+    height: 46px;
+  }
+  .el-input__inner {
+    color: rgb(214, 179, 103);
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+  }
+  .el-select .el-input.is-focus .el-input__inner {
+    color: rgb(214, 179, 103);
+  }
+  .el-select .el-input .el-select__caret {
+    display: none;
+  }
+  .el-popper .popper__arrow, .el-popper .popper__arrow::after {
+    display: none;
+  }
+  .wm-select-pop {
+    position: absolute;
+    color: rgb(214, 179, 103);
+    bottom:0!important;
+    left: 0;
+    transform: translateY(100%)!important;
+    border: 0;
+  }
+  .el-scrollbar__wrap {
+    overflow: hidden;
+    width: 120px;
+    font-size: 16px;
+    margin: 0 auto!important;
+    text-align: center;
+  }
+  .el-select-dropdown {
+    background-color: transparent;
+    box-shadow: none;
+    top: 0!important;
+  }
+  .el-picker-panel, .el-popover, .el-select-dropdown, .el-table-filter, .el-time-panel {
+    -webkit-box-shadow:0 0 0 0 transparent;
+  }
+  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover{
+    background-color: #674d9744;
+  }
+  .el-select-dropdown__item {
+    color: rgb(214, 179, 103);
+    font-weight: 400;
+    padding: 0 10px;
+    background-color: #674d9762;
+  }
+  .el-select-dropdown__item.selected {
+    color: #674d97;
+  }
+}
 ::-webkit-scrollbar {
   display: none;
 }

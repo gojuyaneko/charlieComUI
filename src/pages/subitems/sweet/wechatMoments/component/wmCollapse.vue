@@ -1,9 +1,10 @@
 <template>
-  <el-collapse v-model="activeName" accordion class="weMoments-collapse">
+  <el-collapse v-model="activeName" accordion class="weMoments-collapse" @change="freshPage">
     <el-collapse-item
-      :name="index"
+      :name="'id'+index"
       v-for="(item, index) in collapseData"
       :key="index"
+      style="position:relative;"
     >
       <span slot="title" class="collapse-title">
         <i  :class="['el-icon-d-arrow-right wm-title-icon ' ,{'wm-title-icon-active':index===activeName}]"></i>{{item.className}}
@@ -13,7 +14,7 @@
         fit="true"
         height="300px"
         stripe="true"
-        :data="item.items"
+        :data="item.items.slice((currentPage-1)*pagesize,currentPage*pagesize)"
         style="width: 100%"
         empty-text="暂无数据，请刷新重试"
         :header-row-class-name="tableHeaderStyle"
@@ -22,25 +23,37 @@
         <el-table-column prop="name" label="获取途径"> </el-table-column>
         <el-table-column prop="content" label="内容"> </el-table-column>
       </el-table>
+      <charlie-pagination class="wm-table-pagi" :currenPage='currentPage' :pagesize='pagesize' :itemCnt='item.items.length' @changeCurPa='changeCurPage'></charlie-pagination>
     </el-collapse-item>
   </el-collapse>
 </template>
 
 <script>
+import charliePagination from '@/components/charliePagination.vue';
 export default {
-  components: {},
+  components: {charliePagination},
   props: { collapseData: Array },
   data() {
     return {
-      activeName:'1',
-      mactive: -1
+      activeName:['id0'],
+      mactive: -1,
+      currentPage:1,
+      pagesize:6,
+      
     };
   },
-
   mounted() {},
   methods: {
     tableHeaderStyle() {
       return "wm-table-header";
+    },
+    changeCurPage(currentPage) {
+      this.currentPage = currentPage
+    },
+    freshPage(){
+      this.currentPage =1
+      console.log(this.collapseData)
+      console.log('1')
     }
   },
 };
@@ -48,11 +61,17 @@ export default {
 
 <style scoped lang="scss">
 .weMoments-collapse {
-  height: 700px;
+  height: 780px;
   overflow: scroll;
   border-bottom: 0;
   .marg {
     margin-left: 10px;
+  }
+  .wm-table-pagi {
+    position: relative;
+    height: 100%;
+    bottom: 0px;
+    left: 80%;
   }
 }
 ::v-deep {
@@ -84,6 +103,7 @@ export default {
       transition: 0.2s linear;
     }
     .wm-title-icon-active {
+      color: white;
       -webkit-transform: rotate(90deg);
       transform: rotate(90deg);
     }
