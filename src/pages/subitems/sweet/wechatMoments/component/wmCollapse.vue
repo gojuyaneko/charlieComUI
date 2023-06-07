@@ -52,8 +52,6 @@ export default {
     },
     freshPage(){
       this.currentPage =1
-      console.log(this.collapseData)
-      console.log('1')
     }
   },
 };

@@ -64,8 +64,53 @@ export default {
               {
                 name:'获取途径3',
                 content:'内容3'
+              },
+              {
+                name:'l获取途径1',
+                content:'内容1'
+              },
+              {
+                name:'获取途径2',
+                content:'内容2'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
+              },
+              {
+                name:'获取途径3',
+                content:'内容3'
               }
-            ]
+            ],
+            
           },
           {
             className:'4星灵犀',
@@ -143,7 +188,7 @@ export default {
             className:'活动获得',
             items:[
               {
-                name:'l获取途径1',
+                name:'a获取途径1',
                 content:'内容1'
               },
               {
@@ -162,7 +207,7 @@ export default {
             className:'真话冒险获得',
             items:[
               {
-                name:'l获取途径1',
+                name:'z获取途径1',
                 content:'内容1'
               },
               {
@@ -181,7 +226,7 @@ export default {
             className:'茶歇获得',
             items:[
               {
-                name:'l获取途径1',
+                name:'c获取途径1',
                 content:'内容1'
               },
               {
@@ -344,6 +389,7 @@ export default {
     getCollapseData(data){
       this.collapseData=[]
       this.collapseData = this.collapseDataEntire[data]
+      console.log(this.collapseDataEntire[data])
       this.$refs['wmCollapse'].freshPage()
     }
   },
