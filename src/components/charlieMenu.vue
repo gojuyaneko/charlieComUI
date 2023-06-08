@@ -45,7 +45,6 @@ export default {
       navItems: [
         {
           name: "< 邂逅",
-          nextUrl: "",
           childItems: [
             {
               name: '第一章/ "援塞"之行',
