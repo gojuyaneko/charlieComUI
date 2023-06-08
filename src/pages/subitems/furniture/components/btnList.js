@@ -24,7 +24,7 @@ export default {
         },
         {
             name: '装饰',
-            key: 'decoration ',
+            key: 'decoration',
             style: 'left: -28px; bottom: 185px'
         },
         {

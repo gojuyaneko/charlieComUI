@@ -17,19 +17,23 @@
             >{{item.name}}</div>
         </div>
         <record-detail v-if="isRecordDeatilV" :isVisible.sync="isRecordDeatilV" :playerList="playerList"></record-detail>
+        <furniture-detail v-if="isFurnitureDetailV" :isVisible.sync="isFurnitureDetailV" :type="chosenType" :list="goodsList"></furniture-detail>
     </div>
 </template>
 
 <script>
 import btnList from './components/btnList'
 import RecordDetail from './components/RecordDetail.vue'
+import FurnitureDetail from './components/FurnitureDetail.vue'
 export default {
     components: {
-        RecordDetail
+        RecordDetail,
+        FurnitureDetail
     },
     mixins: [btnList],
     data() {
        return {
+        chosenType: 'woodenFrame',
         playerList: [
             {
                 url: '',
@@ -52,15 +56,31 @@ export default {
                 name: 'Summer Delight'
             },
         ],
-        isRecordDeatilV: true,
+        goodsList: [
+            {
+                img: '',
+                goodDetail: '色调厚重的画架，拥有与外表相称的高度稳定性，能够自由调节高度，以为画家提供舒适体验为追求。',
+                memories: '调试画架的时候过于用心，没听到查理苏的呼唤，对上倚在旁边的他无奈眼神，忍俊不禁用了一个亲吻来告饶。',
+                material: '松香木刻图纸*1（羁梦镜影活动获取），心形七彩椒*6，五彩甜椒*32，裟罗木*15'
+            },
+            {
+                img: '',
+                goodDetail: '11111色调厚重的画架，拥有与外表相称的高度稳定性，能够自由调节高度，以为画家提供舒适体验为追求。',
+                memories: '1111调试画架的时候过于用心，没听到查理苏的呼唤，对上倚在旁边的他无奈眼神，忍俊不禁用了一个亲吻来告饶。',
+                material: '111松香木刻图纸*1（羁梦镜影活动获取），心形七彩椒*6，五彩甜椒*32，裟罗木*15'
+            },
+        ],
+        isRecordDeatilV: false,
         isFurnitureDetailV: false
        } 
     },
     methods: {
         showDeatil(e) {
-            console.log('event type:',e);
             if(e === 'record') {
                 this.isRecordDeatilV = true
+            } else {
+                this.chosenType = e
+                this.isFurnitureDetailV = true
             }
         }
     }
@@ -74,7 +94,7 @@ export default {
     background-size: 100% 100%;
     background-image: url('./image/furniture-bkg.png');
     .furniture-nav {
-        top: 200px;
+        top: 160px;
         left: 150px;
         font-size: 18px;
         font-size: 18px;
