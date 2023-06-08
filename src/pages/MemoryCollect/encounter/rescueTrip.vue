@@ -35,12 +35,14 @@
         <li class="goaway" @click="choiceshow=false; goawayContentVisible=true; buffer=false"></li>
         <li class="stay" @click="choiceshow=false; stayContentVisible=true; buffer=false"></li>
       </ul>
-      <li class="reload" v-show="goawayContentVisible && choiceshow && !buffer && index===1" @click="choiceshow=true;buffer=true;goawayContentVisible=false;"></li>
+      <li class="reload" v-show="goawayContentVisible && choiceshow && !buffer && index===1"
+          @click="choiceshow=true;buffer=true;goawayContentVisible=false;"></li>
       <ul class="choice" v-if="stayContentVisible && choiceshow && buffer1" v-show="index===1">
         <li class="away" @click="choiceshow=false; awayContentVisible=true; buffer1=false"></li>
         <li class="stay1" @click="choiceshow=false; stay1ContentVisible=true; buffer1=false"></li>
       </ul>
-      <li class="reload" v-show="awayContentVisible && choiceshow && !buffer1 && index===1" @click="choiceshow=true;awayContentVisible=false;buffer1=true"></li>
+      <li class="reload" v-show="awayContentVisible && choiceshow && !buffer1 && index===1"
+          @click="choiceshow=true;awayContentVisible=false;buffer1=true"></li>
       <div class="text" v-show="index===1" @scroll="choiceEvent">
         <encounterContent :sendName="meetContent" ></encounterContent>
         <encounterContent :sendName="goawayContent" v-if="goawayContentVisible"></encounterContent>
@@ -53,7 +55,8 @@
         <li class="he"  @click="choiceshow1=false; heContentVisible=true; buffer=false"></li>
         <li class="me" @click="choiceshow1=false; meContentVisible=true; buffer=false"></li>
       </ul>
-      <li class="reload" v-show="heContentVisible && choiceshow1 && !buffer && index===2" @click="choiceshow1=true;buffer=true;heContentVisible=false;"></li>
+      <li class="reload" v-show="heContentVisible && choiceshow1 && !buffer && index===2"
+          @click="choiceshow1=true;buffer=true;heContentVisible=false;"></li>
       <div class="text" v-show="index===2" @scroll="choiceEvent1">
         <encounterContent :sendName="liveContent" ></encounterContent>
         <encounterContent :sendName="heContent" v-if="heContentVisible"></encounterContent>

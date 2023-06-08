@@ -38,12 +38,14 @@
         <li class="wine" @click="choiceshow=false; wineContentVisible=true; buffer=false"></li>
         <li class="boss" @click="choiceshow=false; bossContentVisible=true; buffer=false"></li>
       </ul>
-      <li class="reload" v-show="wineContentVisible && choiceshow && !buffer && index===1" @click="choiceshow=true;buffer=true;wineContentVisible=false;"></li>
+      <li class="reload" v-show="wineContentVisible && choiceshow && !buffer && index===1"
+          @click="choiceshow=true;buffer=true;wineContentVisible=false;"></li>
       <ul class="choice" v-if="bossContentVisible && choiceshow && buffer1" v-show="index===1">
         <li class="wait" @click="choiceshow=false; waitContentVisible=true; buffer1=false"></li>
         <li class="hand" @click="choiceshow=false; handContentVisible=true; buffer1=false"></li>
       </ul>
-      <li class="reload" v-if="waitContentVisible && choiceshow && !buffer1 && index===1" @click="choiceshow=true;waitContentVisible=false;buffer1=true"></li>
+      <li class="reload" v-if="waitContentVisible && choiceshow && !buffer1 && index===1"
+          @click="choiceshow=true;waitContentVisible=false;buffer1=true"></li>
       <div class="text" v-show="index===1" @scroll="choiceEvent">
         <encounterContent :sendName="meetContent" ></encounterContent>
         <encounterContent :sendName="wineContent" v-if="wineContentVisible"></encounterContent>
@@ -56,12 +58,14 @@
         <li class="truth"  @click="choiceshow1=false; truthContentVisible=true; buffer=false"></li>
         <li class="excuse" @click="choiceshow1=false; excuseContentVisible=true; buffer=false"></li>
       </ul>
-      <li class="reload" v-show="truthContentVisible && choiceshow1 && !buffer && index===2" @click="choiceshow1=true;buffer=true;truthContentVisible=false;"></li>
+      <li class="reload" v-show="truthContentVisible && choiceshow1 && !buffer && index===2"
+          @click="choiceshow1=true;buffer=true;truthContentVisible=false;"></li>
       <ul class="choice" v-if="excuseContentVisible && choiceshow1 && buffer1" v-show="index===2">
         <li class="yes" @click="choiceshow1=false; yesContentVisible=true; buffer1=false"></li>
         <li class="follow" @click="choiceshow1=false; followContentVisible=true; buffer1=false"></li>
       </ul>
-      <li class="reload" v-if="yesContentVisible && choiceshow1 && !buffer1 && index===2" @click="choiceshow1=true;yesContentVisible=false;buffer1=true"></li>
+      <li class="reload" v-if="yesContentVisible && choiceshow1 && !buffer1 && index===2"
+          @click="choiceshow1=true;yesContentVisible=false;buffer1=true"></li>
       <div class="text" v-show="index===2" @scroll="choiceEvent1">
         <encounterContent :sendName="attackContent" ></encounterContent>
         <encounterContent :sendName="truthContent" v-if="truthContentVisible"></encounterContent>
