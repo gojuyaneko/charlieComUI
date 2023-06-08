@@ -90,7 +90,7 @@ export default {
             },
             {
               name: "聊天记录",
-              nextUrl: "/",
+              nextUrl: "/chathistory",
             },
             {
               name: "真话冒险",

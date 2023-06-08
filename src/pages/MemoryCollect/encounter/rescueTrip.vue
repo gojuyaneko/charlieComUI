@@ -566,7 +566,7 @@ export default {
   margin-bottom: 20px;
 }
 
-.title1:hover, .title1:focus, .title1.active,
+.title1:hover, .title1:focus, .title1.active
 {
   background: url("./邂逅1/title2-1.png");
   background-size: 100% 100%;

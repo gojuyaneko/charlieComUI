@@ -2,7 +2,7 @@
   <el-collapse v-model="activeName" accordion class="weMoments-collapse" @change="freshPage">
     <el-collapse-item
       :name="'id'+index"
-      v-for="(item, index) in collapseData"
+      v-for="(item, index) in collapseData.data"
       :key="index"
       style="position:relative;"
     >
@@ -56,7 +56,15 @@ export default {
     },
     goToNext(row) {
       console.log(row)
-      this.$router.push({path:'/wechatmoments/wmdetail'})
+      this.$router.push(
+        {
+          path:'/wechatmoments/wmdetail',
+          query:{
+            type:this.collapseData.type,
+            rowD:row
+          }
+        }
+      )
     }
   },
 };
@@ -64,7 +72,7 @@ export default {
 
 <style scoped lang="scss">
 .weMoments-collapse {
-  height: 740px;
+  height: 730px;
   overflow: scroll;
   border-bottom: 0;
   .marg {
@@ -81,7 +89,7 @@ export default {
     .el-collapse-item__header {
       font-size: 32px;
       font-family: "nansongshuju";
-      height: 80px;
+      height: 70px;
       background-color: rgba(184, 171, 206, 0.7);
     }
     .el-collapse-item__header.focusing:focus:not(:hover) {

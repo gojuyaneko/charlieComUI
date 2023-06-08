@@ -12,7 +12,7 @@ const truthCameout = () => import('../pages/MemoryCollect/encounter/truthCameout
 const wechatMoments = () => import('../pages/subitems/sweet/wechatMoments/wechatMoments.vue')
 const charlieFurniture = () => import('../pages/subitems/furniture/charlieFurniture.vue')
 const wmDetail = () => import('../pages/subitems/sweet/wechatMoments/pages/wmDetail.vue')
-
+const chatHistory = () => import('../pages/subitems/sweet/chatHistory/chatHistory.vue')
 Vue.use(Router);
 export default new Router({
   mode: 'history',
@@ -82,6 +82,10 @@ export default new Router({
       name: 'charlieFurniture',
       component: charlieFurniture
     },
-
+    {
+        path: '/chathistory',
+        name: 'chathistory',
+        component: chatHistory
+    }
   ]
 })

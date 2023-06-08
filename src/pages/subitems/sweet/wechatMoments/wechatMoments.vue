@@ -30,7 +30,9 @@ export default {
   data() {
     return {
       collapseDataEntire:{
-        mainStory:[
+        mainStory:{
+          type:'mainstory',
+          data:[
           {
             className:'主线获得',
             items:[
@@ -48,8 +50,10 @@ export default {
               }
             ]
           }
-        ],
-        lingXi:[
+          ]},
+        lingXi:{
+          type:'lingXi',
+          data:[
         {
             className:'3星灵犀',
             items:[
@@ -163,8 +167,10 @@ export default {
               }
             ]
           }
-        ],
-        xieHou:[
+          ]},
+        xieHou:{
+          type:'xieHou',
+          data:[
           {
             className:'邂逅获得',
             items:[
@@ -182,8 +188,10 @@ export default {
               }
             ]
           }
-        ],
-        activities:[
+          ]},
+        activities:{
+          type:'activities',
+          data:[
           {
             className:'活动获得',
             items:[
@@ -201,8 +209,10 @@ export default {
               }
             ]
           }
-        ],
-        truthOrDare:[
+          ]},
+        truthOrDare:{
+          type:'truthOrDare',
+          data:[
           {
             className:'真话冒险获得',
             items:[
@@ -220,8 +230,10 @@ export default {
               }
             ]
           }
-        ],
-        teaParty:[
+          ]},
+        teaParty:{
+          type:'teaParty',
+          data:[
           {
             className:'茶歇获得',
             items:[
@@ -239,9 +251,11 @@ export default {
               }
             ]
           }
-        ]
+          ]}
       },
-      collapseData:[
+      collapseData:{
+        type:'lingXi',
+        data:[
           {
             className:'3星灵犀',
             items:[
@@ -354,7 +368,7 @@ export default {
               }
             ]
           }
-      ],
+      ]},
       options:[
         {
           value:'lingXi',
@@ -430,13 +444,13 @@ export default {
     left: 135px;
     top: 225px;
     width: 76px;
-    z-index: 18;
+    z-index: 2;
   }
   .wm-main {
     width: 1500px;
     margin: 8% auto;
     position: relative;
-    z-index: 20;
+    z-index: 2;
     .wm-main-header {
       height: 60px;
       position: relative;
@@ -461,13 +475,13 @@ export default {
     position: relative;
     left: 1200px;
     top:80%;
-    z-index: 10;
+    z-index: 1;
   }
 }
 ::v-deep {
   .el-input {
     color: rgb(214, 179, 103);
-    background-image: url("./image/redBtn.png");
+    background-image: url("../../../../assets/redBtn.png");
     background-size: 100% 100%;
     width: 150px;
     height: 46px;
@@ -514,13 +528,13 @@ export default {
     -webkit-box-shadow:0 0 0 0 transparent;
   }
   .el-select-dropdown__item.hover, .el-select-dropdown__item:hover{
-    background-color: #674d9744;
+    background-color: rgba(68,50,97,.6);
   }
   .el-select-dropdown__item {
     color: rgb(214, 179, 103);
     font-weight: 400;
     padding: 0 10px;
-    background-color: #674d9762;
+    background-color: rgba(68,50,97,.5);
   }
   .el-select-dropdown__item.selected {
     color: #674d97;
