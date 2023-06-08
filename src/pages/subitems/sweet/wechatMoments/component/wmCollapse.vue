@@ -19,7 +19,8 @@
         empty-text="暂无数据，请刷新重试"
         :header-row-class-name="tableHeaderStyle"
         :header-cell-style="{background:'rgb(225, 220, 235)',color:'#000',fontSize:'16px',fontWeight:'400',height:'20px'}"
-      >
+        @row-click="goToNext"
+        >
         <el-table-column prop="name" label="获取途径"> </el-table-column>
         <el-table-column prop="content" label="内容"> </el-table-column>
       </el-table>
@@ -52,6 +53,10 @@ export default {
     },
     freshPage(){
       this.currentPage =1
+    },
+    goToNext(row) {
+      console.log(row)
+      this.$router.push({path:'/wechatmoments/wmdetail'})
     }
   },
 };
@@ -59,7 +64,7 @@ export default {
 
 <style scoped lang="scss">
 .weMoments-collapse {
-  height: 780px;
+  height: 740px;
   overflow: scroll;
   border-bottom: 0;
   .marg {
@@ -107,6 +112,9 @@ export default {
     }
     .wm-table-header {
       color: black;
+    }
+    .el-table--enable-row-transition .el-table__body td.el-table__cell {
+      cursor: pointer;
     }
   }
 </style>

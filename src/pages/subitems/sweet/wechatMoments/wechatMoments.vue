@@ -50,7 +50,7 @@ export default {
           }
         ],
         lingXi:[
-          {
+        {
             className:'3星灵犀',
             items:[
               {
