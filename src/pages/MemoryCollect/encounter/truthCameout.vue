@@ -188,7 +188,7 @@ export default {
           {
           name: "旁白",
           content:
-            "嘀——12345"
+            "嘀——wine"
         },
         {
           name: "护士",
@@ -200,7 +200,7 @@ export default {
           {
           name: "旁白",
           content:
-            "嘀——67890"
+            "嘀——boss"
         },
         {
           name: "护士",
@@ -226,7 +226,7 @@ export default {
           {
           name: "旁白",
           content:
-            "嘀——boss"
+            "嘀——hand"
         },
         {
           name: "护士",
@@ -238,7 +238,7 @@ export default {
         {
           name: "旁白",
           content:
-            "嘀——live"
+            "嘀——attack"
         },
         {
           name: "护士",
@@ -329,7 +329,7 @@ export default {
           {
           name: "旁白",
           content:
-            "嘀——me"
+            "嘀——excuse"
         },
         {
           name: "护士",
@@ -341,7 +341,7 @@ export default {
         {
           name: "旁白",
           content:
-            "嘀——live"
+            "嘀——snake"
         },
         {
           name: "护士",
