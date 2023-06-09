@@ -4,7 +4,7 @@
     <div class="chat-history-bg">
       <main class="ch-main">
         <section class="ch-main-header">
-          <el-select class="ch-classbtn" :popper-append-to-body="false" v-model="selectValue" placeholder="请选择" popper-class='ch-select-pop' @change="getCollapseData">
+          <el-select class="ch-classbtn" :popper-append-to-body="false" v-model="selectValue" placeholder="请选择" popper-class='ch-select-pop' @change="getLayoutData">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -34,6 +34,36 @@ export default {
           data:[
             {
               dtype:'vediocalls',
+              name:'1回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'1百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'12021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'12022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'redenvelope',
+              name:'12021中秋-月圆礼盒',
+              content:'查理苏：[红包]在忙吗？'
+            },
+            {
+              dtype:'normal',
+              name:'2022春节-豪华晚宴',
+              content:'我：查理苏新年快乐！下夜班了吗？'
+            },
+            {
+              dtype:'vediocalls',
               name:'回归短信-重逢之歌',
               content:'查理苏：没事的时候值夜班还是挺无聊的。'
             },
@@ -55,6 +85,341 @@ export default {
             {
               dtype:'redenvelope',
               name:'2021中秋-月圆礼盒',
+              content:'查理苏：[红包]在忙吗？'
+            },
+            {
+              dtype:'normal',
+              name:'2022春节-豪华晚宴',
+              content:'我：查理苏新年快乐！下夜班了吗？'
+            }
+          ]
+        },
+        mainStory:{
+          type:'mainStory',
+          data:[
+            {
+              dtype:'vediocalls',
+              name:'2回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'2百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'12021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'12022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'redenvelope',
+              name:'12021中秋-月圆礼盒',
+              content:'查理苏：[红包]在忙吗？'
+            },
+            {
+              dtype:'normal',
+              name:'2022春节-豪华晚宴',
+              content:'我：查理苏新年快乐！下夜班了吗？'
+            },
+            {
+              dtype:'vediocalls',
+              name:'回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'2021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'2022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'redenvelope',
+              name:'2021中秋-月圆礼盒',
+              content:'查理苏：[红包]在忙吗？'
+            },
+            {
+              dtype:'normal',
+              name:'2022春节-豪华晚宴',
+              content:'我：查理苏新年快乐！下夜班了吗？'
+            }
+          ]
+        },
+        lingXi:{
+          type:'lingXi',
+          data:[
+            {
+              dtype:'vediocalls',
+              name:'3回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'1百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'12021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'12022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'redenvelope',
+              name:'12021中秋-月圆礼盒',
+              content:'查理苏：[红包]在忙吗？'
+            },
+            {
+              dtype:'normal',
+              name:'2022春节-豪华晚宴',
+              content:'我：查理苏新年快乐！下夜班了吗？'
+            },
+            {
+              dtype:'vediocalls',
+              name:'回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'2021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'2022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'redenvelope',
+              name:'2021中秋-月圆礼盒',
+              content:'查理苏：[红包]在忙吗？'
+            },
+            {
+              dtype:'normal',
+              name:'2022春节-豪华晚宴',
+              content:'我：查理苏新年快乐！下夜班了吗？'
+            },
+            {
+              dtype:'vediocalls',
+              name:'3回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'1百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'12021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'12022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'vediocalls',
+              name:'3回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'1百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'12021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'12022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            }
+          ]
+        },
+        xieHou:{
+          type:'xieHou',
+          data:[
+            {
+              dtype:'vediocalls',
+              name:'4回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'1百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'12021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'12022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'redenvelope',
+              name:'12021中秋-月圆礼盒',
+              content:'查理苏：[红包]在忙吗？'
+            },
+            {
+              dtype:'normal',
+              name:'2022春节-豪华晚宴',
+              content:'我：查理苏新年快乐！下夜班了吗？'
+            },
+            {
+              dtype:'vediocalls',
+              name:'回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'2021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'2022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'redenvelope',
+              name:'2021中秋-月圆礼盒',
+              content:'查理苏：[红包]在忙吗？'
+            },
+            {
+              dtype:'normal',
+              name:'2022春节-豪华晚宴',
+              content:'我：查理苏新年快乐！下夜班了吗？'
+            }
+          ]
+        },
+        truthOrDare:{
+          type:'truthOrDare',
+          data:[
+            {
+              dtype:'vediocalls',
+              name:'5回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'1百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'12021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'12022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'redenvelope',
+              name:'12021中秋-月圆礼盒',
+              content:'查理苏：[红包]在忙吗？'
+            },
+            {
+              dtype:'normal',
+              name:'2022春节-豪华晚宴',
+              content:'我：查理苏新年快乐！下夜班了吗？'
+            },
+            {
+              dtype:'vediocalls',
+              name:'回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'2021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'2022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'redenvelope',
+              name:'2021中秋-月圆礼盒',
+              content:'查理苏：[红包]在忙吗？'
+            },
+            {
+              dtype:'normal',
+              name:'2022春节-豪华晚宴',
+              content:'我：查理苏新年快乐！下夜班了吗？'
+            }
+          ]
+        },
+        teaParty:{
+          type:'teaParty',
+          data:[
+            {
+              dtype:'vediocalls',
+              name:'6回归短信-重逢之歌',
+              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+            },
+            {
+              dtype:'normal',
+              name:'1百度地图联动-遛鸟',
+              content:'：到了吗？'
+            },
+            {
+              dtype:'voicemessage',
+              name:'12021查理苏生日-突然的礼物',
+              content:'查理苏：快递到了...'
+            },
+            {
+              dtype:'normal',
+              name:'12022除夕-急诊室外',
+              content:'查理苏：除夕快乐未婚妻，在这样一个合家欢的夜晚，有没有想我？'
+            },
+            {
+              dtype:'redenvelope',
+              name:'12021中秋-月圆礼盒',
               content:'查理苏：[红包]在忙吗？'
             },
             {
@@ -94,7 +459,6 @@ export default {
             }
           ]
         }
-
       },
       layoutData:{
           type:'activities',
@@ -190,13 +554,16 @@ export default {
       selectValue:'lingXi',
     }
   },
-  mounted() {},
+  mounted() {
+    this.getLayoutData('lingXi')
+  },
   methods: {
-    getCollapseData(data){
-      this.collapseData=[]
-      this.collapseData = this.collapseDataEntire[data]
-      console.log(this.collapseDataEntire[data])
-      this.$refs['chCollapse'].freshPage()
+    getLayoutData(data){
+      console.log(data)
+      this.layoutData=[]
+      this.layoutData = this.layoutDataEntire[data]
+      console.log(this.layoutDataEntire[data])
+      this.$refs['chlayout'].freshPage()
     }
   },
 };
@@ -242,7 +609,6 @@ export default {
     width: 1500px;
     margin: 8% auto;
     position: relative;
-    background-color: rgba(255, 192, 203, 0.26);
     .ch-main-header {
       height: 60px;
       position: relative;
