@@ -105,8 +105,4 @@ export default {
   z-index: 99;
 }
 
-@font-face {
-  font-family: "Branch";
-  src: url("../../../../../public/fonts/branch-regular.ttf");
-}
 </style>

@@ -8,7 +8,7 @@
             <span class="wm-dt-header-span">{{fisrtPerson}}</span>
           </div>
           <div class="wm-dt-sec-main">
-            <p>{{ firstText }}</p>
+            <p>l</p>
             <img :src="firstImg" alt="" class="wm-dt-main-img" v-if="hasImg">
             <ul class="wm-likeAndComment"><li></li><li></li></ul>
           </div>
@@ -94,7 +94,7 @@ export default {
   .wm-detail-bg {
     width: 100%;
     height: 100%;
-    background: url("../image/detailbg.png") no-repeat;
+    background: url("../../../../../assets/detailbg.png") no-repeat;
     background-size: 100% 100%;
     overflow: scroll;
     position: absolute;

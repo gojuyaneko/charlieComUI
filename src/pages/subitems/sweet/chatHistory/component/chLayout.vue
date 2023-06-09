@@ -2,7 +2,7 @@
   <div class="chat-history-layout">
     <div>
       <ul class="ch-layout-ul">
-        <li class="ch-layout-li" v-for="(item, index) in layoutData.data.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index">
+        <li class="ch-layout-li" v-for="(item, index) in layoutData.data.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index" @click="goToNext(item.name)">
           <div class="ch-layout-name" :data-icon="item.dtype">{{item.name}}</div>
           <div class="ch-layout-content">{{ item.content }}</div>
         </li>
@@ -18,7 +18,7 @@
 import charliePagination from '@/components/charliePagination.vue';
 export default {
   components: {charliePagination},
-  props: { layoutData: Array },
+  props: { layoutData: Object },
   data() {
     return {
       currentPage:1,
@@ -33,6 +33,16 @@ export default {
     freshPage(){
       this.currentPage =1
     },
+    goToNext(name){
+      this.$router.push(
+        {
+          path:'/chathistory/chatdetail',
+          query: {
+            name:name
+          }
+        }
+      )
+    }
   },
 };
 </script>
@@ -63,7 +73,7 @@ export default {
         bottom: 0;
         right: 0;
         display: inline-block;
-      }
+    }
       .ch-layout-name[data-icon="vediocalls"]::after {
         background-image: url('../../../../../assets/vediocalls.png');
         background-size: 100% 100%;

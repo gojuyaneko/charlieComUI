@@ -41,7 +41,10 @@ li {
   font-family: "nansongshuju";
   src: url("../public/fonts/南宋书局体.ttf");
 }
-
+@font-face {
+  font-family: "Branch";
+  src: url("../public/fonts/branch-regular.ttf");
+}
 .position-absolute {
   position: absolute;
   top: 0;

@@ -543,8 +543,4 @@ export default {
 ::-webkit-scrollbar {
   display: none;
 }
-@font-face {
-  font-family: "Branch";
-  src: url("../../../../../public/fonts/branch-regular.ttf");
-}
 </style>

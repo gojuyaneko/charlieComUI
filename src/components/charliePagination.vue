@@ -8,7 +8,6 @@
       :current-page="currenPage"
       :page-size="pagesize"
       @current-change="curChange"
-      @size-change="handleSizeChange"
     >
     </el-pagination>
   </div>
