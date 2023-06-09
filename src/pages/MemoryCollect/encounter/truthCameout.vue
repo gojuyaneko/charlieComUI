@@ -21,19 +21,19 @@
             choiceshow1=false;
             buffer=true; buffer1=true;
             truthContentVisible=false;
-            excuseContentVisible=false;"
+            excuseContentVisible=false;
+            yesContentVisible=false;
+            followContentVisible=false;"
             :class="index===2? 'active':''"></span>
       <span class="title3" tabindex="3"
             @click="show(3)
             choiceshow2=false;buffer=true;
             topContentVisible=false;
             follow1ContentVisible=false;
-            storeContentVisible=false;
-            yesContentVisible=false;
-            followContentVisible=false;"
+            storeContentVisible=false;"
             :class="index===3? 'active':''"></span>
     </ul>
-<div class="text-bg">
+    <div class="text-bg">
       <ul class="choice" v-if="choiceshow && buffer" v-show="index===1">
         <li class="wine" @click="choiceshow=false; wineContentVisible=true; buffer=false"></li>
         <li class="boss" @click="choiceshow=false; bossContentVisible=true; buffer=false"></li>
@@ -188,7 +188,7 @@ export default {
           {
           name: "旁白",
           content:
-            "嘀——12345"
+            "嘀——wine"
         },
         {
           name: "护士",
@@ -200,7 +200,7 @@ export default {
           {
           name: "旁白",
           content:
-            "嘀——67890"
+            "嘀——boss"
         },
         {
           name: "护士",
@@ -226,7 +226,7 @@ export default {
           {
           name: "旁白",
           content:
-            "嘀——boss"
+            "嘀——hand"
         },
         {
           name: "护士",
@@ -238,7 +238,7 @@ export default {
         {
           name: "旁白",
           content:
-            "嘀——live"
+            "嘀——attack"
         },
         {
           name: "护士",
@@ -329,7 +329,7 @@ export default {
           {
           name: "旁白",
           content:
-            "嘀——me"
+            "嘀——excuse"
         },
         {
           name: "护士",
@@ -341,7 +341,7 @@ export default {
         {
           name: "旁白",
           content:
-            "嘀——live"
+            "嘀——snake"
         },
         {
           name: "护士",
