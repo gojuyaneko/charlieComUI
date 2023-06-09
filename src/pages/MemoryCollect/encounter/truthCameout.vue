@@ -21,19 +21,19 @@
             choiceshow1=false;
             buffer=true; buffer1=true;
             truthContentVisible=false;
-            excuseContentVisible=false;"
+            excuseContentVisible=false;
+            yesContentVisible=false;
+            followContentVisible=false;"
             :class="index===2? 'active':''"></span>
       <span class="title3" tabindex="3"
             @click="show(3)
             choiceshow2=false;buffer=true;
             topContentVisible=false;
             follow1ContentVisible=false;
-            storeContentVisible=false;
-            yesContentVisible=false;
-            followContentVisible=false;"
+            storeContentVisible=false;"
             :class="index===3? 'active':''"></span>
     </ul>
-<div class="text-bg">
+    <div class="text-bg">
       <ul class="choice" v-if="choiceshow && buffer" v-show="index===1">
         <li class="wine" @click="choiceshow=false; wineContentVisible=true; buffer=false"></li>
         <li class="boss" @click="choiceshow=false; bossContentVisible=true; buffer=false"></li>
