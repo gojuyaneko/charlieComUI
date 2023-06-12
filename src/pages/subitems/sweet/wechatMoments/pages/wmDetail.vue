@@ -197,6 +197,7 @@ export default {
     font-family: "nansongshuju";
     height: 64px;
     border: 0;
+    align-items: center;
   }
   .el-collapse {
     border: 0;

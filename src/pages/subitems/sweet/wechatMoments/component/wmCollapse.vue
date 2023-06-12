@@ -7,7 +7,7 @@
       style="position:relative;"
     >
       <span slot="title" class="collapse-title">
-        <i  :class="['el-icon-d-arrow-right wm-title-icon ' ,{'wm-title-icon-active':index===activeName}]"></i>{{item.className}}
+        <i  :class="['el-icon-d-arrow-right wm-title-icon ' ,{'wm-title-icon-active':'id'+index===activeName}]"></i>{{item.className}}
       </span>
       <el-table
         :ref="'id'+index"
@@ -43,7 +43,9 @@ export default {
       
     };
   },
-  mounted() {},
+  mounted() {
+    this.activeName = 'id0'
+  },
   methods: {
     tableHeaderStyle() {
       return "wm-table-header";

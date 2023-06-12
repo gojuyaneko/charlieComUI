@@ -16,12 +16,12 @@
           <div class="ch-dt-sec-main ">
             <div class="ch-dt-normal-text" v-if="item.type==='nomarl'">
               <p>{{item.content[0].selfContent}}</p>
-              <img :src="item.content.img" alt="" v-if="item.content.ifImg">
+              <img  :src="item.content.img" alt="" v-if="item.content.ifImg">
             </div>
             <el-collapse v-model="deActiveName" accordion v-if="item.type==='choice'">
-              <el-collapse-item  :name="index" v-for="(secitem,index) in item.content" :key="index">
+              <el-collapse-item  :name="'id'+index+iindex" v-for="(secitem,iindex) in item.content" :key="iindex">
                 <span slot="title" class="collapse-title">
-                  <i  :class="['el-icon-d-arrow-right ch-title-icon ' ,{'ch-title-icon-active':item.index===deActiveName}]"></i>
+                  <i  :class="['el-icon-d-arrow-right ch-title-icon ' ,{'ch-title-icon-active':'id'+index+iindex===deActiveName}]"></i>
                   <p v-if="!secitem.ifImg">{{secitem.selfContent}}</p>
                   <img class="ch-title-img" v-if="secitem.ifImg" :src="secitem.img" alt="">
                 </span>
@@ -204,13 +204,13 @@ export default {
     top: 0;
     left: 0;
     .ch-detail-main {
-      background-color: pink;
       position: relative;
       .ch-detail-section {
         background-color: white;
         padding: 10px 50px 25px 50px;
         position: relative;
         box-shadow: 0.3em 0.3em 0.5em rgba(0,0,0,0.2);
+        margin-bottom: 3%;
         .ch-dt-sec-header {
           width: 100%;
           height: 76px;
@@ -230,12 +230,15 @@ export default {
             margin-right: 10px;
             color: rgb(235, 73, 130);
           }
-          .ch-dt-header-img[data-person='查理苏']::after {
+          picture[data-person='查理苏']::after {
             content: '查理苏';
-            width: 30px;
-            height: 30px;
+            display: inline-block;
+            width: 90px;
+            height: 90px;
+            z-index: 3;
             font-size: 25px;
-            color:#674d97 ;
+            margin-left: 10px;
+            color: #674d97 ;
           }
         }
         .ch-dt-sec-header[data-person='我'] {
@@ -262,8 +265,65 @@ export default {
       }
     }
   }
+  .ch-title-img {
+    width: 86px;
+    height: 86px;
+    vertical-align: top;
+  }
+  .collapse-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
-
+::v-deep {
+    .el-collapse {
+      border: 0;
+    }
+    .el-collapse-item__header {
+      font-size: 22px;
+      height: 90px;
+      border: 0;
+      margin: 5px 0;
+    }
+    .el-collapse-item__header.focusing:focus:not(:hover) {
+      color: #d6b367;
+    }
+    .el-collapse-item__content {
+      padding-bottom: 0;
+    }
+    .el-table .el-table__cell {
+      padding:8px 0;
+      padding-left: 90px;
+    }
+    .el-collapse-item__arrow {
+      display: none;
+    }
+    .ch-title-icon {
+      width: 25px;
+      height: 26px;
+      margin: 0 10px 0 40px;
+      color: #d6b367;
+      font-weight: 700;
+      transition: 0.2s linear;
+    }
+    .el-collapse-item__wrap {
+      border: 0;
+      background-color: #674d9730;
+      position: relative;
+      left: 40px;
+    }
+    .ch-title-icon-active {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+    .ch-table-header {
+      color: black;
+    }
+    .el-table--enable-row-transition .el-table__body td.el-table__cell {
+      cursor: pointer;
+    }
+  }
 .ch-detail-video {
   display: inline-block;
   width: 148px;
@@ -274,6 +334,18 @@ export default {
   top: 0;
   right: 0;
   transform: translateY(-150%);
+}
+.ch-dt-nd-reply {
+  margin-left: 36px;
+  padding: 5px 0;
+  display: flex;
+  font-size: 21px;
+  background-color: rgba(196, 196, 196, 0.1);
+  .purple {
+          min-width: 70px;
+          color: #674d97;
+          font-family: 'nansongshuju';
+        }
 }
 ::-webkit-scrollbar {
   display: none;
