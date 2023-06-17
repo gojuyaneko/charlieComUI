@@ -165,8 +165,8 @@ export default {
 
   .slider-container img{
     max-height: 100px;
-    margin-left: 10px;
-
+    /* margin: 20px; */
+    padding: 20px;
   }
  
 
