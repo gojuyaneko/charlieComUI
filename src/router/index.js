@@ -14,6 +14,8 @@ const charlieFurniture = () => import('../pages/subitems/furniture/charlieFurnit
 const wmDetail = () => import('../pages/subitems/sweet/wechatMoments/pages/wmDetail.vue')
 const chatHistory = () => import('../pages/subitems/sweet/chatHistory/chatHistory.vue')
 const chatDetail = () => import('../pages/subitems/sweet/chatHistory/pages/chatDetail.vue')
+const trackDetail = () => import('../pages/MemoryCollect/track/trackDetail.vue')
+
 Vue.use(Router);
 export default new Router({
   mode: 'history',
@@ -92,6 +94,11 @@ export default new Router({
         path: '/chathistory/chatdetail',
         name: 'chatdetail',
         component: chatDetail
+    },
+    {
+        path: '/trackDetail',
+        name: 'trackDetail',
+        component: trackDetail
     }
   ]
 })

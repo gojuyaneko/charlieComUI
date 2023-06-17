@@ -62,7 +62,6 @@ export default {
         },
         {
           name: "< 记忆",
-          nextUrl: "/memory",
           childItems: [
             {
               name: "约会",
@@ -74,7 +73,7 @@ export default {
             },
             {
               name: "轨迹",
-              nextUrl: "/track",
+              nextUrl: "/trackDetail",
             },
             {
               name: "侧影",
