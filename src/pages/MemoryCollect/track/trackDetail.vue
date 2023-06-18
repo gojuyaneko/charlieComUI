@@ -5,6 +5,8 @@
       <div class="next" @click="change()" :class="{active:index}"></div>
       <trackPartner v-show="index===1"></trackPartner>
       <trackLanding v-show="index===2"></trackLanding>
+      <trackBack v-show="index===3"></trackBack>
+
     </div>
   </div>
 
@@ -14,8 +16,9 @@
 <script>
 import trackPartner from "@/pages/MemoryCollect/track/trackPartner.vue";
 import trackLanding from "@/pages/MemoryCollect/track/trackLanding.vue";
+import trackBack from "@/pages/MemoryCollect/track/trackBack.vue";
 export default {
-  components: {trackPartner,trackLanding},
+  components: {trackPartner,trackLanding,trackBack},
   data() {
     return {
       index: 1,
@@ -23,7 +26,7 @@ export default {
   },
   methods: {
     change () {
-      if(this.index >= 2 ) {
+      if(this.index >= 3 ) {
         this.index = 1
       } else{
         this.index ++
