@@ -15,6 +15,7 @@ const wmDetail = () => import('../pages/subitems/sweet/wechatMoments/pages/wmDet
 const chatHistory = () => import('../pages/subitems/sweet/chatHistory/chatHistory.vue')
 const chatDetail = () => import('../pages/subitems/sweet/chatHistory/pages/chatDetail.vue')
 const trackDetail = () => import('../pages/MemoryCollect/track/trackDetail.vue')
+const profileDetail = () => import('../pages/MemoryCollect/profile/profileDetail.vue')
 
 Vue.use(Router);
 export default new Router({
@@ -99,6 +100,11 @@ export default new Router({
         path: '/trackDetail',
         name: 'trackDetail',
         component: trackDetail
+    },
+      {
+        path: '/profileDetail',
+        name: 'profileDetail',
+        component: profileDetail
     }
   ]
 })

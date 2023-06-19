@@ -1,5 +1,5 @@
 <template>
-  <div class="landing">
+  <div class="back">
     <a class="video-btn" target="_blank" href="http://www.bilibili.com"></a>
     <div class="title"></div>
     <div class="titles" v-for="(item,index) in minorTitles" :key="index" v-show="item.num===Index">

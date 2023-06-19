@@ -77,7 +77,7 @@ export default {
             },
             {
               name: "侧影",
-              nextUrl: "/profile",
+              nextUrl: "/profileDetail",
             },
           ],
         },
