@@ -16,7 +16,7 @@ const chatHistory = () => import('../pages/subitems/sweet/chatHistory/chatHistor
 const chatDetail = () => import('../pages/subitems/sweet/chatHistory/pages/chatDetail.vue')
 const trackDetail = () => import('../pages/MemoryCollect/track/trackDetail.vue')
 const profileDetail = () => import('../pages/MemoryCollect/profile/profileDetail.vue')
-
+const videocallCollection = () => import('../pages/subitems/sweet/videocallCollection/videocallCollection.vue')
 Vue.use(Router);
 export default new Router({
   mode: 'history',
@@ -97,11 +97,16 @@ export default new Router({
         component: chatDetail
     },
     {
+      path: '/videocallcollection',
+      name: 'videocallcollection',
+      component: videocallCollection
+  },
+    {
         path: '/trackDetail',
         name: 'trackDetail',
         component: trackDetail
     },
-      {
+    {
         path: '/profileDetail',
         name: 'profileDetail',
         component: profileDetail

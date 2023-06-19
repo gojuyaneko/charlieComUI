@@ -93,6 +93,10 @@ export default {
               nextUrl: "/chathistory",
             },
             {
+              name: "视频通话",
+              nextUrl: "/videocallcollection",
+            },
+            {
               name: "真话冒险",
               nextUrl: "/truthordare",
             },

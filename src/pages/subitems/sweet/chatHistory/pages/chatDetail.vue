@@ -1,6 +1,6 @@
 <template>
   <div class="chat-detail">
-    <div class="chat-detail-bg" @click.stop="choiceChoose">
+    <div class="chat-detail-bg" ref="chatBg" @click.stop="choiceChoose">
       <main class="ch-detail-main">
         <a
           class="ch-detail-video"
@@ -15,9 +15,14 @@
           </div>
           <div class="ch-dt-sec-main ">
             <div class="ch-dt-normal-text" v-if="item.type==='nomarl'">
-              <p>{{item.content[0].selfContent}}</p>
               <img  :src="item.content[0].img" alt="" v-if="item.content[0].ifImg">
-              <video-call class="ch-video-call" :callName="item.content[0].video.name" v-if="item.content[0].ifVideo"></video-call>
+              <video-call class="ch-video-call" :callName="item.content[0].video.name" v-else-if="item.content[0].ifVideo"></video-call>
+              <div v-else-if="item.content[0].ifVoice" class="ch-voice-message">
+                <h6 class="ch-voime-title">语音</h6>
+                <p class="ch-voime-p">{{item.content[0].selfContent}}</p>
+                
+              </div>
+              <p v-else>{{item.content[0].selfContent}}</p>
             </div>
             <div v-if="item.type==='choice'" @click.stop="">
               <el-collapse v-model="deActiveName" accordion >
@@ -52,7 +57,8 @@ export default {
           name:'查理苏',
           content: [
             {
-              ifVideo:false,
+              ifVoice: false,
+              ifVideo: false,
               ifImg: false,
               selfContent: "[红包]在忙吗？",
               img: require('../../../../../assets/meme/shock.png'),
@@ -65,6 +71,7 @@ export default {
           name:'我',
           content: [
             {
+              ifVoice: false,
               ifVideo:false,
               ifImg: true,
               selfContent: "[惊]",
@@ -80,6 +87,7 @@ export default {
               ],
             },
             {
+              ifVoice: false,
               ifVideo:false,
               ifImg: false,
               selfContent:
@@ -95,6 +103,7 @@ export default {
               ],
             },
             {
+              ifVoice: false,
               ifVideo:false,
               ifImg: false,
               selfContent: "谢谢查医生，红包我就先收下了",
@@ -115,6 +124,7 @@ export default {
           name:'查理苏',
           content: [
             {
+              ifVoice: false,
               ifVideo:false,
               ifImg: false,
               selfContent: "完美啊，你的名字是charlie",
@@ -127,6 +137,7 @@ export default {
           name:'查理苏',
           content: [
             {
+              ifVoice: true,
               ifVideo:false,
               ifImg: false,
               selfContent: "1完美啊，你的名字是charlie",
@@ -139,6 +150,7 @@ export default {
           name:'我',
           content: [
             {
+              ifVoice: false,
               ifVideo:false,
               ifImg: true,
               selfContent: "",
@@ -154,6 +166,7 @@ export default {
               ],
             },
             {
+              ifVoice: false,
               ifVideo:false,
               ifImg: false,
               selfContent:
@@ -169,6 +182,7 @@ export default {
               ],
             },
             {
+              ifVoice: false,
               ifVideo:false,
               ifImg: false,
               selfContent: "谢谢查医生，红包我就先收下了",
@@ -189,6 +203,7 @@ export default {
           name:'查理苏',
           content: [
             {
+              ifVoice: false,
               ifVideo:false,
               ifImg: false,
               selfContent: "让我想想，亲爱的未婚妻现在有没有在想我呢？",
@@ -225,6 +240,7 @@ export default {
           name:'查理苏',
           content: [
             {
+              ifVoice: false,
               ifVideo:true,
               ifImg: false,
               video:{
@@ -246,13 +262,13 @@ export default {
   },
   methods: {
     choiceChoose (e) {
-      let scrollMain = e.target
-      this.contentIndex++
-      if(this.contentIndex<this.chDetailData.length+1)
-      this.$nextTick(() => {
-        scrollMain.scrollTo({top:scrollMain.scrollHeight,behavior: 'smooth'})
-      })
-      console.log(this.contentIndex)
+      let scrollMain = this.$refs.chatBg
+      if(this.contentIndex<this.chDetailData.length)
+        this.contentIndex++
+        this.$nextTick(() => {
+          scrollMain.scrollTo({top:scrollMain.scrollHeight,behavior: 'smooth'})
+        })
+        console.log(this.contentIndex)
     }
   },
 };
@@ -352,7 +368,31 @@ export default {
     flex-direction: row;
     align-items: center;
   }
-  .ch-video-call {
+  .ch-voice-message {
+    border: 1px solid #674d97;
+    background-color: rgba(80, 59, 114,.2);
+    .ch-voime-title {
+      position: relative;
+      font-weight: 400;
+      font-size: 21px;
+      color: rgb(122, 122, 122);
+      border-bottom: 1px solid rgb(80, 59, 114);
+      padding: 4px 10px;
+    }
+    .ch-voime-title::after {
+      content: ' ';
+      background: url('../../../../../assets/voicemessage.png');
+      background-size: 100% 100%;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 4px;
+    }
+    .ch-voime-p {
+      padding: 8px 14px;
+    }
   }
 }
 ::v-deep {
