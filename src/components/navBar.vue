@@ -73,11 +73,7 @@ export default {
             {
               name: "闲聊",
               nextUrl: "/studio/chat",
-            },
-            {
-              name: "唱片",
-              nextUrl: "/studio/record",
-            },
+            }
           ],
         },
         {
@@ -108,8 +104,12 @@ export default {
         },
         {
           name: "官方周边",
-          nextUrl: "/allGoods",
+          nextUrl: "",
           childItems: [
+            {
+              name: "总览",
+              nextUrl: "/allGoods",
+            },
             {
               name: "徽章类",
               nextUrl: "/badge",
@@ -144,7 +144,7 @@ export default {
   methods: {
     gotoUrl(url) {
       if (this.$router.path !== "/") {
-        if (url === "/" || url === "/allGoods") {
+        if (url === "/") {
           this.$router.push(url);
         }
       }

@@ -261,7 +261,7 @@ export default {
     console.log(this.$route.query)
   },
   methods: {
-    choiceChoose () {
+    choiceChoose (e) {
       let scrollMain = this.$refs.chatBg
       if(this.contentIndex<this.chDetailData.length)
         this.contentIndex++
