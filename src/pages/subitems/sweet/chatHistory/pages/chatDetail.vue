@@ -1,6 +1,6 @@
 <template>
   <div class="chat-detail">
-    <div class="chat-detail-bg">
+    <div class="chat-detail-bg" @click.stop="choiceChoose">
       <main class="ch-detail-main">
         <a
           class="ch-detail-video"
@@ -9,25 +9,28 @@
         >
         </a>
         <div class="ch-detail-design"> Moments of Charlie</div>
-        <section v-for="(item, index) in chDetailData" :key="index" class="ch-detail-section">
+        <section v-for="(item, index) in chDetailData" :key="index" class="ch-detail-section" v-show="index<contentIndex">
           <div class="ch-dt-sec-header" :data-person="item.name">
             <picture :data-person="item.name"><img  class="ch-dt-header-img"  src="../../../../../assets/charlieprofile.png" alt=""></picture>
           </div>
           <div class="ch-dt-sec-main ">
             <div class="ch-dt-normal-text" v-if="item.type==='nomarl'">
               <p>{{item.content[0].selfContent}}</p>
-              <img  :src="item.content.img" alt="" v-if="item.content.ifImg">
+              <img  :src="item.content[0].img" alt="" v-if="item.content[0].ifImg">
+              <video-call class="ch-video-call" :callName="item.content[0].video.name" v-if="item.content[0].ifVideo"></video-call>
             </div>
-            <el-collapse v-model="deActiveName" accordion v-if="item.type==='choice'">
-              <el-collapse-item  :name="'id'+index+iindex" v-for="(secitem,iindex) in item.content" :key="iindex">
-                <span slot="title" class="collapse-title">
-                  <i  :class="['el-icon-d-arrow-right ch-title-icon ' ,{'ch-title-icon-active':'id'+index+iindex===deActiveName}]"></i>
-                  <p v-if="!secitem.ifImg">{{secitem.selfContent}}</p>
-                  <img class="ch-title-img" v-if="secitem.ifImg" :src="secitem.img" alt="">
-                </span>
-                <div class="ch-dt-nd-reply" v-for="(thitem,index) in secitem.reply" :key="index"> <span class="purple">查理苏</span> <p>：{{thitem.content}}</p></div>
-              </el-collapse-item>
-            </el-collapse>
+            <div v-if="item.type==='choice'" @click.stop="">
+              <el-collapse v-model="deActiveName" accordion >
+                <el-collapse-item :name="'id'+index+iindex" v-for="(secitem,iindex) in item.content" :key="iindex">
+                  <span slot="title" class="collapse-title">
+                    <i  :class="['el-icon-d-arrow-right ch-title-icon ' ,{'ch-title-icon-active':'id'+index+iindex===deActiveName}]"></i>
+                    <p v-if="!secitem.ifImg">{{secitem.selfContent}}</p>
+                    <img class="ch-title-img" v-if="secitem.ifImg" :src="secitem.img" alt="">
+                  </span>
+                  <div class="ch-dt-nd-reply" v-for="(thitem,index) in secitem.reply" :key="index"> <span class="purple">查理苏</span> <p>：{{thitem.content}}</p></div>
+                </el-collapse-item>
+              </el-collapse>
+            </div>
           </div>          
         </section>
       </main>
@@ -36,8 +39,9 @@
 </template>
 
 <script>
+import VideoCall from '../../../../../components/videoCall.vue'
 export default {
-  components: {},
+  components: {VideoCall},
   props: {},
   data() {
     return {
@@ -48,6 +52,7 @@ export default {
           name:'查理苏',
           content: [
             {
+              ifVideo:false,
               ifImg: false,
               selfContent: "[红包]在忙吗？",
               img: require('../../../../../assets/meme/shock.png'),
@@ -60,6 +65,7 @@ export default {
           name:'我',
           content: [
             {
+              ifVideo:false,
               ifImg: true,
               selfContent: "[惊]",
               img: require('../../../../../assets/meme/shock.png'),
@@ -74,6 +80,7 @@ export default {
               ],
             },
             {
+              ifVideo:false,
               ifImg: false,
               selfContent:
                 "呜呜呜，我的手比脑子快一步，还没反应过来就把红包给抢了",
@@ -88,6 +95,7 @@ export default {
               ],
             },
             {
+              ifVideo:false,
               ifImg: false,
               selfContent: "谢谢查医生，红包我就先收下了",
               reply: [
@@ -107,6 +115,7 @@ export default {
           name:'查理苏',
           content: [
             {
+              ifVideo:false,
               ifImg: false,
               selfContent: "完美啊，你的名字是charlie",
               reply: "",
@@ -118,6 +127,7 @@ export default {
           name:'查理苏',
           content: [
             {
+              ifVideo:false,
               ifImg: false,
               selfContent: "1完美啊，你的名字是charlie",
               reply: "",
@@ -129,6 +139,7 @@ export default {
           name:'我',
           content: [
             {
+              ifVideo:false,
               ifImg: true,
               selfContent: "",
               img: require('../../../../../assets/meme/shock.png'),
@@ -143,6 +154,7 @@ export default {
               ],
             },
             {
+              ifVideo:false,
               ifImg: false,
               selfContent:
                 "呜呜呜，我的手比脑子快一步，还没反应过来就把红包给抢了",
@@ -157,6 +169,7 @@ export default {
               ],
             },
             {
+              ifVideo:false,
               ifImg: false,
               selfContent: "谢谢查医生，红包我就先收下了",
               reply: [
@@ -171,13 +184,77 @@ export default {
             },
           ],
         },
+        {
+          type: "nomarl", // normal无选项，choice有选项
+          name:'查理苏',
+          content: [
+            {
+              ifVideo:false,
+              ifImg: false,
+              selfContent: "让我想想，亲爱的未婚妻现在有没有在想我呢？",
+              reply: "",
+            },
+          ],
+        },
+        {
+          type: "choice", // normal无选项，choice有选项
+          name:'我',
+          content: [
+            {
+              ifVideo:false,
+              ifImg: false,
+              selfContent: "你怎么知道？！",
+              reply: "",
+            },
+            {
+              ifVideo:false,
+              ifImg: false,
+              selfContent: "最近好忙，满脑子都是工作...",
+              reply: "",             
+            },
+            {
+              ifVideo:false,
+              ifImg: false,
+              selfContent: "你呢，想我了吗？",
+              reply: "",
+            }
+          ],
+        },
+        {
+          type: "nomarl", // normal无选项，choice有选项
+          name:'查理苏',
+          content: [
+            {
+              ifVideo:true,
+              ifImg: false,
+              video:{
+                name:'工作再忙，也要好好休息...',
+                url:'http//www.bilibili.com',
+                code:'V1234'
+              },
+              selfContent: "",
+              reply: "",
+            },
+          ],
+        }
       ],
+      contentIndex:1
     };
   },
   mounted() {
     console.log(this.$route.query)
   },
-  methods: {},
+  methods: {
+    choiceChoose (e) {
+      let scrollMain = e.target
+      this.contentIndex++
+      if(this.contentIndex<this.chDetailData.length+1)
+      this.$nextTick(() => {
+        scrollMain.scrollTo({top:scrollMain.scrollHeight,behavior: 'smooth'})
+      })
+      console.log(this.contentIndex)
+    }
+  },
 };
 </script>
 
@@ -274,6 +351,8 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+  .ch-video-call {
   }
 }
 ::v-deep {

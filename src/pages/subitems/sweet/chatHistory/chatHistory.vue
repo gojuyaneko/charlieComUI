@@ -607,6 +607,7 @@ export default {
   }
   .ch-main {
     width: 1500px;
+    padding-left: 20px;
     margin: 8% auto;
     position: relative;
     .ch-main-header {
