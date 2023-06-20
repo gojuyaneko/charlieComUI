@@ -11,14 +11,174 @@
       <li class="light" tabindex="1" @click="show(1);" :class="Index===1? 'active':''"></li>
       <li class="night" tabindex="2" @click="show(2);" :class="Index===2? 'active':''"></li>
     </ul>
+    <div class="text-bg">
+      <div class="text">
+        <trackContent :sendName="initialContent" v-show="Index===0"></trackContent>
+        <trackContent :sendName="lightContent" v-show="Index===1"></trackContent>
+        <trackContent :sendName="nightContent" v-show="Index===2"></trackContent>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import trackContent from "@/pages/MemoryCollect/track/trackContent.vue";
 export default {
+  components:{trackContent},
   data() {
     return {
       Index:0,
+      initialContent: [
+        {
+          name:'旁白',
+          content:'鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
+              '合欢节将近，光启市各处弥漫着节日的氛围按照特有的风俗，一些街区特意装点成了百年前的样子。\n' +
+              '抬头望去，前方路口上伫立着一栋高大的复古建筑。\n' +
+              '五颜六色的彩灯装点着宽阔的大门，人们踏着从门口一路铺到楼梯下的红毯，正在不断涌入其中。'
+        },
+        {
+          name:'我',
+          content: '米高梅舞厅……就是这里了！'
+        },
+        {
+          name:'旁白',
+          content:'米高梅舞厅在每年合欢庆典上都非常引人注目。听说我对这里很好奇后，查理苏就提议和我在这里见面。\n' +
+              '恰逢今天舞厅要举办一个非常特别的活动——以谍战小说《胭脂劫》为蓝本的大型角色扮演游戏。每个进入舞厅的人都要扮演一个角色。\n' +
+              '我随着人群登上楼梯，在门口抽取了一张身份卡。看清卡片上的字，我吃了一惊——'
+        },
+        {
+          name:'查理苏',
+          content:'……'
+        },
+        {
+          name:'黑衣人',
+          content:'你是什么人？竟敢拦我们费大少爷的路！'
+        },
+        {
+          name:'查理苏',
+          content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
+        },
+          {
+          name:'旁白',
+          content:'鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
+              '合欢节将近，光启市各处弥漫着节日的氛围按照特有的风俗，一些街区特意装点成了百年前的样子。\n' +
+              '抬头望去，前方路口上伫立着一栋高大的复古建筑。\n' +
+              '五颜六色的彩灯装点着宽阔的大门，人们踏着从门口一路铺到楼梯下的红毯，正在不断涌入其中。'
+        },
+        {
+          name:'我',
+          content: '米高梅舞厅……就是这里了！'
+        },
+        {
+          name:'旁白',
+          content:'米高梅舞厅在每年合欢庆典上都非常引人注目。听说我对这里很好奇后，查理苏就提议和我在这里见面。\n' +
+              '恰逢今天舞厅要举办一个非常特别的活动——以谍战小说《胭脂劫》为蓝本的大型角色扮演游戏。每个进入舞厅的人都要扮演一个角色。\n' +
+              '我随着人群登上楼梯，在门口抽取了一张身份卡。看清卡片上的字，我吃了一惊——'
+        },
+        {
+          name:'查理苏',
+          content:'……'
+        },
+        {
+          name:'黑衣人',
+          content:'你是什么人？竟敢拦我们费大少爷的路！'
+        },
+        {
+          name:'查理苏',
+          content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
+        },
+          {
+          name:'旁白',
+          content:'鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
+              '合欢节将近，光启市各处弥漫着节日的氛围按照特有的风俗，一些街区特意装点成了百年前的样子。\n' +
+              '抬头望去，前方路口上伫立着一栋高大的复古建筑。\n' +
+              '五颜六色的彩灯装点着宽阔的大门，人们踏着从门口一路铺到楼梯下的红毯，正在不断涌入其中。'
+        },
+        {
+          name:'我',
+          content: '米高梅舞厅……就是这里了！'
+        },
+        {
+          name:'旁白',
+          content:'米高梅舞厅在每年合欢庆典上都非常引人注目。听说我对这里很好奇后，查理苏就提议和我在这里见面。\n' +
+              '恰逢今天舞厅要举办一个非常特别的活动——以谍战小说《胭脂劫》为蓝本的大型角色扮演游戏。每个进入舞厅的人都要扮演一个角色。\n' +
+              '我随着人群登上楼梯，在门口抽取了一张身份卡。看清卡片上的字，我吃了一惊——'
+        },
+        {
+          name:'查理苏',
+          content:'……'
+        },
+        {
+          name:'黑衣人',
+          content:'你是什么人？竟敢拦我们费大少爷的路！'
+        },
+        {
+          name:'查理苏',
+          content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
+        }
+      ],
+      lightContent:[
+        {
+          name:'旁白',
+          content:'111鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
+              '合欢节将近，光启市各处弥漫着节日的氛围按照特有的风俗，一些街区特意装点成了百年前的样子。\n' +
+              '抬头望去，前方路口上伫立着一栋高大的复古建筑。\n' +
+              '五颜六色的彩灯装点着宽阔的大门，人们踏着从门口一路铺到楼梯下的红毯，正在不断涌入其中。'
+        },
+        {
+          name:'我',
+          content: '米高梅舞厅……就是这里了！'
+        },
+        {
+          name:'旁白',
+          content:'米高梅舞厅在每年合欢庆典上都非常引人注目。听说我对这里很好奇后，查理苏就提议和我在这里见面。\n' +
+              '恰逢今天舞厅要举办一个非常特别的活动——以谍战小说《胭脂劫》为蓝本的大型角色扮演游戏。每个进入舞厅的人都要扮演一个角色。\n' +
+              '我随着人群登上楼梯，在门口抽取了一张身份卡。看清卡片上的字，我吃了一惊——'
+        },
+        {
+          name:'查理苏',
+          content:'……'
+        },
+        {
+          name:'黑衣人',
+          content:'你是什么人？竟敢拦我们费大少爷的路！'
+        },
+        {
+          name:'查理苏',
+          content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
+        }
+      ],
+      nightContent:[
+        {
+          name:'旁白',
+          content:'222鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
+              '合欢节将近，光启市各处弥漫着节日的氛围按照特有的风俗，一些街区特意装点成了百年前的样子。\n' +
+              '抬头望去，前方路口上伫立着一栋高大的复古建筑。\n' +
+              '五颜六色的彩灯装点着宽阔的大门，人们踏着从门口一路铺到楼梯下的红毯，正在不断涌入其中。'
+        },
+        {
+          name:'我',
+          content: '米高梅舞厅……就是这里了！'
+        },
+        {
+          name:'旁白',
+          content:'米高梅舞厅在每年合欢庆典上都非常引人注目。听说我对这里很好奇后，查理苏就提议和我在这里见面。\n' +
+              '恰逢今天舞厅要举办一个非常特别的活动——以谍战小说《胭脂劫》为蓝本的大型角色扮演游戏。每个进入舞厅的人都要扮演一个角色。\n' +
+              '我随着人群登上楼梯，在门口抽取了一张身份卡。看清卡片上的字，我吃了一惊——'
+        },
+        {
+          name:'查理苏',
+          content:'……'
+        },
+        {
+          name:'黑衣人',
+          content:'你是什么人？竟敢拦我们费大少爷的路！'
+        },
+        {
+          name:'查理苏',
+          content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
+        }
+      ],
     }
   },
   methods: {
@@ -35,7 +195,7 @@ export default {
   background: url("./侧影1/title.png");
   background-size: 100% 100% ;
   position: relative;
-  top:40px;
+  top:670px;
   left:190px;
   width: 280px;
   height: 70px;
@@ -125,4 +285,39 @@ export default {
   height: 424px;
 }
 
+.text-bg {
+  background: url('./侧影1/text-bg.png') no-repeat;
+  background-size: 100% 100%;
+  height: 641px;
+  width: 959px;
+  position: relative;
+  top:50px;
+  left:760px;
+}
+
+.text {
+  width: 880px;
+  height: 580px;
+  overflow-y: scroll;
+  position: absolute;
+  top:15px;
+  left:45px;
+  white-space: pre-wrap;
+  line-height: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  margin-left: -30px;
+}
+::-webkit-scrollbar-track {
+  border:1px solid #d6b367;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  background-clip: content-box;
+  background-color: rgb(185,158,99,0.5);
+  border-radius: 10px;
+}
 </style>

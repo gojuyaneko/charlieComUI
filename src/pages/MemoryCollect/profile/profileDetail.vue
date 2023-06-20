@@ -1,7 +1,6 @@
 <template>
   <div class="profileDetail">
     <div class="guide"></div>
-    <div class="text-bg"></div>
     <div class="line"></div>
     <div class="next" @click="change()" :class="{active:index}"></div>
     <profileNight v-show="index===1"></profileNight>
@@ -53,15 +52,7 @@ export default {
   width: 207px;
 }
 
-.text-bg {
-  background: url('./侧影1/text-bg.png') no-repeat;
-  background-size: 100% 100%;
-  height: 641px;
-  width: 959px;
-  position: relative;
-  top:230px;
-  left:760px;
-}
+
 
 .next {
   background: url('./侧影1/next.png') no-repeat;
@@ -71,7 +62,7 @@ export default {
   position: relative;
   display: inline-block;
   left:-440px;
-  top: 150px;
+  top: 780px;
   cursor: pointer;
 }
 
@@ -79,7 +70,7 @@ export default {
   background-image: url("./侧影1/line.png");
   background-size: 100% 100%;
   position: relative;
-  top: -165px;
+  top: 480px;
   left: 560px;
   width: 166px;
   height: 25px;
