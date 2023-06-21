@@ -17,7 +17,7 @@
           <img src="../assets/HomePage/Page1/查理苏.png" alt="" />
         </div>
         <div class="pc-icon-aboutcharlie">
-          <router-link to="/about">
+          <router-link to="/aboutCharlie">
             <img src="../assets/HomePage/Page1/关于.png" alt="" />
           </router-link>
         </div>
