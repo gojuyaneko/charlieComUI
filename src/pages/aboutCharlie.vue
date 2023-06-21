@@ -9,6 +9,10 @@
           <img src="./../assets/aboutCharlie/多边形1.png" />
         </div>
 
+        <div class="detail">
+          <img src="./../assets/aboutCharlie/detail.png" />
+        </div>
+
         <div class="more">
           <router-link to="/charaDetail">
             <img src="./../assets/aboutCharlie/moreDetail.png" />
@@ -86,7 +90,13 @@ export default {
   width: 1076px;
   height: 540px;
 }
-
+.detail img {
+  position: absolute;
+  top: 400px;
+  left: 800px;
+  width: 821px;
+  height: 460px;
+}
 .name img {
   position: absolute;
   top: 254px;
