@@ -1,11 +1,12 @@
 <template>
   <div>
+    <myNavbar class="sticky"> </myNavbar>
+
     <div class="pc-homepage-background2-l">
       <div class="pc-homepage-background2" ref="pcBg2">
         <div class="head"><img src="./../assets/aboutCharlie/头像.png" /></div>
         <div class="border">
           <img src="./../assets/aboutCharlie/多边形1.png" />
-          <!-- <img src="./../assets/aboutCharlie/detail.png" /> -->
         </div>
 
         <div class="more">
@@ -35,6 +36,9 @@
       <div class="pc-homepage-background2" ref="pcBg2">
         <div class="clothesTitle">
           <img src="./../assets/aboutCharlie/衣着图鉴.png" />
+        </div>
+        <div class="slider">
+          <mySlider></mySlider>
         </div>
       </div>
     </div>
@@ -118,5 +122,10 @@ export default {
   right: 150px;
   width: 515px;
   height: 109px;
+}
+.slider {
+  position: absolute;
+  top: 380px;
+  left: 80px;
 }
 </style>

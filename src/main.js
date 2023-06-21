@@ -8,6 +8,7 @@ import navBar from "./components/navBar.vue";
 import charlieMenu from "./components/charlieMenu.vue";
 import indexMenu from "./components/indexMenu.vue";
 import indexCarousel from "./components/charliePic.vue";
+import clothesSlider from "./components/clothes.vue";
 
 import "lib-flexible";
 Vue.config.productionTip = false;
@@ -32,7 +33,6 @@ import {
   Select,
   Option,
   OptionGroup,
-
 } from "element-ui";
 
 Vue.use(Pagination);
@@ -60,6 +60,7 @@ Vue.component("myNavbar", navBar);
 Vue.component("myMenu", charlieMenu);
 Vue.component("myIndex", indexMenu);
 Vue.component("myPic", indexCarousel);
+Vue.component("mySlider", clothesSlider);
 
 new Vue({
   render: (h) => h(App),
