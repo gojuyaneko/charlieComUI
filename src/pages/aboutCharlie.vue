@@ -31,7 +31,9 @@
           <img src="./../assets/aboutCharlie/人际关系.png" />
         </div>
         <div class="charlie">
-          <img src="./../assets/aboutCharlie/Charlie.png" />
+          <router-link to="/relationship">
+            <img src="./../assets/aboutCharlie/Charlie.png" />
+          </router-link>
         </div>
       </div>
     </div>

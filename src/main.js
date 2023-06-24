@@ -33,6 +33,8 @@ import {
   Select,
   Option,
   OptionGroup,
+  Breadcrumb,
+  BreadcrumbItem,
 } from "element-ui";
 
 Vue.use(Pagination);
@@ -54,6 +56,8 @@ Vue.use(TableColumn);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(OptionGroup);
+Vue.use(Breadcrumb);
+Vue.use(BreadcrumbItem);
 
 // Vue.use(ElementUI);
 Vue.component("myNavbar", navBar);

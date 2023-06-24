@@ -32,6 +32,7 @@ const videocallCollection = () =>
   import("../pages/subitems/sweet/videocallCollection/videocallCollection.vue");
 const aboutCharlie = () => import("../pages/aboutCharlie.vue");
 const charaDetail = () => import("../pages/aboutCharlie/charaDetail.vue");
+const relationship = () => import("../pages/aboutCharlie/relationship.vue");
 
 charaDetail;
 Vue.use(Router);
@@ -139,6 +140,11 @@ export default new Router({
       path: "/charaDetail",
       name: "charaDetail",
       component: charaDetail,
+    },
+    {
+      path: "/relationship",
+      name: "relationship",
+      component: relationship,
     },
   ],
 });
