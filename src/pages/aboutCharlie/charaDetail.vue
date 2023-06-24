@@ -8,6 +8,22 @@
         <div class="border2">
           <img src="@/assets/aboutCharlie/圆角矩形12.png" />
         </div>
+
+        <div class="text">
+          <ul>
+            <li v-for="detail in detail" :key="detail.detail1">
+              <p>
+                <span>{{ detail.id }}</span>
+
+                <router-link to="/">
+                  <span style="color: white">{{ detail.card }}</span>
+                </router-link>
+
+                <span>{{ detail.more }}</span>
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -16,7 +32,27 @@
 export default {
   name: "charaDetail",
   data() {
-    return {};
+    return {
+      name: "relationShip",
+      detail: [
+        {
+          id: 1,
+          card: "[向心引力]",
+          more: "对自己",
+        },
+        {
+          id: 2,
+
+          card: "[向心引力]",
+          more: "对自己",
+        },
+        {
+          id: 3,
+          card: "[向心引力]",
+          more: "对自己对自己对自己对自己对自己对自己对自己",
+        },
+      ],
+    };
   },
 };
 </script>
@@ -54,5 +90,17 @@ export default {
   left: 300px;
   width: 1354px;
   height: 789px;
+}
+.text {
+  display: inline-block;
+  position: absolute;
+  top: 350px;
+  left: 470px;
+  color: #d6b367;
+  font-size: 20px;
+  font-family: "nansongshuju";
+}
+.text li p {
+  margin-bottom: 15px;
 }
 </style>
