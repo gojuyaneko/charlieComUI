@@ -236,16 +236,36 @@ export default {
   margin-bottom: 20px;
   display: inline-block;
 }
+.origin:hover, .origin:focus, .origin.active {
+  background: url("./侧影2/origin1.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
 
 .light {
   background-image: url("./侧影2/light.png");
   margin-bottom: 20px;
   display: inline-block;
 }
+
+.light:hover, .light:focus, .light.active {
+  background: url("./侧影2/light1.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
 .night {
   background-image: url("./侧影2/night.png");
   display: inline-block;
 }
+.night:hover, .night:focus, .night.active {
+  background: url("./侧影2/night1.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
 
 .night2 {
   background-image: url("./侧影2/暗2.png");

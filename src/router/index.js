@@ -8,12 +8,12 @@ const DreamWeaving = () =>
 const lightAndNight = () => import("../pages/lightAndNight/lightAndNight.vue");
 const allGoods = () => import("../pages/subitems/goods/allGoods.vue");
 const badge = () => import("../pages/subitems/goods/badge.vue");
-const rescueTrip = () =>
-  import("../pages/MemoryCollect/encounter/rescueTrip.vue");
-const unknownErosion = () =>
-  import("../pages/MemoryCollect/encounter/unknownErosion.vue");
-const truthCameout = () =>
-  import("../pages/MemoryCollect/encounter/truthCameout.vue");
+const encounter1 = () =>
+  import("../pages/MemoryCollect/encounter/encounter1");
+const encounter2 = () =>
+  import("../pages/MemoryCollect/encounter/encounter2");
+const encounter3 = () =>
+  import("../pages/MemoryCollect/encounter/encounter3");
 const wechatMoments = () =>
   import("../pages/subitems/sweet/wechatMoments/wechatMoments.vue");
 const charlieFurniture = () =>
@@ -75,19 +75,19 @@ export default new Router({
       component: badge,
     },
     {
-      path: "/rescueTrip",
-      name: "rescueTrip",
-      component: rescueTrip,
+      path: "/encounter1",
+      name: "encounter1",
+      component: encounter1,
     },
     {
-      path: "/unknownErosion",
-      name: "unknownErosion",
-      component: unknownErosion,
+      path: "/encounter2",
+      name: "encounter2",
+      component: encounter2,
     },
     {
-      path: "/truthCameout",
-      name: "truthCameout",
-      component: truthCameout,
+      path: "/encounter3",
+      name: "encounter3",
+      component: encounter3,
     },
     {
       path: "/wechatmoments",

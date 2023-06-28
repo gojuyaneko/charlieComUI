@@ -1,5 +1,5 @@
 <template>
-  <div class="rescue_trip">
+  <div>
     <div class="major-title">
       <div class="content1" v-show="index===1"></div>
       <div class="content2" v-show="index===2"></div>
@@ -14,8 +14,7 @@
             stayContentVisible=false
             awayContentVisible=false
             stay1ContentVisible=false"
-            :class="index===1? 'active':''"
-      ></span>
+            :class="index===1? 'active':''"></span>
       <span class="title2" tabindex="2"
             @click="show(2);
             choiceshow1=false;buffer=true;
@@ -83,7 +82,7 @@
 </template>
 
 <script>
-import encounterContent from "@/pages/MemoryCollect/encounter/encounterContent.vue";
+import encounterContent from "@/pages/MemoryCollect/encounter/components/encounterContent.vue";
 export default {
   components:{encounterContent},
   data() {
@@ -472,27 +471,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.rescue_trip {
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  background: url('./邂逅1/bg.png') no-repeat;
-  background-size: cover;
-  background-position: center;
-}
 
 .major-title {
-  background: url("./邂逅1/title1.png") no-repeat;
+  background: url("../邂逅1/title1.png") no-repeat;
   background-size: 95% 95%;
   height: 70px;
-  width: 406px;
+  width: 322px;
   position: relative;
   top:165px;
   left:145px;
 }
 
 .content1 {
-  background: url("./邂逅1/content1.png");
+  background: url("../邂逅1/content1.png");
   background-size: 100% 100%;
   position: relative;
   top:85px;
@@ -502,7 +493,7 @@ export default {
 }
 
 .content2 {
-  background: url("./邂逅1/content2.png");
+  background: url("../邂逅1/content2.png");
   background-size: 100% 100%;
   position: relative;
   top:85px;
@@ -512,7 +503,7 @@ export default {
 }
 
 .content3 {
-   background: url("./邂逅1/content3.png");
+   background: url("../邂逅1/content3.png");
   background-size: 100% 100%;
   position: relative;
   top:85px;
@@ -522,7 +513,7 @@ export default {
 }
 
 .video-btn {
-  background-image: url("./邂逅1/video.png");
+  background-image: url("../邂逅1/video.png");
   background-size: 100% 100%;
   cursor: pointer;
   position: relative;
@@ -537,7 +528,7 @@ export default {
 }
 
 .text-bg {
-  background: url('./邂逅1/text.png') no-repeat;
+  background: url('../邂逅1/text.png') no-repeat;
   background-size: 100% 97%;
   height: 760px;
   width: 1680px;
@@ -556,7 +547,7 @@ export default {
 }
 
 .title1 {
-  background: url("./邂逅1/暗2-1.png");
+  background: url("../邂逅1/暗2-1.png");
   background-size: 100% 100%;
   height: 47px;
   width: 190px;
@@ -568,14 +559,14 @@ export default {
 
 .title1:hover, .title1:focus, .title1.active
 {
-  background: url("./邂逅1/title2-1.png");
+  background: url("../邂逅1/title2-1.png");
   background-size: 100% 100%;
   cursor: pointer;
   margin-bottom: 20px;
 }
 
 .title2 {
-  background: url("./邂逅1/暗2-2.png");
+  background: url("../邂逅1/暗2-2.png");
   background-size: 100% 100%;
   height: 47px;
   width: 190px;
@@ -586,14 +577,14 @@ export default {
 }
 
 .title2:hover, .title2:focus, .title2.active {
-  background: url("./邂逅1/title2-2.png");
+  background: url("../邂逅1/title2-2.png");
   background-size: 100% 100%;
   cursor: pointer;
   margin-bottom: 20px;
 }
 
 .title3 {
-  background: url("./邂逅1/暗2-3.png");
+  background: url("../邂逅1/暗2-3.png");
   background-size: 100% 100%;
   height: 47px;
   width: 190px;
@@ -604,7 +595,7 @@ export default {
 }
 
 .title3:hover, .title3:focus, .title3.active {
-  background: url("./邂逅1/title2-3.png");
+  background: url("../邂逅1/title2-3.png");
   background-size: 100% 100%;
   cursor: pointer;
   margin-bottom: 20px;
@@ -638,43 +629,43 @@ export default {
   left: 30px;
 }
 .goaway {
-  background: url("./邂逅1/goaway.png");
+  background: url("../邂逅1/goaway.png");
   margin-bottom: 25px;
 }
 
 .stay {
-  background: url("./邂逅1/stay.png");
+  background: url("../邂逅1/stay.png");
 }
 
 .away {
-  background: url("./邂逅1/away.png");
+  background: url("../邂逅1/away.png");
   margin-bottom: 25px;
 }
 .stay1 {
-    background: url("./邂逅1/stay1.png");
+    background: url("../邂逅1/stay1.png");
 }
 
 .he {
-  background: url("./邂逅1/he.png");
+  background: url("../邂逅1/he.png");
   margin-bottom: 25px;
 }
 
 .me {
-  background: url("./邂逅1/me.png");
+  background: url("../邂逅1/me.png");
 }
 
 .yes {
-  background: url("./邂逅1/yes.png");
+  background: url("../邂逅1/yes.png");
   margin-bottom: 25px;
 }
 
 .no {
-  background: url("./邂逅1/no.png");
+  background: url("../邂逅1/no.png");
 
 }
 
 .hesitate {
-  background: url("./邂逅1/hesitate.png");
+  background: url("../邂逅1/hesitate.png");
   margin-bottom: 25px;
 }
 
@@ -688,7 +679,7 @@ export default {
 }
 
 .reload {
-  background: url("./邂逅1/reload.png");
+  background: url("../邂逅1/reload.png");
   background-size: 100% 100%;
   height: 129px;
   width: 43px;

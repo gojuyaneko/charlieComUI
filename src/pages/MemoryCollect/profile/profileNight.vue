@@ -7,9 +7,9 @@
     <div class="night1" v-show="Index===2" @click="show(1);"></div>
     <div class="light2" v-show="Index===2"></div>
     <ul class="btns">
-      <li class="origin" tabindex="0" @click="show(0);" :class="Index===0? 'active':''"></li>
-      <li class="light" tabindex="1" @click="show(1);" :class="Index===1? 'active':''"></li>
-      <li class="night" tabindex="2" @click="show(2);" :class="Index===2? 'active':''"></li>
+      <span class="origin" tabindex="0" @click="show(0);" :class="Index===0? 'active':''"></span>
+      <span class="light" tabindex="1" @click="show(1);" :class="Index===1? 'active':''"></span>
+      <span class="night" tabindex="2" @click="show(2);" :class="Index===2? 'active':''"></span>
     </ul>
     <div class="text-bg">
       <div class="text">
@@ -227,6 +227,7 @@ export default {
   height: 95px;
   width: 43px;
   cursor: pointer;
+  position: relative;
 }
 
 .origin {
@@ -235,14 +236,35 @@ export default {
   display: inline-block;
 }
 
+.origin:hover, .origin:focus, .origin.active {
+  background: url("./侧影1/origin1.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
 .light {
   background-image: url("./侧影1/light.png");
   margin-bottom: 20px;
   display: inline-block;
 }
+
+.light:hover, .light:focus, .light.active {
+  background: url("./侧影1/light1.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
 .night {
   background-image: url("./侧影1/night.png");
   display: inline-block;
+}
+
+.night:hover, .night:focus, .night.active {
+  background: url("./侧影1/night1.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 .night2 {

@@ -1,5 +1,5 @@
 <template>
-  <div class="unknown_erosion">
+  <div>
     <div class="major-title">
       <div class="content1" v-show="index===1"></div>
       <div class="content2" v-show="index===2"></div>
@@ -10,80 +10,82 @@
             @click="show(1);
             choiceshow=false;
             buffer=true; buffer1=true;
-            restContentVisible=false;
-            argueContentVisible=false
-            agreeContentVisible=false
-            disagreeContentVisible=false"
+            wineContentVisible=false;
+            bossContentVisible=false
+            waitContentVisible=false
+            handContentVisible=false"
             :class="index===1? 'active':''"
       ></span>
       <span class="title2" tabindex="2"
             @click="show(2);
             choiceshow1=false;
             buffer=true; buffer1=true;
-            walkContentVisible=false;
-            wakeContentVisible=false;"
+            truthContentVisible=false;
+            excuseContentVisible=false;
+            yesContentVisible=false;
+            followContentVisible=false;"
             :class="index===2? 'active':''"></span>
       <span class="title3" tabindex="3"
             @click="show(3)
             choiceshow2=false;buffer=true;
-            dontContentVisible=false;
-            togetherContentVisible=false;
-            persuadeContentVisible=false;
-            together1ContentVisible=false;"
+            topContentVisible=false;
+            follow1ContentVisible=false;
+            storeContentVisible=false;"
             :class="index===3? 'active':''"></span>
     </ul>
     <div class="text-bg">
       <ul class="choice" v-if="choiceshow && buffer" v-show="index===1">
-        <li class="rest" @click="choiceshow=false; restContentVisible=true; buffer=false"></li>
-        <li class="argue" @click="choiceshow=false; argueContentVisible=true; buffer=false"></li>
+        <li class="wine" @click="choiceshow=false; wineContentVisible=true; buffer=false"></li>
+        <li class="boss" @click="choiceshow=false; bossContentVisible=true; buffer=false"></li>
       </ul>
-      <li class="reload" v-show="restContentVisible && choiceshow && !buffer && index===1"
-          @click="choiceshow=true;buffer=true;restContentVisible=false;"></li>
-      <ul class="choice" v-if="argueContentVisible && choiceshow && buffer1" v-show="index===1">
-        <li class="agree" @click="choiceshow=false; agreeContentVisible=true; buffer1=false"></li>
-        <li class="disagree" @click="choiceshow=false; disagreeContentVisible=true; buffer1=false"></li>
+      <li class="reload" v-show="wineContentVisible && choiceshow && !buffer && index===1"
+          @click="choiceshow=true;buffer=true;wineContentVisible=false;"></li>
+      <ul class="choice" v-if="bossContentVisible && choiceshow && buffer1" v-show="index===1">
+        <li class="wait" @click="choiceshow=false; waitContentVisible=true; buffer1=false"></li>
+        <li class="hand" @click="choiceshow=false; handContentVisible=true; buffer1=false"></li>
       </ul>
-      <li class="reload" v-if="agreeContentVisible && choiceshow && !buffer1 && index===1"
-          @click="choiceshow=true;agreeContentVisible=false;buffer1=true"></li>
+      <li class="reload" v-if="waitContentVisible && choiceshow && !buffer1 && index===1"
+          @click="choiceshow=true;waitContentVisible=false;buffer1=true"></li>
       <div class="text" v-show="index===1" @scroll="choiceEvent">
-        <encounterContent :sendName="suspectContent" ></encounterContent>
-        <encounterContent :sendName="restContent" v-if="restContentVisible"></encounterContent>
-        <encounterContent :sendName="argueContent" v-if="argueContentVisible"></encounterContent>
-        <encounterContent :sendName="agreeContent" v-if="agreeContentVisible"></encounterContent>
-        <encounterContent :sendName="disagreeContent" v-if="disagreeContentVisible"></encounterContent>
+        <encounterContent :sendName="meetContent" ></encounterContent>
+        <encounterContent :sendName="wineContent" v-if="wineContentVisible"></encounterContent>
+        <encounterContent :sendName="bossContent" v-if="bossContentVisible"></encounterContent>
+        <encounterContent :sendName="waitContent" v-if="waitContentVisible"></encounterContent>
+        <encounterContent :sendName="handContent" v-if="handContentVisible"></encounterContent>
       </div>
 
       <ul class="choice" v-if="choiceshow1 && buffer" v-show="index===2">
-        <li class="walk"  @click="choiceshow1=false; walkContentVisible=true; buffer=false"></li>
-        <li class="wake" @click="choiceshow1=false; wakeContentVisible=true; buffer=false"></li>
+        <li class="truth"  @click="choiceshow1=false; truthContentVisible=true; buffer=false"></li>
+        <li class="excuse" @click="choiceshow1=false; excuseContentVisible=true; buffer=false"></li>
       </ul>
-      <li class="reload" v-show="walkContentVisible && choiceshow1 && !buffer && index===2"
-          @click="choiceshow1=true;buffer=true;walkContentVisible=false;"></li>
+      <li class="reload" v-show="truthContentVisible && choiceshow1 && !buffer && index===2"
+          @click="choiceshow1=true;buffer=true;truthContentVisible=false;"></li>
+      <ul class="choice" v-if="excuseContentVisible && choiceshow1 && buffer1" v-show="index===2">
+        <li class="yes" @click="choiceshow1=false; yesContentVisible=true; buffer1=false"></li>
+        <li class="follow" @click="choiceshow1=false; followContentVisible=true; buffer1=false"></li>
+      </ul>
+      <li class="reload" v-if="yesContentVisible && choiceshow1 && !buffer1 && index===2"
+          @click="choiceshow1=true;yesContentVisible=false;buffer1=true"></li>
       <div class="text" v-show="index===2" @scroll="choiceEvent1">
-        <encounterContent :sendName="doctorContent" ></encounterContent>
-        <encounterContent :sendName="walkContent" v-if="walkContentVisible"></encounterContent>
-        <encounterContent :sendName="wakeContent" v-if="wakeContentVisible"></encounterContent>
+        <encounterContent :sendName="attackContent" ></encounterContent>
+        <encounterContent :sendName="truthContent" v-if="truthContentVisible"></encounterContent>
+        <encounterContent :sendName="excuseContent" v-if="excuseContentVisible"></encounterContent>
+        <encounterContent :sendName="yesContent" v-if="yesContentVisible"></encounterContent>
+        <encounterContent :sendName="followContent" v-if="followContentVisible"></encounterContent>
       </div>
 
-      <ul class="choice" v-if="choiceshow2 && buffer" v-show="index===3">
-        <li class="dont"  @click="choiceshow2=false; dontContentVisible=true; buffer=false"></li>
-        <li class="together" @click="choiceshow2=false; togetherContentVisible=true; buffer=false"></li>
+      <ul class="choice1" v-if="choiceshow2 && buffer" v-show="index===3">
+        <li class="top"  @click="choiceshow2=false; topContentVisible=true; buffer=false"></li>
+        <li class="store" @click="choiceshow2=false; storeContentVisible=true; buffer=false"></li>
+        <li class="follow1" @click="choiceshow2=false; follow1ContentVisible=true; buffer=false"></li>
       </ul>
-      <li class="reload" v-show="dontContentVisible && choiceshow2 && !buffer && index===3"
-          @click="choiceshow2=true;buffer=true;dontContentVisible=false;"></li>
-
-      <ul class="choice" v-if="togetherContentVisible && choiceshow2 && buffer1" v-show="index===3">
-        <li class="persuade"  @click="choiceshow2=false; persuadeContentVisible=true; buffer1=false"></li>
-        <li class="together1" @click="choiceshow2=false; together1ContentVisible=true; buffer1=false"></li>
-      </ul>
-      <li class="reload" v-show="persuadeContentVisible && choiceshow2 && !buffer1 && index===3"
-          @click="choiceshow2=true;buffer1=true;persuadeContentVisible=false;"></li>
+      <li class="reload" v-show="(topContentVisible || storeContentVisible) && choiceshow2 && !buffer && index===3"
+          @click="choiceshow2=true;buffer=true;topContentVisible=false;storeContentVisible=false"></li>
       <div class="text" v-show="index===3" @scroll="choiceEvent2">
-        <encounterContent :sendName="windContent" ></encounterContent>
-        <encounterContent :sendName="dontContent" v-if="dontContentVisible"></encounterContent>
-        <encounterContent :sendName="togetherContent" v-if="togetherContentVisible"></encounterContent>
-        <encounterContent :sendName="persuadeContent" v-if="persuadeContentVisible"></encounterContent>
-        <encounterContent :sendName="together1Content" v-if="together1ContentVisible"></encounterContent>
+        <encounterContent :sendName="snakeContent" ></encounterContent>
+        <encounterContent :sendName="topContent" v-if="topContentVisible"></encounterContent>
+        <encounterContent :sendName="follow1Content" v-if="follow1ContentVisible"></encounterContent>
+        <encounterContent :sendName="storeContent" v-if="storeContentVisible"></encounterContent>
       </div>
     </div>
 
@@ -92,13 +94,13 @@
 </template>
 
 <script>
-import encounterContent from "@/pages/MemoryCollect/encounter/encounterContent.vue";
+import encounterContent from "@/pages/MemoryCollect/encounter/components/encounterContent.vue";
 export default {
   components:{encounterContent},
   data() {
     return {
       index: 1,
-      suspectContent: [
+      meetContent: [
         {
           name: "旁白",
           content:
@@ -180,13 +182,13 @@ export default {
       choiceshow2:false,
       buffer:true,
       buffer1:true,
-      restContentVisible:false,
-      argueContentVisible:false,
-      restContent: [
+      wineContentVisible:false,
+      bossContentVisible:false,
+      wineContent: [
           {
           name: "旁白",
           content:
-            "嘀——rest"
+            "嘀——wine"
         },
         {
           name: "护士",
@@ -194,11 +196,11 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      argueContent: [
+      bossContent: [
           {
           name: "旁白",
           content:
-            "嘀——argue"
+            "嘀——boss"
         },
         {
           name: "护士",
@@ -206,13 +208,13 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      agreeContentVisible:false,
-      disagreeContentVisible:false,
-      agreeContent: [
+      waitContentVisible:false,
+      handContentVisible:false,
+      waitContent: [
           {
           name: "旁白",
           content:
-            "嘀——agree"
+            "嘀——wait"
         },
         {
           name: "护士",
@@ -220,11 +222,11 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      disagreeContent: [
+      handContent: [
           {
           name: "旁白",
           content:
-            "嘀——disagree"
+            "嘀——hand"
         },
         {
           name: "护士",
@@ -232,11 +234,11 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      doctorContent: [
+      attackContent: [
         {
           name: "旁白",
           content:
-            "嘀——doctor"
+            "嘀——attack"
         },
         {
           name: "护士",
@@ -309,13 +311,13 @@ export default {
             "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
         },
       ],
-      walkContentVisible:false,
-      wakeContentVisible:false,
-      walkContent:[
+      truthContentVisible:false,
+      excuseContentVisible:false,
+      truthContent:[
           {
           name: "旁白",
           content:
-            "嘀——walk"
+            "嘀——truth"
         },
         {
           name: "护士",
@@ -323,11 +325,11 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      wakeContent:[
+      excuseContent:[
           {
           name: "旁白",
           content:
-            "嘀——wake"
+            "嘀——excuse"
         },
         {
           name: "护士",
@@ -335,11 +337,11 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      windContent: [
+      snakeContent: [
         {
           name: "旁白",
           content:
-            "嘀——wind"
+            "嘀——snake"
         },
         {
           name: "护士",
@@ -412,13 +414,14 @@ export default {
             "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
         },
       ],
-      dontContentVisible:false,
-      togetherContentVisible:false,
-      dontContent:[
+      topContentVisible:false,
+      follow1ContentVisible:false,
+      storeContentVisible:false,
+      topContent:[
           {
           name: "旁白",
           content:
-            "嘀——dont"
+            "嘀——top"
         },
         {
           name: "护士",
@@ -426,11 +429,11 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      togetherContent:[
+      follow1Content:[
           {
           name: "旁白",
           content:
-            "嘀——together"
+            "嘀——follow1"
         },
         {
           name: "护士",
@@ -438,13 +441,11 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      together1ContentVisible:false,
-      persuadeContentVisible:false,
-      together1Content:[
+      storeContent:[
           {
           name: "旁白",
           content:
-            "嘀——together1"
+            "嘀——store"
         },
         {
           name: "护士",
@@ -452,11 +453,25 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      persuadeContent:[
+      yesContentVisible:false,
+      followContentVisible:false,
+      yesContent: [
           {
           name: "旁白",
           content:
-            "嘀——persuade"
+            "嘀——yes"
+        },
+        {
+          name: "护士",
+          content:
+            "查医生，7号床发生窦性心动过速！心率已达160次！",
+        },
+      ],
+      followContent: [
+          {
+          name: "旁白",
+          content:
+            "嘀——follow"
         },
         {
           name: "护士",
@@ -493,57 +508,48 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.unknown_erosion {
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  background: url('./邂逅2/bg.png') no-repeat;
-  background-size: cover;
-  background-position: center;
-}
 
 .major-title {
-  background: url("./邂逅2/title1.png") no-repeat;
+  background: url("../邂逅3/title1.png") no-repeat;
   background-size: 95% 95%;
   height: 70px;
-  width: 406px;
+  width: 250px;
   position: relative;
   top:165px;
-  left:145px;
+  left:200px;
 }
 
 .content1 {
-  background: url("./邂逅2/content1.png");
+  background: url("../邂逅3/content1.png");
   background-size: 100% 100%;
   position: relative;
   top:85px;
-  left: 110px;
+  left: 55px;
   height: 21px;
-  width: 418px;
-}
+  width: 447px;}
 
 .content2 {
-  background: url("./邂逅2/content2.png");
+  background: url("../邂逅3/content2.png");
   background-size: 100% 100%;
   position: relative;
   top:85px;
-  left: 110px;
+  left: 55px;
   height: 21px;
-  width: 299px;
+  width: 291px;
 }
 
 .content3 {
-   background: url("./邂逅2/content3.png");
+   background: url("../邂逅3/content3.png");
   background-size: 100% 100%;
   position: relative;
   top:85px;
-  left: 110px;
+  left: 55px;
   height: 21px;
-  width: 248px;
+  width: 342px;
 }
 
 .video-btn {
-  background-image: url("./邂逅2/video.png");
+  background-image: url("../邂逅3/video.png");
   background-size: 100% 100%;
   cursor: pointer;
   position: relative;
@@ -558,7 +564,7 @@ export default {
 }
 
 .text-bg {
-  background: url('./邂逅3/text.png') no-repeat;
+  background: url('../邂逅3/text.png') no-repeat;
   background-size: 100% 97%;
   height: 760px;
   width: 1680px;
@@ -577,7 +583,7 @@ export default {
 }
 
 .title1 {
-  background: url("./邂逅2/暗2-1.png");
+  background: url("../邂逅3/暗2-1.png");
   background-size: 100% 100%;
   height: 47px;
   width: 190px;
@@ -589,14 +595,14 @@ export default {
 
 .title1:hover, .title1:focus, .title1.active,
 {
-  background: url("./邂逅2/title2-1.png");
+  background: url("../邂逅3/title2-1.png");
   background-size: 100% 100%;
   cursor: pointer;
   margin-bottom: 20px;
 }
 
 .title2 {
-  background: url("./邂逅2/暗2-2.png");
+  background: url("../邂逅3/暗2-2.png");
   background-size: 100% 100%;
   height: 47px;
   width: 190px;
@@ -607,14 +613,14 @@ export default {
 }
 
 .title2:hover, .title2:focus, .title2.active, {
-  background: url("./邂逅2/title2-2.png");
+  background: url("../邂逅3/title2-2.png");
   background-size: 100% 100%;
   cursor: pointer;
   margin-bottom: 20px;
 }
 
 .title3 {
-  background: url("./邂逅2/暗2-3.png");
+  background: url("../邂逅3/暗2-3.png");
   background-size: 100% 100%;
   height: 47px;
   width: 190px;
@@ -625,7 +631,7 @@ export default {
 }
 
 .title3:hover, .title3:focus, .title3.active, {
-  background: url("./邂逅2/title2-3.png");
+  background: url("../邂逅3/title2-3.png");
   background-size: 100% 100%;
   cursor: pointer;
   margin-bottom: 20px;
@@ -640,54 +646,64 @@ export default {
   left: 30px;
 }
 
-.rest {
-  background: url("./邂逅2/rest.png");
+.choice1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  float: left;
+  top: 250px;
+  left: 30px;
+}
+.wine {
+  background: url("../邂逅3/wine.png");
   margin-bottom: 25px;
 }
 
-.argue {
-  background: url("./邂逅2/argue.png");
+.boss {
+  background: url("../邂逅3/boss.png");
 }
 
-.agree {
-  background: url("./邂逅2/agree.png");
+.wait {
+  background: url("../邂逅3/wait.png");
   margin-bottom: 25px;
 }
-.disagree {
-    background: url("./邂逅2/disagree.png");
+.hand {
+    background: url("../邂逅3/hand.png");
 }
 
-.walk {
-  background: url("./邂逅2/walk.png");
-  margin-bottom: 25px;
-}
-
-.wake {
-  background: url("./邂逅2/wake.png");
-}
-
-.dont {
-  background: url("./邂逅2/dont.png");
+.truth {
+  background: url("../邂逅3/truth.png");
   margin-bottom: 25px;
 }
 
-.persuade {
-  background: url("./邂逅2/persuade.png");
+.excuse {
+  background: url("../邂逅3/excuse.png");
+}
+
+.top {
+  background: url("../邂逅3/top.png");
   margin-bottom: 25px;
 }
 
-.together {
-  background: url("./邂逅2/together.png");
+.follow1 {
+  background: url("../邂逅3/follow1.png");
+}
+
+.store {
+  background: url("../邂逅3/store.png");
   margin-bottom: 25px;
 }
 
-.together1 {
-  background: url("./邂逅2/together.png");
-
+.follow {
+  background: url("../邂逅3/follow.png");
 }
 
+.yes {
+  background: url("../邂逅3/yes.png");
+  margin-bottom: 25px;
+}
 
-.rest, .agree, .argue, .disagree,.walk,.wake,.dont,.together1,.together, .persuade {
+.wine, .wait, .boss, .hand,.truth,.excuse,.top,.follow1,.store, .follow, .yes{
   background-size: 100% 100%;
   height: 132px;
   width: 46px;
@@ -697,7 +713,7 @@ export default {
 }
 
 .reload {
-  background: url("./邂逅1/reload.png");
+  background: url("../邂逅1/reload.png");
   background-size: 100% 100%;
   height: 129px;
   width: 43px;

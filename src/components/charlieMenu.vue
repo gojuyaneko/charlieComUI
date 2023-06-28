@@ -48,15 +48,15 @@ export default {
           childItems: [
             {
               name: '第一章/ "援塞"之行',
-              nextUrl: "/rescueTrip",
+              nextUrl: "/encounter1",
             },
             {
               name: "第二章/ 无名侵蚀",
-              nextUrl: "/unknownErosion",
+              nextUrl: "/encounter2",
             },
             {
               name: "第三章/ 真相大白",
-              nextUrl: "/truthCameout",
+              nextUrl: "/encounter3",
             },
           ],
         },
