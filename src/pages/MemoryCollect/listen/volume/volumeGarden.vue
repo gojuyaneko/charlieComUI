@@ -136,6 +136,7 @@ export default {
   right:150px;
   float: right;
 }
+
 .card2 {
   background: url('./余音3/card2.png') no-repeat;
   background-size: 100% 100%;
