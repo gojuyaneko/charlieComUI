@@ -1,6 +1,9 @@
 <template>
   <div class="profile_attract">
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===0"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===1"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===2"></a>
+
     <div class="title"></div>
     <div class="night2" v-show="Index===1 || Index===0" @click="show(2);"></div>
     <div class="light1" v-show="Index===1 || Index===0"></div>

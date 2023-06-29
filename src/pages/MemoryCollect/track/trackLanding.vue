@@ -1,6 +1,11 @@
 <template>
   <div class="landing">
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===1"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===2"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===3"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===4"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===5"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===6"></a>
     <div class="title"></div>
     <div class="titles" v-for="(item,index) in minorTitles" :key="index" v-show="item.num===Index">
       <img :src="item.bg" alt="" class="title-img"/>
