@@ -33,6 +33,8 @@ const videocallCollection = () =>
 const aboutCharlie = () => import("../pages/aboutCharlie.vue");
 const charaDetail = () => import("../pages/aboutCharlie/charaDetail.vue");
 const relationship = () => import("../pages/aboutCharlie/relationship.vue");
+const rewindPage  = () => import("../pages/MemoryCollect/listen/rewind/rewindPage.vue");
+const volumePage  = () => import("../pages/MemoryCollect/listen/volume/volumePage");
 
 charaDetail;
 Vue.use(Router);
@@ -146,5 +148,15 @@ export default new Router({
       name: "relationship",
       component: relationship,
     },
+    {
+      path: "/rewindPage",
+      name: "rewindPage",
+      component: rewindPage,
+    },
+    {
+      path: "/volumePage",
+      name: "volumePage",
+      component: volumePage,
+    }
   ],
 });

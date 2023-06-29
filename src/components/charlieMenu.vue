@@ -83,15 +83,14 @@ export default {
         },
         {
           name: "< 倾听",
-          nextUrl: "/listen",
           childItems: [
             {
               name: "余音",
-              nextUrl: "",
+              nextUrl: "/volumePage",
             },
             {
               name: "倒带",
-              nextUrl: "rewind",
+              nextUrl: "/rewindPage",
             },
           ],
         },
