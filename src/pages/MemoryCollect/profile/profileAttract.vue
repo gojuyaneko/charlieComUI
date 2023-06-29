@@ -1,9 +1,6 @@
 <template>
   <div class="profile_attract">
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===0"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===1"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===2"></a>
-
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com"></a>
     <div class="title"></div>
     <div class="night2" v-show="Index===1 || Index===0" @click="show(2);"></div>
     <div class="light1" v-show="Index===1 || Index===0"></div>
@@ -211,8 +208,8 @@ export default {
   background-size: 100% 100%;
   cursor: pointer;
   position: relative;
-  top: -550px;
-  left: 670px;
+  top: 55px;
+  left: 680px;
   width: 145px;
   height: 46px;
   display: inline-block;

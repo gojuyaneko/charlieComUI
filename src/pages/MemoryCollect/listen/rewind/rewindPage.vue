@@ -1,7 +1,11 @@
 <template>
  <div class="rewind">
    <div class="guide"></div>
-   <a class="video-btn" target="_blank" href="http://www.bilibili.com"></a>
+   <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===0"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===1"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===2"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===3"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===4"></a>
    <div class="text-bg">
     <div class="title"></div>
      <div class="option">
