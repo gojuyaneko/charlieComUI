@@ -2,7 +2,7 @@
   <div class="track_detail">
     <div class="guide"></div>
     <div class="text-bg">
-      <div class="next" @click="change()" :class="{active:index}"></div>
+      <div class="next" @click="change()" :class="{active:Index}"></div>
       <ul>
         <li v-for="(item,index) in ChapList" :key="index" v-show="Index===item.sessionIndex">
           <trackPartner v-if="item.chap ==='partner'"></trackPartner>

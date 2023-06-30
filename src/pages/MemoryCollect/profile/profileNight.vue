@@ -13,9 +13,12 @@
     </ul>
     <div class="text-bg">
       <div class="text">
-        <trackContent :sendName="initialContent" v-show="Index===0"></trackContent>
-        <trackContent :sendName="lightContent" v-show="Index===1"></trackContent>
-        <trackContent :sendName="nightContent" v-show="Index===2"></trackContent>
+        <ul>
+          <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
+            <trackContent :sendName="item.subContent"></trackContent>
+          </li>
+        </ul>
+
       </div>
     </div>
   </div>
@@ -28,7 +31,10 @@ export default {
   data() {
     return {
       Index:0,
-      initialContent: [
+      contentDataList:[
+        {
+          sessionIndex:0,
+          subContent: [
         {
           name:'旁白',
           content:'鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
@@ -117,7 +123,11 @@ export default {
           content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
         }
       ],
-      lightContent:[
+
+        },
+        {
+          sessionIndex:1,
+          subContent:[
         {
           name:'旁白',
           content:'111鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
@@ -148,7 +158,10 @@ export default {
           content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
         }
       ],
-      nightContent:[
+        },
+        {
+          sessionIndex:2,
+          subContent:[
         {
           name:'旁白',
           content:'222鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
@@ -179,6 +192,9 @@ export default {
           content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
         }
       ],
+        }
+      ],
+
     }
   },
   methods: {

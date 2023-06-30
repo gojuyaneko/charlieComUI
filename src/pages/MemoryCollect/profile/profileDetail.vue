@@ -2,9 +2,13 @@
   <div class="profileDetail">
     <div class="guide"></div>
     <div class="line"></div>
-    <div class="next" @click="change()" :class="{active:index}"></div>
-    <profileNight v-show="index===1"></profileNight>
-    <profileAttract v-show="index===2"></profileAttract>
+    <div class="next" @click="change()" :class="{active:Index}"></div>
+    <ul>
+        <li v-for="(item,index) in ChapList" :key="index" v-show="Index===item.sessionIndex">
+          <profileNight v-if="item.chap ==='night'"></profileNight>
+          <profileAttract v-if="item.chap ==='attract'"></profileAttract>
+        </li>
+    </ul>
   </div>
 </template>
 
@@ -16,17 +20,27 @@ export default {
   components: {profileAttract,profileNight},
   data() {
     return {
-      index: 1,
+      Index: 0,
+      ChapList:[
+        {
+          chap:'night',
+          sessionIndex:0,
+        },
+        {
+          chap:'attract',
+          sessionIndex:1,
+        },
+      ]
     }
   },
   methods: {
     change () {
-      if(this.index >= 2 ) {
-        this.index = 1
+      if(this.Index >= 1 ) {
+        this.Index = 0
       } else{
-        this.index ++
+        this.Index ++
       }
-      console.log(this.index)
+      console.log(this.Index)
     },
   },
 }
