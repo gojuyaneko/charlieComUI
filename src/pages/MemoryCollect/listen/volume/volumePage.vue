@@ -1,10 +1,15 @@
 <template>
   <div class="volume">
     <div class="guide"></div>
-    <div class="next" @click="change()" :class="{active:index}"></div>
-    <volumeDream v-show="index===1"></volumeDream>
-    <volumeControl v-show="index===2"></volumeControl>
-    <volumeGarden v-show="index===3"></volumeGarden>
+    <div class="next" @click="change()" :class="{active:Index}"></div>
+    <ul>
+        <li v-for="(item,index) in ChapList" :key="index" v-show="Index===item.sessionIndex">
+           <volumeDream v-if="item.chap==='dream'"></volumeDream>
+          <volumeControl v-if="item.chap==='control'"></volumeControl>
+          <volumeGarden v-if="item.chap==='garden'"></volumeGarden>
+        </li>
+    </ul>
+
 
 
   </div>
@@ -19,17 +24,31 @@ export default {
   components: {volumeDream,volumeControl,volumeGarden},
   data() {
     return {
-      index: 1,
+      Index: 0,
+      ChapList:[
+        {
+          chap:'dream',
+          sessionIndex:0,
+        },
+        {
+          chap:'control',
+          sessionIndex:1,
+        },
+        {
+          chap:'garden',
+          sessionIndex:2,
+        },
+      ]
     }
   },
   methods: {
     change () {
-      if(this.index >= 3 ) {
-        this.index = 1
+      if(this.Index >= 2 ) {
+        this.Index = 0
       } else{
-        this.index ++
+        this.Index ++
       }
-      console.log(this.index)
+      console.log(this.Index)
     },
   },
 }

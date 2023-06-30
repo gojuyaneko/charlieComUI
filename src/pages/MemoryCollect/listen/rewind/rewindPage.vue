@@ -1,26 +1,27 @@
 <template>
  <div class="rewind">
    <div class="guide"></div>
-   <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===0"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===1"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===2"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===3"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===4"></a>
+   <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===0"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===1"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===2"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===3"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===4"></a>
    <div class="text-bg">
     <div class="title"></div>
      <div class="option">
-       <li class="option1" tabindex="0" @click="show(0);" :class="index===0? 'active':''"></li>
-       <ul class="option2" tabindex="1" @click="show(1);" :class="index===1? 'active':''"></ul>
-       <li class="minor1" tabindex="2" @click="show(2);" :class="index===2? 'active':''"></li>
-       <li class="minor2" tabindex="3" @click="show(3);" :class="index===3? 'active':''"></li>
-       <li class="minor3" tabindex="4" @click="show(4);" :class="index===4? 'active':''"></li>
+       <li class="option1" tabindex="0" @click="show(0);" :class="Index===0? 'active':''"></li>
+       <ul class="option2" tabindex="1" @click="show(1);" :class="Index===1? 'active':''"></ul>
+       <li class="minor1" tabindex="2" @click="show(2);" :class="Index===2? 'active':''"></li>
+       <li class="minor2" tabindex="3" @click="show(3);" :class="Index===3? 'active':''"></li>
+       <li class="minor3" tabindex="4" @click="show(4);" :class="Index===4? 'active':''"></li>
      </div>
      <div class="text">
-       <rewindContent :sendName="A" v-show="index===0"></rewindContent>
-       <rewindDia :sendName="B" v-show="index===1"></rewindDia>
-       <rewindDia :sendName="B01" v-show="index===2"></rewindDia>
-       <rewindDia :sendName="B02" v-show="index===3"></rewindDia>
-       <rewindDia :sendName="B03" v-show="index===4"></rewindDia>
+       <ul>
+        <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
+          <rewindDia v-if="item.DiaOrMemory === 'dia'" :sendName="item.subContent"></rewindDia>
+          <rewindMemory v-if="item.DiaOrMemory === 'memory'" :sendName="item.subContent"></rewindMemory>
+        </li>
+       </ul>
 
 
      </div>
@@ -31,14 +32,19 @@
 </template>
 
 <script>
-import rewindContent from "@/pages/MemoryCollect/listen/rewind/rewindContent.vue";
-import rewindDia from "@/pages/MemoryCollect/listen/rewind/rewindDia.vue";
+import rewindDia from "@/pages/MemoryCollect/listen/rewind/components/rewindDia.vue";
+import rewindMemory from "@/pages/MemoryCollect/listen/rewind/components/rewindMemory.vue";
+
 export default {
-  components:{rewindContent,rewindDia},
+  components:{rewindDia,rewindMemory},
   data() {
     return {
-      index:0,
-      A:[
+      Index:0,
+      contentDataList:[
+        {
+          sessionIndex:0,
+          DiaOrMemory:'dia',
+          subContent: [
         {
           name:'保安',
           content: 'Charlie先生，欢迎来到Bitter&Sweet 2023巧克力主题派对夜。您邀请的客人还在女宾休息室准备'
@@ -49,48 +55,57 @@ export default {
               '对了，老规矩。给我准备一副扑克。\n'
         }
       ],
-      B:[
+        },
+        {
+          sessionIndex:1,
+          DiaOrMemory:'memory',
+          subContent: [
         {
           name:'查理苏',
           content: '不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
               '对了，老规矩。给我准备一副扑克。'
         }
       ],
-      B01:[
-        {
-          name:'我',
-          content:'戴项链的事，就让我自己来吧。'
         },
         {
+          sessionIndex:2,
+          DiaOrMemory:'memory',
+          subContent: [
+        {
           name:'查理苏',
-          content:'你想自己来?没问题。\n' +
-              '小心勾到后面的碎发。没事，我会帮你撩起来。\n'
+          content: '111不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
+              '对了，老规矩。给我准备一副扑克。'
         }
       ],
-      B02:[
+        },        {
+          sessionIndex:3,
+          DiaOrMemory:'memory',
+          subContent: [
         {
           name:'查理苏',
           content: '222不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
               '对了，老规矩。给我准备一副扑克。'
         }
       ],
-      B03:[
-        {
-          name:'我',
-          content:'111戴项链的事，就让我自己来吧。'
-        },
+        },        {
+          sessionIndex:4,
+          DiaOrMemory:'memory',
+          subContent: [
         {
           name:'查理苏',
-          content:'你想自己来?没问题。\n' +
-              '小心勾到后面的碎发。没事，我会帮你撩起来。\n'
+          content: '333不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
+              '对了，老规矩。给我准备一副扑克。'
         }
+      ],
+        },
+
       ],
     }
   },
   methods: {
     show(value) {
-      this.index === value ? this.isShow = !this.isShow : this.isShow = true
-      this.index = value
+      this.Index === value ? this.isShow = !this.isShow : this.isShow = true
+      this.Index = value
     },
   }
 }

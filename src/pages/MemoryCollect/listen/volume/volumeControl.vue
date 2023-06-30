@@ -1,23 +1,25 @@
 <template>
-  <div class="control">
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===1"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===2"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===3"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="index===4"></a>
+<div class="dream">
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===0"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===1"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===2"></a>
+    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===3"></a>
+
     <div class="title"></div>
     <div class="text-bg">
       <div class="text">
-        <volumeContent v-show="index===1" :sendName="first"></volumeContent>
-        <volumeContent v-show="index===2" :sendName="second"></volumeContent>
-        <volumeContent v-show="index===3" :sendName="third"></volumeContent>
-        <volumeContent v-show="index===4" :sendName="fourth"></volumeContent>
+        <ul>
+          <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
+            <volumeContent :sendName="item.subContent"></volumeContent>
+          </li>
+        </ul>
       </div>
     </div>
     <ul class="btns">
-      <li class="btn1" tabindex="1" @click="show(1);" :class="index===1? 'active':''"></li>
-      <li class="btn2" tabindex="2" @click="show(2);" :class="index===2? 'active':''"></li>
-      <li class="btn3" tabindex="3" @click="show(3);" :class="index===3? 'active':''"></li>
-      <li class="btn4" tabindex="4" @click="show(4);" :class="Index===4? 'active':''"></li>
+      <li class="btn1" tabindex="0" @click="show(0);" :class="Index===0? 'active':''"></li>
+      <li class="btn2" tabindex="1" @click="show(1);" :class="Index===1? 'active':''"></li>
+      <li class="btn3" tabindex="2" @click="show(2);" :class="Index===2? 'active':''"></li>
+      <li class="btn4" tabindex="3" @click="show(3);" :class="Index===3? 'active':''"></li>
     </ul>
   </div>
 </template>
@@ -28,75 +30,91 @@ export default {
   components:{volumeContent,},
   data() {
     return {
-      index: 1,
-      first:[
+      Index: 0,
+      contentDataList: [
         {
-         type:'title',
-          content:'01-预谋'
+          sessionIndex: 0,
+          subContent: [
+            {
+              type: 'title',
+              content: '01-草浴'
+            },
+            {
+              type: 'content',
+              content: '111叫声很有力气，看来我们救下的狮子已经脱离生命危险了。\n' +
+                  '你之前还怀疑我的判断。但人也是动物，查医生偶尔触类旁通一下，也不稀奇。\n' +
+                  '怎么了，还在想那天的事情?那场偷猎的确非常恐怖，扎布尔地区的治安不太好，枪支和火药都可以随便流通\n'
+            }
+          ],
+
         },
         {
-          type:'content',
-          content: '叫声很有力气，看来我们救下的狮子已经脱离生命危险了。\n' +
-              '你之前还怀疑我的判断。但人也是动物，查医生偶尔触类旁通一下，也不稀奇。\n' +
-              '怎么了，还在想那天的事情?那场偷猎的确非常恐怖，扎布尔地区的治安不太好，枪支和火药都可以随便流通\n'
-        }
-      ],
-      second: [
-        {
-         type:'title',
-          content:'02-漫途'
+          sessionIndex: 1,
+          subContent: [
+            {
+              type: 'title',
+              content: '02-草浴'
+            },
+            {
+              type: 'content',
+              content: '222叫声很有力气，看来我们救下的狮子已经脱离生命危险了。\n' +
+                  '你之前还怀疑我的判断。但人也是动物，查医生偶尔触类旁通一下，也不稀奇。\n' +
+                  '怎么了，还在想那天的事情?那场偷猎的确非常恐怖，扎布尔地区的治安不太好，枪支和火药都可以随便流通\n'
+            }
+          ],
         },
         {
-          type:'content',
-          content: '叫声很有力气，看来我们救下的狮子已经脱离生命危险了。\n' +
-              '你之前还怀疑我的判断。但人也是动物，查医生偶尔触类旁通一下，也不稀奇。\n' +
-              '怎么了，还在想那天的事情?那场偷猎的确非常恐怖，扎布尔地区的治安不太好，枪支和火药都可以随便流通\n'
-        }
-      ],
-      third: [
-        {
-           type:'title',
-          content:'03-喘息'
-        },
-          {
-          type:'content',
-          content:'小心。没关系，未婚妻轻得很，我的脚一点也不疼。\n' +
-              '第一次接近狮子，紧张是人之常情。\n' +
-              '不如你闭上眼睛,把手交给我，我带你摸一摸。\n'
-        },
-        {
-          type:'title',
-          content:'03-心跳'
-        },
-        {
-          type:'content',
-          content:'这个烦闷的叫声，看来狮子是被热带小飞虫缠住了。\n' +
-              '想去车里拿防虫喷雾帮帮它?嗯，那我在这里等你，快去快回，否则我会很想你的。\n' +
-              '怎么了，羡慕我有一个善良又勇敢的未婚妻?\n'
-        }
-      ],
-      fourth: [
-        {
-          type:'title',
-          content:'04-迷蒙'
+          sessionIndex: 2,
+          subContent: [
+            {
+              type: 'title',
+              content: '03-呼噜'
+            },
+            {
+              type: 'content',
+              content: '333小心。没关系，未婚妻轻得很，我的脚一点也不疼。\n' +
+                  '第一次接近狮子，紧张是人之常情。\n' +
+                  '不如你闭上眼睛,把手交给我，我带你摸一摸。\n'
+            },
+            {
+              type: 'title',
+              content: '03-低吼'
+            },
+            {
+              type: 'content',
+              content: '444这个烦闷的叫声，看来狮子是被热带小飞虫缠住了。\n' +
+                  '想去车里拿防虫喷雾帮帮它?嗯，那我在这里等你，快去快回，否则我会很想你的。\n' +
+                  '怎么了，羡慕我有一个善良又勇敢的未婚妻?\n'
+            }
+          ],
         },
         {
-          type:'content',
-          content: '444陪你出国取材，没想到会遇到这么惊险的事。\n' +
-              '我猜你现在特别担心狮子的情况，想要马上看看才放心。\n' +
-              '但当地人把狮子奉为神明，按照风俗，我们要先在神庙的侧室沐浴更衣。\n'
+          sessionIndex: 3,
+          subContent: [
+            {
+              type: 'title',
+              content: '04-低吼'
+            },
+            {
+              type: 'content',
+              content: '555444陪你出国取材，没想到会遇到这么惊险的事。\n' +
+                  '我猜你现在特别担心狮子的情况，想要马上看看才放心。\n' +
+                  '但当地人把狮子奉为神明，按照风俗，我们要先在神庙的侧室沐浴更衣。\n'
+            }
+          ],
         }
       ],
     }
   },
   methods: {
     show(value) {
-      this.index === value ? this.isShow = !this.isShow : this.isShow = true
-      this.index = value
+      this.Index === value ? this.isShow = !this.isShow : this.isShow = true
+      this.Index = value
     },
   }
 }
 </script>
+
 
 <style scoped>
 

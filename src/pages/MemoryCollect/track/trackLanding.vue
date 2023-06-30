@@ -6,12 +6,12 @@
       <img :src="item.bg" alt="" class="title-img"/>
     </div>
     <ul class="btns">
-      <li class="btn1" tabindex="1" @click="show(0);" :class="Index===0? 'active':''"></li>
-      <li class="btn2" tabindex="2" @click="show(1);" :class="Index===1? 'active':''"></li>
-      <li class="btn3" tabindex="3" @click="show(2);" :class="Index===2? 'active':''"></li>
-      <li class="btn4" tabindex="4" @click="show(3);" :class="Index===3? 'active':''"></li>
-      <li class="btn5" tabindex="5" @click="show(4);" :class="Index===4? 'active':''"></li>
-      <li class="btn6" tabindex="6" @click="show(5);" :class="Index===5? 'active':''"></li>
+      <li class="btn1" tabindex="0" @click="show(0);" :class="Index===0? 'active':''"></li>
+      <li class="btn2" tabindex="1" @click="show(1);" :class="Index===1? 'active':''"></li>
+      <li class="btn3" tabindex="2" @click="show(2);" :class="Index===2? 'active':''"></li>
+      <li class="btn4" tabindex="3" @click="show(3);" :class="Index===3? 'active':''"></li>
+      <li class="btn5" tabindex="4" @click="show(4);" :class="Index===4? 'active':''"></li>
+      <li class="btn6" tabindex="5" @click="show(5);" :class="Index===5? 'active':''"></li>
     </ul>
     <ul class="active">
       <li class="active1" v-show="Index===0"></li>
