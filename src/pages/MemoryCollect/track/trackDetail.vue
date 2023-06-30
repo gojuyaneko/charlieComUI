@@ -3,9 +3,14 @@
     <div class="guide"></div>
     <div class="text-bg">
       <div class="next" @click="change()" :class="{active:index}"></div>
-      <trackPartner v-show="index===1"></trackPartner>
-      <trackLanding v-show="index===2"></trackLanding>
-      <trackBack v-show="index===3"></trackBack>
+      <ul>
+        <li v-for="(item,index) in ChapList" :key="index" v-show="Index===item.sessionIndex">
+          <trackPartner v-if="item.chap ==='partner'"></trackPartner>
+          <trackLanding v-if="item.chap ==='landing'"></trackLanding>
+          <trackBack v-if="item.chap ==='back'"></trackBack>
+        </li>
+
+      </ul>
 
     </div>
   </div>
@@ -21,17 +26,31 @@ export default {
   components: {trackPartner,trackLanding,trackBack},
   data() {
     return {
-      index: 1,
+      Index: 0,
+      ChapList:[
+        {
+          chap:'partner',
+          sessionIndex:0,
+        },
+        {
+          chap:'landing',
+          sessionIndex:1,
+        },
+        {
+          chap:'back',
+          sessionIndex:2,
+        }
+      ],
     }
   },
   methods: {
     change () {
-      if(this.index >= 3 ) {
-        this.index = 1
+      if(this.Index >= 2 ) {
+        this.Index = 0
       } else{
-        this.index ++
+        this.Index ++
       }
-      console.log(this.index)
+      console.log(this.Index)
     },
   },
 }

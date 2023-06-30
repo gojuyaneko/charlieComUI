@@ -6,31 +6,31 @@
       <img :src="item.bg" alt="" class="title-img"/>
     </div>
     <ul class="btns">
-      <li class="btn1" tabindex="1" @click="show(1);" :class="Index===1? 'active':''"></li>
-      <li class="btn2" tabindex="2" @click="show(2);" :class="Index===2? 'active':''"></li>
-      <li class="btn3" tabindex="3" @click="show(3);" :class="Index===3? 'active':''"></li>
-      <li class="btn4" tabindex="4" @click="show(4);" :class="Index===4? 'active':''"></li>
-      <li class="btn5" tabindex="5" @click="show(5);" :class="Index===5? 'active':''"></li>
-      <li class="btn6" tabindex="6" @click="show(6);" :class="Index===6? 'active':''"></li>
+      <li class="btn1" tabindex="1" @click="show(0);" :class="Index===0? 'active':''"></li>
+      <li class="btn2" tabindex="2" @click="show(1);" :class="Index===1? 'active':''"></li>
+      <li class="btn3" tabindex="3" @click="show(2);" :class="Index===2? 'active':''"></li>
+      <li class="btn4" tabindex="4" @click="show(3);" :class="Index===3? 'active':''"></li>
+      <li class="btn5" tabindex="5" @click="show(4);" :class="Index===4? 'active':''"></li>
+      <li class="btn6" tabindex="6" @click="show(5);" :class="Index===5? 'active':''"></li>
     </ul>
     <ul class="active">
-      <li class="active1" v-show="Index===1"></li>
-      <li class="active2" v-show="Index===2"></li>
-      <li class="active3" v-show="Index===3"></li>
-      <li class="active4" v-show="Index===4"></li>
-      <li class="active5" v-show="Index===5"></li>
-      <li class="active6" v-show="Index===6"></li>
+      <li class="active1" v-show="Index===0"></li>
+      <li class="active2" v-show="Index===1"></li>
+      <li class="active3" v-show="Index===2"></li>
+      <li class="active4" v-show="Index===3"></li>
+      <li class="active5" v-show="Index===4"></li>
+      <li class="active6" v-show="Index===5"></li>
     </ul>
     <div class="dates" v-for="(item,index) in minorDates" :key="index" v-show="item.num===Index">
       <img :src="item.bg" alt="" class="date-img"/>
     </div>
     <div class="text">
-      <trackDia :sendName="Dia1" v-show="Index===1"></trackDia>
-      <trackDia :sendName="Dia2" v-show="Index===2"></trackDia>
-      <trackDia :sendName="Dia3" v-show="Index===3"></trackDia>
-      <trackDia :sendName="Dia4" v-show="Index===4"></trackDia>
-      <trackMemory :sendName="Memory1" v-show="Index===5"></trackMemory>
-      <trackMemory :sendName="Memory2" v-show="Index===6"></trackMemory>
+      <ul>
+        <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
+          <trackDia v-if="item.DiaOrMemory === 'dia'" :sendName="item.subContent"></trackDia>
+          <trackMemory v-if="item.DiaOrMemory === 'memory'" :sendName="item.subContent"></trackMemory>
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -44,60 +44,80 @@ export default {
   components:{trackDia,trackMemory},
   data() {
     return {
-      Index: 1,
+      Index: 0,
       minorTitles: [
         {
           bg: require("../track/轨迹2/title1.png"),
-          num:1,
+          num:0,
         },
         {
           bg: require("../track/轨迹2/title2.png"),
-          num:2,
+          num:1,
         },
         {
           bg: require("../track/轨迹2/title3.png"),
-          num:3,
+          num:2,
         },
         {
           bg: require("../track/轨迹2/title4.png"),
-          num:4,
+          num:3,
         },
         {
           bg: require("../track/轨迹2/title5.png"),
-          num:5,
+          num:4,
         },
         {
           bg: require("../track/轨迹2/title6.png"),
-          num:6,
+          num:5,
         },
       ],
       minorDates: [
         {
           bg: require("../track/轨迹2/minor1.png"),
-          num:1,
+          num:0,
         },
         {
           bg: require("../track/轨迹2/minor2.png"),
-          num:2,
+          num:1,
         },
         {
           bg: require("../track/轨迹2/minor3.png"),
-          num:3,
+          num:2,
         },
         {
           bg: require("../track/轨迹2/minor4.png"),
-          num:4,
+          num:3,
         },
         {
           bg: require("../track/轨迹2/minor5.png"),
-          num:5,
+          num:4,
         },
         {
           bg: require("../track/轨迹2/minor6.png"),
-          num:6,
+          num:5,
         },
       ],
-      Dia1:[
+      contentDataList:[
+        {
+          sessionIndex:0,
+          DiaOrMemory:'memory',
+          subContent: [
+            {
+              name:'妈妈',
+              content: '“Charlie，想不想和妈妈一起去游乐园玩？”',
+            },
+            {
+              name:'旁白',
+              content: '一天炎热的午后，妈妈突然这样问我。\n' +
+                  '她半蹲在我面前，用柔软的手指轻抚我的头顶，眼里充盈着温柔。\n'
+            },
+          ]
+        },
+
+        {
+          sessionIndex:1,
+          DiaOrMemory:'dia',
+          subContent: [
         {
           name:'管家',
           content:'少爷，欢迎回来。\n' +
@@ -159,115 +179,117 @@ export default {
           content: '吉叔，不用费心了，今天我吃不下。'
         },
       ],
-      Dia2:[
+        },
+          {
+          sessionIndex:2,
+          DiaOrMemory:'memory',
+          subContent:[
+            {
+              name:'妈妈',
+              content: '“Charlie，想不想和妈妈一起去游乐园玩？”',
+            },
+            {
+              name:'旁白',
+              content: '一天炎热的午后，妈妈突然这样问我。\n' +
+                  '她半蹲在我面前，用柔软的手指轻抚我的头顶，眼里充盈着温柔。\n'
+            },
+          ]
+        },
+          {
+          sessionIndex:3,
+          DiaOrMemory:'dia',
+          subContent: [
         {
-          name:'旁白',
-          content:'连绵阴雨过后，转晴的那一天总是显得有些特别。人们纷纷走出家门，在草坪上享受久违的日光，四周的一切都仿佛洋溢着鲜亮的生机。\n' +
-              '黄昏时分，澄澈的天空被晚霞染成了明艳的红色，这也已经许久未见。\n' +
-              '查理苏本来以为，这只是漫长雨季结束后最最普通的一天。\n' +
-              '结束了一天的工作，查理苏和马克走在路上，一边聊着今天的任务，一边咬了一口手里的冰激凌。\n'
+          name:'管家',
+          content:'333少爷，欢迎回来。\n' +
+              '今天Alan医生有给您什么建议吗？'
         },
         {
           name:'查理苏',
-          content:'太幸运了，今天正好有双重可可口味。',
+          content: '他没说什么。\n' +
+              '我先回房，晚上不用喊我吃饭。\n' +
+              '看心理医生真的会有用吗……\n' +
+              '谁？\n'
         },
-        {
-          name:'旁白',
-          content:'他一脸幸福的表情看起来可以直接去拍冰淇淋广告，马克不由得笑了。'
-        },
-        {
-          name:'马克',
-          content: '这种东西只有小孩才喜欢。',
-        }
-      ],
-      Dia3:[
-        {
-          name:'旁白',
-          content:'连绵阴雨过后，转晴的那一天总是显得有些特别。人们纷纷走出家门，在草坪上享受久违的日光，四周的一切都仿佛洋溢着鲜亮的生机。\n' +
-              '黄昏时分，澄澈的天空被晚霞染成了明艳的红色，这也已经许久未见。\n' +
-              '查理苏本来以为，这只是漫长雨季结束后最最普通的一天。\n' +
-              '结束了一天的工作，查理苏和马克走在路上，一边聊着今天的任务，一边咬了一口手里的冰激凌。\n'
+       {
+          name:'管家',
+          content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
         },
         {
           name:'查理苏',
-          content:'太幸运了，今天正好有双重可可口味。',
+          content: '吉叔，不用费心了，今天我吃不下。'
         },
-        {
-          name:'旁白',
-          content:'他一脸幸福的表情看起来可以直接去拍冰淇淋广告，马克不由得笑了。'
-        },
-        {
-          name:'马克',
-          content: '这种东西只有小孩才喜欢。',
-        }
-      ],
-      Dia4:[
-        {
-          name:'旁白',
-          content:'连绵阴雨过后，转晴的那一天总是显得有些特别。人们纷纷走出家门，在草坪上享受久违的日光，四周的一切都仿佛洋溢着鲜亮的生机。\n' +
-              '黄昏时分，澄澈的天空被晚霞染成了明艳的红色，这也已经许久未见。\n' +
-              '查理苏本来以为，这只是漫长雨季结束后最最普通的一天。\n' +
-              '结束了一天的工作，查理苏和马克走在路上，一边聊着今天的任务，一边咬了一口手里的冰激凌。\n'
+          {
+          name:'管家',
+          content:'少爷，欢迎回来。\n' +
+              '今天Alan医生有给您什么建议吗？'
         },
         {
           name:'查理苏',
-          content:'太幸运了，今天正好有双重可可口味。',
+          content: '他没说什么。\n' +
+              '我先回房，晚上不用喊我吃饭。\n' +
+              '看心理医生真的会有用吗……\n' +
+              '谁？\n'
         },
-        {
-          name:'旁白',
-          content:'他一脸幸福的表情看起来可以直接去拍冰淇淋广告，马克不由得笑了。'
-        },
-        {
-          name:'马克',
-          content: '这种东西只有小孩才喜欢。',
-        }
-      ],
-      Memory1:[
-        {
-          name:'妈妈',
-          content: '“Charlie，想不想和妈妈一起去游乐园玩？”'
-        },
-        {
-          name:'旁白',
-          content: '一天炎热的午后，妈妈突然这样问我。\n' +
-              '她半蹲在我面前，用柔软的手指轻抚我的头顶，眼里充盈着温柔。\n'
+       {
+          name:'管家',
+          content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
         },
         {
           name:'查理苏',
-          content:'“当然想去啦！”'
+          content: '吉叔，不用费心了，今天我吃不下。'
+        },
+          {
+          name:'管家',
+          content:'少爷，欢迎回来。\n' +
+              '今天Alan医生有给您什么建议吗？'
         },
         {
-          name: '旁白',
-          content:'我用力点点头。\n' +
-              '也许是因为许久没有出门，妈妈最近总是郁郁寡欢，我已经很久没有见过她的笑容了。'
+          name:'查理苏',
+          content: '他没说什么。\n' +
+              '我先回房，晚上不用喊我吃饭。\n' +
+              '看心理医生真的会有用吗……\n' +
+              '谁？\n'
         },
-         {
-          name:'妈妈',
-          content: '“那我们两个偷偷溜出去，不要被爸爸发现。”'
+       {
+          name:'管家',
+          content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
+        },
+        {
+          name:'查理苏',
+          content: '吉叔，不用费心了，今天我吃不下。'
         },
       ],
-      Memory2:[
-        {
-          name:'妈妈',
-          content: '“Charlie，想不想和妈妈一起去游乐园玩？”'
         },
-        {
-          name:'旁白',
-          content: '一天炎热的午后，妈妈突然这样问我。\n' +
-              '她半蹲在我面前，用柔软的手指轻抚我的头顶，眼里充盈着温柔。\n'
+          {
+          sessionIndex:4,
+          DiaOrMemory:'memory',
+          subContent: [
+            {
+              name:'妈妈',
+              content: '“Charlie，想不想和妈妈一起去游乐园玩？”',
+            },
+            {
+              name:'旁白',
+              content: '一天炎热的午后，妈妈突然这样问我。\n' +
+                  '她半蹲在我面前，用柔软的手指轻抚我的头顶，眼里充盈着温柔。\n'
+            },
+          ]
         },
-        {
-          name:'查理苏',
-          content:'“当然想去啦！”'
-        },
-        {
-          name: '旁白',
-          content:'我用力点点头。\n' +
-              '也许是因为许久没有出门，妈妈最近总是郁郁寡欢，我已经很久没有见过她的笑容了。'
-        },
-         {
-          name:'妈妈',
-          content: '“那我们两个偷偷溜出去，不要被爸爸发现。”'
+          {
+          sessionIndex:5,
+          DiaOrMemory:'memory',
+          subContent: [
+            {
+              name:'妈妈',
+              content: '“Charlie，想不想和妈妈一起去游乐园玩？”',
+            },
+            {
+              name:'旁白',
+              content: '一天炎热的午后，妈妈突然这样问我。\n' +
+                  '她半蹲在我面前，用柔软的手指轻抚我的头顶，眼里充盈着温柔。\n'
+            },
+          ]
         },
       ],
     }
