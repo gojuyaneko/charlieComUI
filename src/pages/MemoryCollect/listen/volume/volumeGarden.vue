@@ -34,6 +34,7 @@ export default {
   components:{volumeContent,},
   data() {
     return {
+      temp:1,
       Index: 0,
       contentDataList: [
         {
@@ -115,6 +116,13 @@ export default {
       this.Index === value ? this.isShow = !this.isShow : this.isShow = true
       this.Index = value
     },
+    change(){
+      if(this.temp === 0){
+        this.temp = 1
+      }else{
+         this.temp = 0
+      }
+    }
   }
 }
 </script>
