@@ -1,9 +1,9 @@
 <template>
   <div class="encounter">
-    <div class="next" @click="change()" :class="{active:index}"></div>
-    <rescueTrip v-show="index===1"></rescueTrip>
-    <unknownErosion v-show="index===2"></unknownErosion>
-    <truthCameout v-show="index===3"></truthCameout>
+    <div class="next" @click="change()" :class="{active:Index}"></div>
+    <rescueTrip v-show="Index===1"></rescueTrip>
+    <unknownErosion v-show="Index===2"></unknownErosion>
+    <truthCameout v-show="Index===3"></truthCameout>
   </div>
 </template>
 
@@ -15,19 +15,20 @@ import truthCameout from "@/pages/MemoryCollect/encounter/components/truthCameou
 
 export default {
   components: {rescueTrip,unknownErosion,truthCameout},
+
   data() {
     return {
-      index: 1,
+      Index:1
     }
   },
-methods: {
+  methods: {
     change () {
-      if(this.index >= 3 ) {
-        this.index = 1
+      if(this.Index >= 3 ) {
+        this.Index = 1
       } else{
-        this.index ++
+        this.Index ++
       }
-      console.log(this.index)
+      console.log(this.Index)
     },
   },
 }

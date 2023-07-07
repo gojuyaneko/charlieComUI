@@ -8,12 +8,8 @@ const DreamWeaving = () =>
 const lightAndNight = () => import("../pages/lightAndNight/lightAndNight.vue");
 const allGoods = () => import("../pages/subitems/goods/allGoods.vue");
 const badge = () => import("../pages/subitems/goods/badge.vue");
-const encounter1 = () =>
-  import("../pages/MemoryCollect/encounter/encounter1");
-const encounter2 = () =>
-  import("../pages/MemoryCollect/encounter/encounter2");
-const encounter3 = () =>
-  import("../pages/MemoryCollect/encounter/encounter3");
+const encounter = () =>
+  import("../pages/MemoryCollect/encounter/encounter");
 const wechatMoments = () =>
   import("../pages/subitems/sweet/wechatMoments/wechatMoments.vue");
 const charlieFurniture = () =>
@@ -77,19 +73,9 @@ export default new Router({
       component: badge,
     },
     {
-      path: "/encounter1",
-      name: "encounter1",
-      component: encounter1,
-    },
-    {
-      path: "/encounter2",
-      name: "encounter2",
-      component: encounter2,
-    },
-    {
-      path: "/encounter3",
-      name: "encounter3",
-      component: encounter3,
+      path: "/encounter",
+      name: "encounter",
+      component: encounter,
     },
     {
       path: "/wechatmoments",

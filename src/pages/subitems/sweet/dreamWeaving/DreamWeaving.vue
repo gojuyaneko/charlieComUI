@@ -10,8 +10,10 @@
     <div class="angel-dia">
       <el-dialog custom-class="meet" :visible.sync="meetVisible" v-if="meetVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in cardText" :key="index" class="card-text">
-            <h4 :datatype="item.type">{{item.content}}</h4>
+          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===1">
+            <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
+              <h4 :datatype="item.type">{{item.content}}</h4>
+            </div>
           </div>
         </div>
         <div class="diapage">
@@ -27,8 +29,10 @@
 
       <el-dialog custom-class="trip" :visible.sync="tripVisible" v-if="tripVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in cardText" :key="index" class="card-text">
-            <h4 :datatype="item.type">{{item.content}}</h4>
+          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===2">
+            <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
+              <h4 :datatype="item.type">{{item.content}}</h4>
+            </div>
           </div>
         </div>
         <div class="diapage">
@@ -45,8 +49,10 @@
     <div class="evil-dia">
       <el-dialog custom-class="sky" :visible.sync="skyVisible" v-if="skyVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in cardText" :key="index" class="card-text">
-            <h4 :datatype="item.type">{{item.content}}</h4>
+          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===3">
+            <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
+              <h4 :datatype="item.type">{{item.content}}</h4>
+            </div>
           </div>
         </div>
         <div class="diapage">
@@ -62,8 +68,10 @@
 
       <el-dialog custom-class="moon" :visible.sync="moonVisible"  v-if="moonVisible" >
         <div class="dia-text">
-          <div v-for="( item,index) in cardText" :key="index" class="card-text">
-            <h4 :datatype="item.type">{{item.content}}</h4>
+          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===4">
+            <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
+              <h4 :datatype="item.type">{{item.content}}</h4>
+            </div>
           </div>
         </div>
         <div class="diapage">
@@ -91,7 +99,10 @@ export default {
       skyVisible:false,
       tripVisible:false,
       moonVisible:false,
-      cardText:[
+      ContentText:[
+        {
+          Index:1,
+          subContent:[
         {
           type:"intro",
           content:"刚走进餐馆坐下，我的肚子就不争气的叫了一声 啊啊啊啊啊啊啊啊啊啊啊啊"
@@ -114,7 +125,87 @@ export default {
         },
 
       ],
-      cardText1:'完美啊你的名字是charlie',
+        },
+          {
+          Index:2,
+          subContent:[
+        {
+          type:"intro",
+          content:"刚走进餐馆坐下111，我的肚子就不争气的叫了一声 啊啊啊啊啊啊啊啊啊啊啊啊"
+        },
+        {
+          type:"choice",
+          content: "来一份Charlie烤鸡"
+        },
+        {
+          type:"choice-content",
+          content: "没有人能抵御烧烤的香味"
+        },
+        {
+          type: "choice",
+          content: "来一份Charlie啤酒"
+        },
+        {
+          type: "choice-content",
+          content: "店主呈上酒杯"
+        },
+
+      ],
+        },
+          {
+          Index:3,
+          subContent:[
+        {
+          type:"intro",
+          content:"刚走进餐馆坐下333，我的肚子就不争气的叫了一声 啊啊啊啊啊啊啊啊啊啊啊啊"
+        },
+        {
+          type:"choice",
+          content: "来一份Charlie烤鸡"
+        },
+        {
+          type:"choice-content",
+          content: "没有人能抵御烧烤的香味"
+        },
+        {
+          type: "choice",
+          content: "来一份Charlie啤酒"
+        },
+        {
+          type: "choice-content",
+          content: "店主呈上酒杯"
+        },
+
+      ],
+        },
+          {
+          Index:4,
+          subContent:[
+        {
+          type:"intro",
+          content:"刚走进餐馆坐下5555，我的肚子就不争气的叫了一声 啊啊啊啊啊啊啊啊啊啊啊啊"
+        },
+        {
+          type:"choice",
+          content: "来一份Charlie烤鸡"
+        },
+        {
+          type:"choice-content",
+          content: "没有人能抵御烧烤的香味"
+        },
+        {
+          type: "choice",
+          content: "来一份Charlie啤酒"
+        },
+        {
+          type: "choice-content",
+          content: "店主呈上酒杯"
+        },
+
+      ],
+        },
+
+      ],
     }
   },
     mounted() {},

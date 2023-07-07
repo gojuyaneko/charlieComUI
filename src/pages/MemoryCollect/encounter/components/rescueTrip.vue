@@ -1,79 +1,66 @@
 <template>
   <div>
     <div class="major-title">
-      <div class="content1" v-show="index===1"></div>
-      <div class="content2" v-show="index===2"></div>
-      <div class="content3" v-show="index===3"></div>
+      <div class="content1" v-show="Index===1"></div>
+      <div class="content2" v-show="Index===2"></div>
+      <div class="content3" v-show="Index===3"></div>
     </div>
     <ul class="minor-titles">
       <span class="title1" tabindex="1"
             @click="show(1);
             choiceshow=false;
             buffer=true; buffer1=true;
-            goawayContentVisible=false;
-            stayContentVisible=false
-            awayContentVisible=false
-            stay1ContentVisible=false"
-            :class="index===1? 'active':''"></span>
+            firstChoice=0;
+            secondChoice=0"
+            :class="Index===1? 'active':''"></span>
       <span class="title2" tabindex="2"
             @click="show(2);
             choiceshow1=false;buffer=true;
-            heContentVisible=false;
-            meContentVisible=false;"
-            :class="index===2? 'active':''"></span>
+            thirdChoice=0;"
+            :class="Index===2? 'active':''"></span>
       <span class="title3" tabindex="3"
             @click="show(3)
             choiceshow2=false;buffer=true;
-            yesContentVisible=false;
-            noContentVisible=false;
-            hesitateContentVisible=false;"
-            :class="index===3? 'active':''"></span>
+            fourthChoice=0;"
+            :class="Index===3? 'active':''"></span>
     </ul>
     <div class="text-bg">
-      <ul class="choice" v-if="choiceshow && buffer" v-show="index===1">
-        <li class="goaway" @click="choiceshow=false; goawayContentVisible=true; buffer=false"></li>
-        <li class="stay" @click="choiceshow=false; stayContentVisible=true; buffer=false"></li>
+      <ul class="choice" v-if="choiceshow && buffer" v-show="Index===1">
+        <li class="goaway" @click="choiceshow=false; firstChoice=1; buffer=false"></li>
+        <li class="stay" @click="choiceshow=false; firstChoice=2; buffer=false"></li>
       </ul>
-      <li class="reload" v-show="goawayContentVisible && choiceshow && !buffer && index===1"
-          @click="choiceshow=true;buffer=true;goawayContentVisible=false;"></li>
-      <ul class="choice" v-if="stayContentVisible && choiceshow && buffer1" v-show="index===1">
-        <li class="away" @click="choiceshow=false; awayContentVisible=true; buffer1=false"></li>
-        <li class="stay1" @click="choiceshow=false; stay1ContentVisible=true; buffer1=false"></li>
+      <li class="reload" v-show="firstChoice===1 && choiceshow && !buffer && Index===1"
+          @click="choiceshow=true;buffer=true;firstChoice=0;"></li>
+      <ul class="choice" v-if="firstChoice===2 && choiceshow && buffer1" v-show="Index===1">
+        <li class="away" @click="choiceshow=false; secondChoice=1; buffer1=false"></li>
+        <li class="stay1" @click="choiceshow=false; secondChoice=2; buffer1=false"></li>
       </ul>
-      <li class="reload" v-show="awayContentVisible && choiceshow && !buffer1 && index===1"
-          @click="choiceshow=true;awayContentVisible=false;buffer1=true"></li>
-      <div class="text" v-show="index===1" @scroll="choiceEvent">
-        <encounterContent :sendName="meetContent" ></encounterContent>
-        <encounterContent :sendName="goawayContent" v-if="goawayContentVisible"></encounterContent>
-        <encounterContent :sendName="stayContent" v-if="stayContentVisible"></encounterContent>
-        <encounterContent :sendName="awayContent" v-if="awayContentVisible"></encounterContent>
-        <encounterContent :sendName="stay1Content" v-if="stay1ContentVisible"></encounterContent>
-      </div>
+      <li class="reload" v-show="secondChoice===1 && choiceshow && !buffer1 && Index===1"
+          @click="choiceshow=true;secondChoice=0;buffer1=true"></li>
 
-      <ul class="choice" v-if="choiceshow1 && buffer" v-show="index===2">
-        <li class="he"  @click="choiceshow1=false; heContentVisible=true; buffer=false"></li>
-        <li class="me" @click="choiceshow1=false; meContentVisible=true; buffer=false"></li>
-      </ul>
-      <li class="reload" v-show="heContentVisible && choiceshow1 && !buffer && index===2"
-          @click="choiceshow1=true;buffer=true;heContentVisible=false;"></li>
-      <div class="text" v-show="index===2" @scroll="choiceEvent1">
-        <encounterContent :sendName="liveContent" ></encounterContent>
-        <encounterContent :sendName="heContent" v-if="heContentVisible"></encounterContent>
-        <encounterContent :sendName="meContent" v-if="meContentVisible"></encounterContent>
-      </div>
 
-      <ul class="choice1" v-if="choiceshow2 && buffer" v-show="index===3">
-        <li class="yes"  @click="choiceshow2=false; yesContentVisible=true; buffer=false"></li>
-        <li class="hesitate" @click="choiceshow2=false; hesitateContentVisible=true; buffer=false"></li>
-        <li class="no" @click="choiceshow2=false; noContentVisible=true; buffer=false"></li>
+      <ul class="choice" v-if="choiceshow1 && buffer" v-show="Index===2">
+        <li class="he"  @click="choiceshow1=false; thirdChoice=1; buffer=false"></li>
+        <li class="me" @click="choiceshow1=false; thirdChoice=2; buffer=false"></li>
       </ul>
-      <li class="reload" v-show="(yesContentVisible || hesitateContentVisible) && choiceshow2 && !buffer && index===3"
-          @click="choiceshow2=true;buffer=true;yesContentVisible=false;hesitateContentVisible=false"></li>
-      <div class="text" v-show="index===3" @scroll="choiceEvent2">
-        <encounterContent :sendName="accidentContent" ></encounterContent>
-        <encounterContent :sendName="yesContent" v-if="yesContentVisible"></encounterContent>
-        <encounterContent :sendName="noContent" v-if="noContentVisible"></encounterContent>
-        <encounterContent :sendName="hesitateContent" v-if="hesitateContentVisible"></encounterContent>
+      <li class="reload" v-show="thirdChoice===1 && choiceshow1 && !buffer && Index===2"
+          @click="choiceshow1=true;buffer=true;thirdChoice=0;"></li>
+
+      <ul class="choice1" v-if="choiceshow2 && buffer" v-show="Index===3">
+        <li class="yes"  @click="choiceshow2=false; fourthChoice=1; buffer=false"></li>
+        <li class="hesitate" @click="choiceshow2=false; fourthChoice=3; buffer=false"></li>
+        <li class="no" @click="choiceshow2=false; fourthChoice=2; buffer=false"></li>
+      </ul>
+      <li class="reload" v-show="(fourthChoice===1 || fourthChoice===2) && choiceshow2 && !buffer && Index===3"
+          @click="choiceshow2=true;buffer=true;fourthChoice=0;"></li>
+
+
+      <div class="text" @scroll="choiceEvent" v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
+          <encounterContent :sendName="item.subContent" ></encounterContent>
+          <li v-for="(item,index) in item.choiceContent" :key="'content'+ index">
+            <encounterContent :sendName="item.subContent"
+                              v-if="(firstChoice || thirdChoice || fourthChoice)===item.firstNum || secondChoice===item.secondNum"></encounterContent>
+          </li>
       </div>
 
     </div>
@@ -87,8 +74,10 @@ export default {
   components:{encounterContent},
   data() {
     return {
-      index: 1,
-      meetContent: [
+      contentDataList:[
+        {
+          sessionIndex:1,
+          subContent: [
         {
           name: "旁白",
           content:
@@ -165,14 +154,10 @@ export default {
             "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
         },
       ],
-      choiceshow:false,
-      choiceshow1:false,
-      choiceshow2:false,
-      buffer:true,
-      buffer1:true,
-      goawayContentVisible:false,
-      stayContentVisible:false,
-      goawayContent: [
+          choiceContent:[
+            {
+              firstNum:1,
+              subContent:[
           {
           name: "旁白",
           content:
@@ -184,7 +169,10 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      stayContent: [
+            },
+            {
+              firstNum:2,
+              subContent:[
           {
           name: "旁白",
           content:
@@ -196,13 +184,14 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      awayContentVisible:false,
-      stay1ContentVisible:false,
-      awayContent: [
+            },
+            {
+              secondNum:1,
+              subContent:[
           {
           name: "旁白",
           content:
-            "嘀——away"
+            "嘀——66666"
         },
         {
           name: "护士",
@@ -210,11 +199,14 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      stay1Content: [
+            },
+              {
+              secondNum:2,
+              subContent:[
           {
           name: "旁白",
           content:
-            "嘀——stay"
+            "嘀——7777"
         },
         {
           name: "护士",
@@ -222,7 +214,12 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      liveContent: [
+            },
+          ],
+        },
+        {
+          sessionIndex: 2,
+          subContent: [
         {
           name: "旁白",
           content:
@@ -299,9 +296,10 @@ export default {
             "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
         },
       ],
-      heContentVisible:false,
-      meContentVisible:false,
-      heContent:[
+          choiceContent: [
+            {
+              firstNum: 1,
+              subContent: [
           {
           name: "旁白",
           content:
@@ -313,7 +311,10 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      meContent:[
+            },
+            {
+              firstNum: 2,
+              subContent: [
           {
           name: "旁白",
           content:
@@ -325,7 +326,12 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      accidentContent: [
+            }
+          ],
+        },
+        {
+          sessionIndex: 3,
+          subContent: [
         {
           name: "旁白",
           content:
@@ -402,10 +408,10 @@ export default {
             "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
         },
       ],
-      yesContentVisible:false,
-      noContentVisible:false,
-      hesitateContentVisible:false,
-      yesContent:[
+          choiceContent: [
+            {
+              firstNum: 1,
+              subContent: [
           {
           name: "旁白",
           content:
@@ -417,7 +423,10 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      noContent:[
+            },
+            {
+              firstNum: 2,
+              subContent: [
           {
           name: "旁白",
           content:
@@ -429,7 +438,10 @@ export default {
             "查医生，7号床发生窦性心动过速！心率已达160次！",
         },
       ],
-      hesitateContent:[
+            },
+            {
+              firstNum: 3,
+              subContent: [
           {
           name: "旁白",
           content:
@@ -442,28 +454,36 @@ export default {
         },
       ],
 
+            }
+          ]
+        },
+
+      ],
+      Index: 1,
+      choiceshow:false,
+      choiceshow1:false,
+      choiceshow2:false,
+      buffer:true,
+      buffer1:true,
+      firstChoice:0,
+      secondChoice:0,
+      thirdChoice:0,
+      fourthChoice:0,
+
     }
   },
   methods: {
     show(value) {
-      this.index === value ? this.isShow = !this.isShow : this.isShow = true
-      this.index = value
+      this.Index === value ? this.isShow = !this.isShow : this.isShow = true
+      this.Index = value
     },
 
     choiceEvent({target:{scrollTop, clientHeight, scrollHeight}}) {
       if (scrollTop + clientHeight >= scrollHeight) {
-        this.choiceshow = true
-      }
-    },
-    choiceEvent1({target:{scrollTop, clientHeight, scrollHeight}}) {
-      if (scrollTop + clientHeight >= scrollHeight) {
-        this.choiceshow1 = true
-      }
-    },
+        if (this.Index ===1) {this.choiceshow = true}
+        if (this.Index ===2) {this.choiceshow1 = true}
+        if (this.Index ===3) {this.choiceshow2 = true}
 
-    choiceEvent2({target:{scrollTop, clientHeight, scrollHeight}}) {
-      if (scrollTop + clientHeight >= scrollHeight) {
-        this.choiceshow2 = true
       }
     },
   }
