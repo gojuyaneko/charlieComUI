@@ -1,10 +1,8 @@
 <template>
   <div class="dream">
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===0"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===1"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===2"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===3"></a>
-
+    <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
+        <a class="video-btn" target="_blank" :href="item.videoUrl"></a>
+    </li>
     <div class="title"></div>
     <div class="text-bg">
       <div class="text">
@@ -47,7 +45,7 @@ export default {
                   '怎么了，还在想那天的事情?那场偷猎的确非常恐怖，扎布尔地区的治安不太好，枪支和火药都可以随便流通\n'
             }
           ],
-
+          videoUrl: "https://www.bilibili.com",
         },
         {
           sessionIndex: 1,
@@ -63,6 +61,7 @@ export default {
                   '怎么了，还在想那天的事情?那场偷猎的确非常恐怖，扎布尔地区的治安不太好，枪支和火药都可以随便流通\n'
             }
           ],
+          videoUrl: "https://www.bilibili.com",
         },
         {
           sessionIndex: 2,
@@ -88,6 +87,7 @@ export default {
                   '怎么了，羡慕我有一个善良又勇敢的未婚妻?\n'
             }
           ],
+          videoUrl: "https://www.bilibili.com",
         },
         {
           sessionIndex: 3,
@@ -103,6 +103,7 @@ export default {
                   '但当地人把狮子奉为神明，按照风俗，我们要先在神庙的侧室沐浴更衣。\n'
             }
           ],
+          videoUrl: "https://www.bilibili.com",
         }
       ],
     }
@@ -124,7 +125,7 @@ export default {
   cursor: pointer;
   position: relative;
   top: 135px;
-  left: 951px;
+  left: 800px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -136,8 +137,8 @@ export default {
   position: relative;
   width: 213px;
   height: 101px;
-  top:230px;
-  right:150px;
+  top:180px;
+  right:200px;
   float: right;
 }
 

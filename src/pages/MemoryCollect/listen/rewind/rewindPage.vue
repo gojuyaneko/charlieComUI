@@ -1,11 +1,9 @@
 <template>
  <div class="rewind">
    <div class="guide"></div>
-   <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===0"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===1"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===2"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===3"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===4"></a>
+   <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
+        <a class="video-btn" target="_blank" :href="item.videoUrl"></a>
+    </li>
    <div class="text-bg">
     <div class="title"></div>
      <div class="option">
@@ -20,10 +18,9 @@
         <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
           <rewindDia v-if="item.DiaOrMemory === 'dia'" :sendName="item.subContent"></rewindDia>
           <rewindMemory v-if="item.DiaOrMemory === 'memory'" :sendName="item.subContent"></rewindMemory>
+          <a class="video-btn" target="_blank" :href="item.videoUrl"></a>
         </li>
        </ul>
-
-
      </div>
 
    </div>
@@ -44,6 +41,7 @@ export default {
         {
           sessionIndex:0,
           DiaOrMemory:'dia',
+          videoUrl: "https://www.bilibili.com",
           subContent: [
         {
           name:'保安',
@@ -59,6 +57,7 @@ export default {
         {
           sessionIndex:1,
           DiaOrMemory:'memory',
+          videoUrl: "https://www.bilibili.com",
           subContent: [
         {
           name:'查理苏',
@@ -70,6 +69,7 @@ export default {
         {
           sessionIndex:2,
           DiaOrMemory:'memory',
+          videoUrl: "https://www.bilibili.com",
           subContent: [
         {
           name:'查理苏',
@@ -77,9 +77,11 @@ export default {
               '对了，老规矩。给我准备一副扑克。'
         }
       ],
-        },        {
+        },
+        {
           sessionIndex:3,
           DiaOrMemory:'memory',
+          videoUrl: "https://www.bilibili.com",
           subContent: [
         {
           name:'查理苏',
@@ -87,9 +89,11 @@ export default {
               '对了，老规矩。给我准备一副扑克。'
         }
       ],
-        },        {
+        },
+        {
           sessionIndex:4,
           DiaOrMemory:'memory',
+          videoUrl: "https://www.bilibili.com",
           subContent: [
         {
           name:'查理苏',

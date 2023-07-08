@@ -1,9 +1,8 @@
 <template>
 <div class="dream">
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===0"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===1"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===2"></a>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com" v-show="Index===3"></a>
+  <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
+        <a class="video-btn" target="_blank" :href="item.videoUrl"></a>
+  </li>
     <div class="title"></div>
     <div class="change" @click="change()">
       <div class="card2" v-if="temp"></div>
@@ -15,6 +14,7 @@
         <ul>
           <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
             <volumeContent :sendName="item.subContent"></volumeContent>
+
           </li>
         </ul>
       </div>
@@ -39,6 +39,7 @@ export default {
       contentDataList: [
         {
           sessionIndex: 0,
+          videoUrl: "https://www.bilibili.com",
           subContent: [
             {
               type: 'title',
@@ -55,6 +56,7 @@ export default {
         },
         {
           sessionIndex: 1,
+          videoUrl: "https://www.bilibili.com",
           subContent: [
             {
               type: 'title',
@@ -70,6 +72,7 @@ export default {
         },
         {
           sessionIndex: 2,
+          videoUrl: "https://www.bilibili.com",
           subContent: [
             {
               type: 'title',
@@ -95,6 +98,7 @@ export default {
         },
         {
           sessionIndex: 3,
+          videoUrl: "https://www.bilibili.com",
           subContent: [
             {
               type: 'title',
@@ -135,7 +139,7 @@ export default {
   cursor: pointer;
   position: relative;
   top: 135px;
-  left: 1008px;
+  left: 800px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -147,8 +151,8 @@ export default {
   position: relative;
   width: 326px;
   height: 101px;
-  top:230px;
-  right:150px;
+  top:180px;
+  right:200px;
   float: right;
 }
 
@@ -159,7 +163,7 @@ export default {
   width: 385px;
   position: relative;
   top:285px;
-  right:-190px;
+  right:-170px;
   float: right;
   cursor: pointer;
 }
@@ -172,7 +176,7 @@ export default {
   width: 385px;
   position: relative;
   top:285px;
-  right:-190px;
+  right:-170px;
   float: right;
   cursor: pointer;
 }

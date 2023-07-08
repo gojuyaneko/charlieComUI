@@ -27,8 +27,8 @@ export default {
       Index: 0,
       ChapList:[
         {
-          chap:'dream',
-          sessionIndex:0,
+          chap:'dream',//章节名称
+          sessionIndex:0,//章节标志
         },
         {
           chap:'control',
