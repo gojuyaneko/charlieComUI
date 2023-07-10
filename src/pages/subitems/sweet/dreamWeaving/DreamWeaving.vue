@@ -2,7 +2,7 @@
   <div class="dream_weaving">
       <div class="titles">
         <ul class="btns">
-          <li class="angel-btn" @click="meetVisible=true"></li>
+          <li class="angel-btn" @click="meetVisible=true;"></li>
           <li class="evil-btn" @click="skyVisible=true"></li>
         </ul>
       </div>
@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import {getBD} from '../../../../request/api.js'
 import dwPagi from '../dreamWeaving/dwPagi'
 export default {
   components: {dwPagi},
@@ -210,6 +211,17 @@ export default {
   },
     mounted() {},
     methods: {
+      getContent_meet (currentPage) {
+        console.log(currentPage)
+      },
+      getPara() {
+        getBD(
+            {
+              Index:0,
+
+            }
+        ).then ((res)=> {console.log(res)})
+      }
     }
 }
 </script>

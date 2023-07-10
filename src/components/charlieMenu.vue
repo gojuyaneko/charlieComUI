@@ -18,7 +18,7 @@
             <li
               v-for="(childitem, index) in item.childItems"
               :key="index"
-              @click="$event => goTo(childitem.nextUrl,childitem.name,index)"
+              @click="$event => goTo(childitem.nextUrl,item.name,index)"
               :style="{
                 paddingBottom:
                   index === item.childItems.length - 1 ? boxPadding : '40px',
@@ -111,7 +111,9 @@ export default {
           query:{encounterIndex:index}
         });
       }
-      this.$router.push(url)
+      else {
+        this.$router.push(url)
+      }
     },
 
 

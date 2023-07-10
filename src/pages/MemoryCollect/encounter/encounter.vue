@@ -1,9 +1,9 @@
 <template>
   <div class="encounter">
     <div class="next" @click="change()" :class="{active:Index}"></div>
-    <rescueTrip v-show="Index===1"></rescueTrip>
-    <unknownErosion v-show="Index===2"></unknownErosion>
-    <truthCameout v-show="Index===3"></truthCameout>
+    <rescueTrip v-show="Index===0"></rescueTrip>
+    <unknownErosion v-show="Index===1"></unknownErosion>
+    <truthCameout v-show="Index===2"></truthCameout>
   </div>
 </template>
 
@@ -18,19 +18,27 @@ export default {
 
   data() {
     return {
-      Index:1
+      Index:0
     }
+  },
+  mounted () {
+    this.getIndex()
   },
   methods: {
     change () {
-      if(this.Index >= 3 ) {
-        this.Index = 1
+      if(this.Index >= 2 ) {
+        this.Index = 0
       } else{
         this.Index ++
       }
       console.log(this.Index)
     },
+    getIndex () {
+      this.Index = parseInt(this.$route.query.encounterIndex)
+      console.log(this.$route.query.encounterIndex)
+    }
   },
+
 }
 </script>
 
