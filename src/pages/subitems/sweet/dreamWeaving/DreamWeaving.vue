@@ -2,16 +2,16 @@
   <div class="dream_weaving">
       <div class="titles">
         <ul class="btns">
-          <li class="angel-btn" @click="meetVisible=true"></li>
-          <li class="evil-btn" @click="skyVisible=true"></li>
+          <li class="angel-btn" @click="meetVisible=true;"></li>
+          <li class="evil-btn" @click="skyVisible=true;"></li>
         </ul>
       </div>
 
     <div class="angel-dia">
       <el-dialog custom-class="meet" :visible.sync="meetVisible" v-if="meetVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===1">
-            <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
+          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===0 && item.sessionIndex===0">
+            <div v-for="(item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
           </div>
@@ -29,7 +29,7 @@
 
       <el-dialog custom-class="trip" :visible.sync="tripVisible" v-if="tripVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===2">
+          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===0 && item.sessionIndex===1">
             <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
@@ -49,7 +49,7 @@
     <div class="evil-dia">
       <el-dialog custom-class="sky" :visible.sync="skyVisible" v-if="skyVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===3">
+          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===0">
             <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
@@ -68,7 +68,7 @@
 
       <el-dialog custom-class="moon" :visible.sync="moonVisible"  v-if="moonVisible" >
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===4">
+          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===1">
             <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import {getBD} from '../../../../request/api.js'
 import dwPagi from '../dreamWeaving/dwPagi'
 export default {
   components: {dwPagi},
@@ -101,7 +102,8 @@ export default {
       moonVisible:false,
       ContentText:[
         {
-          Index:1,
+          Index:0,
+          sessionIndex:0,
           subContent:[
         {
           type:"intro",
@@ -127,7 +129,8 @@ export default {
       ],
         },
           {
-          Index:2,
+          Index:0,
+          sessionIndex: 1,
           subContent:[
         {
           type:"intro",
@@ -153,7 +156,8 @@ export default {
       ],
         },
           {
-          Index:3,
+          Index:1,
+          sessionIndex: 0,
           subContent:[
         {
           type:"intro",
@@ -179,7 +183,8 @@ export default {
       ],
         },
           {
-          Index:4,
+          Index:1,
+          sessionIndex: 1,
           subContent:[
         {
           type:"intro",
@@ -210,6 +215,18 @@ export default {
   },
     mounted() {},
     methods: {
+      getContent_meet (currentPage) {
+        console.log(currentPage)
+      },
+      getPara() {
+        getBD(
+            {
+              Index:0,
+              sessionIndex:0,
+              currentPage:1
+            }
+        ).then ((res)=> {console.log(res)})
+      }
     }
 }
 </script>
