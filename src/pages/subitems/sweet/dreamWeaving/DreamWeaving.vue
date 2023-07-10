@@ -10,7 +10,7 @@
     <div class="angel-dia">
       <el-dialog custom-class="meet" :visible.sync="meetVisible" v-if="meetVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===0 && item.sessionIndex===0">
+          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===0 && item.sessionIndex===0 && item.currentPage===1">
             <div v-for="(item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
@@ -29,7 +29,7 @@
 
       <el-dialog custom-class="trip" :visible.sync="tripVisible" v-if="tripVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===0 && item.sessionIndex===1">
+          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===0 && item.sessionIndex===1 && item.currentPage===1">
             <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
@@ -49,7 +49,7 @@
     <div class="evil-dia">
       <el-dialog custom-class="sky" :visible.sync="skyVisible" v-if="skyVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===0">
+          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===0&& item.currentPage===1">
             <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
@@ -68,7 +68,7 @@
 
       <el-dialog custom-class="moon" :visible.sync="moonVisible"  v-if="moonVisible" >
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===1">
+          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===1 && item.currentPage===1">
             <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
@@ -104,6 +104,7 @@ export default {
         {
           Index:0,
           sessionIndex:0,
+          currentPage:1,
           subContent:[
         {
           type:"intro",
@@ -131,6 +132,7 @@ export default {
           {
           Index:0,
           sessionIndex: 1,
+          currentPage:1,
           subContent:[
         {
           type:"intro",
@@ -158,6 +160,7 @@ export default {
           {
           Index:1,
           sessionIndex: 0,
+          currentPage:1,
           subContent:[
         {
           type:"intro",
@@ -185,6 +188,7 @@ export default {
           {
           Index:1,
           sessionIndex: 1,
+          currentPage:1,
           subContent:[
         {
           type:"intro",
