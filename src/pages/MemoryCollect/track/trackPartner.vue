@@ -31,6 +31,12 @@
           <trackMono v-if="item.DiaOrMono === 'mono'" :sendName="item.subContent"></trackMono>
         </li>
       </ul>
+      <trackMono :sendName="Mono1" v-show="Index===1"></trackMono>
+      <trackDia :sendName="Dia1" v-show="Index===2"></trackDia>
+      <trackMono :sendName="Mono2" v-show="Index===3"></trackMono>
+      <trackDia :sendName="Dia2" v-show="Index===4"></trackDia>
+      <trackDia :sendName="Dia3" v-show="Index===5"></trackDia>
+      <trackMono :sendName="Mono3" v-show="Index===6"></trackMono>
     </div>
   </div>
 
@@ -243,7 +249,7 @@ export default {
         }
       ],
         },
-          {
+        {
           sessionIndex:3,
           DiaOrMono:'dia',
           subContent: [
@@ -259,7 +265,7 @@ export default {
               '看心理医生真的会有用吗……\n' +
               '谁？\n'
         },
-       {
+        {
           name:'管家',
           content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
         },
@@ -267,7 +273,7 @@ export default {
           name:'查理苏',
           content: '吉叔，不用费心了，今天我吃不下。'
         },
-          {
+        {
           name:'管家',
           content:'少爷，欢迎回来。\n' +
               '今天Alan医生有给您什么建议吗？'
@@ -279,7 +285,7 @@ export default {
               '看心理医生真的会有用吗……\n' +
               '谁？\n'
         },
-       {
+        {
           name:'管家',
           content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
         },

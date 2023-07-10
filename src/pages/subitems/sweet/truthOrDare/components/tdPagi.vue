@@ -4,7 +4,7 @@
     :hide-on-single-page="hide"
     class="td-pagi"
     layout="prev, pager, next, jumper"
-    :page-count="itemCnt"
+    :page-count="pageCount"
     @current-change="curChange"
     prev-text="上一期"
     next-text="下一期">
@@ -15,10 +15,11 @@
 <script>
 export default {
   components: {},
-  props: {},
+  props: {
+    pageCount: Number
+  },
   data () {
     return {
-      itemCnt:20,
       hide:this.itemCnt-1==0?false:true,
     }
   },

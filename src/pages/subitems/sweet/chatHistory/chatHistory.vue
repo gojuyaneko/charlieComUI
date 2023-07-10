@@ -33,9 +33,10 @@ export default {
           type:'activities',
           data:[
             {
-              dtype:'vediocalls',
-              name:'1回归短信-重逢之歌',
-              content:'查理苏：没事的时候值夜班还是挺无聊的。'
+              dtype:'videocalls', //聊天记录类型 videocalls-含视频通话 normal-普通聊天记录 voicemessage-含语音 redenvelope-含红包
+              name:'1回归短信-重逢之歌', //聊天记录名称
+              content:'查理苏：没事的时候值夜班还是挺无聊的。', //聊天记录简介内容
+              indexCode: 'ch0001' // 聊天记录索引值，后续自行添加索引值
             },
             {
               dtype:'normal',

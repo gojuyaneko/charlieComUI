@@ -23,10 +23,10 @@
         </div>
         <el-radio-group v-model="yesOrNo" v-if="mytruth" >
           <el-radio-button label="YES"
-            ><div class="radio-group-div">YES</div>
+            ><div class="radio-group-div" @click="changeYN('YES')">YES</div>
           </el-radio-button>
           <el-radio-button label="NO">
-            <div class="radio-group-div" style="letter-spacing:2px ;">NO</div>
+            <div class="radio-group-div" @click="changeYN('NO')" style="letter-spacing:2px ;">NO</div>
           </el-radio-button>
         </el-radio-group>
         <div class="td-dialog-right">
@@ -46,7 +46,7 @@
             </div>
           </div>
           <div class="td-dialog-page">
-            <td-pagi @changeCurPa="getDiaContent"></td-pagi>
+            <td-pagi @changeCurPa="getDiaContent" :pageCount="pageCount"></td-pagi>
           </div>
           <a class="td-dialog-video" target="_blank" href="http://www.bilibili.com"> 
           </a>
@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import { getTOD } from '../../../../../request/api'
 import tdPagi from '../components/tdPagi.vue'
 export default {
   components: {tdPagi},
@@ -89,87 +90,12 @@ export default {
       cardImg: require("../img/metruth.png"),
       diaCardText: "你曾有过一见钟情的感觉吗？",
       mytruth:false,
-      diaContent: [
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。"
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-      ],
+      diaContent: [],
       type:'truth',
       person:'charlie',
       num:1,
-      yesOrNo: "YES"
+      yesOrNo: "YES",
+      pageCount: 20
     };
   },
   mounted() {},
@@ -177,23 +103,44 @@ export default {
     cvisivle (obj) {
       this.cardImg = obj.bgImg
       this.dialogVisible = true
-      let type = obj.type
-      let person = obj.person
+      this.type = obj.type
+      this.person = obj.person
       let bntVis 
-      if(type==='truth'&&person === 'me') {
+      if(this.type==='truth'&&this.person === 'me') {
         bntVis = true
       }
       else {
         bntVis = false
       }
       this.mytruth = bntVis
-      this.getDiaContent(1)
+      this.getData()
     },
-    getDiaContent ( num) {
-      console.log(num)
-      // get().then(() => {
-           
-      // })
+    getDiaContent (num) {
+      this.num = num
+      this.getData()
+    },
+    getData () {
+      let getType = this.type === 'truth' ? '真心话' : '大冒险'
+      let getPerson = this.person === 'charlie' ? '查理苏' : '我'
+      getTOD({type: getType, person: getPerson, num: this.num, yOrN: this.yesOrNo}).then((res) => {
+        this.diaCardText = res.title
+        this.pageCount = res.totalNum
+        this.diaContent = []
+        for( let i in res.diaContent) {
+          let name = res.diaContent[i]["旁白"] ? '旁白' : res.diaContent[i]["我"] ? '我' : '查理苏'
+          for (let j in res.diaContent[i][name]) {
+            let item = {
+              name: name,
+              content: res.diaContent[i][name][j]
+            }
+            this.diaContent.push(item)
+          }
+        }
+      })
+    },
+    changeYN (yn) {
+      this.yesOrNo = yn
+      this.getData()
     }
   },
 };

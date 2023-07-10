@@ -38,15 +38,18 @@ export default {
             items:[
               {
                 name:'获取途径1',
-                content:'内容1'
+                content:'内容1',
+                indexCode:'wm0001'
               },
               {
                 name:'获取途径2',
-                content:'内容2'
+                content:'内容2',
+                indexCode:'wm0002'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0003'
               }
             ]
           }
@@ -59,59 +62,73 @@ export default {
             items:[
               {
                 name:'l获取途径1',
-                content:'内容1'
+                content:'内容1',
+                indexCode:'wm0004'
               },
               {
                 name:'获取途径2',
-                content:'内容2'
+                content:'内容2',
+                indexCode:'wm0005'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0006'
               },
               {
                 name:'l获取途径1',
-                content:'内容1'
+                content:'内容1',
+                indexCode:'wm0007'
               },
               {
                 name:'获取途径2',
-                content:'内容2'
+                content:'内容2',
+                indexCode:'wm0008'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0009'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0010'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0011'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0012'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0013'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0014'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0015'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0016'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0017'
               }
             ],
             
@@ -121,15 +138,18 @@ export default {
             items:[
               {
                 name:'4l获取途径1',
-                content:'内容1'
+                content:'内容1',
+                indexCode:'wm0018'
               },
               {
                 name:'获取途径2',
-                content:'内容2'
+                content:'内容2',
+                indexCode:'wm0019'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0020'
               }
             ]
           },
@@ -138,15 +158,18 @@ export default {
             items:[
               {
                 name:'l获取途径1',
-                content:'内容1'
+                content:'内容1',
+                indexCode:'wm0021'
               },
               {
                 name:'获取途径2',
-                content:'内容2'
+                content:'内容2',
+                indexCode:'wm0022'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0023'
               }
             ]
           },
@@ -155,15 +178,18 @@ export default {
             items:[
               {
                 name:'l获取途径1',
-                content:'内容1'
+                content:'内容1',
+                indexCode:'wm0024'
               },
               {
                 name:'获取途径2',
-                content:'内容2'
+                content:'内容2',
+                indexCode:'wm0025'
               },
               {
                 name:'获取途径3',
-                content:'内容3'
+                content:'内容3',
+                indexCode:'wm0026'
               }
             ]
           }

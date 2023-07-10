@@ -72,6 +72,13 @@ export default {
           }
         }
       ],
+      othersReply:[
+        {
+          name:'安安',
+          content: '你们已经到这个地步了吗？',
+        }
+      ],
+       
       deActiveName:['']
     };
   },
@@ -197,7 +204,6 @@ export default {
     font-family: "nansongshuju";
     height: 64px;
     border: 0;
-    align-items: center;
   }
   .el-collapse {
     border: 0;

@@ -18,7 +18,7 @@
             <li
               v-for="(childitem, index) in item.childItems"
               :key="index"
-              @click="$event => goTo(childitem.nextUrl,childitem.name,index)"
+              @click="goTo(childitem.nextUrl)"
               :style="{
                 paddingBottom:
                   index === item.childItems.length - 1 ? boxPadding : '40px',
@@ -48,18 +48,15 @@ export default {
           childItems: [
             {
               name: '第一章/ "援塞"之行',
-              nextUrl: "/encounter",
-
+              nextUrl: "/rescueTrip",
             },
             {
               name: "第二章/ 无名侵蚀",
-              nextUrl: "/encounter",
-
+              nextUrl: "/unknownErosion",
             },
             {
               name: "第三章/ 真相大白",
-              nextUrl: "/encounter",
-
+              nextUrl: "/truthCameout",
             },
           ],
         },
@@ -86,14 +83,15 @@ export default {
         },
         {
           name: "< 倾听",
+          nextUrl: "/listen",
           childItems: [
             {
               name: "余音",
-              nextUrl: "/volumePage",
+              nextUrl: "",
             },
             {
               name: "倒带",
-              nextUrl: "/rewindPage",
+              nextUrl: "rewind",
             },
           ],
         },
@@ -102,19 +100,9 @@ export default {
   },
   mounted() {},
   methods: {
-    goTo(url,n,i) {
-      let name = n === undefined ? 'others' : n
-      let index = i === undefined ? -1 : i
-      if(name === '< 邂逅') {
-        this.$router.push({
-          path:url,
-          query:{encounterIndex:index}
-        });
-      }
-      this.$router.push(url)
+    goTo(url) {
+      this.$router.push(url);
     },
-
-
     boxPadding1(index) {
       if (index === 2) {
         return "0px";

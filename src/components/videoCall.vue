@@ -35,10 +35,10 @@ export default {
       dialogVisible: false,
       chDetailData: [
         {
-          name: '查理苏',
-          content: [
+          name: '查理苏',//说话人名称
+          content: [//说话内容数组
             {
-              selfContent: "[红包]在忙吗？"
+              selfContent: "[红包]在忙吗？"//说话内容
             },
           ],
         },

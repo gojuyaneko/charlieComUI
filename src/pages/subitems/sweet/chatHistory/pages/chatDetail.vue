@@ -54,15 +54,13 @@ export default {
       chDetailData: [
         {
           type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
+          name:'查理苏', //说话人
           content: [
             {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
+              ifVoice: false,//是否含有语音
+              ifVideo: false,//是否含有视频
+              ifImg: false,//是否含有图片
+              selfContent: "[红包]在忙吗？"//对话内容
             },
           ],
         },
@@ -75,10 +73,10 @@ export default {
               ifVideo:false,
               ifImg: true,
               selfContent: "[惊]",
-              img: require('../../../../../assets/meme/shock.png'),
+              img: require('../../../../../assets/meme/shock.png'),// 当含有图片为真时显示的图片链接地址
               reply: [
                 {
-                  content: "回复得很及时，看来不在忙",
+                  content: "回复得很及时，看来不在忙",//当type字段为choice时查理苏回复的内容（只含文本）
                 },
                 {
                   content:
@@ -140,7 +138,7 @@ export default {
               ifVoice: true,
               ifVideo:false,
               ifImg: false,
-              selfContent: "1完美啊，你的名字是charlie",
+              selfContent: "1完美啊，你的名字是charlie",//当ifVoice为真时显示的语音文本
               reply: "",
             },
           ],
@@ -154,7 +152,7 @@ export default {
               ifVideo:false,
               ifImg: true,
               selfContent: "",
-              img: require('../../../../../assets/meme/shock.png'),
+              img: require('../../../../../assets/meme/shock.png'),//当ifImg为真时返回的图片地址
               reply: [
                 {
                   content: "回复得很及时，看来不在忙",
@@ -243,10 +241,10 @@ export default {
               ifVoice: false,
               ifVideo:true,
               ifImg: false,
-              video:{
-                name:'工作再忙，也要好好休息...',
-                url:'http//www.bilibili.com',
-                code:'V1234'
+              video:{//当ifVideo为真时返回的video内容
+                name:'工作再忙，也要好好休息...',//video名称
+                url:'http//www.bilibili.com',//video链接地址
+                code:'V1234'//video索引值
               },
               selfContent: "",
               reply: "",
