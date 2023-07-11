@@ -10,18 +10,18 @@
     <div class="angel-dia">
       <el-dialog custom-class="meet" :visible.sync="meetVisible" v-if="meetVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===0 && item.sessionIndex===0 && item.currentPage===1">
+          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===0 && item.sessionIndex===0 ">
             <div v-for="(item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
           </div>
         </div>
         <div class="diapage">
-            <ul class="elements">
+            <ul class="elements4">
               <li class="co">第</li>
               <li class="ch">节</li>
             </ul>
-          <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
+          <dw-pagi4 @changeCurPa="getContent_meet"></dw-pagi4>
           </div>
         <a class="next-btn" @click="tripVisible=true;meetVisible=false" ></a>
 
@@ -29,18 +29,18 @@
 
       <el-dialog custom-class="trip" :visible.sync="tripVisible" v-if="tripVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===0 && item.sessionIndex===1 && item.currentPage===1">
-            <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
+          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===0 && item.sessionIndex===1 ">
+            <div v-for="( item,index) in item.subContent" :key="index" class="card-text" >
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
           </div>
         </div>
         <div class="diapage">
-            <ul class="elements">
+            <ul class="elements4">
               <li class="co">第</li>
               <li class="ch">节</li>
             </ul>
-          <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
+          <dw-pagi4 @changeCurPa="getContent_meet"></dw-pagi4>
           </div>
           <a class="next-btn" @click="meetVisible=true;tripVisible=false"></a>
       </el-dialog>
@@ -49,18 +49,18 @@
     <div class="evil-dia">
       <el-dialog custom-class="sky" :visible.sync="skyVisible" v-if="skyVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===0&& item.currentPage===1">
+          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===0 ">
             <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
           </div>
         </div>
         <div class="diapage">
-            <ul class="elements">
-              <li class="co">第</li>
-              <li class="ch">节</li>
+            <ul class="elements6">
+              <li class="co1">第</li>
+              <li class="ch1">节</li>
             </ul>
-          <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
+          <dw-pagi6 @changeCurPa="getContent_meet"></dw-pagi6>
           </div>
           <a class="next-btn" @click="moonVisible=true;skyVisible=false"></a>
 
@@ -68,18 +68,18 @@
 
       <el-dialog custom-class="moon" :visible.sync="moonVisible"  v-if="moonVisible" >
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===1 && item.currentPage===1">
+          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===1 ">
             <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
           </div>
         </div>
         <div class="diapage">
-            <ul class="elements">
-              <li class="co">第</li>
-              <li class="ch">节</li>
+            <ul class="elements6">
+              <li class="co1">第</li>
+              <li class="ch1">节</li>
             </ul>
-          <dw-pagi @changeCurPa="getContent_meet"></dw-pagi>
+          <dw-pagi6 @changeCurPa="getContent_meet"></dw-pagi6>
           </div>
           <a class="next-btn" @click="skyVisible=true;moonVisible=false"></a>
       </el-dialog>
@@ -91,9 +91,10 @@
 
 <script>
 import {getBD} from '../../../../request/api.js'
-import dwPagi from '../dreamWeaving/dwPagi'
+import dwPagi4 from '../dreamWeaving/dwPagi4.vue'
+import dwPagi6 from  '../dreamWeaving/dwPagi6.vue'
 export default {
-  components: {dwPagi},
+  components: {dwPagi4,dwPagi6},
   data(){
     return {
       meetVisible:false,
@@ -424,16 +425,28 @@ h4[datatype="choice"]  {
   object-position: center;
 }
 
-.elements {
+.elements4 {
   display: flex;
   position: absolute;
-  top:8px;
+  top:9px;
   left:290px;
+  font-size: 18px;
+}
+
+.elements6 {
+  display: flex;
+  position: absolute;
+  top:9px;
+  left:255px;
   font-size: 18px;
 }
 
 .co {
   margin-right: 150px;
+}
+
+.co1 {
+  margin-right: 218px;
 }
 
 </style>
