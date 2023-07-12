@@ -319,8 +319,8 @@ export default {
   position: relative;
   width: 263px;
   height: 128px;
-  top:10px;
-  right:15px;
+  top:-30px;
+  right:50px;
   float: right;
 }
 
@@ -330,7 +330,7 @@ export default {
   cursor: pointer;
   position: relative;
   top: -85px;
-  left: 843.5px;
+  left: 770px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -340,7 +340,7 @@ export default {
   height: 20px;
   top:50px;
   float: right;
-  right:-70px;
+  right:-35px;
   display: inline-block;
   position: relative;
 }

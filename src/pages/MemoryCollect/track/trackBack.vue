@@ -417,8 +417,8 @@ export default {
   position: relative;
   width: 218px;
   height: 74px;
-  top:50px;
-  right:40px;
+  top:3px;
+  right:70px;
   float: right;
 }
 
@@ -428,7 +428,7 @@ export default {
   cursor: pointer;
   position: relative;
   top: -85px;
-  left: 821px;
+  left: 770px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -438,7 +438,7 @@ export default {
   height: 20px;
   top:50px;
   float: right;
-  right:-30px;
+  right:0px;
   display: inline-block;
   position: relative;
 }
