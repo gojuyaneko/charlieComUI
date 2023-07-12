@@ -1,6 +1,8 @@
 <template>
   <div class="landing">
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com"></a>
+    <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
+        <a class="video-btn" target="_blank" :href="item.videoUrl"></a>
+    </li>
     <div class="title"></div>
     <div class="titles" v-for="(item,index) in minorTitles" :key="index" v-show="item.num===Index">
       <img :src="item.bg" alt="" class="title-img"/>
@@ -101,6 +103,7 @@ export default {
         {
           sessionIndex:0,
           DiaOrMemory:'memory',
+          videoUrl: "https://www.bilibili.com",
           subContent: [
             {
               name:'妈妈',
@@ -117,6 +120,7 @@ export default {
         {
           sessionIndex:1,
           DiaOrMemory:'dia',
+          videoUrl: "https://www.bilibili.com",
           subContent: [
         {
           name:'管家',
@@ -183,6 +187,7 @@ export default {
           {
           sessionIndex:2,
           DiaOrMemory:'memory',
+            videoUrl: "https://www.bilibili.com",
           subContent:[
             {
               name:'妈妈',
@@ -198,6 +203,7 @@ export default {
           {
           sessionIndex:3,
           DiaOrMemory:'dia',
+            videoUrl: "https://www.bilibili.com",
           subContent: [
         {
           name:'管家',
@@ -264,6 +270,7 @@ export default {
           {
           sessionIndex:4,
           DiaOrMemory:'memory',
+            videoUrl: "https://www.bilibili.com",
           subContent: [
             {
               name:'妈妈',
@@ -279,6 +286,7 @@ export default {
           {
           sessionIndex:5,
           DiaOrMemory:'memory',
+            videoUrl: "https://www.bilibili.com",
           subContent: [
             {
               name:'妈妈',

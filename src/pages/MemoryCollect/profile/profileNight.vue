@@ -1,6 +1,8 @@
 <template>
   <div class="profile_night">
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com"></a>
+    <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
+        <a class="video-btn" target="_blank" :href="item.videoUrl"></a>
+    </li>
     <div class="title"></div>
     <div class="night2" v-show="Index===1 || Index===0" @click="show(2);"></div>
     <div class="light1" v-show="Index===1 || Index===0"></div>
@@ -34,6 +36,7 @@ export default {
       contentDataList:[
         {
           sessionIndex:0,
+          videoUrl: "https://www.bilibili.com",
           subContent: [
         {
           name:'旁白',
@@ -127,6 +130,7 @@ export default {
         },
         {
           sessionIndex:1,
+          videoUrl: "https://www.bilibili.com",
           subContent:[
         {
           name:'旁白',
@@ -161,6 +165,7 @@ export default {
         },
         {
           sessionIndex:2,
+          videoUrl: "https://www.bilibili.com",
           subContent:[
         {
           name:'旁白',
