@@ -103,6 +103,7 @@ export default {
 <style scoped>
 .bgArea {
   width: 100%;
+  min-height: 100vh;
   height: auto;
   background: url("../../assets/HomePage/首页2l.jpg") 100% 100%;
 }
@@ -152,6 +153,7 @@ export default {
 }
 
 .photoItem {
+  cursor: pointer;
   background: pink;
   width: 274px;
   height: 462px;
