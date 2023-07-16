@@ -16,12 +16,13 @@
   
 <script>
 import charlieDialog from "@/components/charlieDialog/charlieDialog.vue";
+import { getDNMenu } from "@/request/api";
 export default {
   data() {
     return {
       videoUrl: "http://www.bilibili.com",
       asideImg: require("../../assets/charlie/c-6-allback.png"),
-      diaTitle: require("./img/diatitle.png"),
+      diaTitle: '假如是终曲',
       menuData: [
         {
           chap: 6,
@@ -225,9 +226,22 @@ export default {
   components: { charlieDialog },
   methods: {
     getContent(data) {
-      console.log(data);
+      let ch = data.split('-')[0]
+      getDNMenu({chap: ch, subchap: data}).then((res) => {
+        this.diaTitle = res.chap_title
+        this.diaContent = res.para
+        this.videoUrl = res.videoUrl
+      })
     },
+    getMenuList () {
+      getDNMenu().then((res) => {
+        this.menuData = res
+      })
+    }
   },
+  mounted () {
+    this.getMenuList()
+  }
 };
 </script>
 

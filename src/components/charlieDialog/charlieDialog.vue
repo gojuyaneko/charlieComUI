@@ -12,7 +12,7 @@
           </picture>
         </div>
         <div class="com-dia-right">
-          <img :src="diaTitle" alt="" class="com-dia-title">
+          <h4 class="com-dia-title"> {{ diaTitle }}</h4>
           <article class="com-dia-content">
             <charlie-dia-arti v-bind="$attrs" v-on="$listeners"></charlie-dia-arti>
           </article>
@@ -115,6 +115,7 @@ export default {
   top: 0;
   transform: translateY(-150%);
   z-index: 99;
+  cursor: pointer;
 }
 .com-dia-right {
   height:100%;
@@ -124,7 +125,16 @@ export default {
   top: 0;
   right: 0;
   width: 381px;
+  font-size: 63px;
+  font-style: italic;
+  font-weight: 400;
+  font-family: 'nansongshuju';
+  color: #674d97;
   transform: translateY(-100%);
+  background-image:-webkit-linear-gradient(top, rgb(242, 215, 156), rgb(70,59,34));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
 }
 .com-dia-content {
   height: 80%;

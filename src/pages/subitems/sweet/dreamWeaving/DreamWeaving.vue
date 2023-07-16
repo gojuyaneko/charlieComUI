@@ -90,7 +90,6 @@
 </template>
 
 <script>
-import {getBD} from '../../../../request/api.js'
 import dwPagi4 from '../dreamWeaving/dwPagi4.vue'
 import dwPagi6 from  '../dreamWeaving/dwPagi6.vue'
 export default {
@@ -222,15 +221,6 @@ export default {
     methods: {
       getContent_meet (currentPage) {
         console.log(currentPage)
-      },
-      getPara() {
-        getBD(
-            {
-              Index:0,
-              sessionIndex:0,
-              currentPage:1
-            }
-        ).then ((res)=> {console.log(res)})
       }
     }
 }

@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="major-title">
-      <div class="content1" v-show="Index===1"></div>
-      <div class="content2" v-show="Index===2"></div>
-      <div class="content3" v-show="Index===3"></div>
+      <div class="content">{{ majorTitle }}</div>
     </div>
     <ul class="minor-titles">
       <span class="title1" tabindex="1"
@@ -508,6 +506,7 @@ export default {
       thirdChoice:0,
       fifthChoice:0,
       fourthChoice:0,
+      majorTitle: '这片纯白的墙壁上，已经开始出现斑驳的痕迹', // 后端给你标题
     }
   },
   methods: {
@@ -540,33 +539,13 @@ export default {
   left:200px;
 }
 
-.content1 {
-  background: url("../邂逅3/content1.png");
-  background-size: 100% 100%;
+.content {
+  color: #b99e63;
+  font-family: 'nansongshuju';
   position: relative;
   top:85px;
-  left: 55px;
-  height: 21px;
-  width: 447px;}
-
-.content2 {
-  background: url("../邂逅3/content2.png");
-  background-size: 100% 100%;
-  position: relative;
-  top:85px;
-  left: 55px;
-  height: 21px;
-  width: 291px;
-}
-
-.content3 {
-   background: url("../邂逅3/content3.png");
-  background-size: 100% 100%;
-  position: relative;
-  top:85px;
-  left: 55px;
-  height: 21px;
-  width: 342px;
+  left: 80px;
+  height: 20px;
 }
 
 .video-btn {

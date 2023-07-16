@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="major-title">
-      <div class="content1" v-show="Index===1"></div>
-      <div class="content2" v-show="Index===2"></div>
-      <div class="content3" v-show="Index===3"></div>
+      <div class="content">{{ majorTitle }}</div>
     </div>
     <ul class="minor-titles">
       <span class="title1" tabindex="1"
@@ -469,7 +467,19 @@ export default {
       secondChoice:0,
       thirdChoice:0,
       fourthChoice:0,
-
+      choiceList: [
+        [
+          {
+            choiceNum: 0,
+            choiceName: '留下'
+          },
+          {
+            choiceNum: 1,
+            choiceName: '走开'
+          }
+        ],
+      ],
+      majorTitle: '原来是你？逃婚小姐',
     }
   },
   methods: {
@@ -502,36 +512,15 @@ export default {
   left:145px;
 }
 
-.content1 {
-  background: url("../邂逅1/content1.png");
-  background-size: 100% 100%;
+.content {
+  color: #b99e63;
+  font-family: 'nansongshuju';
   position: relative;
   top:85px;
   left: 110px;
   height: 20px;
   width: 188px;
 }
-
-.content2 {
-  background: url("../邂逅1/content2.png");
-  background-size: 100% 100%;
-  position: relative;
-  top:85px;
-  left: 110px;
-  height: 21px;
-  width: 322px;
-}
-
-.content3 {
-   background: url("../邂逅1/content3.png");
-  background-size: 100% 100%;
-  position: relative;
-  top:85px;
-  left: 110px;
-  height: 21px;
-  width: 417px;
-}
-
 .video-btn {
   background-image: url("../邂逅1/video.png");
   background-size: 100% 100%;

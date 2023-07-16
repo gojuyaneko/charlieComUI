@@ -8,7 +8,7 @@
             <span class="wm-dt-header-span">{{fisrtPerson}}</span>
           </div>
           <div class="wm-dt-sec-main">
-            <p>l</p>
+            <p>{{firstText }}</p>
             <img :src="firstImg" alt="" class="wm-dt-main-img" v-if="hasImg">
             <ul class="wm-likeAndComment"><li></li><li></li></ul>
           </div>
@@ -30,60 +30,56 @@
             </el-collapse>
           </div>
         </section>
+        <section class="wm-detail-section" v-for="(person) in othersReply" :key="person">
+          <div class="wm-dt-f-header">
+            <picture><img class="wm-dt-header-img margin-right" src="../../../../../assets/charlieprofile.png" alt=""></picture>
+            <span class="wm-dt-header-span2">{{person.name}}</span>
+          </div>
+          <div class="wm-dt-sec-main">
+            <p>{{person.content }}</p>
+          </div>
+        </section>
       </main>
     </div>
   </div>
 </template>
   
 <script>
+import { getWmAll } from '@/request/api';
 export default {
   components: {},
   props: {},
   data() {
     return {
       fisrtPerson:'查理苏',
-      firstText:'雪莉酒已经两岁了',
-      firstImg:require('../../../../../assets/bird.png'),
-      hasImg:true,
+      firstText:'',
+      firstImg: '',
+      hasImg:false,
       secondPerson:'我',
       secondChoice:[
-        {
-          index:0,
-          choiceContent:'哇，好漂亮的小鸟，看起来有点眼熟',
-          reply:{
-            person:'查理苏',
-            content:'巴拉巴拉巴拉，巴拉巴拉巴拉巴拉巴拉巴拉，巴拉巴拉巴拉,巴拉巴拉巴拉，巴拉巴拉巴拉巴拉巴拉巴拉，巴拉巴拉巴拉,巴拉巴拉巴拉，巴拉巴拉巴拉巴拉巴拉巴拉'
-          }
-        },
-        {
-          index:1,
-          choiceContent:'为什么要叫雪莉酒',
-          reply:{
-            person:'查理苏',
-            content:'咕噜咕噜，咕噜咕噜咕噜咕噜，咕噜咕噜咕噜'
-          }
-        },
-        {
-          index:2,
-          choiceContent:'还以为像你这样的人，都是养马的',
-          reply:{
-            person:'查理苏',
-            content:'啪嗒啪嗒啪嗒啪嗒啪嗒啪嗒，啪嗒啪嗒啪嗒'
-          }
-        }
       ],
       othersReply:[
-        {
-          name:'安安',
-          content: '你们已经到这个地步了吗？',
-        }
       ],
        
       deActiveName:['']
     };
   },
-  mounted() { console.log(this.$route.query)},
-  methods: {}
+  mounted() { this.getWmContent()},
+  methods: {
+    getWmContent () {
+      getWmAll({indexcode: this.$route.query.rowD.indexCode}).then((res) => {
+        this.fisrtPerson = res.postPerson
+        this.secondPerson = res.commentPerson
+        this.hasImg = res.hasImg
+        if (this.hasImg) {
+          this.firstImg = res.postImg
+        }
+        this.firstText = res.postText
+        this.secondChoice = res.commentChoices
+        this.othersReply = res.otherComment
+      })
+    }
+  }
 };
 </script>
   
@@ -145,6 +141,11 @@ export default {
       }
       .wm-dt-header-span {
         color:#674d97 ;
+        font-size: 25px;
+        font-family: 'nansongshuju';
+      }
+      .wm-dt-header-span2 {
+        color:#848484;
         font-size: 25px;
         font-family: 'nansongshuju';
       }

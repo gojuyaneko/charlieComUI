@@ -132,6 +132,7 @@ export default {
   margin-bottom: 30px;
 }
 .com-dia-p {
+  font-size: 20px;
 }
 .com-dia-span {
   width: 105px;

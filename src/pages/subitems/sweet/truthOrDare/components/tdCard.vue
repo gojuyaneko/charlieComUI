@@ -48,7 +48,7 @@
           <div class="td-dialog-page">
             <td-pagi @changeCurPa="getDiaContent" :pageCount="pageCount"></td-pagi>
           </div>
-          <a class="td-dialog-video" target="_blank" href="http://www.bilibili.com"> 
+          <a class="td-dialog-video" target="_blank" :href="videoUrl"> 
           </a>
         </div>
       </el-dialog>
@@ -95,7 +95,8 @@ export default {
       person:'charlie',
       num:1,
       yesOrNo: "YES",
-      pageCount: 20
+      pageCount: 20,
+      videoUrl: ''
     };
   },
   mounted() {},
@@ -125,6 +126,7 @@ export default {
       getTOD({type: getType, person: getPerson, num: this.num, yOrN: this.yesOrNo}).then((res) => {
         this.diaCardText = res.title
         this.pageCount = res.totalNum
+        this.videoUrl = res.videoUrl
         this.diaContent = []
         for( let i in res.diaContent) {
           let name = res.diaContent[i]["旁白"] ? '旁白' : res.diaContent[i]["我"] ? '我' : '查理苏'

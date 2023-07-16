@@ -54,10 +54,10 @@ export default {
       this.currentPage = currentPage
     },
     freshPage(){
+      this.activeName = 'id0'
       this.currentPage =1
     },
     goToNext(row) {
-      console.log(row)
       this.$router.push(
         {
           path:'/wechatmoments/wmdetail',

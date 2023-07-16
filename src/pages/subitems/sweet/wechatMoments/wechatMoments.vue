@@ -24,6 +24,7 @@
 
 <script>
 import WmCollapse from "./component/wmCollapse.vue";
+import { getWmAll } from "@/request/api";
 export default {
   components: { WmCollapse },
   props: {},
@@ -279,122 +280,7 @@ export default {
           }
           ]}
       },
-      collapseData:{
-        type:'lingXi',
-        data:[
-          {
-            className:'3星灵犀',
-            items:[
-              {
-                name:'l获取途径1',
-                content:'内容1'
-              },
-              {
-                name:'获取途径2',
-                content:'内容2'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              },
-              {
-                name:'l获取途径1',
-                content:'内容1'
-              },
-              {
-                name:'获取途径2',
-                content:'内容2'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              }
-            ]
-          },
-          {
-            className:'4星灵犀',
-            items:[
-              {
-                name:'4l获取途径1',
-                content:'内容1'
-              },
-              {
-                name:'获取途径2',
-                content:'内容2'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              }
-            ]
-          },
-          {
-            className:'5星灵犀',
-            items:[
-              {
-                name:'l获取途径1',
-                content:'内容1'
-              },
-              {
-                name:'获取途径2',
-                content:'内容2'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              }
-            ]
-          },
-          {
-            className:'6星灵犀',
-            items:[
-              {
-                name:'l获取途径1',
-                content:'内容1'
-              },
-              {
-                name:'获取途径2',
-                content:'内容2'
-              },
-              {
-                name:'获取途径3',
-                content:'内容3'
-              }
-            ]
-          }
-      ]},
+      collapseData:{},
       options:[
         {
           value:'lingXi',
@@ -424,13 +310,19 @@ export default {
       selectValue:'lingXi',
     }
   },
-  mounted() {},
+  mounted() {
+    this.getWmList()
+  },
   methods: {
-    getCollapseData(data){
-      this.collapseData=[]
-      this.collapseData = this.collapseDataEntire[data]
-      console.log(this.collapseDataEntire[data])
+    getCollapseData(){
+      this.getWmList()
       this.$refs['wmCollapse'].freshPage()
+    },
+    getWmList () {
+      this.collapseData = []
+      getWmAll({type: this.selectValue}).then((res) => {
+        this.collapseData = res
+      })
     }
   },
 };

@@ -37,6 +37,7 @@ import {
   OptionGroup,
   Breadcrumb,
   BreadcrumbItem,
+  Loading
 } from "element-ui";
 
 Vue.use(Pagination);
@@ -60,7 +61,7 @@ Vue.use(Option);
 Vue.use(OptionGroup);
 Vue.use(Breadcrumb);
 Vue.use(BreadcrumbItem);
-
+Vue.use(Loading);
 // Vue.use(ElementUI);
 Vue.component("myNavbar", navBar);
 Vue.component("myMenu", charlieMenu);
@@ -68,6 +69,7 @@ Vue.component("myIndex", indexMenu);
 Vue.component("myPic", indexCarousel);
 Vue.component("mySlider", clothesSlider);
 Vue.component("myRelation", moreRelation);
+Vue.component("myShip", relationShip);
 Vue.component("myShip", relationShip);
 
 new Vue({
