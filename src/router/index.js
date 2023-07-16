@@ -32,6 +32,7 @@ const relationship = () => import("../pages/aboutCharlie/relationship.vue");
 const rewindPage = () => import("../pages/MemoryCollect/listen/rewind/rewindPage.vue");
 const volumePage = () => import("../pages/MemoryCollect/listen/volume/volumePage.vue");
 const photoAlbum = () => import("../pages/photoAlbum/index.vue"); // 灵犀相册
+const photoAlbumDetail = () => import("../pages/photoAlbum/detail.vue")
 
 charaDetail;
 Vue.use(Router);
@@ -148,6 +149,11 @@ export default new Router({
       path: "/photoAlbum",
       name: "photoAlbum",
       component: photoAlbum,
-    }
+    },
+    {
+      path: '/photoAlbum/detail',
+      name: 'photoAlbumDetail',
+      component: photoAlbumDetail,
+    },
   ],
 });

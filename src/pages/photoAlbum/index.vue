@@ -14,7 +14,7 @@
             />
           </div>
           <div class="listArea">
-            <div class="photoItem" v-for="(it, idx) in item.list" :key="idx">
+            <div class="photoItem" v-for="(it, idx) in item.list" :key="idx" @click="toDetail(item)">
               <img src="" class="itemImg" />
               <div class="itemInfo">
                 <div class="itemIcons">
@@ -97,6 +97,11 @@ export default {
       ],
     };
   },
+  methods: {
+    toDetail(data) {
+      this.$router.push({ path: '/photoAlbum/detail', query: {id: 1} })
+    }
+  }
 };
 </script>
 

@@ -4,3 +4,4 @@ const baseUrl= 'http://47.243.195.59:8080/'
 export const getTOD = p=>get(baseUrl + 'truthordare', p)
 export const getVD = p=>get(baseUrl + 'volumeDream', p)
 export const postBD =  p => post(bdUrl,p)
+export const getGuziList = p => get(baseUrl + 'guzi', p) // 官谷列表

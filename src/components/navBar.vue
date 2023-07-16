@@ -31,9 +31,10 @@
         </template>
         <el-menu-item-group>
           <el-menu-item
-            :index="childItems.nextUrl"
             v-for="childItems in item.childItems"
+            :index="childItems.nextUrl"
             :key="childItems.name"
+            :route="{path:childItems.nextUrl, query: childItems.query}"
           >
             <span>
               {{ childItems.name }}
@@ -113,22 +114,37 @@ export default {
             {
               name: "徽章类",
               nextUrl: "/badge",
+              query: {
+                type: '徽章'
+              }
             },
             {
               name: "亚克力类",
-              nextUrl: "",
+              nextUrl: "/badge",
+              query: {
+                type: '亚克力类'
+              }
             },
             {
               name: "卡片类",
-              nextUrl: "",
+              nextUrl: "/badge",
+              query: {
+                type: '纸片类'
+              }
             },
             {
               name: "生活用品",
-              nextUrl: "",
+              nextUrl: "/badge",
+              query: {
+                type: '生活用品类'
+              }
             },
             {
               name: "套装",
-              nextUrl: "",
+              nextUrl: "/badge",
+              query: {
+                type: '礼盒'
+              }
             },
           ],
         },
@@ -142,10 +158,10 @@ export default {
   },
   mounted() {},
   methods: {
-    gotoUrl(url) {
+    gotoUrl(url, query) {
       if (this.$router.path !== "/") {
         if (url === "/") {
-          this.$router.push(url);
+          this.$router.push({ path: url });
         }
       }
     },
