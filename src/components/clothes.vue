@@ -26,23 +26,20 @@ export default {
     return {
       // 图片列表
       items: [
-        require("./../assets/aboutCharlie/cloth.png"),
-        require("./../assets/aboutCharlie/cloth2.png"),
-        require("./../assets/aboutCharlie/cloth.png"),
-        require("./../assets/aboutCharlie/cloth2.png"),
-        require("./../assets/aboutCharlie/cloth.png"),
-        require("./../assets/aboutCharlie/cloth2.png"),
-        require("./../assets/aboutCharlie/cloth.png"),
-        require("./../assets/aboutCharlie/cloth2.png"),
-        require("./../assets/aboutCharlie/cloth.png"),
-        require("./../assets/aboutCharlie/cloth2.png"),
+        require("./../assets/aboutCharlie/男人衣柜/组1.png"),
+        require("./../assets/aboutCharlie/男人衣柜/组2.png"),
+        require("./../assets/aboutCharlie/男人衣柜/组3.png"),
+        require("./../assets/aboutCharlie/男人衣柜/组4.png"),
+        require("./../assets/aboutCharlie/男人衣柜/组5.png"),
+        require("./../assets/aboutCharlie/男人衣柜/组6.png"),
+        require("./../assets/aboutCharlie/男人衣柜/组7.png"),
       ],
       // 当前偏移量
       offset: 0,
       // 每个图片的宽度
-      itemWidth: 400,
+      itemWidth: 1655,
       // 可见图片数量
-      visibleItems: 6,
+      visibleItems: 1,
     };
   },
   methods: {
@@ -79,8 +76,8 @@ export default {
 }
 .slider-item {
   flex: 0 0 auto;
-  width: 257px;
-  height: 399px;
+  width: 1655px;
+  height: 407px;
   margin-right: 30px;
   overflow: hidden;
 }
@@ -88,8 +85,8 @@ export default {
   margin-right: 0;
 }
 .slider img {
-  width: 257px;
-  height: 399px;
+  width: 1655px;
+  height: 407px;
   object-fit: cover;
 }
 .slider-btn {

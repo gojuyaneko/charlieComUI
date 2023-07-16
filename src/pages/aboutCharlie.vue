@@ -34,6 +34,7 @@
           <router-link to="/relationship">
             <img src="./../assets/aboutCharlie/Charlie.png" />
           </router-link>
+          <myRelation></myRelation>
         </div>
       </div>
     </div>
@@ -54,7 +55,9 @@
 export default {
   name: "aboutCharlie",
   data() {
-    return {};
+    return {
+      showPopup: false,
+    };
   },
 };
 </script>
@@ -140,4 +143,46 @@ export default {
   top: 380px;
   left: 80px;
 }
+.zjp img {
+  position: absolute;
+  height: 246px;
+  width: 246px;
+  top: 320px;
+  left: 470px;
+}
+.xh img {
+  position: absolute;
+  height: 230px;
+  width: 230px;
+  top: 780px;
+  left: 570px;
+}
+.js img {
+  position: absolute;
+  height: 206px;
+  width: 206px;
+  top: 880px;
+  left: 870px;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup img {
+  width: 1272px;
+  height: 540px;
+}
+
+/* .gold-border {
+  border: 100px solid gold;
+} */
 </style>
