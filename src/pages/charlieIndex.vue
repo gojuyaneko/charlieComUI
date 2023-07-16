@@ -49,7 +49,7 @@
           <img src="../assets/HomePage/Page3/右.png" alt="" />
         </div>
         <div class="pc-icon-enter">
-          <router-link to="/enter">
+          <router-link to="/photoAlbum">
             <img src="../assets/HomePage/Page3/进入.png" alt="" />
           </router-link>
         </div>
