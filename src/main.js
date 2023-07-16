@@ -10,6 +10,7 @@ import indexMenu from "./components/indexMenu.vue";
 import indexCarousel from "./components/charliePic.vue";
 import clothesSlider from "./components/clothes.vue";
 import moreRelation from "./pages/aboutCharlie/chara.vue";
+import relationShip from "./pages/aboutCharlie/relationship.vue";
 
 import "lib-flexible";
 Vue.config.productionTip = false;
@@ -67,6 +68,7 @@ Vue.component("myIndex", indexMenu);
 Vue.component("myPic", indexCarousel);
 Vue.component("mySlider", clothesSlider);
 Vue.component("myRelation", moreRelation);
+Vue.component("myShip", relationShip);
 
 new Vue({
   render: (h) => h(App),

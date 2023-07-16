@@ -31,9 +31,9 @@
           <img src="./../assets/aboutCharlie/人际关系.png" />
         </div>
         <div class="charlie">
-          <router-link to="/relationship">
-            <img src="./../assets/aboutCharlie/Charlie.png" />
-          </router-link>
+          <!-- <router-link to="/relationship"> -->
+          <img src="./../assets/aboutCharlie/Charlie.png" />
+          <!-- </router-link> -->
           <myRelation></myRelation>
         </div>
       </div>
@@ -165,24 +165,19 @@ export default {
   left: 870px;
 }
 
-.popup {
+/* .gold-border {
+  border: 2px solid gold;
+} */
+
+/* .popup {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.popup img {
-  width: 1272px;
-  height: 540px;
-}
-
-/* .gold-border {
-  border: 100px solid gold;
 } */
 </style>

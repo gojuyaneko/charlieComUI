@@ -2,7 +2,7 @@
   <div>
     <div
       class="zjp"
-      @click="showPopup = true"
+      @click="fetchCharacterInfo('查兆澎')"
       :class="{ 'gold-border': showPopup }"
     >
       <img src="@/assets/aboutCharlie/查兆澎.png" />
@@ -69,13 +69,6 @@
     </div>
 
     <div
-      class="zlf"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/查理芬.png" />
-    </div>
-    <div
       class="la"
       @click="showPopup = true"
       :class="{ 'gold-border': showPopup }"
@@ -104,13 +97,7 @@
     >
       <img src="@/assets/aboutCharlie/时晏.png" />
     </div>
-    <!-- <div
-      class="dl"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/迪伦.png" />
-    </div> -->
+
     <div
       class="ow"
       @click="showPopup = true"
@@ -119,11 +106,15 @@
       <img src="@/assets/aboutCharlie/欧文.png" />
     </div>
 
-    <div class="popup" v-show="showPopup" @click.self="showPopup = false">
-      <img
-        src="@/assets/aboutCharlie/relationbg.png"
-        style="width: 1272px; height: 540px"
-      />
+    <!-- <div class="popup" v-show="showPopup" @click.self="showPopup = false">
+      <myShip></myShip>
+    </div> -->
+    <div class="popup" v-show="showPopup" @click="showPopup = false">
+      <!-- 弹窗内容 -->
+      <myShip
+        style="  width=1272px;
+  height= 540px;"
+      ></myShip>
     </div>
   </div>
 </template>
@@ -269,12 +260,12 @@ export default {
   align-items: center;
 }
 
-.popup img {
+.popup {
   width: 1272px;
   height: 540px;
 }
 
-.gold-border {
+/* .gold-border {
   border: 2px solid gold;
-}
+} */
 </style>
