@@ -479,7 +479,7 @@ export default {
           }
         ],
       ],
-      majorTitle: '原来是你？逃婚小姐',
+      majorTitle: '原来是你？逃婚小姐', // 后端给你标题
     }
   },
   methods: {

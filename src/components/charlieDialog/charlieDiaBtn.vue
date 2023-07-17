@@ -1,8 +1,7 @@
 <template>
   <el-radio-group v-model="yesOrNo" @input="pushYoN" >
     <el-radio-button :label="item.para_type" v-for="(item,index) in diaBtnData" :key="index">
-      <img  draggable="false" :src="diaBtnImg[index].bgimg" alt="" class="dia-btn-bg">
-      <div class="radio-group-div">{{ item.choice_name}}</div>
+      <div :class="'radio-group-div'+ index">{{ item.choice_name}}</div>
     </el-radio-button>
   </el-radio-group>
 </template>
@@ -19,7 +18,7 @@ export default {
       yesOrNo:'',
     };
   },
-  mounted() {
+  activated() {
     this.yesOrNo = this.diaBtnData[0].para_type
     this.pushYoN()
   },
@@ -36,12 +35,13 @@ export default {
 .el-radio-group {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .el-radio-button {
-  height: 28px;
+  height: 38px;
   display: flex;
   align-items: center;
-  margin-right: 60px;
+  margin-right: 40px;
   
 }
 .el-radio-button:focus:not(.is-focus):not(:active):not(.is-disabled) {
@@ -50,12 +50,14 @@ export default {
 }
 ::v-deep {
   .el-radio-button .el-radio-button__inner {
-    font-size: 18px;
+    font-size: 16px;
     border: 0;
     background: transparent;
-    width: 220px;
-    color: #b99950;  
-    padding: 8px 0;
+    color: #b99950;
+    padding: 6px 30px;
+    border: 1px solid;
+    border-image: linear-gradient(to right #b99950 #312916);
+    border-radius: 30px;
   }
 
   .is-active {
@@ -68,14 +70,28 @@ export default {
     -webkit-box-shadow: none;
     box-shadow: none;
   }
-}
-.dia-btn-bg {
+  .radio-group-div1::after {
+  content: '';
+  background-image: url('../../assets/diabtnnIcon.png');
+  background-size: 23px 23px;
+  width: 23px;
+  height: 23px;
   position: absolute;
-  top: 0;
-  left: -2px;
-  height: 0;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  right: 2px;
+  transform: translateY(-50%);
+}
+.radio-group-div0::after {
+  content: '';
+  background-image: url('../../assets/diabtnlIcon.png');
+  background-size: 23px 23px;
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  transform: translateY(-50%);
+}
 }
 </style>
     

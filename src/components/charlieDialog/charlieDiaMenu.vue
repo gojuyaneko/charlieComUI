@@ -3,8 +3,8 @@
     <button class="dia-menu-catalog" @click="controlShow">目录</button>
     <transition name="el-fade-in-linear" >
     <el-collapse v-model="activeChap" accordion class="dia-menu-col" v-show="show">
-      <el-collapse-item :title="item.chap_name" :name="item.chap_num" v-for="(item, index) in menuData " :key="index">
-        <div class="dia-menu-div" v-for="(seItem, index) in item.subchap" :key="index" @click="comitIndex(seItem)">
+      <el-collapse-item class="hover-color" :title="item.chap_name" :name="item.chap_num" v-for="(item, index) in menuData " :key="index">
+        <div class='dia-menu-div' :class="{'isActive':activeIndex === seItem}" v-for="(seItem, index) in item.subchap" :key="index" @click="comitIndex(item.chap_num, seItem)">
           {{ seItem}}
         </div>
       </el-collapse-item>
@@ -23,19 +23,20 @@ export default {
   data() {
     return {
       activeChap:-1,
-      show: false
+      show: false,
+      activeIndex: '6-8'
     };
   },
   mounted() {
-    this.comitIndex('6-8')
   },
   methods: {
     controlShow(){
       this.show=!this.show
     },
-    comitIndex(data){
-      console.log(data)
-      this.$emit('getContent',data)
+    comitIndex(chap, data){
+      this.activeIndex = data
+      this.$emit('getContent',chap, data)
+      this.show = false
     }
   },
 };
@@ -44,14 +45,14 @@ export default {
 <style scoped lang="scss">
 .com-dialog-menu {
   position: absolute;
-  bottom: 10%;
+  bottom: 3%;
   right: 50px;
   width: 115px;
 }
 
 .dia-menu-catalog {
   width: 115px;
-  height: 30px;
+  height: 40px;
   background: url('../../assets/diacata.png') no-repeat;
   background-size: 100% 100%;
   outline: 0;
@@ -80,6 +81,9 @@ export default {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
+.dia-menu-div:hover{
+  background-color: rgba(255, 255, 255, 0.20);
+}
  ::v-deep {
 
   .el-collapse {
@@ -90,21 +94,28 @@ export default {
 
   .el-collapse-item__header {
     width: 115px;
-    height: 30px;
+    height: 40px;
     color: #674d97;
     font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 0;
+  }
+  .el-collapse-item__header:hover{
+  background-color: #949494bd!important;
+}
+  .el-collapse-item__wrap {
     background-color: rgba(255, 255, 255, 0.2);
     border: 0;
   }
-  .el-collapse-item__wrap {
-    background-color: rgba(255, 255, 255, 0.01);
-    border: 0;
+  .isActive {
+    background-color: rgba(230, 230, 230, 0.25);
   }
   .el-collapse-item__content  {
     padding-bottom: 0;
-    color: #858585;
+    color: #464646;
     font-weight: 500;
     text-align: center;
   }
-}</style>
+}
+</style>
     
