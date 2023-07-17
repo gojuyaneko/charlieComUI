@@ -158,7 +158,7 @@ export default {
   },
   mounted() {},
   methods: {
-    gotoUrl(url, query) {
+    gotoUrl(url) {
       if (this.$router.path !== "/") {
         if (url === "/") {
           this.$router.push({ path: url });
