@@ -23,10 +23,11 @@ export default {
   font-family: "nansongshuju";
 }
 .dialog-p {
-  width: 1200px;
+  width: 1000px;
   margin-bottom: 20px;
   position:relative;
   left:20px;
+  line-height: 30px;
 }
 
 p[data-person-p="旁白"] {
@@ -39,7 +40,6 @@ p[data-person-p="旁白"] {
 p[data-person-p="查理苏"] {
   text-align: left;
   color: white;
-   line-height: 35px;
 }
 p[data-person-p="我"] {
   text-align: left;

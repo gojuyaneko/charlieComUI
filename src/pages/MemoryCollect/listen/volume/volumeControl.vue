@@ -8,7 +8,7 @@
       <div class="text">
         <ul>
           <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
-            <volumeContent :sendName="item.subContent"></volumeContent>
+            <volumeContent :sendName="subContent"></volumeContent>
           </li>
         </ul>
       </div>
@@ -24,95 +24,45 @@
 
 <script>
 import volumeContent from "@/pages/MemoryCollect/listen/volume/components/volumeContent.vue";
+import {getVP} from "@/request/api";
 export default {
   components:{volumeContent,},
   data() {
     return {
       Index: 0,
-      contentDataList: [
-        {
-          sessionIndex: 0,
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-            {
-              type: 'title',
-              content: '01-草浴'
-            },
-            {
-              type: 'content',
-              content: '111叫声很有力气，看来我们救下的狮子已经脱离生命危险了。\n' +
-                  '你之前还怀疑我的判断。但人也是动物，查医生偶尔触类旁通一下，也不稀奇。\n' +
-                  '怎么了，还在想那天的事情?那场偷猎的确非常恐怖，扎布尔地区的治安不太好，枪支和火药都可以随便流通\n'
-            }
-          ],
-
-        },
-        {
-          sessionIndex: 1,
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-            {
-              type: 'title',
-              content: '02-草浴'
-            },
-            {
-              type: 'content',
-              content: '222叫声很有力气，看来我们救下的狮子已经脱离生命危险了。\n' +
-                  '你之前还怀疑我的判断。但人也是动物，查医生偶尔触类旁通一下，也不稀奇。\n' +
-                  '怎么了，还在想那天的事情?那场偷猎的确非常恐怖，扎布尔地区的治安不太好，枪支和火药都可以随便流通\n'
-            }
-          ],
-        },
-        {
-          sessionIndex: 2,
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-            {
-              type: 'title',
-              content: '03-呼噜'
-            },
-            {
-              type: 'content',
-              content: '333小心。没关系，未婚妻轻得很，我的脚一点也不疼。\n' +
-                  '第一次接近狮子，紧张是人之常情。\n' +
-                  '不如你闭上眼睛,把手交给我，我带你摸一摸。\n'
-            },
-            {
-              type: 'title',
-              content: '03-低吼'
-            },
-            {
-              type: 'content',
-              content: '444这个烦闷的叫声，看来狮子是被热带小飞虫缠住了。\n' +
-                  '想去车里拿防虫喷雾帮帮它?嗯，那我在这里等你，快去快回，否则我会很想你的。\n' +
-                  '怎么了，羡慕我有一个善良又勇敢的未婚妻?\n'
-            }
-          ],
-        },
-        {
-          sessionIndex: 3,
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-            {
-              type: 'title',
-              content: '04-低吼'
-            },
-            {
-              type: 'content',
-              content: '555444陪你出国取材，没想到会遇到这么惊险的事。\n' +
-                  '我猜你现在特别担心狮子的情况，想要马上看看才放心。\n' +
-                  '但当地人把狮子奉为神明，按照风俗，我们要先在神庙的侧室沐浴更衣。\n'
-            }
-          ],
-        }
-      ],
+      contentDataList: [],
     }
+  },
+  mounted () {
+    this.getPara()
   },
   methods: {
     show(value) {
       this.Index === value ? this.isShow = !this.isShow : this.isShow = true
       this.Index = value
+      console.log(this.Index)
+      this.getPara()
     },
+    getPara() {
+      getVP({cardindex:1,sessionIndex:this.Index}).then((res) => {
+        this.subContent=[]
+        this.contentDataList=[]
+            for( let i in res.subContent) {
+              let type = res.subContent[i]["type"] ? 'content' : 'title'
+              let dia= {
+                type: res.subContent[i]["type"],
+                content:res.subContent[i][type],
+              }
+              this.subContent.push(dia)
+            }
+            let item = {
+              sessionIndex:this.Index,
+                videoUrl: res.videoUrl,
+            }
+            this.contentDataList.push(item)
+
+      })
+    }
   }
 }
 </script>
@@ -124,9 +74,9 @@ export default {
   background-image: url("./余音2/video.png");
   background-size: 100% 100%;
   cursor: pointer;
-  position: relative;
-  top: 135px;
-  left: 800px;
+  position: absolute;
+  top: 170px;
+  left: 1675px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -135,10 +85,10 @@ export default {
 .title {
   background: url("./余音2/title.png");
   background-size: 100% 100% ;
-  position: relative;
+  position: absolute;
   width: 213px;
   height: 101px;
-  top:180px;
+  top:265px;
   right:200px;
   float: right;
 }
@@ -149,14 +99,14 @@ export default {
   height: 641px;
   width: 1519px;
   position: relative;
-  top:200px;
+  top:250px;
   left:190px;
 }
 
 .btns {
   display: flex;
   flex-direction: row;
-  top:80px;
+  top:120px;
   float:right;
   right:200px;
   position: relative;

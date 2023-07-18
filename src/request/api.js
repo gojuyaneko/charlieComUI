@@ -4,5 +4,5 @@ const baseUrl= 'http://47.243.195.59:8080/'
 export const getTOD = p=>get(baseUrl + 'truthordare', p) // 真心话大冒险接口
 export const getDNMenu = p => get(baseUrl + 'dayandnight', p) // 主线菜单接口
 export const getWmAll = p => get(baseUrl + 'moments', p) // 朋友圈总览接口
-export const getVD = p=>get(baseUrl + 'volumeDream', p)
+export const getVP = p=>get(baseUrl + 'volumePage', p)
 export const getGuziList = p => get(baseUrl + 'guzi', p) // 官谷列表

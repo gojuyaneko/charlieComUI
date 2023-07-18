@@ -30,7 +30,7 @@ export default {
   font-family: "nansongshuju";
 }
 .dialog-p {
-  width: 800px;
+  width: 1000px;
   margin-bottom: 20px;
   line-height: 25px;
 }

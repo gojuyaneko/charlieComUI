@@ -18,7 +18,6 @@
         <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
           <rewindDia v-if="item.DiaOrMemory === 'dia'" :sendName="item.subContent"></rewindDia>
           <rewindMemory v-if="item.DiaOrMemory === 'memory'" :sendName="item.subContent"></rewindMemory>
-          <a class="video-btn" target="_blank" :href="item.videoUrl"></a>
         </li>
        </ul>
      </div>
@@ -63,7 +62,12 @@ export default {
           name:'查理苏',
           content: '不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
               '对了，老规矩。给我准备一副扑克。'
-        }
+        },
+            {
+              name:'我',
+          content: '不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
+              '对了，老规矩。给我准备一副扑克。'
+            }
       ],
         },
         {
@@ -226,7 +230,7 @@ export default {
 }
 
 .text {
-  width: 1000px;
+  width: 1300px;
   height: 580px;
   overflow-y: scroll;
   position: absolute;

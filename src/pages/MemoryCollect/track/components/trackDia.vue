@@ -2,7 +2,7 @@
 <div>
   <div v-for="(item,index) in sendName" :key="index" class="text-div">
     <span class="dialog-span">
-      <span v-if="item.name !== '我' && item.name !== '查理苏'" :data-person="item.name" style="color:#b99e63;margin-right: 10px;">{{item.name }}</span>
+      <span v-if="item.name !== '我' && item.name !== '查理苏'" :data-person="item.name" style="color:#b99e63;margin-right: 30px;">{{item.name }}</span>
       <span v-if="item.name === '查理苏'" :data-person="item.name">{{item.name }}</span>
     </span>
     <p class="dialog-p" :data-person-p="item.name" v-if="item.name !== '我' && item.name!=='旁白'" style="text-align: left">{{ item.content }}</p>
@@ -45,7 +45,7 @@ span[data-person="我"] {
 }
 span[data-person="查理苏"] {
   color: #bea7d5;
-  margin-right: 10px;
+  margin-right: 30px;
 }
 span[data-person="旁白"] {
   display: none;
