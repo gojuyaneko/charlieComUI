@@ -1,23 +1,45 @@
 <template>
   <div class="badgeDetails">
     <div class="contentWrapper">
-      <div class="subTitle">徽章类 > 谷子详情</div>
-      <div class="productDetails">
-        <div class="productPic">
-          <div class="productImage">
-            <div class="badgeImage">
-              <img :src="goodsContent[index].file_path" alt />
+        <div class="subTitle">徽章类 > 谷子详情</div>
+        <div class="productDetails">
+          <div class="productPic">
+            <div class="productImage">
+              <div class="badgeImage">
+                <img src="./images/goods/长梦烬余痕徽章.png" alt="">
+              </div>
+            </div>
+            
+            <div class="productSlider">
+              <div class="slider-container">
+                <ul></ul>
+                <img src="./images/goods/满赠透卡.png" alt="Image 1">
+                <img src="./images/goods/满赠透卡.png" alt="Image 2">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <img src="./images/goods/满赠透卡.png" alt="Image 3">
+                <!-- 添加更多图片 -->
+              </div>
             </div>
           </div>
-          <div class="productSlider">
+          <!-- <div class="productSlider"> -->
             <!-- Placeholder for product carousel -->
-            <div class="slider-container">
-              <img v-for="(item, index) in goodsContent" :key="item.id" :src="item.file_path" :alt="item.name" @click="handle(index)" />
+            <!-- <div class="slider-container"> -->
+              <!-- <img v-for="(item, index) in goodsContent" :key="item.id" :src="item.file_path" :alt="item.name" @click="handle(index)" /> -->
               <!-- <img src="./images/goods/满赠透卡.png" alt="Image 2" /> -->
               <!-- 添加更多图片 -->
-            </div>
-          </div>
-        </div>
+            <!-- </div> -->
+          <!-- </div> -->
+        
         <div class="productInfo">
           <h2>{{ goodsContent[index].name }}</h2>
           <div class="details">
@@ -41,7 +63,8 @@
 </template>
 
 <script>
-import { getGuziList } from "@/request/api";
+
+import { getGoodsList } from "@/request/api";
 export default {
   el: "#bagdeDetails",
   // components:{encounterContent},
@@ -76,7 +99,7 @@ export default {
   },
   methods: {
     getList(type) {
-      getGuziList({ type }).then(res => {
+      getGoodsList({ type }).then(res => {
         // console.log(res);
         this.goodsContent = res
         this.index = 0;
@@ -135,27 +158,32 @@ export default {
   height: 700px;
 }
 
-.badgeImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  height: 100%;
-}
-.badgeImage img {
-  display: block;
-  /* margin: 0 auto; */
-  width: 250px;
-  /* border-radius: 53px; */
-  /* height: auto; */
-}
-.productSlider {
-  width: 100%;
-  overflow-x: auto; /* 启用水平滚动条 */
-  white-space: nowrap; /* 禁止换行 */
-  scroll-snap-type: x mandatory; /* 强制横向滚动 */
-  /* Add styles for product carousel */
-}
+  .badgeImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    height: 100%;
+  }
+  .badgeImage img {
+    display: block;
+    width: 250px;
+  }
+  .productSlider {
+    width: 100%;
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: space-between; /* 左右对齐，两端对齐 */
+    align-items: center; /* 垂直居中元素 */
+    overflow-x: auto; /* 启用水平滚动条 */
+    white-space: nowrap; /* 禁止换行 */
+    scroll-snap-type: x mandatory; /* 强制横向滚动 */
+  }
+  .left-btn,.right-btn {
+    color: #674d97;
+    font-size: 24px;
+    flex: 0 0 auto; /* 固定宽度，不可伸缩 */
+  /* 其他样式 */
+  }
 
 .productSlider::-webkit-scrollbar {
   border-top: 1px solid #d8c28c;

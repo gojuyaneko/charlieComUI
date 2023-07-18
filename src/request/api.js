@@ -7,3 +7,4 @@ export const getWmAll = p => get(baseUrl + 'moments', p) // 朋友圈总览接�
 export const getVP = p=>get(baseUrl + 'volumePage', p)
 export const getDetail = (p) => get(baseUrl + "charlie_details", p); // 更多细节
 export const getRelation = (p) => get(baseUrl + "characters", p); // 人物关系
+export const getGoodsList = p => get(baseUrl + "guzi", p); //周边

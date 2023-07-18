@@ -162,7 +162,6 @@
   }
     .subNav{
       width: 100%;
-      /* height: 167px; */
       background: url('./images/button.png') center center no-repeat;
       background-size: 100%,100%;
       line-height: 50px;
@@ -170,7 +169,7 @@
       font-size: 15px;
       margin-left: 20px;
       position: relative;
-      display: inline-block;/* 让元素具有块级元素和行内元素的特性,即将块级元素转化为内联元素 */
+      display: inline-block;/*让元素具有块级元素和行内元素的特性,即将块级元素转化为内联元素*/
   }
 
   a{
