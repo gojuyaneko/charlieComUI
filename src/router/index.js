@@ -26,6 +26,8 @@ const profileDetail = () =>
   import("../pages/MemoryCollect/profile/profileDetail.vue");
 const videocallCollection = () =>
   import("../pages/subitems/sweet/videocallCollection/videocallCollection.vue");
+const videoDetail = () =>
+  import("../pages/subitems/sweet/videocallCollection/pages/videoDetail.vue");
 const aboutCharlie = () => import("../pages/aboutCharlie.vue");
 const charaDetail = () => import("../pages/aboutCharlie/charaDetail.vue");
 const relationship = () => import("../pages/aboutCharlie/relationship.vue");
@@ -107,6 +109,11 @@ export default new Router({
       path: "/videocallcollection",
       name: "videocallcollection",
       component: videocallCollection,
+    },
+    {
+      path: "/videocallcollection/vcdetail",
+      name: "vcdetail",
+      component: videoDetail,
     },
     {
       path: "/trackDetail",

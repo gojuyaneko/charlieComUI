@@ -1,10 +1,10 @@
 <template>
-  <div class="chat-history">
-    <div class="ch-l-n">LIGHT AND NIGHT</div>
-    <div class="chat-history-bg">
-      <main class="ch-main">
-        <section class="ch-main-header">
-          <el-select class="ch-classbtn" :popper-append-to-body="false" v-model="selectValue" placeholder="请选择" popper-class='ch-select-pop' @change="getLayoutData">
+  <div class="video-call">
+    <div class="vc-l-n">LIGHT AND NIGHT</div>
+    <div class="video-call-bg">
+      <main class="vc-main">
+        <section class="vc-main-header">
+          <el-select class="vc-classbtn" :popper-append-to-body="false" v-model="selectValue" placeholder="请选择" popper-class='vc-select-pop' @change="getLayoutData">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -13,8 +13,8 @@
             </el-option>
           </el-select>
         </section>
-        <div class="ch-layout">
-          <ch-layout :layoutData="layoutData" ref="chlayout"></ch-layout>
+        <div class="vc-layout">
+          <vc-layout :layoutData="layoutData" ref="vclayout"></vc-layout>
         </div>
       </main>
     </div>
@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import ChLayout from './component/chLayout.vue';
+import vcLayout from './component/vcLayout.vue';
 export default {
-  components:{ChLayout},
+  components:{vcLayout},
   props: {},
   data() {
     return {
@@ -331,7 +331,7 @@ export default {
           ]
         },
         truthOrDare:{
-          type:'truthOrDare',
+          type:'truthorDare',
           data:[
             {
               dtype:'vediocalls',
@@ -544,7 +544,7 @@ export default {
           label:'活动'
         },
         {
-          value:'truthOrDare',
+          value:'truthorDare',
           label:'真话冒险'
         },
         {
@@ -564,14 +564,14 @@ export default {
       this.layoutData=[]
       this.layoutData = this.layoutDataEntire[data]
       console.log(this.layoutDataEntire[data])
-      this.$refs['chlayout'].freshPage()
+      this.$refs['vclayout'].freshPage()
     }
   },
 };
 </script>
 
 <style scoped lang="scss">
-.chat-history {
+.video-call {
   width: 100%;
   height: 100%;
   background: url("../../../../assets/charlieCretsBG/tdbg-min.jpg") no-repeat;
@@ -581,7 +581,7 @@ export default {
   position: relative;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  .chat-history-bg {
+  .video-call-bg {
     width: 100%;
     height: 100%;
     background: url("../../../../assets/charlieCretsBG/tdbg.png") no-repeat;
@@ -591,7 +591,7 @@ export default {
     top: 0;
     left: 0;
   }
-  .ch-l-n {
+  .vc-l-n {
     writing-mode: vertical-lr;
     font-size: 50px;
     font-family: "Branch";
@@ -606,15 +606,15 @@ export default {
     width: 76px;
     z-index: 2;
   }
-  .ch-main {
+  .vc-main {
     width: 1500px;
     padding-left: 20px;
     margin: 8% auto;
     position: relative;
-    .ch-main-header {
+    .vc-main-header {
       height: 60px;
       position: relative;
-      .ch-classbtn{
+      .vc-classbtn{
         width: 150px;
         height: 46px;
         position: absolute;
@@ -650,7 +650,7 @@ export default {
   .el-popper .popper__arrow, .el-popper .popper__arrow::after {
     display: none;
   }
-  .ch-select-pop {
+  .vc-select-pop {
     position: absolute;
     color: rgb(214, 179, 103);
     bottom:0!important;

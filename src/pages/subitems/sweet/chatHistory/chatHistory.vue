@@ -544,7 +544,7 @@ export default {
           label:'活动'
         },
         {
-          value:'truthOrDare',
+          value:'truthorDare',
           label:'真话冒险'
         },
         {
