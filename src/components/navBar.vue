@@ -64,7 +64,7 @@ export default {
             },
             {
               name: "灵犀相册",
-              nextUrl: "/studio/accompany",
+              nextUrl: "/photoAlbum",
             },
             {
               name: "记忆收藏",

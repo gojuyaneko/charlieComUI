@@ -55,7 +55,7 @@ export default {
   },
   activated() {
     this.getMenuList();
-    this.getContent(6, "6-8");
+    this.getContent();
   },
 };
 </script>
@@ -106,6 +106,9 @@ export default {
   text-align: left;
   overflow-x: hidden;
   overflow-y: scroll;
+}
+.text::-webkit-scrollbar {
+  display: none;
 }
 .text li p {
   margin-bottom: 20px;
