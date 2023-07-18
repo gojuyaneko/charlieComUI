@@ -11,9 +11,8 @@
       </span>
       <el-table
         :ref="'id'+index"
-        fit="true"
         height="300px"
-        stripe="true"
+        :stripe="true"
         :data="item.items.slice((currentPage-1)*pagesize,currentPage*pagesize)"
         style="width: 100%"
         empty-text="暂无数据，请刷新重试"
@@ -33,7 +32,7 @@
 import charliePagination from '@/components/charliePagination.vue';
 export default {
   components: {charliePagination},
-  props: { collapseData: Array },
+  props: { collapseData: Object },
   data() {
     return {
       activeName:['id0'],
@@ -43,8 +42,7 @@ export default {
       
     };
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     tableHeaderStyle() {
       return "wm-table-header";

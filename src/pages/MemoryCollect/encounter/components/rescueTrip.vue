@@ -427,15 +427,15 @@ export default {
           ]
         },
 
-      ],
+      ], // 数据使用public/testText.json中的数据
       choiceList: [
-      ],
-      majorTitle: '原来是你？逃婚小姐', // 后端给你标题
-      preIndex: -1,
-      fontIndex: -1,
-      resData: [],
-      chooseRigt: true,
-      isBottom: false
+      ], // 后端传输过来的所有选项列表
+      majorTitle: '原来是你？逃婚小姐', // 后端给你标题,取用testText中的标题
+      preIndex: -1, //文章段落进行标志，表明最新文章进度
+      fontIndex: -1, //选项进行标志，表明下一个该出现choiceList的第几组组
+      resData: [], // 储存后端传输数据内容，主要用于替换选项内容
+      chooseRigt: true, // 是否选择了正确的选项
+      isBottom: false // 是否到达底部
     }
   },
   methods: {
@@ -445,11 +445,11 @@ export default {
     },
     choiceEvent({target:{scrollTop, clientHeight, scrollHeight}}) {
       if (scrollTop + clientHeight >= scrollHeight - 2) {
-        this.isBottom = true
-        this.fontIndex = this.preIndex+ 1
+        this.isBottom = true // 滑动到底部时为真
+        this.fontIndex = this.preIndex+ 1 // 选项初始为-1，第一次滑动到底部时出现choiceList[0]的选项组 ，当滑动到底部时自动进行到下一组选项
       }
     },
-    initContent (data) {
+    initContent (data) { // 初始化文章内容，默认选项选择正确，规定第一个选项即xuanxiang[0]为正确/最优选项
       this.contentDataList = []
       for (let i in data) {
         if(data[i].para_type  !== 'choice') {
@@ -468,41 +468,39 @@ export default {
         }
       }
     },
-    changeContent (index, j) {
-      this.preIndex = index
-      this.fontIndex = -1
-      this.isBottom = false
+    changeContent (index, j) { // 替换选项内容，
+      this.preIndex = index // 段落进行标志在选择选项时自动行进至当前选项后一步
+      this.fontIndex = -1 // 控制选项显示与否
+      this.isBottom = false // 选择选项后自动设置到达底部为false
       this.chooseRigt = true
-      if(j === 1) {
-        this.chooseRigt = false
+      if(j === 0) {
+        this.chooseRigt = true // 第一个选项即xuanxiang[0]为正确/最优选项
       } else {
-        this.chooseRigt = true
+        this.chooseRigt = false // 第一个选项即xuanxiang[i+1]为错误/欠佳选项，可触发下次滑动到底部的重新选择选项
       }
-      this.contentDataList[index + 1].subContent= this.resData[index + 1].xuanxiang[j].choice_para
+      this.contentDataList[index + 1].subContent= this.resData[index + 1].xuanxiang[j].choice_para // 替换文本内容
     },
-    backToPre () {
-      this.isBottom = true
-      this.chooseRigt = true
-      this.preIndex--
-      this.fontIndex = this.preIndex + 1
+    backToPre () { // 后退至上一个选项和文本处
+      this.isBottom = true //重新选择时需使文本在最后，因此设置在底部为真
+      this.chooseRigt = true // 默认使选择正确
+      this.preIndex-- // 回退文本
+      this.fontIndex = this.preIndex + 1 // 回退选项，段落进行标志在选择选项时自动行进至当前选项前一步
     },
     getTestText () {
-      axios.get('../testText.json').then((res) => {
-        this.resData = res.data.para
-        let data = res.data.para
-        this.choiceList = []
-        this.initContent(data)
+      axios.get('../testText.json').then((res) => { // 获取testText文本内容，实际使用接口时替换为接口
+        this.resData = res.data.para //  保存后端传过来的文本
+        let data = res.data.para // 暂存文本
+        this.choiceList = [] // 初始化选择组列表
+        this.initContent(data) // 初始化前端使用文本
         for (let i in data) {
-          if(data[i].para_type  === 'choice') {
-            let choiceIndex = 0
+          if(data[i].para_type  === 'choice') { // 若该段落为choice，则压进choiceList数组
+            let choiceIndex = 0 
             let item = []
-            for ( let j in data[i].xuanxiang){
+            for ( let j in data[i].xuanxiang){ // 遍历选项
               let choice = {
-                choiceIndex: choiceIndex, // 选项标号
-                groupIndex: j,
-                paraIndex: i,
+                choiceIndex: choiceIndex, // 选项标号，用于定位选项所在文章行数
+                paraIndex: i, //选项所在的文章段落
                 choiceTitle: data[i].xuanxiang[j].choice_name, // 选项标题
-                isVisited: false // 是否选择过该选项
               }
               choiceIndex++
               item.push(choice)      
