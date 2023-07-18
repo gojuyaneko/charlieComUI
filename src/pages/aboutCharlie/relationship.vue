@@ -55,29 +55,6 @@ export default {
     },
   },
 };
-
-// export default {
-//   data() {
-//     return {
-//       name: "relationShip",
-//       charaData: [
-//         {
-//           name: "查兆澎",
-//           img: require("@/assets/aboutCharlie/查爹.png"),
-//           detail: [
-//             {
-//               detail1:
-//                 "查理苏父亲查理苏父亲查理苏父亲查理苏父亲查理苏父亲查理苏父亲查理苏父亲查理苏父亲",
-//               more: "对自己",
-//               session: "登场:主线第x章",
-//             },
-//           ],
-//         },
-//       ],
-
-//     };
-//   },
-// };
 </script>
 
 <style>
@@ -93,16 +70,7 @@ export default {
   top: 340px;
   left: 300px;
 }
-.el-breadcrumb {
-  position: absolute;
-  top: 200px;
-  left: 160px;
-}
-.el-breadcrumb__inner {
-  color: #d6b367 !important;
-  font-size: 30px;
-  font-family: "nansongshuju";
-}
+
 .charaPic {
   position: absolute;
   top: 400px;
@@ -123,6 +91,10 @@ export default {
   font-family: "nansongshuju";
   text-align: right;
 }
+.text::-webkit-scrollbar {
+  display: none;
+}
+
 .text li p {
   margin-bottom: 50px;
 }

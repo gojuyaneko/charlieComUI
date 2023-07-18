@@ -34,7 +34,7 @@
             v-for="childItems in item.childItems"
             :index="childItems.nextUrl"
             :key="childItems.name"
-            :route="{path:childItems.nextUrl, query: childItems.query}"
+            :route="{ path: childItems.nextUrl, query: childItems.query }"
           >
             <span>
               {{ childItems.name }}
@@ -57,7 +57,20 @@ export default {
         {
           name: "首页",
           nextUrl: "/",
-          childItems: [],
+          childItems: [
+            {
+              name: "光夜变奏",
+              nextUrl: "/studio/furniture",
+            },
+            {
+              name: "灵犀相册",
+              nextUrl: "/studio/accompany",
+            },
+            {
+              name: "记忆收藏",
+              nextUrl: "/studio/chat",
+            },
+          ],
         },
         {
           name: "工作室",
@@ -74,7 +87,7 @@ export default {
             {
               name: "闲聊",
               nextUrl: "/studio/chat",
-            }
+            },
           ],
         },
         {
@@ -115,36 +128,36 @@ export default {
               name: "徽章类",
               nextUrl: "/badge",
               query: {
-                type: '徽章'
-              }
+                type: "徽章",
+              },
             },
             {
               name: "亚克力类",
               nextUrl: "/badge",
               query: {
-                type: '亚克力类'
-              }
+                type: "亚克力类",
+              },
             },
             {
               name: "卡片类",
               nextUrl: "/badge",
               query: {
-                type: '纸片类'
-              }
+                type: "纸片类",
+              },
             },
             {
               name: "生活用品",
               nextUrl: "/badge",
               query: {
-                type: '生活用品类'
-              }
+                type: "生活用品类",
+              },
             },
             {
               name: "套装",
               nextUrl: "/badge",
               query: {
-                type: '礼盒'
-              }
+                type: "礼盒",
+              },
             },
           ],
         },
