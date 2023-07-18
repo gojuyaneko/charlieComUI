@@ -119,17 +119,19 @@ export default {
 }
 .com-dia-right {
   height:100%;
+  width: 60%;
 }
 .com-dia-title {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 5px;
   width: 381px;
   font-size: 63px;
   font-style: italic;
   font-weight: 400;
   font-family: 'nansongshuju';
   color: #674d97;
+  text-align: right;
   transform: translateY(-100%);
   background-image:-webkit-linear-gradient(top, rgb(242, 215, 156), rgb(70,59,34));
   -webkit-background-clip:text;

@@ -23,42 +23,12 @@
             :class="Index===3? 'active':''"></span>
     </ul>
     <div class="text-bg">
-      <ul class="choice" v-if="choiceshow && buffer" v-show="Index===1">
-        <li class="goaway" @click="choiceshow=false; firstChoice=1; buffer=false"></li>
-        <li class="stay" @click="choiceshow=false; firstChoice=2; buffer=false"></li>
+      <ul class="choice"  v-for="(choiceGroup, index) in choiceList" :key="'choiceG'+index" v-show="fontIndex === index&&isBottom&&chooseRigt">
+        <li class="goaway" @click=" changeContent(index, choiceindex)" v-for="(choice, choiceindex) in choiceGroup" :key="'choice'+choiceindex">{{ choice.choiceTitle }} </li>
       </ul>
-      <li class="reload" v-show="firstChoice===1 && choiceshow && !buffer && Index===1"
-          @click="choiceshow=true;buffer=true;firstChoice=0;"></li>
-      <ul class="choice" v-if="firstChoice===2 && choiceshow && buffer1" v-show="Index===1">
-        <li class="away" @click="choiceshow=false; secondChoice=1; buffer1=false"></li>
-        <li class="stay1" @click="choiceshow=false; secondChoice=2; buffer1=false"></li>
-      </ul>
-      <li class="reload" v-show="secondChoice===1 && choiceshow && !buffer1 && Index===1"
-          @click="choiceshow=true;secondChoice=0;buffer1=true"></li>
-
-
-      <ul class="choice" v-if="choiceshow1 && buffer" v-show="Index===2">
-        <li class="he"  @click="choiceshow1=false; thirdChoice=1; buffer=false"></li>
-        <li class="me" @click="choiceshow1=false; thirdChoice=2; buffer=false"></li>
-      </ul>
-      <li class="reload" v-show="thirdChoice===1 && choiceshow1 && !buffer && Index===2"
-          @click="choiceshow1=true;buffer=true;thirdChoice=0;"></li>
-
-      <ul class="choice1" v-if="choiceshow2 && buffer" v-show="Index===3">
-        <li class="yes"  @click="choiceshow2=false; fourthChoice=1; buffer=false"></li>
-        <li class="hesitate" @click="choiceshow2=false; fourthChoice=3; buffer=false"></li>
-        <li class="no" @click="choiceshow2=false; fourthChoice=2; buffer=false"></li>
-      </ul>
-      <li class="reload" v-show="(fourthChoice===1 || fourthChoice===2) && choiceshow2 && !buffer && Index===3"
-          @click="choiceshow2=true;buffer=true;fourthChoice=0;"></li>
-
-
-      <div class="text" @scroll="choiceEvent" v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
-          <encounterContent :sendName="item.subContent" ></encounterContent>
-          <li v-for="(item,index) in item.choiceContent" :key="'content'+ index">
-            <encounterContent :sendName="item.subContent"
-                              v-if="(firstChoice || thirdChoice || fourthChoice)===item.firstNum || secondChoice===item.secondNum"></encounterContent>
-          </li>
+      <div class="reload" @click=" backToPre()" v-show="!chooseRigt&&isBottom">重新选择 </div>
+      <div class="text" @scroll="choiceEvent" >
+          <encounterContent :sendName="item.subContent" v-show="preIndex +1 >= item.sessionIndex" v-for="(item,index) in contentDataList" :key="'content1'+ index"></encounterContent>
       </div>
 
     </div>
@@ -68,6 +38,7 @@
 
 <script>
 import encounterContent from "@/pages/MemoryCollect/encounter/components/encounterContent.vue";
+import axios from "axios";
 export default {
   components:{encounterContent},
   data() {
@@ -457,29 +428,14 @@ export default {
         },
 
       ],
-      Index: 1,
-      choiceshow:false,
-      choiceshow1:false,
-      choiceshow2:false,
-      buffer:true,
-      buffer1:true,
-      firstChoice:0,
-      secondChoice:0,
-      thirdChoice:0,
-      fourthChoice:0,
       choiceList: [
-        [
-          {
-            choiceNum: 0,
-            choiceName: '留下'
-          },
-          {
-            choiceNum: 1,
-            choiceName: '走开'
-          }
-        ],
       ],
-      majorTitle: '原来是你？逃婚小姐',
+      majorTitle: '原来是你？逃婚小姐', // 后端给你标题
+      preIndex: -1,
+      fontIndex: -1,
+      resData: [],
+      chooseRigt: true,
+      isBottom: false
     }
   },
   methods: {
@@ -487,15 +443,78 @@ export default {
       this.Index === value ? this.isShow = !this.isShow : this.isShow = true
       this.Index = value
     },
-
     choiceEvent({target:{scrollTop, clientHeight, scrollHeight}}) {
-      if (scrollTop + clientHeight >= scrollHeight) {
-        if (this.Index ===1) {this.choiceshow = true}
-        if (this.Index ===2) {this.choiceshow1 = true}
-        if (this.Index ===3) {this.choiceshow2 = true}
-
+      if (scrollTop + clientHeight >= scrollHeight - 2) {
+        this.isBottom = true
+        this.fontIndex = this.preIndex+ 1
       }
     },
+    initContent (data) {
+      this.contentDataList = []
+      for (let i in data) {
+        if(data[i].para_type  !== 'choice') {
+          let item = {
+            sessionIndex: i,
+            subContent: data[i].normalContent
+          }
+          this.contentDataList.push(item)
+        } else {
+          let choiceItem = data[i].xuanxiang[0]
+            let item = {
+              sessionIndex: i,
+              subContent: choiceItem.choice_para
+            }            
+          this.contentDataList.push(item)
+        }
+      }
+    },
+    changeContent (index, j) {
+      this.preIndex = index
+      this.fontIndex = -1
+      this.isBottom = false
+      this.chooseRigt = true
+      if(j === 1) {
+        this.chooseRigt = false
+      } else {
+        this.chooseRigt = true
+      }
+      this.contentDataList[index + 1].subContent= this.resData[index + 1].xuanxiang[j].choice_para
+    },
+    backToPre () {
+      this.isBottom = true
+      this.chooseRigt = true
+      this.preIndex--
+      this.fontIndex = this.preIndex + 1
+    },
+    getTestText () {
+      axios.get('../testText.json').then((res) => {
+        this.resData = res.data.para
+        let data = res.data.para
+        this.choiceList = []
+        this.initContent(data)
+        for (let i in data) {
+          if(data[i].para_type  === 'choice') {
+            let choiceIndex = 0
+            let item = []
+            for ( let j in data[i].xuanxiang){
+              let choice = {
+                choiceIndex: choiceIndex, // 选项标号
+                groupIndex: j,
+                paraIndex: i,
+                choiceTitle: data[i].xuanxiang[j].choice_name, // 选项标题
+                isVisited: false // 是否选择过该选项
+              }
+              choiceIndex++
+              item.push(choice)      
+            }
+          this.choiceList.push(item) 
+          }
+        }
+      })
+    },
+  },
+  activated() {
+    this.getTestText()
   }
 }
 </script>
@@ -640,6 +659,7 @@ export default {
 .goaway {
   background: url("../邂逅1/goaway.png");
   margin-bottom: 25px;
+  color: white;
 }
 
 .stay {

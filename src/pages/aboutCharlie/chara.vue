@@ -1,14 +1,17 @@
 <template>
   <div>
-    <div
-      class="zjp"
-      @click="fetchCharacterInfo('查兆澎')"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/查兆澎.png" />
+    <div class="zjp" :class="{ 'gold-border': showPopup }">
+      <img src="@/assets/aboutCharlie/查兆澎.png" @click="showPopup = true" />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip></myShip>
+      </div>
     </div>
 
-    <div
+    <!-- <div class="popup" v-show="showPopup" @click="showPopup = false">
+      <myShip :name="name"></myShip>
+    </div> -->
+
+    <!-- <div
       class="xh"
       @click="showPopup = true"
       :class="{ 'gold-border': showPopup }"
@@ -29,7 +32,6 @@
     >
       <img src="@/assets/aboutCharlie/查理芬.png" />
     </div>
-
     <div
       class="alan"
       @click="showPopup = true"
@@ -44,7 +46,6 @@
     >
       <img src="@/assets/aboutCharlie/舒云.png" />
     </div>
-
     <div
       class="hgh"
       @click="showPopup = true"
@@ -52,7 +53,6 @@
     >
       <img src="@/assets/aboutCharlie/何国恒.png" />
     </div>
-
     <div
       class="mk"
       @click="showPopup = true"
@@ -67,7 +67,6 @@
     >
       <img src="@/assets/aboutCharlie/埃西诺.png" />
     </div>
-
     <div
       class="la"
       @click="showPopup = true"
@@ -75,7 +74,6 @@
     >
       <img src="@/assets/aboutCharlie/莱昂.png" />
     </div>
-
     <div
       class="stz"
       @click="showPopup = true"
@@ -97,29 +95,19 @@
     >
       <img src="@/assets/aboutCharlie/时晏.png" />
     </div>
-
     <div
       class="ow"
       @click="showPopup = true"
       :class="{ 'gold-border': showPopup }"
     >
       <img src="@/assets/aboutCharlie/欧文.png" />
-    </div>
-
-    <!-- <div class="popup" v-show="showPopup" @click.self="showPopup = false">
-      <myShip></myShip>
     </div> -->
-    <div class="popup" v-show="showPopup" @click="showPopup = false">
-      <!-- 弹窗内容 -->
-      <myShip
-        style="  width=1272px;
-  height= 540px;"
-      ></myShip>
-    </div>
   </div>
 </template>
 
 <script>
+// import { getRelation } from "@/request/api";
+
 export default {
   name: "moreRelation",
   data() {
@@ -127,6 +115,32 @@ export default {
       showPopup: false,
     };
   },
+  // mounted() {
+  //   this.getMenuList();
+  //   this.getContent();
+  // },
+  // methods: {
+  //   getContent() {
+  //     getRelation()
+  //       .then((res) => {
+  //         this.name = res.data.name;
+  //         this.img = res.data.img;
+  //         this.detail = res.data.detail;
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   },
+  //   getMenuList() {
+  //     getRelation()
+  //       .then((res) => {
+  //         this.menuData = res.data;
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   },
+  // },
 };
 </script>
 

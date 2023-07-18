@@ -64,7 +64,10 @@ export default {
       deActiveName:['']
     };
   },
-  mounted() { this.getWmContent()},
+  mounted() { },
+  activated () {
+    this.getWmContent()
+  },
   methods: {
     getWmContent () {
       getWmAll({indexcode: this.$route.query.rowD.indexCode}).then((res) => {

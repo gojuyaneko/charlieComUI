@@ -1,13 +1,15 @@
 <template>
 <div>
-  <div v-for="(item,index) in sendName" :key="index" class="text-div">
-    <span class="dialog-span">
-      <span v-if="item.name !== '我' && item.name !== '查理苏'" :data-person="item.name" style="color:#b99e63;margin-right: 25px;">{{item.name }}</span>
-      <span v-if="item.name === '查理苏'" :data-person="item.name">{{item.name }}</span>
-    </span>
-    <p class="dialog-p" :data-person-p="item.name" v-if="item.name !== '我' && item.name!=='旁白'" style="text-align: left">{{ item.content }}</p>
-    <p class="dialog-p" :data-person-p="item.name" v-if="item.name === '我' || item.name==='旁白'">{{ item.content }}</p>
-    <span class="dialog-span"><span v-if="item.name === '我'" :data-person="item.name">{{ item.name }}</span></span>
+  <div v-for="(item,index) in sendName" :key="index">
+    <div  v-for="(subitem,index) in item.content" :key="'sub' +index" class="text-div">
+      <span class="dialog-span">
+        <span v-if="item.speaker !== '我' && item.speaker !== '查理苏'" :data-person="item.speaker" style="color:#b99e63;margin-right: 25px;">{{item.speaker }}</span>
+        <span v-if="item.speaker === '查理苏'" :data-person="item.speaker">{{item.speaker }}</span>
+      </span>
+      <p class="dialog-p" :data-person-p="item.speaker" v-if="item.speaker !== '我' && item.speaker!=='旁白'" style="text-align: left">{{ subitem}}</p>
+      <p class="dialog-p" :data-person-p="item.speaker" v-if="item.speaker === '我' || item.speaker==='旁白'">{{ subitem}}</p>
+      <span class="dialog-span"><span v-if="item.speaker === '我'" :data-person="item.speaker">{{ item.speaker }}</span></span>
+    </div>
   </div>
 </div>
 </template>
@@ -15,6 +17,12 @@
 <script>
 export default {
   props:["sendName"],
+  data() {
+    return {
+    }
+  },
+  mounted() {
+  },
   methods: {
   }
 }

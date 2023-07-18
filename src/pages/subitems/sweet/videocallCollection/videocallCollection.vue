@@ -555,7 +555,7 @@ export default {
       selectValue:'lingXi',
     }
   },
-  mounted() {
+  activated() {
     this.getLayoutData('lingXi')
   },
   methods: {

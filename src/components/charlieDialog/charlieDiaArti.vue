@@ -119,7 +119,7 @@ export default {
 <style scoped lang="scss">
 .com-dia-div {
   margin-left: 60px;
-  font-size: 18px;
+  font-size: 20px;
   padding-right: 60px;
   color: white;
 }
@@ -136,6 +136,7 @@ export default {
 }
 .com-dia-span {
   width: 105px;
+  color: rgb(214, 179, 103);
 }
 span[data-tag="me"] {
   color: #eb4982;
@@ -150,7 +151,6 @@ span[data-tag="pb"] {
 }
 p[data-tag-p="pb"] {
   color: #848484;
-  text-indent: 2em;
 }
 p[data-tag-p="me"] {
   text-align: right;

@@ -13,12 +13,8 @@
           <ul>
             <li v-for="detail in detail" :key="detail.detail1">
               <p>
-                <span>{{ detail.id }}</span>
-
-                <router-link to="/">
-                  <span style="color: white">{{ detail.card }}</span>
-                </router-link>
-
+                <span>{{ detail.id }}，</span>
+                <span style="color: #efdfb3">{{ detail.card }}</span>
                 <span>{{ detail.more }}</span>
               </p>
             </li>
@@ -28,35 +24,41 @@
     </div>
   </div>
 </template>
+
 <script>
+import { getDetail } from "@/request/api";
+
 export default {
   name: "charaDetail",
   data() {
     return {
       name: "relationShip",
-      detail: [
-        {
-          id: 1,
-          card: "[向心引力]",
-          more: "对自己",
-        },
-        {
-          id: 2,
-
-          card: "[向心引力]",
-          more: "对自己",
-        },
-        {
-          id: 3,
-          card: "[向心引力]",
-          more: "对自己对自己对自己对自己对自己对自己对自己",
-        },
-      ],
+      detail: [],
+      id: null,
+      card: null,
+      more: null,
     };
+  },
+  methods: {
+    getContent(a) {
+      getDetail().then((res) => {
+        this.id = res.id;
+        this.card = res.card;
+        this.more = res.more;
+      });
+    },
+    getMenuList() {
+      getDetail().then((res) => {
+        this.detail = res; // Assuming the response is an array
+      });
+    },
+  },
+  activated() {
+    this.getMenuList();
+    this.getContent();
   },
 };
 </script>
-
 <style scoped>
 .pc-homepage-background2 {
   background-image: url(@/assets/HomePage/首页2.jpg);
@@ -94,13 +96,21 @@ export default {
 .text {
   display: inline-block;
   position: absolute;
+  width: 1100px;
+  height: 720px;
   top: 350px;
-  left: 470px;
+  left: 430px;
   color: #d6b367;
   font-size: 20px;
   font-family: "nansongshuju";
+  text-align: left;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.text::-webkit-scrollbar {
+  display: none;
 }
 .text li p {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 </style>

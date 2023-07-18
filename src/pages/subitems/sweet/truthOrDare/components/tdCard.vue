@@ -299,7 +299,6 @@ span[data-person="旁白"] {
 }
 p[data-person-p="旁白"] {
   color: #848484;
-  text-indent: 2em;
 }
 p[data-person-p="我"] {
   text-align: right;

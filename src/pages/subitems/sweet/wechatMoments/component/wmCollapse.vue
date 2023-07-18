@@ -44,7 +44,6 @@ export default {
     };
   },
   mounted() {
-    this.activeName = 'id0'
   },
   methods: {
     tableHeaderStyle() {
@@ -54,7 +53,6 @@ export default {
       this.currentPage = currentPage
     },
     freshPage(){
-      this.activeName = 'id0'
       this.currentPage =1
     },
     goToNext(row) {

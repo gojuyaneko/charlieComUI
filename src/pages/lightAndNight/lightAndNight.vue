@@ -225,9 +225,8 @@ export default {
   },
   components: { charlieDialog },
   methods: {
-    getContent(data) {
-      let ch = data.split('-')[0]
-      getDNMenu({chap: ch, subchap: data}).then((res) => {
+    getContent(chap, data) {
+      getDNMenu({chap: chap, subchap: data}).then((res) => {
         this.diaTitle = res.chap_title
         this.diaContent = res.para
         this.videoUrl = res.videoUrl
@@ -239,8 +238,9 @@ export default {
       })
     }
   },
-  mounted () {
+  activated () {
     this.getMenuList()
+    this.getContent(6, '6-8')
   }
 };
 </script>
