@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <myNavbar class="sticky"> </myNavbar>
-    <KeepAlive>
-      <router-view></router-view>
-    </KeepAlive>
+    <div class="position-absolute">
+      <KeepAlive>
+        <router-view></router-view>
+      </KeepAlive>
+  </div>
   </div>
 </template>
 
