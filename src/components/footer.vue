@@ -58,7 +58,7 @@ export default {
   position: relative;
   background: url("./../assets/HomePage/图层0.png") no-repeat;
   background-size: 100% 100%;
-  width: 1920%;
+  width: 1920px;
   height: 229px;
 }
 .name {

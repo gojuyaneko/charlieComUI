@@ -33,11 +33,11 @@ export default {
   position: absolute;
   bottom: -60px;
   left: 0;
-  width: 1080px !important;
   height: 60px;
   flex-shrink: 0;
-  width: 100%;
+  width: 1920px;
 }
+
 html,
 body {
   width: 100%;
