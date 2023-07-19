@@ -24,15 +24,13 @@
       </div>
       <div id="goods">
         <ul class="goods_contents">
-          <li v-for="(v, index) in json.list" :key="index">
+          <li v-for="item in items" :key="item.id" class="item-container">
             <div class="image-wrapper">
-              <el-image :src="url"></el-image>
-              <!-- <img src='./images/goods/满赠透卡.png' alt=""> --> 
-              <!-- <img :src="v.src" alt=""> -->
+              <img :src="item.file_path" alt="商品图片">
             </div>
             <div class="details">
-              <h4>{{ v.des }}</h4>
-              <p>¥{{ v.price }}</p>
+              <p class="item-name">名称：{{ item.name }}</p>
+              <p class="item-price">售价：{{ item.price }}</p>
             </div>
           </li>
         </ul>
@@ -42,6 +40,7 @@
   
   
   <script>
+  import { getGoodsList } from "@/request/api";
   export default {
     // name: 'HelloWorld',
     props: {
@@ -54,49 +53,27 @@
         fits: ['fill', 'contain', 'cover', 'none', 'scale-down'],
         url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
         //图片链接，名字，价格，详情，时间，种类
-        json: {
-          list: [
-            {
-              src: './images/button.png',
-              des: '满赠透卡',
-              price: 198
-            },
-            {
-              src: '../images/goods/满赠透卡.png',
-              des: 'name',
-              price: 200
-            },
-            {
-              src: '../images/goods/满赠透卡.png',
-              des: 'name',
-              price: 212
-            },          {
-              src: '../images/goods/满赠透卡.png',
-              des: '完美',
-              price: 222
-            },          {
-              src: '../images/goods/长梦烬余痕徽章.png',
-              des: '嘎嘎',
-              price: 112
-            },          {
-              src: '../images/goods/满赠透卡.png',
-              des: '啾啾',
-              price: 12
-            },          {
-              src: '../images/goods/满赠透卡.png',
-              des: '这是第三个描述',
-              price: 20
-            },     {
-              src: '../images/goods/满赠透卡.png',
-              des: '这是第三个描述',
-              price: 20
-            },          
-  
-          ]
-        }
+        items: [],
       };
     },
-  }
+    mounted() {
+      // 当组件挂载时从API获取数据
+      this.getAllGoodsList();
+    },
+    methods: {
+      getAllGoodsList(){
+        //接入周边数据
+        fetch('http://47.243.195.59:8080/guzi')
+          .then(response => response.json())
+          .then(data => {
+            // 使用获取的数据更新items数组
+            this.items = data;
+          })
+          .catch(error => console.error('获取数据时出错：', error));
+      },
+      }
+    }
+  
   </script>
   
   
@@ -206,7 +183,7 @@
   }
 
   #goods{
-    margin-top: 5%;
+    margin-top: 3%;
   }
   #goods ul {
   display: flex;
@@ -234,13 +211,12 @@
       display: flex;
       /* align-items: center; */
       justify-content: center;
-      height: 75%; /* 设置图片容器的高度 */
+      height: 250px; /* 设置图片容器的高度 */
   }
-  
-  .image-wrapper img {
-    max-height: 100%; /* 图片最大高度为容器高度的百分之百 */
-    max-width:100%; /* 图片最大宽度为容器宽度的百分之百 */
-  }
+
+.image-wrapper img {
+    max-height: 250px;
+}
 
   .details {
     text-align: left;
