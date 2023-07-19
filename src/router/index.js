@@ -39,7 +39,7 @@ const photoAlbumDetail = () => import("../pages/photoAlbum/detail.vue")
 charaDetail;
 Vue.use(Router);
 export default new Router({
-  mode: "history",
+  // mode: "history",
   routes: [
     {
       path: "/",
