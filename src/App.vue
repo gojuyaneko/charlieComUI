@@ -1,14 +1,9 @@
 <template>
   <div id="app">
     <myNavbar class="sticky"> </myNavbar>
-    <div class="position-absolute">
-      <KeepAlive>
-        <router-view></router-view>
-      </KeepAlive>
-    </div>
-    <div class="myFooter">
-      <myFooter></myFooter>
-    </div>
+    <KeepAlive>
+      <router-view></router-view>
+    </KeepAlive>
   </div>
 </template>
 
@@ -23,19 +18,14 @@ export default {
   margin: 0;
   padding: 0;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 .sticky {
   position: sticky;
   top: 0;
   left: 0;
   z-index: 3;
-}
-.myFooter {
-  position: absolute;
-  bottom: -60px;
-  left: 0;
-  height: 60px;
-  flex-shrink: 0;
-  width: 1920px;
 }
 
 html,
@@ -49,12 +39,6 @@ li {
 #app {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-::-webkit-scrollbar {
-  display: none;
 }
 
 @font-face {

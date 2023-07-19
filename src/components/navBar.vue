@@ -178,6 +178,9 @@ export default {
       if (this.$router.path !== "/") {
         if (url === "/") {
           this.$router.push({ path: url });
+          this.$nextTick(() => {
+            this.$refs.pcBg4.scrollIntoView();
+          });
         }
       }
     },

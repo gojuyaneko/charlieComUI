@@ -54,17 +54,22 @@ export default {
 };
 </script>
 <style scoped>
+::-webkit-scrollbar {
+  display: none;
+}
 .pc-footer {
   position: relative;
   background: url("./../assets/HomePage/图层0.png") no-repeat;
   background-size: 100% 100%;
   width: 1920px;
   height: 229px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .name {
   position: absolute;
   top: 10px;
-  left: 330px;
+  left: 40%;
 }
 .name img {
   width: 322px;
@@ -75,14 +80,14 @@ export default {
   top: 100px;
   left: 50px;
   width: 540px;
-  height: 140px;
+  height: 100px;
 }
 .email {
   position: absolute;
   top: 100px;
   left: 850px;
   width: 290px;
-  height: 140px;
+  height: 100px;
 }
 .icon {
   position: absolute;

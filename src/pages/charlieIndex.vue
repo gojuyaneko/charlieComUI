@@ -73,7 +73,7 @@
           <img src="../assets/HomePage/Page4/标题.png" alt="" />
         </div>
       </div>
-      <!-- <myFooter> </myFooter> -->
+      <myFooter> </myFooter>
     </div>
   </div>
 </template>

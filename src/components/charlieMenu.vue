@@ -18,7 +18,7 @@
             <li
               v-for="(childitem, index) in item.childItems"
               :key="index"
-              @click="$event => goTo(childitem.nextUrl,item.name,index)"
+              @click="($event) => goTo(childitem.nextUrl, item.name, index)"
               :style="{
                 paddingBottom:
                   index === item.childItems.length - 1 ? boxPadding : '40px',
@@ -99,17 +99,16 @@ export default {
   },
   mounted() {},
   methods: {
-    goTo(url,n,i) {
-      let name = n === undefined ? 'others' : n
-      let index = i === undefined ? -1 : i
-      if(name === '< 邂逅') {
+    goTo(url, n, i) {
+      let name = n === undefined ? "others" : n;
+      let index = i === undefined ? -1 : i;
+      if (name === "< 邂逅") {
         this.$router.push({
-          path:url,
-          query:{encounterIndex:index}
+          path: url,
+          query: { encounterIndex: index },
         });
-      }
-      else {
-        this.$router.push(url)
+      } else {
+        this.$router.push(url);
       }
     },
     boxPadding1(index) {
