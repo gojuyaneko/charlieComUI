@@ -109,8 +109,8 @@ export default {
   background-size: 100% 100%;
   cursor: pointer;
   position: absolute;
-  top: 170px;
-  left: 1675px;
+  top: 215px;
+  left: 1600px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -122,8 +122,8 @@ export default {
   position: absolute;
   width: 326px;
   height: 101px;
-  top:260px;
-  right:198px;
+  top:330px;
+  right:180px;
   float: right;
 }
 
@@ -176,15 +176,15 @@ export default {
   background-size: 100% 100%;
   height: 641px;
   width: 1060px;
-  position: relative;
-  top:0px;
+  position: fixed;
+  top:300px;
   left:190px;
 }
 
 .btns {
   display: flex;
   flex-direction: column;
-  top:-230px;
+  top:430px;
   float:right;
   right:565px;
   position: relative;

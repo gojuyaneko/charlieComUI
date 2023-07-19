@@ -71,13 +71,14 @@ export default {
 
 <style scoped>
 
+
 .video-btn {
-  background-image: url("./余音1/video.png");
+  background-image: url("./余音3/video.png");
   background-size: 100% 100%;
   cursor: pointer;
   position: absolute;
-  top: 170px;
-  left: 1675px;
+  top: 215px;
+  left: 1600px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -89,8 +90,8 @@ export default {
   position: absolute;
   width: 213px;
   height: 101px;
-  top:265px;
-  right:200px;
+  top:330px;
+  right:190px;
   float: right;
 }
 
@@ -99,7 +100,7 @@ export default {
   background-size: 100% 100%;
   height: 641px;
   width: 1519px;
-  position: relative;
+  position: fixed;
   display: flex;
   top:250px;
   left:190px;
@@ -108,9 +109,9 @@ export default {
 .btns {
   display: flex;
   flex-direction: row;
-  top:120px;
+  top:740px;
   float:right;
-  right:200px;
+  right:170px;
   position: relative;
 }
 
