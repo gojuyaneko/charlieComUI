@@ -1,12 +1,19 @@
 <template>
   <div>
     <div class="bg">
-      <img src="@/assets/aboutCharlie/relationbg.png" />
+      <img src="@/assets/aboutCharlie/矩形2拷贝3.png" />
     </div>
     <div class="charaPic">
+      <img
+        v-if="characterImg"
+        :src="characterImg"
+        @click="showPopup = !showPopup"
+        alt="Character Image"
+      />
+      <div v-else class="no-image"></div>
       <div v-if="showPopup" class="popup">
         <div class="popup-content">
-          <h2>{{ characterName }}</h2>
+          <p>{{ characterName }}</p>
           <ul>
             <li v-for="identity in characterDetail.identities" :key="identity">
               {{ identity }}
@@ -22,33 +29,6 @@
     </div>
   </div>
 </template>
-    <!-- <div>
-        <img
-          :src="characterImg"
-          :alt="characterName"
-          @click="showPopup = true"
-        />
-        <div class="name">{{ characterName }}</div>
-        <div class="text">
-          <ul>
-            <li
-              v-for="(detail, index) in characterDetail.identities"
-              :key="index"
-            >
-              <p>{{ detail }}</p>
-            </li>
-            <li
-              v-for="(detail, index) in characterDetail.overview"
-              :key="index"
-            >
-              <p>{{ detail }}</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div> -->
-//   </div>
-// </template>
 
 <script>
 export default {
@@ -61,6 +41,14 @@ export default {
     return {
       showPopup: false,
     };
+  },
+  watch: {
+    characterDetail: {
+      handler(newVal) {
+        this.showPopup = true; // 当 characterDetail 变化时，显示弹窗
+      },
+      deep: true, // 深度侦听
+    },
   },
 };
 </script>
@@ -90,42 +78,56 @@ export default {
   font-size: 100px;
   color: #d6b367;
 }
-.text {
-  display: inline-block;
+.charaPic img {
+  z-index: 1;
   position: absolute;
-  width: 820px;
-  height: 500px;
-  top: 460px;
-  left: 800px;
-  font-size: 25px;
-  font-family: "nansongshuju";
-  text-align: right;
+  top: 250px;
+  left: 500px;
+  width: 291px;
+  height: 424px;
+  font-size: 100px;
+  color: #d6b367;
 }
-.text li p {
-  margin-bottom: 50px;
-}
-.name {
-  display: inline-block;
-  position: absolute;
-  width: 820px;
-  height: 50px;
-  top: 300px;
-  left: 700px;
-  font-size: 50px;
-  font-family: "nansongshuju";
-  text-align: right;
-}
+
 .popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.popup-content {
+  display: inline-block;
+  position: absolute;
+  width: 820px;
+  height: 500px;
+  top: 350px;
+  left: 700px;
+  font-size: 18px;
+  font-family: "nansongshuju";
+  text-align: right;
+  margin-bottom: 50px;
+}
+
+.popup-content ul {
+  margin-bottom: 50px;
+  font-size: 23px;
+  font-family: "nansongshuju";
+  text-align: right;
+}
+.popup-content p {
+  font-family: "nansongshuju";
+  text-align: right;
+  font-size: 40px;
+  margin-bottom: 50px;
+}
+.popup-content li {
+  margin-bottom: 10px;
 }
 .my-ship {
   width: 1272px;

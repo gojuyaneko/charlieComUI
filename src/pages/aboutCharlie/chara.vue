@@ -7,7 +7,185 @@
         alt="查兆澎"
       />
       <div class="popup" v-show="showPopup" @click="showPopup = false">
-        <myShip :characterData="selectedCharacter"></myShip>
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+    <div class="xh" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/羲和.png"
+        @click="setSelectedCharacter('羲和')"
+        alt="查兆澎"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+
+    <div class="js" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/吉叔.png"
+        @click="setSelectedCharacter('吉叔')"
+        alt="吉叔"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+
+    <div class="zlf" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/查理芬.png"
+        @click="setSelectedCharacter('查理芬')"
+        alt="查理芬"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+
+    <div class="mk" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/马克.png"
+        @click="setSelectedCharacter('马克')"
+        alt="羲和"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+    <div class="stz" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/孙泰中.png"
+        @click="setSelectedCharacter('孙泰中')"
+        alt="孙泰中"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+    <div class="axn" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/埃西诺.png"
+        @click="setSelectedCharacter('埃西诺')"
+        alt="羲和"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+    <div class="hgh" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/何国恒.png"
+        @click="setSelectedCharacter('何国恒')"
+        alt="羲和"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+
+    <div class="shy" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/时晏.png"
+        @click="setSelectedCharacter('时晏')"
+        alt="羲和"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+
+    <div class="sy" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/舒云.png"
+        @click="setSelectedCharacter('舒云')"
+        alt="羲和"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+    <div class="dl" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/迪伦.png"
+        @click="setSelectedCharacter('迪伦')"
+        alt="羲和"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+    <div class="ow" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/欧文.png"
+        @click="setSelectedCharacter('欧文')"
+        alt="羲和"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+
+    <div class="la" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/莱昂.png"
+        @click="setSelectedCharacter('莱昂')"
+        alt="羲和"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
       </div>
     </div>
   </div>
@@ -23,7 +201,7 @@ export default {
       selectedCharacter: {
         name: "",
         img: "",
-        detail: "",
+        detail: {},
       },
     };
   },
@@ -181,7 +359,6 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;

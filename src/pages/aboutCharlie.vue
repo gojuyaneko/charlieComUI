@@ -178,11 +178,9 @@ export default {
 
 .pc-bg {
   background-image: url(./../assets/HomePage/金色圆片拷贝3.png);
-
   background-position: center center;
   background-repeat: no-repeat;
   background-repeat: no-repeat;
-
   background-size: cover;
   position: relative;
   height: 1080px;
