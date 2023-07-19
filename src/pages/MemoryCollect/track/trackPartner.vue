@@ -269,4 +269,13 @@ export default {
   line-height: 30px;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
+}
 </style>
