@@ -87,7 +87,7 @@ export default {
   background-size: 100% 100%;
   cursor: pointer;
   position: absolute;
-  top: 230px;
+  top: 165px;
   left: 1570px;
   width: 145px;
   height: 46px;
@@ -151,7 +151,7 @@ export default {
   background-image: url("./侧影2/暗2.png");
   background-size: 100% 100%;
   position: fixed;
-  top: 380px;
+  top: 370px;
   left: 190px;
   width: 349px;
   height: 424px;
@@ -171,7 +171,7 @@ export default {
   background-image: url("./侧影2/暗1.png");
   background-size: 100% 100%;
   position: fixed;
-  top: 380px;
+  top: 370px;
   left: 190px;
   width: 349px;
   height: 424px;
@@ -211,6 +211,7 @@ export default {
 ::-webkit-scrollbar {
   width: 20px;
   margin-left: -30px;
+  display: flex;
 }
 ::-webkit-scrollbar-track {
   border:1px solid #d6b367;

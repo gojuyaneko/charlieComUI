@@ -62,7 +62,6 @@ export default {
   background: url('./余音1/bg.png') no-repeat;
   background-size: auto ;
   background-position: center;
-
 }
 
 .guide {
@@ -84,8 +83,9 @@ export default {
   float: right;
   right:160px;
   display: inline-block;
-  top: 250px;
+  top: 270px;
   cursor: pointer;
 }
+
 
 </style>

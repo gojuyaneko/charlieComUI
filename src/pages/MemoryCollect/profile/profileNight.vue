@@ -88,7 +88,7 @@ export default {
   background-size: 100% 100%;
   cursor: pointer;
   position: absolute;
-  top: 230px;
+  top: 165px;
   left: 1570px;
   width: 145px;
   height: 46px;
@@ -213,6 +213,7 @@ export default {
 ::-webkit-scrollbar {
   width: 20px;
   margin-left: -30px;
+  display: flex;
 }
 ::-webkit-scrollbar-track {
   border:1px solid #d6b367;
