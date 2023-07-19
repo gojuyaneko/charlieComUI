@@ -6,6 +6,9 @@
         <router-view></router-view>
       </KeepAlive>
     </div>
+    <div class="myFooter">
+      <myFooter></myFooter>
+    </div>
   </div>
 </template>
 
@@ -26,6 +29,15 @@ export default {
   left: 0;
   z-index: 3;
 }
+.myFooter {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  width: 1080px !important;
+  height: 60px;
+  flex-shrink: 0;
+  width: 100%;
+}
 html,
 body {
   width: 100%;
@@ -37,6 +49,12 @@ li {
 #app {
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 @font-face {

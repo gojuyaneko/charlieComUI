@@ -11,6 +11,7 @@ import indexCarousel from "./components/charliePic.vue";
 import clothesSlider from "./components/clothes.vue";
 import moreRelation from "./pages/aboutCharlie/chara.vue";
 import relationShip from "./pages/aboutCharlie/relationship.vue";
+import indexFooter from "./components/footer.vue";
 
 import "lib-flexible";
 Vue.config.productionTip = false;
@@ -37,7 +38,7 @@ import {
   OptionGroup,
   Breadcrumb,
   BreadcrumbItem,
-  Loading
+  Loading,
 } from "element-ui";
 
 Vue.use(Pagination);
@@ -70,7 +71,7 @@ Vue.component("myPic", indexCarousel);
 Vue.component("mySlider", clothesSlider);
 Vue.component("myRelation", moreRelation);
 Vue.component("myShip", relationShip);
-Vue.component("myShip", relationShip);
+Vue.component("myFooter", indexFooter);
 
 new Vue({
   render: (h) => h(App),

@@ -42,34 +42,26 @@ export default {
     return {
       currentIndex: 0,
       imageUrl: [
-        require("@/assets/HomePage/111.png"),
-        require("@/assets/HomePage/222.png"),
-        require("@/assets/HomePage/111.png"),
-        require("@/assets/HomePage/111.png"),
+        require("@/assets/HomePage/7章.png"),
+        require("@/assets/HomePage/10章.png"),
+        require("@/assets/HomePage/14章.png"),
+        require("@/assets/HomePage/新生3.png"),
       ],
       imageData: [
         {
-          url: require("@/assets/HomePage/111.png"),
+          url: require("@/assets/HomePage/7章.png"),
           link: "./lightandnight",
         },
         {
-          url: require("@/assets/HomePage/111.png"),
+          url: require("@/assets/HomePage/10章.png"),
           link: "/detail/2",
         },
         {
-          url: require("@/assets/HomePage/111.png"),
+          url: require("@/assets/HomePage/14章.png"),
           link: "/detail/3",
         },
         {
-          url: require("@/assets/HomePage/111.png"),
-          link: "/detail/3",
-        },
-        {
-          url: require("@/assets/HomePage/111.png"),
-          link: "/detail/3",
-        },
-        {
-          url: require("@/assets/HomePage/111.png"),
+          url: require("@/assets/HomePage/新生3.png"),
           link: "/detail/3",
         },
       ],
