@@ -109,8 +109,8 @@ export default {
   background-size: 100% 100%;
   cursor: pointer;
   position: absolute;
-  top: 215px;
-  left: 1600px;
+  top: 160px;
+  left: 1550px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -122,8 +122,8 @@ export default {
   position: absolute;
   width: 326px;
   height: 101px;
-  top:330px;
-  right:180px;
+  top:280px;
+  right:190px;
   float: right;
 }
 
@@ -134,7 +134,7 @@ export default {
   position: relative;
   box-sizing: border-box;
   cursor: pointer;
-  top:350px;
+  top:370px;
   left: 1320px;
 }
 .change .border {
@@ -174,7 +174,7 @@ export default {
 .text-bg {
   background: url('./余音3/text-bg.png') no-repeat;
   background-size: 100% 100%;
-  height: 641px;
+  height: 700px;
   width: 1060px;
   position: fixed;
   top:300px;
@@ -256,7 +256,7 @@ export default {
 
 .text {
   width: 1100px;
-  height: 550px;
+  height: 610px;
   overflow-y: scroll;
   position: absolute;
   top:45px;
