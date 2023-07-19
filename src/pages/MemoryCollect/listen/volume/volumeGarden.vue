@@ -1,13 +1,17 @@
 <template>
-<div class="dream">
+<div class="garden">
   <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
         <a class="video-btn" target="_blank" :href="item.videoUrl"></a>
   </li>
     <div class="title"></div>
-    <div class="change" @click="change()">
-      <div class="card2" v-if="temp"></div>
-      <div class="card1" v-else></div>
-    </div>
+    <div class="change"  @mouseenter="changeImg(true)" @mouseleave="changeImg(false)">
+          <div :class="isUp ? 'border' : 'border-cover'" >
+            <img :src="card1" class="itemImg" />
+          </div>
+          <div :class="!isUp ? 'border' : 'border-cover'" >
+            <img :src="card2" class="itemImg" />
+          </div>
+  </div>
 
    <div class="text-bg">
       <div class="text">
@@ -35,8 +39,11 @@ export default {
   components:{volumeContent,},
   data() {
     return {
+      card1:require('./余音3/card1.png'),
+      card2:require('./余音3/card2.png'),
       temp:1,
       Index: 0,
+      isUp: true,
       contentDataList: [],
       subContent:[],
     }
@@ -57,6 +64,10 @@ export default {
       }else{
          this.temp = 0
       }
+      this.getPara()
+    },
+    changeImg(flag) {
+      this.isUp = flag
       this.getPara()
     },
     getPara() {
@@ -85,6 +96,13 @@ export default {
 
 <style scoped>
 
+.garden {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-size: auto ;
+  background-position: center;
+}
 
 .video-btn {
   background-image: url("./余音3/video.png");
@@ -99,39 +117,58 @@ export default {
 }
 
 .title {
-  background: url("./余音3/title.png");
-  background-size: 100% 100% ;
+  background: url("./余音3/title.png")no-repeat;
+  background-size: 95% 95% ;
   position: absolute;
   width: 326px;
   height: 101px;
-  top:268px;
+  top:260px;
   right:198px;
   float: right;
 }
 
-.card2 {
-  background: url('./余音3/card2.png') no-repeat;
+.change {
+  width: 540px;
+  height: 300px;
   background-size: 100% 100%;
-  height: 554px;
-  width: 385px;
   position: relative;
-  top:340px;
-  right:135px;
-  float: right;
+  box-sizing: border-box;
   cursor: pointer;
+  top:350px;
+  left: 1320px;
 }
-
-
-.card1 {
-  background: url('./余音3/card1.png') no-repeat;
-   background-size: 100% 100%;
-  height: 554px;
-  width: 385px;
-  position: relative;
-  top:340px;
-  right:135px;
-  float: right;
-  cursor: pointer;
+.change .border {
+  width: 432px;
+  height: 611px;
+  position: absolute;
+  z-index: 2;
+  top: -22px;
+  left: 36px;
+  transition: width 0.01s;
+  overflow: hidden;
+}
+.change .border-cover {
+  width: 429px;
+  height: 608px;
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  left: 62px;
+  overflow: hidden;
+  filter: contrast(0.5);
+}
+.change:hover .border-cover {
+  transition: all 0.3s;
+}
+.change .border img {
+  width: 95%;
+  height: 95%;
+  background: transparent;
+}
+.change .border-cover img {
+  width: 95%;
+  height: 95%;
+  background: transparent;
 }
 
 .text-bg {
@@ -140,14 +177,14 @@ export default {
   height: 641px;
   width: 1060px;
   position: relative;
-  top:250px;
+  top:0px;
   left:190px;
 }
 
 .btns {
   display: flex;
   flex-direction: column;
-  top:40px;
+  top:-230px;
   float:right;
   right:565px;
   position: relative;
