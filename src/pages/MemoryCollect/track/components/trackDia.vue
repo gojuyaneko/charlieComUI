@@ -30,11 +30,11 @@ export default {
   font-family: "nansongshuju";
 }
 .dialog-p {
-  width: 700px;
+  width: 1000px;
   margin-bottom: 20px;
 }
 .dialog-span {
-  width: 100px;
+  width: 140px;
   position: relative;
   left:8px;
 }
@@ -45,7 +45,7 @@ span[data-person="我"] {
 }
 span[data-person="查理苏"] {
   color: #bea7d5;
-  margin-right: 30px;
+  margin-right: 40px;
 }
 span[data-person="旁白"] {
   display: none;

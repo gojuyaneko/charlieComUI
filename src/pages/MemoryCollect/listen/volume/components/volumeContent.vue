@@ -19,11 +19,11 @@ export default {
 .text-div {
   display: flex;
   flex-direction: row;
-  font-size: 15px;
+  font-size: 18px;
   font-family: "nansongshuju";
 }
 .dialog-p {
-  width: 880px;
+  width: 795px;
   margin-bottom: 20px;
   position:relative;
   left:20px;

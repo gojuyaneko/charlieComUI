@@ -16,8 +16,8 @@
      <div class="text">
        <ul>
         <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
-          <rewindDia v-if="item.DiaOrMemory === 'dia'" :sendName="item.subContent"></rewindDia>
-          <rewindMemory v-if="item.DiaOrMemory === 'memory'" :sendName="item.subContent"></rewindMemory>
+          <rewindDia v-if="item.DiaOrMemory === 'dia'" :sendName="subContent"></rewindDia>
+          <rewindMemory v-if="item.DiaOrMemory === 'memory'" :sendName="subContent"></rewindMemory>
         </li>
        </ul>
      </div>
@@ -30,91 +30,48 @@
 <script>
 import rewindDia from "@/pages/MemoryCollect/listen/rewind/components/rewindDia.vue";
 import rewindMemory from "@/pages/MemoryCollect/listen/rewind/components/rewindMemory.vue";
+import {getRP} from "@/request/api";
 
 export default {
   components:{rewindDia,rewindMemory},
   data() {
     return {
       Index:0,
-      contentDataList:[
-        {
-          sessionIndex:0,
-          DiaOrMemory:'dia',
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-        {
-          name:'保安',
-          content: 'Charlie先生，欢迎来到Bitter&Sweet 2023巧克力主题派对夜。您邀请的客人还在女宾休息室准备'
-        },
-        {
-          name:'查理苏',
-          content: '不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
-              '对了，老规矩。给我准备一副扑克。\n'
-        }
-      ],
-        },
-        {
-          sessionIndex:1,
-          DiaOrMemory:'memory',
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-        {
-          name:'查理苏',
-          content: '不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
-              '对了，老规矩。给我准备一副扑克。'
-        },
-            {
-              name:'我',
-          content: '不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
-              '对了，老规矩。给我准备一副扑克。'
-            }
-      ],
-        },
-        {
-          sessionIndex:2,
-          DiaOrMemory:'memory',
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-        {
-          name:'查理苏',
-          content: '111不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
-              '对了，老规矩。给我准备一副扑克。'
-        }
-      ],
-        },
-        {
-          sessionIndex:3,
-          DiaOrMemory:'memory',
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-        {
-          name:'查理苏',
-          content: '222不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
-              '对了，老规矩。给我准备一副扑克。'
-        }
-      ],
-        },
-        {
-          sessionIndex:4,
-          DiaOrMemory:'memory',
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-        {
-          name:'查理苏',
-          content: '333不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来. 对了，老规矩。给我准备一副扑克。不急。麻烦转告这位美丽的拖延鬼小姐，夜晚还早，我会在沙发区静静等候她的到来。\n' +
-              '对了，老规矩。给我准备一副扑克。'
-        }
-      ],
-        },
-
-      ],
+      contentDataList:[],
+      subContent:[],
     }
+  },
+  mounted () {
+    this.getPara()
   },
   methods: {
     show(value) {
       this.Index === value ? this.isShow = !this.isShow : this.isShow = true
       this.Index = value
+      console.log(this.Index)
+      this.getPara()
     },
+    getPara() {
+      getRP({sessionIndex:this.Index}).then((res) => {
+        this.subContent=[]
+        this.contentDataList=[]
+            for( let i in res.subContent) {
+              let dia= {
+                name: res.subContent[i]["name"],
+                content:res.subContent[i]["content"],
+              }
+              console.log(res.subContent[i])
+              this.subContent.push(dia)
+            }
+            let item = {
+              sessionIndex:this.Index,
+                videoUrl: res.videoUrl,
+              DiaOrMemory:res.DiaOrMemory,
+            }
+            this.contentDataList.push(item)
+
+      })
+    }
   }
 }
 </script>
@@ -143,9 +100,9 @@ export default {
   background-image: url("./倒带1/video.png");
   background-size: 100% 100%;
   cursor: pointer;
-  position: relative;
+  position: absolute;
   top: 150px;
-  left: 670px;
+  left: 1570px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -157,7 +114,7 @@ export default {
   height: 648px;
   width: 1521px;
   position: relative;
-  top:200px;
+  top:240px;
   left:190px;
 }
 

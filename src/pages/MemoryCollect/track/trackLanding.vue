@@ -29,8 +29,8 @@
     <div class="text">
       <ul>
         <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
-          <trackDia v-if="item.DiaOrMemory === 'dia'" :sendName="item.subContent"></trackDia>
-          <trackMemory v-if="item.DiaOrMemory === 'memory'" :sendName="item.subContent"></trackMemory>
+          <trackDia v-if="item.DiaOrMono === 'dia'" :sendName="subContent"></trackDia>
+          <trackMemory v-if="item.DiaOrMono === 'memory'" :sendName="subContent"></trackMemory>
         </li>
       </ul>
     </div>
@@ -41,6 +41,7 @@
 <script>
 import trackDia from "@/pages/MemoryCollect/track/components/trackDia.vue";
 import trackMemory from "@/pages/MemoryCollect/track/components/trackMemory.vue";
+import {getTP} from "@/request/api";
 
 export default {
   components:{trackDia,trackMemory},
@@ -99,214 +100,41 @@ export default {
           num:5,
         },
       ],
-      contentDataList:[
-        {
-          sessionIndex:0,
-          DiaOrMemory:'memory',
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-            {
-              name:'妈妈',
-              content: '“Charlie，想不想和妈妈一起去游乐园玩？”',
-            },
-            {
-              name:'旁白',
-              content: '一天炎热的午后，妈妈突然这样问我。\n' +
-                  '她半蹲在我面前，用柔软的手指轻抚我的头顶，眼里充盈着温柔。\n'
-            },
-          ]
-        },
-
-        {
-          sessionIndex:1,
-          DiaOrMemory:'dia',
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-        {
-          name:'管家',
-          content:'少爷，欢迎回来。\n' +
-              '今天Alan医生有给您什么建议吗？'
-        },
-        {
-          name:'查理苏',
-          content: '他没说什么。\n' +
-              '我先回房，晚上不用喊我吃饭。\n' +
-              '看心理医生真的会有用吗……\n' +
-              '谁？\n'
-        },
-       {
-          name:'管家',
-          content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
-        },
-        {
-          name:'查理苏',
-          content: '吉叔，不用费心了，今天我吃不下。'
-        },
-          {
-          name:'管家',
-          content:'少爷，欢迎回来。\n' +
-              '今天Alan医生有给您什么建议吗？'
-        },
-        {
-          name:'查理苏',
-          content: '他没说什么。\n' +
-              '我先回房，晚上不用喊我吃饭。\n' +
-              '看心理医生真的会有用吗……\n' +
-              '谁？\n'
-        },
-       {
-          name:'管家',
-          content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
-        },
-        {
-          name:'查理苏',
-          content: '吉叔，不用费心了，今天我吃不下。'
-        },
-          {
-          name:'管家',
-          content:'少爷，欢迎回来。\n' +
-              '今天Alan医生有给您什么建议吗？'
-        },
-        {
-          name:'查理苏',
-          content: '他没说什么。\n' +
-              '我先回房，晚上不用喊我吃饭。\n' +
-              '看心理医生真的会有用吗……\n' +
-              '谁？\n'
-        },
-       {
-          name:'管家',
-          content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
-        },
-        {
-          name:'查理苏',
-          content: '吉叔，不用费心了，今天我吃不下。'
-        },
-      ],
-        },
-          {
-          sessionIndex:2,
-          DiaOrMemory:'memory',
-            videoUrl: "https://www.bilibili.com",
-          subContent:[
-            {
-              name:'妈妈',
-              content: '“Charlie，想不想和妈妈一起去游乐园玩？”',
-            },
-            {
-              name:'旁白',
-              content: '一天炎热的午后，妈妈突然这样问我。\n' +
-                  '她半蹲在我面前，用柔软的手指轻抚我的头顶，眼里充盈着温柔。\n'
-            },
-          ]
-        },
-          {
-          sessionIndex:3,
-          DiaOrMemory:'dia',
-            videoUrl: "https://www.bilibili.com",
-          subContent: [
-        {
-          name:'管家',
-          content:'333少爷，欢迎回来。\n' +
-              '今天Alan医生有给您什么建议吗？'
-        },
-        {
-          name:'查理苏',
-          content: '他没说什么。\n' +
-              '我先回房，晚上不用喊我吃饭。\n' +
-              '看心理医生真的会有用吗……\n' +
-              '谁？\n'
-        },
-       {
-          name:'管家',
-          content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
-        },
-        {
-          name:'查理苏',
-          content: '吉叔，不用费心了，今天我吃不下。'
-        },
-          {
-          name:'管家',
-          content:'少爷，欢迎回来。\n' +
-              '今天Alan医生有给您什么建议吗？'
-        },
-        {
-          name:'查理苏',
-          content: '他没说什么。\n' +
-              '我先回房，晚上不用喊我吃饭。\n' +
-              '看心理医生真的会有用吗……\n' +
-              '谁？\n'
-        },
-       {
-          name:'管家',
-          content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
-        },
-        {
-          name:'查理苏',
-          content: '吉叔，不用费心了，今天我吃不下。'
-        },
-          {
-          name:'管家',
-          content:'少爷，欢迎回来。\n' +
-              '今天Alan医生有给您什么建议吗？'
-        },
-        {
-          name:'查理苏',
-          content: '他没说什么。\n' +
-              '我先回房，晚上不用喊我吃饭。\n' +
-              '看心理医生真的会有用吗……\n' +
-              '谁？\n'
-        },
-       {
-          name:'管家',
-          content:'少爷，Linda给您做了您最爱吃的饼干，还准备了可可牛奶和 — —'
-        },
-        {
-          name:'查理苏',
-          content: '吉叔，不用费心了，今天我吃不下。'
-        },
-      ],
-        },
-          {
-          sessionIndex:4,
-          DiaOrMemory:'memory',
-            videoUrl: "https://www.bilibili.com",
-          subContent: [
-            {
-              name:'妈妈',
-              content: '“Charlie，想不想和妈妈一起去游乐园玩？”',
-            },
-            {
-              name:'旁白',
-              content: '一天炎热的午后，妈妈突然这样问我。\n' +
-                  '她半蹲在我面前，用柔软的手指轻抚我的头顶，眼里充盈着温柔。\n'
-            },
-          ]
-        },
-          {
-          sessionIndex:5,
-          DiaOrMemory:'memory',
-            videoUrl: "https://www.bilibili.com",
-          subContent: [
-            {
-              name:'妈妈',
-              content: '“Charlie，想不想和妈妈一起去游乐园玩？”',
-            },
-            {
-              name:'旁白',
-              content: '一天炎热的午后，妈妈突然这样问我。\n' +
-                  '她半蹲在我面前，用柔软的手指轻抚我的头顶，眼里充盈着温柔。\n'
-            },
-          ]
-        },
-      ],
+      contentDataList:[],
+      subContent:[],
     }
+  },
+  mounted () {
+    this.getPara()
   },
   methods: {
     show(value) {
       this.Index === value ? this.isShow = !this.isShow : this.isShow = true
       this.Index = value
+      console.log(this.Index)
+      this.getPara()
     },
+    getPara() {
+      getTP({cardindex:1,sessionIndex:this.Index}).then((res) => {
+        this.subContent=[]
+        this.contentDataList=[]
+            for( let i in res.subContent) {
+              let dia= {
+                name: res.subContent[i]["name"],
+                content:res.subContent[i]["content"],
+              }
+              console.log(res.subContent[i])
+              this.subContent.push(dia)
+            }
+            let item = {
+              sessionIndex:this.Index,
+              videoUrl: res.videoUrl,
+              DiaOrMono:res.DiaOrMono,
+            }
+            this.contentDataList.push(item)
+
+      })
+    }
   }
 }
 </script>
@@ -316,11 +144,11 @@ export default {
 .title {
   background: url("./轨迹2/title.png");
   background-size: 100% 100% ;
-  position: relative;
+  position: absolute;
   width: 263px;
   height: 128px;
-  top:-30px;
-  right:50px;
+  top:9px;
+  right:55px;
   float: right;
 }
 
@@ -328,9 +156,9 @@ export default {
   background-image: url("./轨迹2/video.png");
   background-size: 100% 100%;
   cursor: pointer;
-  position: relative;
+  position: absolute;
   top: -85px;
-  left: 770px;
+  left: 1500px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -338,9 +166,9 @@ export default {
 
 .title-img {
   height: 20px;
-  top:50px;
+  top:95px;
   float: right;
-  right:-35px;
+  right:195px;
   display: inline-block;
   position: relative;
 }
@@ -363,63 +191,61 @@ export default {
 }
 
 .active1 {
-  top: 470px;
-  left:1325px;
+  top: 520px;
+  left:1318px;
 }
 
 .active2 {
-  top: 415px;
-  left: 1328px;
+  top: 464px;
+  left: 1323.5px;
 }
 
 .active3 {
-  left: 1351px;
-  top: 366px;
+  left: 1346px;
+  top: 409px;
 }
 
 .active4 {
-  left: 1389px;
-  top: 327px;
+  left: 1386px;
+  top: 372px;
 }
 
 .active5 {
-  left :1438.5px;
-  top: 304px;
+  left :1439px;
+  top: 348px;
 }
 
 .active6 {
-  left:1493.5px;
-  top: 300px;
+  left:1494px;
+  top: 345px;
 }
-
-
-.btn1 {
-  top: 581.5px;
-  left:1322px;
+.btn1{
+  top: 631.5px;
+  left:1315px;
 }
 
 .btn2 {
-  top:508px;
-  left:1325px;
+  top:558px;
+  left:1320px;
 }
 
 .btn3 {
-  top:440px;
-  left:1348px;
+  top:483px;
+  left:1343px;
 }
 
 .btn4 {
-  top:382px;
-  left:1386px;
+  top:427px;
+  left:1383px;
 }
 
 .btn5 {
-  top:339.5px;
+  top:385px;
   left:1435.5px;
 }
 
 .btn6 {
-  top:316px;
+  top:362px;
   left:1490.5px;
 }
 
@@ -427,14 +253,13 @@ export default {
   display: inline-block;
   position: relative;
   float: right;
-  top: 400px;
+  top: 450px;
   right:5px;
   height: 70px;
 }
 
-
 .text {
-  width: 1000px;
+  width: 1200px;
   height: 570px;
   overflow-y: scroll;
   position: absolute;

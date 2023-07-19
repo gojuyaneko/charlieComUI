@@ -60,7 +60,7 @@ export default {
   width: 100%;
   height: 100%;
   background: url('./余音1/bg.png') no-repeat;
-  background-size: cover;
+  background-size: auto ;
   background-position: center;
 }
 
@@ -75,7 +75,7 @@ export default {
 }
 
 .next {
-   background: url('./余音1/next.png') no-repeat;
+  background: url('./余音1/next.png') no-repeat;
   background-size: 100% 100%;
   height: 35px;
   width: 35px;

@@ -85,6 +85,7 @@ export default {
 
 <style scoped>
 
+
 .video-btn {
   background-image: url("./余音3/video.png");
   background-size: 100% 100%;
@@ -217,7 +218,7 @@ export default {
 }
 
 .text {
-  width: 900px;
+  width: 1100px;
   height: 550px;
   overflow-y: scroll;
   position: absolute;
@@ -225,5 +226,15 @@ export default {
   left:10px;
   white-space: pre-wrap;
   line-height: 20px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
 }
 </style>

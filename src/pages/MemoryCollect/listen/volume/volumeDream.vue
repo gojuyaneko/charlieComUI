@@ -100,6 +100,7 @@ export default {
   height: 641px;
   width: 1519px;
   position: relative;
+  display: flex;
   top:250px;
   left:190px;
 }
@@ -178,7 +179,7 @@ export default {
 }
 
 .text {
-  width: 900px;
+  width: 1100px;
   height: 550px;
   overflow-y: scroll;
   position: absolute;
@@ -189,6 +190,15 @@ export default {
 }
 
 
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
+}
 
 </style>
 
