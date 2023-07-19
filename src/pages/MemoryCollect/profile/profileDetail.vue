@@ -66,25 +66,23 @@ export default {
   width: 207px;
 }
 
-
-
 .next {
   background: url('./侧影1/next.png') no-repeat;
   background-size: 100% 100%;
   height: 40px;
   width: 40px;
-  position: relative;
+  position: fixed;
   display: inline-block;
-  left:-440px;
-  top: 780px;
+  left:510px;
+  top: 870px;
   cursor: pointer;
 }
 
 .line {
   background-image: url("./侧影1/line.png");
   background-size: 100% 100%;
-  position: relative;
-  top: 480px;
+  position: fixed;
+  top: 545px;
   left: 560px;
   width: 166px;
   height: 25px;

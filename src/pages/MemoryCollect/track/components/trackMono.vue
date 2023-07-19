@@ -38,6 +38,7 @@ span[data-person="查理苏"] {
   color: #bea7d5;
   position: fixed;
   left: 260px;
+  top:320px;
 }
 
 p[data-person-p="查理苏"] {

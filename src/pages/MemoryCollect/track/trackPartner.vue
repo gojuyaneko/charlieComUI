@@ -158,7 +158,7 @@ export default {
   cursor: pointer;
   position: absolute;
   top: -85px;
-  left: 1500px;
+  left: 1380px;
   width: 145px;
   height: 46px;
   display: inline-block;

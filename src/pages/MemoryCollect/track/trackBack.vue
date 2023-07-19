@@ -154,12 +154,12 @@ export default {
 }
 
 .video-btn {
-  background-image: url("./轨迹3/video.png");
+  background-image: url("./轨迹1/video.png");
   background-size: 100% 100%;
   cursor: pointer;
   position: absolute;
   top: -85px;
-  left: 1500px;
+  left: 1380px;
   width: 145px;
   height: 46px;
   display: inline-block;
