@@ -73,10 +73,7 @@
           <img src="../assets/HomePage/Page4/标题.png" alt="" />
         </div>
       </div>
-
-      <div class="pc-indexFooter">
-        <span class="pc-footerFont">1111</span>
-      </div>
+      <!-- <myFooter> </myFooter> -->
     </div>
   </div>
 </template>
@@ -253,21 +250,6 @@ export default {
   right: 355px;
   top: 408px;
   z-index: 100;
-}
-
-.pc-indexFooter {
-  background: url("./../assets/HomePage/Page1/导航.png") no-repeat;
-  background-size: 100% 100%;
-  width: 100%;
-  height: 65px;
-  font-family: "nansongshuju";
-}
-.pc-footerFont {
-  text-align: center;
-  letter-spacing: 10px;
-  font-size: 41px;
-  font-family: "nansongshuju";
-  color: #d6b367;
 }
 
 .pc-carousel {

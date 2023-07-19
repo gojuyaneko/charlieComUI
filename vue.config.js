@@ -1,14 +1,12 @@
 // 引入等比适配插件
-const CompressionPlugin = require('compression-webpack-plugin')
+const CompressionPlugin = require("compression-webpack-plugin");
 const webpack = require("webpack");
 // compression压缩后缀
 // vue 的配置文件
 // 使用等比适配插件
 module.exports = {
   //基本路径
-  publicPath: process.env.NODE_ENV === 'production'
-    ? './'
-    : '/',
+  publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
   //构建时输出目录
   outputDir: "dist",
   //放置静态资源的目录
@@ -23,22 +21,22 @@ module.exports = {
   css: {
     loaderOptions: {
       postcss: {
-        postcssOptions:{
-        plugins: [
-          require('postcss-pxtorem')({
-            rootValue: 192,
-            unitPrecision: 5,
-            propList: ['*'],
-            selectorBlackList: ['no-conversion-'],
-            replace: false,
-            mediaQuery: false,
-            minPixelValue: 12,
-            exclude: /node_modules/i
-          }),
-        ]
-      }
-      }
-    }
+        postcssOptions: {
+          plugins: [
+            require("postcss-pxtorem")({
+              rootValue: 192,
+              unitPrecision: 5,
+              propList: ["*"],
+              selectorBlackList: ["no-conversion-"],
+              replace: false,
+              mediaQuery: false,
+              minPixelValue: 12,
+              exclude: /node_modules/i,
+            }),
+          ],
+        },
+      },
+    },
   },
   productionSourceMap: true,
   // productionSourceMap: process.env.NODE_ENV === 'development',
@@ -58,7 +56,7 @@ module.exports = {
           ];
         });
     }
-  }
+  },
   // configureWebpack: {
   //   // 生产环境才去配置
   //       plugins: [
@@ -81,26 +79,26 @@ module.exports = {
   //         "moment": "moment",
   //         "element-ui": "ELEMENT",
   //       },
-        // 分割chunk文件
-        // optimization: {
-        //   runtimeChunk: 'single',
-        //   splitChunks: {
-        //     chunks: 'all',
-        //     maxInitialRequests: Infinity,
-        //     minSize: 20000,
-        //     cacheGroups: {
-        //       vendor: {
-        //         test: /[\\/]node_modules[\\/]/,
-        //         name (module) {
-        //           // get the name. E.g. node_modules/packageName/not/this/part.js
-        //           // or node_modules/packageName
-        //           const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
-        //           // npm package names are URL-safe, but some servers don't like @ symbols
-        //           return `npm.${packageName.replace('@', '')}`
-        //         }
-        //       }
-        //     }
-        //   }
-        // } 
-//       },
-}
+  // 分割chunk文件
+  // optimization: {
+  //   runtimeChunk: 'single',
+  //   splitChunks: {
+  //     chunks: 'all',
+  //     maxInitialRequests: Infinity,
+  //     minSize: 20000,
+  //     cacheGroups: {
+  //       vendor: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name (module) {
+  //           // get the name. E.g. node_modules/packageName/not/this/part.js
+  //           // or node_modules/packageName
+  //           const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
+  //           // npm package names are URL-safe, but some servers don't like @ symbols
+  //           return `npm.${packageName.replace('@', '')}`
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  //       },
+};

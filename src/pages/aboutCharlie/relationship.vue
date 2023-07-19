@@ -3,16 +3,18 @@
     <div class="bg">
       <img src="@/assets/aboutCharlie/relationbg.png" />
     </div>
-
     <div class="charaPic">
-      <div v-for="chara in charaData" :key="chara.name">
-        <img :src="chara.img" :alt="chara.name" @click="showPopup = true" />
-        <div class="name">{{ chara.name }}</div>
-        <div class="text">
+      <div v-if="showPopup" class="popup">
+        <div class="popup-content">
+          <h2>{{ characterName }}</h2>
           <ul>
-            <li v-for="detail in chara.details" :key="detail.details">
-              <p>{{ detail.identities }}</p>
-              <p>{{ detail.overview }}</p>
+            <li v-for="identity in characterDetail.identities" :key="identity">
+              {{ identity }}
+            </li>
+          </ul>
+          <ul>
+            <li v-for="overview in characterDetail.overview" :key="overview">
+              {{ overview }}
             </li>
           </ul>
         </div>
@@ -20,55 +22,45 @@
     </div>
   </div>
 </template>
+    <!-- <div>
+        <img
+          :src="characterImg"
+          :alt="characterName"
+          @click="showPopup = true"
+        />
+        <div class="name">{{ characterName }}</div>
+        <div class="text">
+          <ul>
+            <li
+              v-for="(detail, index) in characterDetail.identities"
+              :key="index"
+            >
+              <p>{{ detail }}</p>
+            </li>
+            <li
+              v-for="(detail, index) in characterDetail.overview"
+              :key="index"
+            >
+              <p>{{ detail }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+//   </div>
+// </template>
 
 <script>
-import { getRelation } from "@/request/api";
-
 export default {
+  props: {
+    characterName: String,
+    characterImg: String,
+    characterDetail: Object,
+  },
   data() {
     return {
       showPopup: false,
-      name: "",
-      charaData: [
-        {
-          name: "查",
-          img: require("@/assets/aboutCharlie/查兆澎.png"),
-          details: [
-            {
-              identities:
-                "查理苏父亲查理苏父亲查理苏父亲查理苏父亲查理苏父亲查理苏父亲",
-            },
-            { overview: "对自己对自己对自己对自己对自己对自己对自己对自己" },
-          ],
-        },
-      ],
     };
-  },
-  mounted() {
-    this.getMenuList();
-    this.getContent();
-  },
-  methods: {
-    getContent() {
-      getRelation()
-        .then((res) => {
-          this.name = res.name;
-          this.img = res.img;
-          this.detail = res.detail;
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
-    getMenuList() {
-      getRelation()
-        .then((res) => {
-          this.menuData = res.data;
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    },
   },
 };
 </script>

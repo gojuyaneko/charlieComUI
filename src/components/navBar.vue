@@ -60,7 +60,7 @@ export default {
           childItems: [
             {
               name: "光夜变奏",
-              nextUrl: "/studio/furniture",
+              nextUrl: "/lightandnight",
             },
             {
               name: "灵犀相册",

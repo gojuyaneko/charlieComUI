@@ -1,149 +1,62 @@
 <template>
   <div>
     <div class="zjp" :class="{ 'gold-border': showPopup }">
-      <img src="@/assets/aboutCharlie/查兆澎.png" @click="showPopup = true" />
+      <img
+        src="@/assets/aboutCharlie/查兆澎.png"
+        @click="setSelectedCharacter('查兆澎')"
+        alt="查兆澎"
+      />
       <div class="popup" v-show="showPopup" @click="showPopup = false">
-        <myShip></myShip>
+        <myShip :characterData="selectedCharacter"></myShip>
       </div>
     </div>
-
-    <!-- <div class="popup" v-show="showPopup" @click="showPopup = false">
-      <myShip :name="name"></myShip>
-    </div> -->
-
-    <!-- <div
-      class="xh"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/羲和.png" />
-    </div>
-    <div
-      class="js"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/吉叔.png" />
-    </div>
-    <div
-      class="zlf"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/查理芬.png" />
-    </div>
-    <div
-      class="alan"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/alan.png" />
-    </div>
-    <div
-      class="sy"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/舒云.png" />
-    </div>
-    <div
-      class="hgh"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/何国恒.png" />
-    </div>
-    <div
-      class="mk"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/马克.png" />
-    </div>
-    <div
-      class="axn"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/埃西诺.png" />
-    </div>
-    <div
-      class="la"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/莱昂.png" />
-    </div>
-    <div
-      class="stz"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/孙泰中.png" />
-    </div>
-    <div
-      class="dl"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/迪伦.png" />
-    </div>
-    <div
-      class="shy"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/时晏.png" />
-    </div>
-    <div
-      class="ow"
-      @click="showPopup = true"
-      :class="{ 'gold-border': showPopup }"
-    >
-      <img src="@/assets/aboutCharlie/欧文.png" />
-    </div> -->
   </div>
 </template>
 
 <script>
-// import { getRelation } from "@/request/api";
+import axios from "axios";
 
 export default {
-  name: "moreRelation",
   data() {
     return {
       showPopup: false,
+      selectedCharacter: {
+        name: "",
+        img: "",
+        detail: "",
+      },
     };
   },
-  // mounted() {
-  //   this.getMenuList();
-  //   this.getContent();
-  // },
-  // methods: {
-  //   getContent() {
-  //     getRelation()
-  //       .then((res) => {
-  //         this.name = res.data.name;
-  //         this.img = res.data.img;
-  //         this.detail = res.data.detail;
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   },
-  //   getMenuList() {
-  //     getRelation()
-  //       .then((res) => {
-  //         this.menuData = res.data;
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //   },
-  // },
+  methods: {
+    setSelectedCharacter(name) {
+      this.selectedCharacter.name = name;
+      this.selectedCharacter.img = "";
+      this.showPopup = true;
+      this.getcontent(this.selectedCharacter.name);
+    },
+
+    getcontent(name) {
+      const params = {
+        name: encodeURIComponent(name),
+      };
+      const url = `http://47.243.195.59:8080/characters?name=${params.name}`;
+      axios
+        .get(url)
+        .then((res) => {
+          const characterData = {
+            name: res.data.name,
+            detail: res.data.details,
+            img: res.data.img,
+          };
+          this.selectedCharacter = characterData;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+  },
 };
 </script>
-
 <style>
 .zjp img {
   position: absolute;

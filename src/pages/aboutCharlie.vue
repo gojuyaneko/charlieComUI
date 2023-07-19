@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <myNavbar class="sticky"> </myNavbar>
-
+  <div class="page">
     <div class="pc-homepage-background2-l">
       <div class="pc-homepage-background2" ref="pcBg2">
         <div class="head"><img src="./../assets/aboutCharlie/头像.png" /></div>
@@ -27,14 +25,16 @@
 
     <div class="pc-homepage-background2-l">
       <div class="pc-homepage-background2" ref="pcBg2">
-        <div class="relationTitle">
-          <img src="./../assets/aboutCharlie/人际关系.png" />
-        </div>
-        <div class="charlie">
-          <!-- <router-link to="/relationship"> -->
-          <img src="./../assets/aboutCharlie/Charlie.png" />
-          <!-- </router-link> -->
-          <myRelation></myRelation>
+        <div class="pc-bg">
+          <div class="relationTitle">
+            <img src="./../assets/aboutCharlie/人际关系.png" />
+          </div>
+          <div class="charlie">
+            <!-- <router-link to="/relationship"> -->
+            <img src="./../assets/aboutCharlie/Charlie.png" />
+            <!-- </router-link> -->
+            <myRelation></myRelation>
+          </div>
         </div>
       </div>
     </div>
@@ -63,6 +63,17 @@ export default {
 </script>
 
 <style scoped>
+.page {
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
 .pc-homepage-background2 {
   background-image: url(./../assets/HomePage/首页2.jpg);
   background-position: center center;
@@ -82,9 +93,9 @@ export default {
   position: relative;
   height: 1080px;
 }
+
 .head img {
   position: absolute;
-
   width: 1869px;
   height: 1080px;
 }
@@ -104,8 +115,8 @@ export default {
 }
 .name img {
   position: absolute;
-  top: 254px;
-  left: 755px;
+  top: -50px;
+  left: 60px;
   width: 377px;
   height: 70px;
 }
@@ -165,19 +176,15 @@ export default {
   left: 870px;
 }
 
-/* .gold-border {
-  border: 2px solid gold;
-} */
+.pc-bg {
+  background-image: url(./../assets/HomePage/金色圆片拷贝3.png);
 
-/* .popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+
+  background-size: cover;
+  position: relative;
+  height: 1080px;
+}
 </style>
