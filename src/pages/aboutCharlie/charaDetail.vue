@@ -112,7 +112,7 @@ export default {
   top: 280px;
   left: 430px;
   color: #d6b367;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "nansongshuju";
   text-align: left;
   overflow-x: hidden;

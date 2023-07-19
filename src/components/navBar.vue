@@ -1,11 +1,14 @@
 <template>
   <div class="pc-nav-theme">
-    <span class="nav-theme">流星大道888号</span>
+    <span class="nav-theme">
+      <img src="./../assets/HomePage/CharlieLove2.png" />
+    </span>
     <img
-      src="../assets/HomePage/Page1/multipolygon.png"
+      src="../assets/HomePage/Page1/多边形1拷贝.png"
       alt=""
       class="nav-multipolygon"
     />
+
     <el-menu
       text-color="#d6b367 "
       active-text-color="#af9356"
@@ -198,24 +201,21 @@ export default {
 }
 /* 导航栏主题跳转至首页 */
 .nav-theme {
-  height: 65px;
   position: absolute;
-  top: 0;
-  left: 65px;
-  text-align: center;
-  line-height: 65px;
-  letter-spacing: 10px;
-  color: #d6b367;
-  font-size: 41px;
-  font-family: "nansongshuju";
+  top: 20px;
+  left: 70px;
+}
+.nav-theme img {
+  width: 197px;
+  height: 20px;
 }
 
 .nav-multipolygon {
-  width: 469px;
-  height: 70px;
+  width: 790px;
+  height: 33px;
   position: absolute;
-  top: 0;
-  left: 444px;
+  top: 15px;
+  left: 300px;
 }
 /* 整体的下划线进行隐藏 */
 .el-menu.el-menu--horizontal {
