@@ -29,8 +29,8 @@
     <div class="text">
       <ul>
         <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
-          <trackDia v-if="item.DiaOrMono === 'dia'" :sendName="subContent"></trackDia>
-          <trackMemory v-if="item.DiaOrMono === 'memory'" :sendName="subContent"></trackMemory>
+          <trackDia v-if="item.DiaorMemory === 'dia'" :sendName="subContent"></trackDia>
+          <trackMemory v-if="item.DiaorMemory === 'memory'" :sendName="subContent"></trackMemory>
         </li>
       </ul>
     </div>
@@ -129,7 +129,7 @@ export default {
             let item = {
               sessionIndex:this.Index,
               videoUrl: res.videoUrl,
-              DiaOrMono:res.DiaOrMono,
+              DiaorMemory:res.DiaorMemory,
             }
             this.contentDataList.push(item)
 
@@ -147,7 +147,7 @@ export default {
   position: absolute;
   width: 263px;
   height: 128px;
-  top:9px;
+  top:5px;
   right:55px;
   float: right;
 }
@@ -267,5 +267,15 @@ export default {
   left:45px;
   white-space: pre-wrap;
   line-height: 30px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
 }
 </style>

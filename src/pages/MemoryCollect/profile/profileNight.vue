@@ -17,7 +17,7 @@
       <div class="text">
         <ul>
           <li v-for="(item,index) in contentDataList" :key="'content'+ index" v-show="Index===item.sessionIndex">
-            <trackContent :sendName="item.subContent"></trackContent>
+            <profileContent :sendName="subContent"></profileContent>
           </li>
         </ul>
 
@@ -27,186 +27,47 @@
 </template>
 
 <script>
-import trackContent from "@/pages/MemoryCollect/track/trackContent.vue";
+import profileContent from "@/pages/MemoryCollect/profile/profileContent";
+import {getPP} from "@/request/api";
+
 export default {
-  components:{trackContent},
+  components:{profileContent},
   data() {
     return {
       Index:0,
-      contentDataList:[
-        {
-          sessionIndex:0,
-          videoUrl: "https://www.bilibili.com",
-          subContent: [
-        {
-          name:'旁白',
-          content:'鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
-              '合欢节将近，光启市各处弥漫着节日的氛围按照特有的风俗，一些街区特意装点成了百年前的样子。\n' +
-              '抬头望去，前方路口上伫立着一栋高大的复古建筑。\n' +
-              '五颜六色的彩灯装点着宽阔的大门，人们踏着从门口一路铺到楼梯下的红毯，正在不断涌入其中。'
-        },
-        {
-          name:'我',
-          content: '米高梅舞厅……就是这里了！'
-        },
-        {
-          name:'旁白',
-          content:'米高梅舞厅在每年合欢庆典上都非常引人注目。听说我对这里很好奇后，查理苏就提议和我在这里见面。\n' +
-              '恰逢今天舞厅要举办一个非常特别的活动——以谍战小说《胭脂劫》为蓝本的大型角色扮演游戏。每个进入舞厅的人都要扮演一个角色。\n' +
-              '我随着人群登上楼梯，在门口抽取了一张身份卡。看清卡片上的字，我吃了一惊——'
-        },
-        {
-          name:'查理苏',
-          content:'……'
-        },
-        {
-          name:'黑衣人',
-          content:'你是什么人？竟敢拦我们费大少爷的路！'
-        },
-        {
-          name:'查理苏',
-          content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
-        },
-          {
-          name:'旁白',
-          content:'鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
-              '合欢节将近，光启市各处弥漫着节日的氛围按照特有的风俗，一些街区特意装点成了百年前的样子。\n' +
-              '抬头望去，前方路口上伫立着一栋高大的复古建筑。\n' +
-              '五颜六色的彩灯装点着宽阔的大门，人们踏着从门口一路铺到楼梯下的红毯，正在不断涌入其中。'
-        },
-        {
-          name:'我',
-          content: '米高梅舞厅……就是这里了！'
-        },
-        {
-          name:'旁白',
-          content:'米高梅舞厅在每年合欢庆典上都非常引人注目。听说我对这里很好奇后，查理苏就提议和我在这里见面。\n' +
-              '恰逢今天舞厅要举办一个非常特别的活动——以谍战小说《胭脂劫》为蓝本的大型角色扮演游戏。每个进入舞厅的人都要扮演一个角色。\n' +
-              '我随着人群登上楼梯，在门口抽取了一张身份卡。看清卡片上的字，我吃了一惊——'
-        },
-        {
-          name:'查理苏',
-          content:'……'
-        },
-        {
-          name:'黑衣人',
-          content:'你是什么人？竟敢拦我们费大少爷的路！'
-        },
-        {
-          name:'查理苏',
-          content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
-        },
-          {
-          name:'旁白',
-          content:'鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
-              '合欢节将近，光启市各处弥漫着节日的氛围按照特有的风俗，一些街区特意装点成了百年前的样子。\n' +
-              '抬头望去，前方路口上伫立着一栋高大的复古建筑。\n' +
-              '五颜六色的彩灯装点着宽阔的大门，人们踏着从门口一路铺到楼梯下的红毯，正在不断涌入其中。'
-        },
-        {
-          name:'我',
-          content: '米高梅舞厅……就是这里了！'
-        },
-        {
-          name:'旁白',
-          content:'米高梅舞厅在每年合欢庆典上都非常引人注目。听说我对这里很好奇后，查理苏就提议和我在这里见面。\n' +
-              '恰逢今天舞厅要举办一个非常特别的活动——以谍战小说《胭脂劫》为蓝本的大型角色扮演游戏。每个进入舞厅的人都要扮演一个角色。\n' +
-              '我随着人群登上楼梯，在门口抽取了一张身份卡。看清卡片上的字，我吃了一惊——'
-        },
-        {
-          name:'查理苏',
-          content:'……'
-        },
-        {
-          name:'黑衣人',
-          content:'你是什么人？竟敢拦我们费大少爷的路！'
-        },
-        {
-          name:'查理苏',
-          content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
-        }
-      ],
-
-        },
-        {
-          sessionIndex:1,
-          videoUrl: "https://www.bilibili.com",
-          subContent:[
-        {
-          name:'旁白',
-          content:'111鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
-              '合欢节将近，光启市各处弥漫着节日的氛围按照特有的风俗，一些街区特意装点成了百年前的样子。\n' +
-              '抬头望去，前方路口上伫立着一栋高大的复古建筑。\n' +
-              '五颜六色的彩灯装点着宽阔的大门，人们踏着从门口一路铺到楼梯下的红毯，正在不断涌入其中。'
-        },
-        {
-          name:'我',
-          content: '米高梅舞厅……就是这里了！'
-        },
-        {
-          name:'旁白',
-          content:'米高梅舞厅在每年合欢庆典上都非常引人注目。听说我对这里很好奇后，查理苏就提议和我在这里见面。\n' +
-              '恰逢今天舞厅要举办一个非常特别的活动——以谍战小说《胭脂劫》为蓝本的大型角色扮演游戏。每个进入舞厅的人都要扮演一个角色。\n' +
-              '我随着人群登上楼梯，在门口抽取了一张身份卡。看清卡片上的字，我吃了一惊——'
-        },
-        {
-          name:'查理苏',
-          content:'……'
-        },
-        {
-          name:'黑衣人',
-          content:'你是什么人？竟敢拦我们费大少爷的路！'
-        },
-        {
-          name:'查理苏',
-          content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
-        }
-      ],
-        },
-        {
-          sessionIndex:2,
-          videoUrl: "https://www.bilibili.com",
-          subContent:[
-        {
-          name:'旁白',
-          content:'222鲜艳的繁体字招牌，穿着长袍大褂的行人，老式汽车……步入这条为合欢节庆典精心装扮的街道时，我忍不住四处张望，感觉不太真实。\n' +
-              '合欢节将近，光启市各处弥漫着节日的氛围按照特有的风俗，一些街区特意装点成了百年前的样子。\n' +
-              '抬头望去，前方路口上伫立着一栋高大的复古建筑。\n' +
-              '五颜六色的彩灯装点着宽阔的大门，人们踏着从门口一路铺到楼梯下的红毯，正在不断涌入其中。'
-        },
-        {
-          name:'我',
-          content: '米高梅舞厅……就是这里了！'
-        },
-        {
-          name:'旁白',
-          content:'米高梅舞厅在每年合欢庆典上都非常引人注目。听说我对这里很好奇后，查理苏就提议和我在这里见面。\n' +
-              '恰逢今天舞厅要举办一个非常特别的活动——以谍战小说《胭脂劫》为蓝本的大型角色扮演游戏。每个进入舞厅的人都要扮演一个角色。\n' +
-              '我随着人群登上楼梯，在门口抽取了一张身份卡。看清卡片上的字，我吃了一惊——'
-        },
-        {
-          name:'查理苏',
-          content:'……'
-        },
-        {
-          name:'黑衣人',
-          content:'你是什么人？竟敢拦我们费大少爷的路！'
-        },
-        {
-          name:'查理苏',
-          content:'哦？未婚妻？什么时候有了这样的婚约，我怎么不记得呢？'
-        }
-      ],
-        }
-      ],
-
+      contentDataList:[],
+      subContent:[],
     }
+  },
+  mounted () {
+    this.getPara()
   },
   methods: {
     show(value) {
       this.Index === value ? this.isShow = !this.isShow : this.isShow = true
       this.Index = value
+      console.log(this.Index)
+      this.getPara()
     },
+    getPara() {
+      getPP({cardindex:0,sessionIndex:this.Index}).then((res) => {
+        this.subContent=[]
+        this.contentDataList=[]
+            for( let i in res.subContent) {
+              let dia= {
+                name: res.subContent[i]["name"],
+                content:res.subContent[i]["content"],
+              }
+              this.subContent.push(dia)
+            }
+            let item = {
+              sessionIndex:this.Index,
+              videoUrl: res.videoUrl,
+            }
+            this.contentDataList.push(item)
+
+      })
+    }
   }
 }
 </script>
@@ -215,8 +76,8 @@ export default {
 .title {
   background: url("./侧影1/title.png");
   background-size: 100% 100% ;
-  position: relative;
-  top:670px;
+  position: absolute;
+  top:820px;
   left:190px;
   width: 280px;
   height: 70px;
@@ -226,9 +87,9 @@ export default {
   background-image: url("./侧影1/video.png");
   background-size: 100% 100%;
   cursor: pointer;
-  position: relative;
-  top: 55px;
-  left: 680px;
+  position: absolute;
+  top: 170px;
+  left: 1580px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -237,7 +98,7 @@ export default {
 .btns {
   display: flex;
   flex-direction: column;
-  top: 560px;
+  top: 600px;
   left: 700px;
   position: absolute;
   float: left;
@@ -334,17 +195,17 @@ export default {
   height: 641px;
   width: 959px;
   position: relative;
-  top:50px;
+  top:200px;
   left:760px;
 }
 
 .text {
-  width: 880px;
+  width: 900px;
   height: 580px;
   overflow-y: scroll;
   position: absolute;
   top:15px;
-  left:45px;
+  left:20px;
   white-space: pre-wrap;
   line-height: 20px;
 }

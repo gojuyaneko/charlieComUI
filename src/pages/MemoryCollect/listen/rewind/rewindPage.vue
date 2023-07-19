@@ -196,6 +196,16 @@ export default {
   white-space: pre-wrap;
   line-height: 20px;
 }
+::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
 
 
 </style>
