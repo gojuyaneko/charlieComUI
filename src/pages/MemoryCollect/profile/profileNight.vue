@@ -213,6 +213,7 @@ export default {
 ::-webkit-scrollbar {
   width: 20px;
   margin-left: -30px;
+  display: flex;
 }
 ::-webkit-scrollbar-track {
   border:1px solid #d6b367;
