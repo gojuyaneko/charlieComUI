@@ -435,7 +435,11 @@ export default {
   right: 170px;
   cursor: pointer;
 }
-
+.ow img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
 .popup {
   position: fixed;
   top: 0;
