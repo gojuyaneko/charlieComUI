@@ -80,7 +80,8 @@ export default {
     position: relative;
     height: 100%;
     bottom: 0px;
-    left: 80%;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 ::v-deep {

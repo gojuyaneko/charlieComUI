@@ -12,13 +12,13 @@
         <div class="ch-vc-title"><img class="ch-vc-title-left" src="../assets/calldetailleft.png" alt="">通话详情<img class="ch-vc-title-right" src="../assets/calldetailright.png" alt=""></div>
       </div>
       <div v-for="(item, index) in chDetailData" :key="index" class="ch-vc-section">
-        <div class="ch-dt-sec-header" :data-person="item.name">
-          <picture :data-person="item.name"><img class="ch-dt-header-img" src="../assets/charlieprofile.png" alt="">
+        <div class="ch-dt-sec-header" :data-person="item.speaker">
+          <picture :data-person="item.speaker"><img class="ch-dt-header-img" src="../assets/charlieprofile.png" alt="">
           </picture>
         </div>
-        <div class="ch-dt-sec-main" :data-person="item.name">
+        <div class="ch-dt-sec-main" :data-person="item.speaker" v-for="(content, iindex) in item.content" :key="'cn'+iindex">
           <div class="ch-dt-normal-text">
-            <p>{{ item.content[0].selfContent }}</p>
+            <p>{{ content.contentText }}</p>
           </div>
         </div>
       </div>
@@ -27,9 +27,18 @@
 </template>
     
 <script>
+import { getChat } from '@/request/api'
+
 export default {
   components: {},
-  props: { callName: String },
+  props: { 
+    callName: String,
+    vcCode: String,
+
+  },
+  mounted () {
+    this.getContent()
+  },
   data() {
     return {
       dialogVisible: false,
@@ -120,13 +129,20 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    getContent () {
+      getChat({callcode: this.vcCode}).then((res) =>{
+        this.chDetailData = res.call_history
+      })
+    }
   }
 }
 </script>
     
 <style scoped lang="scss">
 .charlie-video-call {
-  width: 400px;
+  width: 500px;
   display: flex;
   flex-direction: row;
   border: 1px solid #674d97;
@@ -158,7 +174,7 @@ export default {
 
 .ch-pick-up {
   cursor: pointer;
-  flex: 1.5;
+  flex: 1;
   margin: 4px 10px;
   font-size: 21px;
   position: relative;

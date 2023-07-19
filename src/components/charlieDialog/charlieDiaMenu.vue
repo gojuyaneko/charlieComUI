@@ -27,7 +27,8 @@ export default {
       activeIndex: '6-8'
     };
   },
-  mounted() {
+  activated(){
+    this.activeIndex='6-8'
   },
   methods: {
     controlShow(){
@@ -39,6 +40,11 @@ export default {
       this.show = false
     }
   },
+  watch:{
+    activeIndex(){
+      this.$emit('changeChap')
+    }
+  }
 };
 </script>
     
@@ -78,11 +84,11 @@ export default {
   opacity: 0;
 }
 .dia-menu-div {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
   cursor: pointer;
 }
 .dia-menu-div:hover{
-  background-color: rgba(255, 255, 255, 0.20);
+  background-color: rgba(255, 255, 255, 0.6);
 }
  ::v-deep {
 
@@ -97,18 +103,18 @@ export default {
     height: 40px;
     color: #674d97;
     font-weight: 500;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.55);
     border: 0;
   }
   .el-collapse-item__header:hover{
   background-color: #949494bd!important;
 }
   .el-collapse-item__wrap {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.4);
     border: 0;
   }
   .isActive {
-    background-color: rgba(230, 230, 230, 0.25);
+    background-color: rgba(230, 230, 230, 0.5);
   }
   .el-collapse-item__content  {
     padding-bottom: 0;

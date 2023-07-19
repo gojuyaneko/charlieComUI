@@ -258,4 +258,7 @@ export default {
   right: 130px;
   top: 340px;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 </style>

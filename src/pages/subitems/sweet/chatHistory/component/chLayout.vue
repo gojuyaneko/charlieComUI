@@ -2,9 +2,9 @@
   <div class="chat-history-layout">
     <div>
       <ul class="ch-layout-ul">
-        <li class="ch-layout-li" v-for="(item, index) in layoutData.data.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index" @click="goToNext(item.name)">
+        <li class="ch-layout-li" v-for="(item, index) in layoutData.data.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index" @click="goToNext(item.indexCode)">
           <div class="ch-layout-name" :data-icon="item.dtype">{{item.name}}</div>
-          <div class="ch-layout-content">{{ item.content }}</div>
+          <div class="ch-layout-content">{{ item.intro}}</div>
         </li>
       </ul>
       <div class="ch-layout-box">
@@ -25,7 +25,8 @@ export default {
       pagesize:6,
     };
   },
-  mounted() {},
+  mounted() {
+  },
   methods: {
     changeCurPage(currentPage) {
       this.currentPage = currentPage
@@ -74,7 +75,7 @@ export default {
         right: 0;
         display: inline-block;
     }
-      .ch-layout-name[data-icon="vediocalls"]::after {
+      .ch-layout-name[data-icon="call"]::after {
         background-image: url('../../../../../assets/vediocalls.png');
         background-size: 100% 100%;
         height: 18px;
