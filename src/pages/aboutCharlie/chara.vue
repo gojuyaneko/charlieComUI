@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="zjp" :class="{ 'gold-border': showPopup }">
+    <div :class="{ zjp: true, 'gold-border': showPopup }">
       <img
         src="@/assets/aboutCharlie/查兆澎.png"
         @click="setSelectedCharacter('查兆澎')"
@@ -48,6 +48,21 @@
       <img
         src="@/assets/aboutCharlie/查理芬.png"
         @click="setSelectedCharacter('查理芬')"
+        alt="查理芬"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+
+    <div class="alan" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/alan.png"
+        @click="setSelectedCharacter('Alan')"
         alt="查理芬"
       />
       <div class="popup" v-show="showPopup" @click="showPopup = false">
@@ -206,6 +221,9 @@ export default {
     };
   },
   methods: {
+    closePopup() {
+      this.showPopup = false;
+    },
     setSelectedCharacter(name) {
       this.selectedCharacter.name = name;
       this.selectedCharacter.img = "";
@@ -236,6 +254,11 @@ export default {
 };
 </script>
 <style>
+.zjp img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
 .zjp img {
   position: absolute;
   height: 246px;
@@ -252,6 +275,11 @@ export default {
   left: 570px;
   cursor: pointer;
 }
+.xh img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
 .js img {
   position: absolute;
   height: 206px;
@@ -259,6 +287,11 @@ export default {
   top: 880px;
   left: 850px;
   cursor: pointer;
+}
+.js img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
 }
 
 .zlf img {
@@ -270,6 +303,11 @@ export default {
   cursor: pointer;
 }
 
+.zlf img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
 .sy img {
   position: absolute;
   height: 157px;
@@ -277,6 +315,11 @@ export default {
   top: 880px;
   left: 310px;
   cursor: pointer;
+}
+.sy img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
 }
 .alan img {
   position: absolute;
@@ -286,6 +329,12 @@ export default {
   right: 670px;
   cursor: pointer;
 }
+
+.alan img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
 .hgh img {
   position: absolute;
   height: 210px;
@@ -293,6 +342,11 @@ export default {
   top: 410px;
   right: 500px;
   cursor: pointer;
+}
+.hgh img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
 }
 .axn img {
   position: absolute;
@@ -303,6 +357,11 @@ export default {
   cursor: pointer;
 }
 
+.anx img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
 .mk img {
   position: absolute;
   height: 188px;
@@ -310,6 +369,11 @@ export default {
   top: 180px;
   right: 650px;
   cursor: pointer;
+}
+.mk img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
 }
 .la img {
   position: absolute;
@@ -319,7 +383,11 @@ export default {
   right: 350px;
   cursor: pointer;
 }
-
+.la img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
 .stz img {
   position: absolute;
   height: 175px;
@@ -327,6 +395,11 @@ export default {
   bottom: 350px;
   right: 250px;
   cursor: pointer;
+}
+.stz img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
 }
 .shy img {
   position: absolute;
@@ -336,6 +409,11 @@ export default {
   right: 120px;
   cursor: pointer;
 }
+.shy img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
 .dl img {
   position: absolute;
   height: 152px;
@@ -343,6 +421,11 @@ export default {
   top: 250px;
   right: 350px;
   cursor: pointer;
+}
+.dl img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
 }
 .ow img {
   position: absolute;
@@ -369,7 +452,7 @@ export default {
   height: 540px;
 }
 
-/* .gold-border {
-  border: 2px solid gold;
-} */
+.gold-border {
+  background-color: pink;
+}
 </style>

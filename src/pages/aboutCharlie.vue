@@ -115,8 +115,8 @@ export default {
 }
 .name img {
   position: absolute;
-  top: -50px;
-  left: 60px;
+  top: 250px;
+  left: 770px;
   width: 377px;
   height: 70px;
 }
