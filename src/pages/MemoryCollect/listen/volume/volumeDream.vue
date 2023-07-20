@@ -109,10 +109,10 @@ export default {
 .btns {
   display: flex;
   flex-direction: row;
-  top:790px;
+  top:820px;
   float:right;
-  right:170px;
-  position: relative;
+  right:190px;
+  position: fixed;
 }
 
 .btn1 {

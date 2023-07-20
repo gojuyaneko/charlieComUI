@@ -107,12 +107,11 @@ export default {
 .btns {
   display: flex;
   flex-direction: row;
-  top:790px;
+  top:820px;
   float:right;
-  right:170px;
-  position: relative;
+  right:190px;
+  position: fixed;
 }
-
 .btn1 {
   background-image: url("./余音2/暗1.png");
   background-size: 100% 100%;
