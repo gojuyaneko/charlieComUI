@@ -66,7 +66,7 @@ export default {
             },
             {
               name: "记忆收藏",
-              nextUrl: "/studio/chat",
+              nextUrl: "/#",
             },
           ],
         },
@@ -166,17 +166,10 @@ export default {
       ],
     };
   },
-  mounted() {},
+
   methods: {
     gotoUrl(url) {
-      if (this.$router.path !== "/") {
-        if (url === "/") {
-          this.$router.push({ path: url });
-          this.$nextTick(() => {
-            this.$refs.pcBg4.scrollIntoView();
-          });
-        }
-      }
+      this.$router.push(url);
     },
   },
 };
