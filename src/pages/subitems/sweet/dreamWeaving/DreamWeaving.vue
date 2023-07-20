@@ -24,7 +24,7 @@
             </ul>
 
           </div>
-        <a class="next-btn" @click="tripVisible=true;meetVisible=false; show(0,1)" :class="Index===0?'active':''" ></a>
+        <a class="trip-btn" @click="tripVisible=true;meetVisible=false; show(0,1)" :class="Index===0?'active':''" ></a>
 
       </el-dialog>
 
@@ -43,7 +43,7 @@
             </ul>
           <dw-pagi4 @changeCurPa="getContent_meet"></dw-pagi4>
           </div>
-          <a class="next-btn" @click="meetVisible=true;tripVisible=false;show(0,0)" :class="Index===0?'active':''"></a>
+          <a class="meet-btn" @click="meetVisible=true;tripVisible=false;show(0,0)" :class="Index===0?'active':''"></a>
       </el-dialog>
     </div>
 
@@ -63,7 +63,7 @@
             </ul>
           <dw-pagi6 @changeCurPa="getContent_meet"></dw-pagi6>
           </div>
-          <a class="next-btn" @click="moonVisible=true;skyVisible=false; show(1,1)" :class="Index===0?'active':''"></a>
+          <a class="moon-btn" @click="moonVisible=true;skyVisible=false; show(1,1)" :class="Index===1?'active':''"></a>
 
       </el-dialog>
 
@@ -82,7 +82,7 @@
             </ul>
           <dw-pagi6 @changeCurPa="getContent_meet"></dw-pagi6>
           </div>
-          <a class="next-btn" @click="skyVisible=true;moonVisible=false;show(1,0)" :class="Index===0?'active':''"></a>
+          <a class="sky-btn" @click="skyVisible=true;moonVisible=false;show(1,0)" :class="Index===1?'active':''"></a>
       </el-dialog>
     </div>
 
@@ -313,9 +313,22 @@ h4[datatype="choice"]  {
   -webkit-border-radius: 6px;
 }
 
-.next-btn {
-  background-image: url("./image/下一幕.png");
-  background-size: 100% 100%;
+.meet-btn {
+  background-image: url("./image/meet1.png");
+}
+.moon-btn {
+  background-image: url("./image/moon1.png");
+}
+
+.sky-btn {
+  background-image: url("./image/sky1.png");
+}
+
+.trip-btn {
+  background-image: url("./image/trip1.png");
+}
+.meet-btn, .moon-btn, .sky-btn, .trip-btn {
+    background-size: 100% 100%;
   cursor: pointer;
   display: inline-block;
   position: relative;
