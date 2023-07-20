@@ -203,6 +203,64 @@
         ></myShip>
       </div>
     </div>
+
+    <div class="xlj" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/雪莉酒.png"
+        @click="setSelectedCharacter('雪莉酒')"
+        alt="雪莉酒"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+    <div class="dnns" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/丹尼医生.png"
+        @click="setSelectedCharacter('丹尼医生')"
+        alt="丹尼医生"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+    <div class="klm" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/克勒曼.png"
+        @click="setSelectedCharacter('克勒曼')"
+        alt="克勒曼"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+
+    <div class="mzy" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/孟泽洋.png"
+        @click="setSelectedCharacter('孟泽洋')"
+        alt="孟泽洋"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -284,7 +342,7 @@ export default {
   position: absolute;
   height: 206px;
   width: 206px;
-  top: 880px;
+  top: 850px;
   left: 850px;
   cursor: pointer;
 }
@@ -298,7 +356,7 @@ export default {
   position: absolute;
   height: 178px;
   width: 178px;
-  top: 380px;
+  top: 300px;
   left: 200px;
   cursor: pointer;
 }
@@ -308,6 +366,65 @@ export default {
   border: 5px solid #ba9c58;
   border-radius: 50%;
 }
+.xlj img {
+  position: absolute;
+  height: 178px;
+  width: 178px;
+  top: 580px;
+  left: 400px;
+  cursor: pointer;
+}
+
+.xlj img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
+
+.klm img {
+  position: absolute;
+  height: 138px;
+  width: 138px;
+  top: 710px;
+  left: 220px;
+  cursor: pointer;
+}
+
+.klm img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
+
+.dnns img {
+  position: absolute;
+  height: 148px;
+  width: 148px;
+  top: 500px;
+  left: 130px;
+  cursor: pointer;
+}
+
+.dnns img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
+.mzy img {
+  position: absolute;
+  height: 133px;
+  width: 133px;
+  top: 870px;
+  left: 80px;
+  cursor: pointer;
+}
+
+.mzy img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
+
 .sy img {
   position: absolute;
   height: 157px;
@@ -357,7 +474,7 @@ export default {
   cursor: pointer;
 }
 
-.anx img:hover {
+.axn img:hover {
   background-color: #513c74;
   border: 5px solid #ba9c58;
   border-radius: 50%;

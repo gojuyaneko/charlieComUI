@@ -89,10 +89,10 @@ export default {
   },
   computed: {
     page1Link() {
-      return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";
+      return "https://weibo.com/u/7847997743";
     },
     page2Link() {
-      return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";
+      return "https://space.bilibili.com/6725189?spm_id_from=333.1007.0.0";
     },
     page3Link() {
       return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";

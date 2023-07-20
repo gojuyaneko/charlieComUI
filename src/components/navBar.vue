@@ -8,9 +8,8 @@
       alt=""
       class="nav-multipolygon"
     />
-
     <el-menu
-      text-color="#d6b367"
+      text-color="#d6b367 "
       active-text-color="#af9356"
       class="el-menu-demo"
       mode="horizontal"
@@ -22,16 +21,13 @@
         v-for="(item, index) in navItems"
         :index="item.nextUrl"
         :key="index"
-        @mouseenter.native="handleMenuEnter(item.nextUrl)"
-        @mouseleave.native="handleMenuLeave(item.nextUrl)"
+        @click.native="gotoUrl(item.nextUrl)"
         popper-class="pclass"
         :show-timeout="100"
         :hide-timeout="100"
       >
         <template slot="title">
-          <span>
-            {{ item.name }}
-          </span>
+          <span> {{ item.name }} </span>
         </template>
         <el-menu-item-group>
           <el-menu-item
@@ -40,9 +36,7 @@
             :key="childItems.name"
             :route="{ path: childItems.nextUrl, query: childItems.query }"
           >
-            <span>
-              {{ childItems.name }}
-            </span>
+            <span> {{ childItems.name }} </span>
           </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
