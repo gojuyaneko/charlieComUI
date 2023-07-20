@@ -33,7 +33,14 @@
                     <p v-if="!secitem.ifImg">{{secitem.contentText}}</p>
                     <img class="ch-title-img" v-if="secitem.ifImg" :src="secitem.imgPath" alt="">
                   </span>
-                  <div class="ch-dt-nd-reply" v-for="(thitem,index) in secitem.reply" :key="index"> <span class="purple">查理苏</span> <p>：{{thitem.contentText}}</p></div>
+                  <div class="ch-dt-nd-reply" v-for="(thitem,index) in secitem.reply" :key="index"> 
+                    <span class="purple">查理苏</span> 
+                    <div v-if="thitem.ifVoice" class="ch-voice-message">
+                      <h6 class="ch-voime-title">语音</h6>
+                      <p class="ch-voime-p">{{thitem.contentText}}</p>
+                    </div>
+                    <img  :src="thitem.imgPath" alt="" v-else-if="thitem.ifImg">
+                    <p v-else>：{{thitem.contentText}}</p></div>
                 </el-collapse-item>
               </el-collapse>
             </div>
@@ -131,7 +138,7 @@ export default {
             height: 10px;
             z-index: 3;
             font-size: 25px;
-            margin-right: 10px;
+            margin-right: 20px;
             color: rgb(235, 73, 130);
           }
           picture[data-person='查理苏']::after {
@@ -156,7 +163,8 @@ export default {
           font-size: 21px;
           margin:5px 0  5px 40px; 
           .ch-dt-normal-text {
-
+            background-size: contain;
+            background: no-repeat;
           }
         }
       }
