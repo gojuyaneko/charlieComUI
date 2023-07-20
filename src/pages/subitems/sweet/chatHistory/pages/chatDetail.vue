@@ -1,7 +1,7 @@
 <template>
   <div class="chat-detail">
     <div class="chat-detail-bg" ref="chatBg" @click.stop="choiceChoose">
-      <main class="ch-detail-main">
+      <main class="ch-detail-main" >
         <a
           class="ch-detail-video"
           target="_blank"
@@ -10,29 +10,37 @@
         </a>
         <div class="ch-detail-design"> Moments of Charlie</div>
         <section v-for="(item, index) in chDetailData" :key="index" class="ch-detail-section" v-show="index<contentIndex">
-          <div class="ch-dt-sec-header" :data-person="item.name">
-            <picture :data-person="item.name"><img  class="ch-dt-header-img"  src="../../../../../assets/charlieprofile.png" alt=""></picture>
+          <div class="ch-dt-sec-header" :data-person="item.speaker">
+            <picture :data-person="item.speaker"><img  class="ch-dt-header-img"  src="../../../../../assets/charlieprofile.png" alt=""></picture>
           </div>
-          <div class="ch-dt-sec-main ">
-            <div class="ch-dt-normal-text" v-if="item.type==='nomarl'">
-              <img  :src="item.content[0].img" alt="" v-if="item.content[0].ifImg">
-              <video-call class="ch-video-call" :callName="item.content[0].video.name" v-else-if="item.content[0].ifVideo"></video-call>
-              <div v-else-if="item.content[0].ifVoice" class="ch-voice-message">
-                <h6 class="ch-voime-title">语音</h6>
-                <p class="ch-voime-p">{{item.content[0].selfContent}}</p>
-                
+          <div class="ch-dt-sec-main " @click.stop="">
+            <div v-for="(firstItem, findex) in item.content" :key="'fi'+findex">
+              <div class="ch-dt-normal-text" v-if="item.type==='nomarl'">
+                <img  :src="firstItem.imgPath" alt="" v-if="firstItem.ifImg">
+                <video-call class="ch-video-call" :callName="firstItem.call.title" :vcCode="firstItem.call.callCode" :callUrl="firstItem.call.url" v-else-if="firstItem.ifCall" ></video-call>
+                <div v-else-if="firstItem.ifVoice" class="ch-voice-message">
+                  <h6 class="ch-voime-title">语音</h6>
+                  <p class="ch-voime-p">{{firstItem.contentText}}</p>
+                </div>
+                <p v-else>{{firstItem.contentText}}</p>
               </div>
-              <p v-else>{{item.content[0].selfContent}}</p>
             </div>
             <div v-if="item.type==='choice'" @click.stop="">
-              <el-collapse v-model="deActiveName" accordion >
+              <el-collapse v-model="deActiveName[index]" accordion >
                 <el-collapse-item :name="'id'+index+iindex" v-for="(secitem,iindex) in item.content" :key="iindex">
                   <span slot="title" class="collapse-title">
                     <i  :class="['el-icon-d-arrow-right ch-title-icon ' ,{'ch-title-icon-active':'id'+index+iindex===deActiveName}]"></i>
-                    <p v-if="!secitem.ifImg">{{secitem.selfContent}}</p>
-                    <img class="ch-title-img" v-if="secitem.ifImg" :src="secitem.img" alt="">
+                    <p v-if="!secitem.ifImg">{{secitem.contentText}}</p>
+                    <img class="ch-title-img" v-if="secitem.ifImg" :src="secitem.imgPath" alt="">
                   </span>
-                  <div class="ch-dt-nd-reply" v-for="(thitem,index) in secitem.reply" :key="index"> <span class="purple">查理苏</span> <p>：{{thitem.content}}</p></div>
+                  <div class="ch-dt-nd-reply" v-for="(thitem,index) in secitem.reply" :key="index"> 
+                    <span class="purple">查理苏</span> 
+                    <div v-if="thitem.ifVoice" class="ch-voice-message">
+                      <h6 class="ch-voime-title">语音</h6>
+                      <p class="ch-voime-p">{{thitem.contentText}}</p>
+                    </div>
+                    <img  :src="thitem.imgPath" alt="" v-else-if="thitem.ifImg">
+                    <p v-else>：{{thitem.contentText}}</p></div>
                 </el-collapse-item>
               </el-collapse>
             </div>
@@ -45,218 +53,22 @@
 
 <script>
 import VideoCall from '../../../../../components/videoCall.vue'
+import { getChat } from '@/request/api'
 export default {
   components: {VideoCall},
   props: {},
   data() {
     return {
-      deActiveName:'',
-      chDetailData: [
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏', //说话人
-          content: [
-            {
-              ifVoice: false,//是否含有语音
-              ifVideo: false,//是否含有视频
-              ifImg: false,//是否含有图片
-              selfContent: "[红包]在忙吗？"//对话内容
-            },
-          ],
-        },
-        {
-          type: "choice", // normal无选项，choice有选项
-          name:'我',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: true,
-              selfContent: "[惊]",
-              img: require('../../../../../assets/meme/shock.png'),// 当含有图片为真时显示的图片链接地址
-              reply: [
-                {
-                  content: "回复得很及时，看来不在忙",//当type字段为choice时查理苏回复的内容（只含文本）
-                },
-                {
-                  content:
-                    "完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent:
-                "呜呜呜，我的手比脑子快一步，还没反应过来就把红包给抢了",
-              reply: [
-                {
-                  content: "1回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "1完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "谢谢查医生，红包我就先收下了",
-              reply: [
-                {
-                  content: "2回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "2完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "完美啊，你的名字是charlie",
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: true,
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "1完美啊，你的名字是charlie",//当ifVoice为真时显示的语音文本
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "choice", // normal无选项，choice有选项
-          name:'我',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: true,
-              selfContent: "",
-              img: require('../../../../../assets/meme/shock.png'),//当ifImg为真时返回的图片地址
-              reply: [
-                {
-                  content: "回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent:
-                "呜呜呜，我的手比脑子快一步，还没反应过来就把红包给抢了",
-              reply: [
-                {
-                  content: "1回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "1完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "谢谢查医生，红包我就先收下了",
-              reply: [
-                {
-                  content: "2回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "2完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "让我想想，亲爱的未婚妻现在有没有在想我呢？",
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "choice", // normal无选项，choice有选项
-          name:'我',
-          content: [
-            {
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "你怎么知道？！",
-              reply: "",
-            },
-            {
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "最近好忙，满脑子都是工作...",
-              reply: "",             
-            },
-            {
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "你呢，想我了吗？",
-              reply: "",
-            }
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo:true,
-              ifImg: false,
-              video:{//当ifVideo为真时返回的video内容
-                name:'工作再忙，也要好好休息...',//video名称
-                url:'http//www.bilibili.com',//video链接地址
-                code:'V1234'//video索引值
-              },
-              selfContent: "",
-              reply: "",
-            },
-          ],
-        }
-      ],
+      deActiveName:[],
+      chDetailData: [],
       contentIndex:1
     };
   },
   mounted() {
-    console.log(this.$route.query)
+    console.log(this.$route.query.name)
+  },
+  activated(){
+    this.getContent()
   },
   methods: {
     choiceChoose () {
@@ -266,7 +78,15 @@ export default {
         this.$nextTick(() => {
           scrollMain.scrollTo({top:scrollMain.scrollHeight,behavior: 'smooth'})
         })
-        console.log(this.contentIndex)
+    },
+    getContent () {
+      this.contentIndex = 1
+      this.deActiveName = []
+      this.chDetailData = []
+      getChat({indexcode: this.$route.query.name}).then((res) =>{
+        console.log(res.chatHistory)
+        this.chDetailData = res.chatHistory
+      })
     }
   },
 };
@@ -318,7 +138,7 @@ export default {
             height: 10px;
             z-index: 3;
             font-size: 25px;
-            margin-right: 10px;
+            margin-right: 20px;
             color: rgb(235, 73, 130);
           }
           picture[data-person='查理苏']::after {
@@ -334,6 +154,8 @@ export default {
         }
         .ch-dt-sec-header[data-person='我'] {
           text-align: right;
+          z-index: 2;
+          position: relative;
         }
 
         .ch-dt-sec-main {
@@ -341,7 +163,8 @@ export default {
           font-size: 21px;
           margin:5px 0  5px 40px; 
           .ch-dt-normal-text {
-
+            background-size: contain;
+            background: no-repeat;
           }
         }
       }
@@ -368,12 +191,12 @@ export default {
   }
   .ch-voice-message {
     border: 1px solid #674d97;
-    background-color: rgba(80, 59, 114,.2);
     .ch-voime-title {
       position: relative;
       font-weight: 400;
       font-size: 21px;
       color: rgb(122, 122, 122);
+      background-color: rgba(80, 59, 114,.2);
       border-bottom: 1px solid rgb(80, 59, 114);
       padding: 4px 10px;
     }

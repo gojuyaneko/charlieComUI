@@ -76,8 +76,8 @@ export default {
 .title {
   background: url("./侧影1/title.png");
   background-size: 100% 100% ;
-  position: absolute;
-  top:820px;
+  position: fixed;
+  top:850px;
   left:190px;
   width: 280px;
   height: 70px;
@@ -88,8 +88,8 @@ export default {
   background-size: 100% 100%;
   cursor: pointer;
   position: absolute;
-  top: 170px;
-  left: 1580px;
+  top: 165px;
+  left: 1570px;
   width: 145px;
   height: 46px;
   display: inline-block;
@@ -100,7 +100,7 @@ export default {
   flex-direction: column;
   top: 600px;
   left: 700px;
-  position: absolute;
+  position: fixed;
   float: left;
 }
 
@@ -152,8 +152,8 @@ export default {
 .night2 {
   background-image: url("./侧影1/暗2.png");
   background-size: 100% 100%;
-  position: absolute;
-  top: 350px;
+  position: fixed;
+  top: 370px;
   left: 190px;
   width: 349px;
   height: 424px;
@@ -162,8 +162,8 @@ export default {
 .light1 {
   background-image: url("./侧影1/光1.png");
   background-size: 100% 100%;
-  position: absolute;
-  top: 300px;
+  position: fixed;
+  top: 310px;
   left: 190px;
   width: 349px;
   height: 424px;
@@ -172,8 +172,8 @@ export default {
 .night1 {
   background-image: url("./侧影1/暗1.png");
   background-size: 100% 100%;
-  position: absolute;
-  top: 350px;
+  position: fixed;
+  top: 370px;
   left: 190px;
   width: 349px;
   height: 424px;
@@ -182,8 +182,8 @@ export default {
 .light2 {
   background-image: url("./侧影1/光2.png");
   background-size: 100% 100%;
-  position: absolute;
-  top: 300px;
+  position: fixed;
+  top: 310px;
   left: 190px;
   width: 349px;
   height: 424px;
@@ -194,8 +194,8 @@ export default {
   background-size: 100% 100%;
   height: 641px;
   width: 959px;
-  position: relative;
-  top:200px;
+  position: fixed;
+  top:300px;
   left:760px;
 }
 
@@ -213,6 +213,7 @@ export default {
 ::-webkit-scrollbar {
   width: 20px;
   margin-left: -30px;
+  display: flex;
 }
 ::-webkit-scrollbar-track {
   border:1px solid #d6b367;

@@ -110,9 +110,13 @@ export default {
   },
   methods: {
     chooseCnt(choice) {
-        this.choice = choice
+      this.choice = choice
     }
   },
+  watch: {
+    diaContent() {
+    }
+  }
 };
 </script>
     

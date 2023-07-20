@@ -85,7 +85,6 @@ export default {
 }
 .pc-homepage-background2-l {
   background-image: url(./../assets/HomePage/首页2l.jpg);
-
   background-position: center center;
   background-repeat: no-repeat;
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */

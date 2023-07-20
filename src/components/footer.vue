@@ -39,32 +39,93 @@
 
     <div class="icon">
       <div class="title">关注我们</div>
-      <img src="./../assets/HomePage/wb拷贝.png" />
-      <img src="./../assets/HomePage/red拷贝.png" />
-      <img src="./../assets/HomePage/b拷贝.png" />
+      <a target="_blank" :href="page1Link">
+        <img
+          :src="image1"
+          @mouseover="image1 = hoverImage1"
+          @mouseout="image1 = normalImage1"
+          class="icon-image"
+        />
+      </a>
+      <a target="_blank" :href="page2Link">
+        <img
+          :src="image2"
+          @mouseover="image2 = hoverImage2"
+          @mouseout="image2 = normalImage2"
+          class="icon-image"
+        />
+      </a>
+      <a target="_blank" :href="page3Link">
+        <img
+          :src="image3"
+          @mouseover="image3 = hoverImage3"
+          @mouseout="image3 = normalImage3"
+          class="icon-image"
+        />
+      </a>
     </div>
   </div>
 </template>
+
 <script>
+import normalImage1 from "@/assets/HomePage/wb拷贝.png";
+import hoverImage1 from "@/assets/HomePage/wb.png";
+import normalImage2 from "@/assets/HomePage/red拷贝.png";
+import hoverImage2 from "@/assets/HomePage/red.png";
+import normalImage3 from "@/assets/HomePage/b拷贝.png";
+import hoverImage3 from "@/assets/HomePage/b.png";
+
 export default {
-  name: "indexFooter",
+  name: "navBar",
   data() {
-    return {};
+    return {
+      normalImage1: normalImage1,
+      hoverImage1: hoverImage1,
+      image1: normalImage1,
+      normalImage2: normalImage2,
+      hoverImage2: hoverImage2,
+      image2: normalImage2,
+      normalImage3: normalImage3,
+      hoverImage3: hoverImage3,
+      image3: normalImage3,
+
+      // 其他数据...
+    };
+  },
+  computed: {
+    page1Link() {
+      return "https://weibo.com/u/7847997743";
+    },
+    page2Link() {
+      return "https://space.bilibili.com/6725189?spm_id_from=333.1007.0.0";
+    },
+    page3Link() {
+      return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";
+    },
   },
 };
 </script>
+
 <style scoped>
+.icon-image {
+  backface-visibility: hidden;
+}
+::-webkit-scrollbar {
+  display: none;
+}
 .pc-footer {
   position: relative;
   background: url("./../assets/HomePage/图层0.png") no-repeat;
   background-size: 100% 100%;
   width: 1920px;
   height: 229px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .name {
   position: absolute;
   top: 10px;
-  left: 330px;
+  left: 40%;
 }
 .name img {
   width: 322px;
@@ -72,22 +133,24 @@ export default {
 }
 .aboutus {
   position: absolute;
-  top: 100px;
-  left: 50px;
-  width: 540px;
-  height: 140px;
+  top: 80px;
+  left: 0px;
+  width: 740px;
+  height: 100px;
 }
 .email {
   position: absolute;
-  top: 100px;
+  top: 80px;
+
   left: 850px;
   width: 290px;
-  height: 140px;
+  height: 100px;
 }
 .icon {
   position: absolute;
-  top: 100px;
+  top: 80px;
   left: 1400px;
+  cursor: pointer;
 }
 .icon img {
   margin: 10px;

@@ -18,12 +18,13 @@ export default {
       yesOrNo:'',
     };
   },
-  activated() {
+  mounted() {
     this.yesOrNo = this.diaBtnData[0].para_type
     this.pushYoN()
   },
   methods: {
     pushYoN(){
+      console.log(this.yesOrNo)
       this.$emit('getYoN',this.yesOrNo)
     }
   }

@@ -73,7 +73,7 @@
           <img src="../assets/HomePage/Page4/标题.png" alt="" />
         </div>
       </div>
-      <!-- <myFooter> </myFooter> -->
+      <myFooter> </myFooter>
     </div>
   </div>
 </template>
@@ -257,5 +257,8 @@ export default {
   position: absolute;
   right: 130px;
   top: 340px;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 </style>

@@ -101,7 +101,7 @@ export default {
   background-size: 100% 100%;
   cursor: pointer;
   position: absolute;
-  top: 150px;
+  top: 180px;
   left: 1570px;
   width: 145px;
   height: 46px;
@@ -113,8 +113,8 @@ export default {
   background-size: 100% 100%;
   height: 648px;
   width: 1521px;
-  position: relative;
-  top:240px;
+  position: fixed;
+  top:300px;
   left:190px;
 }
 

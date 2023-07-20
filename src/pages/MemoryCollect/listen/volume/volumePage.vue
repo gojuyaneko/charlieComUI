@@ -3,7 +3,7 @@
     <div class="guide"></div>
     <div class="next" @click="change()" :class="{active:Index}"></div>
     <ul>
-        <li v-for="(item,index) in ChapList" :key="index" v-show="Index===item.sessionIndex">
+        <li class="pages" v-for="(item,index) in ChapList" :key="index" v-show="Index===item.sessionIndex">
            <volumeDream v-if="item.chap==='dream'"></volumeDream>
           <volumeControl v-if="item.chap==='control'"></volumeControl>
           <volumeGarden v-if="item.chap==='garden'"></volumeGarden>
@@ -60,7 +60,7 @@ export default {
   width: 100%;
   height: 100%;
   background: url('./余音1/bg.png') no-repeat;
-  background-size: auto ;
+  background-size: cover ;
   background-position: center;
 }
 
@@ -83,8 +83,9 @@ export default {
   float: right;
   right:160px;
   display: inline-block;
-  top: 250px;
+  top: 270px;
   cursor: pointer;
 }
+
 
 </style>

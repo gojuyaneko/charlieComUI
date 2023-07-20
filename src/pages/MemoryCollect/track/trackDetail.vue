@@ -81,8 +81,8 @@ export default {
   background-size: 100% 100%;
   height: 661px;
   width: 1522px;
-  position: relative;
-  top:210px;
+  position: fixed;
+  top:260px;
   left:190px;
 }
 

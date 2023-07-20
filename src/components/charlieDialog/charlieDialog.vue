@@ -16,7 +16,7 @@
           <article class="com-dia-content" ref="diaCon">
             <charlie-dia-arti v-bind="$attrs" v-on="$listeners"></charlie-dia-arti>
           </article>
-          <charlie-dia-menu v-bind="$attrs" v-on="$listeners"> </charlie-dia-menu>
+          <charlie-dia-menu v-bind="$attrs" v-on="$listeners" @changeChap="changeChap"> </charlie-dia-menu>
         </div>
       </div>
     </div>
@@ -38,6 +38,18 @@ export default {
       quarter:'Quarter01',
       chapter: 6
     };
+  },
+  methods: {
+    changeChap() {
+      let top = this.$refs.dia.scrollTop
+      const timer = setInterval(() => {
+        this.$refs.dia.scrollTop = top-= 100
+        if(top<0) {
+          clearInterval(timer)
+        }
+      }, 10);
+      
+    }
   }
 };
 </script>
@@ -124,10 +136,9 @@ export default {
 .com-dia-title {
   position: absolute;
   top: 0;
-  right: 5px;
+  right: 10px;
   width: 381px;
   font-size: 63px;
-  font-style: italic;
   font-weight: 400;
   font-family: 'nansongshuju';
   color: #674d97;

@@ -2,28 +2,30 @@
   <div data-device="pc">
     <div>
       <ul class="pc-menu">
-        <span>
-          <img src="@/assets/HomePage/star.png" />
-        </span>
         <li
           v-for="(item, index) in navItems"
           :key="index"
           @click="goTo(item.nextUrl)"
           :style="{ paddingBottom: boxPadding1(index) }"
         >
+          <span class="menu-icon">
+            <img src="@/assets/HomePage/star.png" />
+          </span>
           <span>{{ item.name }}</span>
 
           <ul class="pc-submenu">
-            <img src="@/assets/HomePage/star.png" />
             <li
               v-for="(childitem, index) in item.childItems"
               :key="index"
-              @click="$event => goTo(childitem.nextUrl,item.name,index)"
+              @click="($event) => goTo(childitem.nextUrl, item.name, index)"
               :style="{
                 paddingBottom:
                   index === item.childItems.length - 1 ? boxPadding : '40px',
               }"
             >
+              <span class="submenu-icon">
+                <img src="@/assets/HomePage/star.png" />
+              </span>
               <span>{{ childitem.name }}</span>
             </li>
           </ul>
@@ -99,17 +101,16 @@ export default {
   },
   mounted() {},
   methods: {
-    goTo(url,n,i) {
-      let name = n === undefined ? 'others' : n
-      let index = i === undefined ? -1 : i
-      if(name === '< 邂逅') {
+    goTo(url, n, i) {
+      let name = n === undefined ? "others" : n;
+      let index = i === undefined ? -1 : i;
+      if (name === "< 邂逅") {
         this.$router.push({
-          path:url,
-          query:{encounterIndex:index}
+          path: url,
+          query: { encounterIndex: index },
         });
-      }
-      else {
-        this.$router.push(url)
+      } else {
+        this.$router.push(url);
       }
     },
     boxPadding1(index) {
@@ -188,5 +189,37 @@ ul {
   height: 30px;
   top: 40%;
   right: -5%;
+}
+.pc-submenu ul img {
+  position: absolute;
+  width: 35px;
+  height: 30px;
+  top: 40%;
+  right: -5%;
+}
+.menu-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px; /* 根据需要调整图片与文字之间的间距 */
+}
+
+.submenu-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px; /* 根据需要调整图片与文字之间的间距 */
+}
+.pc-submenu .submenu-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px; /* 根据需要调整图片与文字之间的间距 */
+  position: absolute; /* 添加绝对定位 */
+  top: 40%; /* 垂直居中 */
+  right: -27px; /* 调整距离右侧的位置 */
+  transform: translateY(-50%); /* 垂直居中 */
+}
+
+.pc-submenu .submenu-icon img {
+  width: 35px;
+  height: 30px;
 }
 </style>
