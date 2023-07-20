@@ -33,7 +33,7 @@
           letter-spacing: 4px;
         "
       >
-        CharlieLovesU.163.com
+        CharlieLovesU@163.com
       </div>
     </div>
 
