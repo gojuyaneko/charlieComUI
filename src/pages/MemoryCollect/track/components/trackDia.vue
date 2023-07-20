@@ -41,7 +41,7 @@ export default {
 
 span[data-person="我"] {
   color: #f38aaf;
-  margin-left: 18px;
+  margin-left: -30px;
 }
 span[data-person="查理苏"] {
   color: #bea7d5;
