@@ -298,7 +298,7 @@ export default {
   position: absolute;
   padding: 0px;
   border-radius: 0px;
-  left: 15px;
+  left: 8px;
   min-width: 125px;
   -webkit-box-shadow: 0 0px 0px 0 white !important;
   box-shadow: 0 0px 0px 0 white !important;

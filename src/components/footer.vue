@@ -10,7 +10,7 @@
           font-family: 'nansongshuju';
           color: #848484;
           text-align: center;
-          font-size: 18px;
+          font-size: 15px;
           margin-top: 20px;
           letter-spacing: 3px;
         "
