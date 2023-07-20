@@ -8,7 +8,6 @@
       alt=""
       class="nav-multipolygon"
     />
-
     <el-menu
       text-color="#d6b367 "
       active-text-color="#af9356"
@@ -28,9 +27,7 @@
         :hide-timeout="100"
       >
         <template slot="title">
-          <span>
-            {{ item.name }}
-          </span>
+          <span> {{ item.name }} </span>
         </template>
         <el-menu-item-group>
           <el-menu-item
@@ -39,9 +36,7 @@
             :key="childItems.name"
             :route="{ path: childItems.nextUrl, query: childItems.query }"
           >
-            <span>
-              {{ childItems.name }}
-            </span>
+            <span> {{ childItems.name }} </span>
           </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
@@ -166,8 +161,7 @@ export default {
         },
         {
           name: "联系我们",
-          nextUrl: "/",
-          childItems: [],
+          nextUrl: "/1",
         },
       ],
     };

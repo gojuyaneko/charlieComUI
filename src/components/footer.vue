@@ -41,7 +41,7 @@
       <div class="title">关注我们</div>
       <a target="_blank" :href="page1Link">
         <img
-          src="@/assets/HomePage/wb拷贝.png"
+          :src="image1"
           @mouseover="image1 = hoverImage1"
           @mouseout="image1 = normalImage1"
           class="icon-image"
@@ -49,15 +49,15 @@
       </a>
       <a target="_blank" :href="page2Link">
         <img
-          src="@/assets/HomePage/b拷贝.png"
-          @mouseover="src = hoverImage2"
+          :src="image2"
+          @mouseover="image2 = hoverImage2"
           @mouseout="image2 = normalImage2"
           class="icon-image"
         />
       </a>
       <a target="_blank" :href="page3Link">
         <img
-          src="@/assets/HomePage/red拷贝.png"
+          :src="image3"
           @mouseover="image3 = hoverImage3"
           @mouseout="image3 = normalImage3"
           class="icon-image"
@@ -68,31 +68,36 @@
 </template>
 
 <script>
+import normalImage1 from "@/assets/HomePage/wb拷贝.png";
+import hoverImage1 from "@/assets/HomePage/wb.png";
+import normalImage2 from "@/assets/HomePage/red拷贝.png";
+import hoverImage2 from "@/assets/HomePage/red.png";
+import normalImage3 from "@/assets/HomePage/b拷贝.png";
+import hoverImage3 from "@/assets/HomePage/b.png";
+
 export default {
   name: "navBar",
   data() {
     return {
-      normalImage1: "@/assets/HomePage/wb拷贝.png",
-      hoverImage1: "@/assets/HomePage/wb.png",
-      image1: "@/assets/HomePage/wb拷贝.png",
-
-      normalImage2: "@/assets/HomePage/red拷贝.png",
-      hoverImage2: "@/assets/HomePage/red.png",
-      image2: "@/assets/HomePage/red拷贝.png",
-
-      normalImage3: "@/assets/HomePage/b拷贝.png",
-      hoverImage3: "@/assets/HomePage/b.png",
-      image3: "@/assets/HomePage/b拷贝.png",
+      normalImage1: normalImage1,
+      hoverImage1: hoverImage1,
+      image1: normalImage1,
+      normalImage2: normalImage2,
+      hoverImage2: hoverImage2,
+      image2: normalImage2,
+      normalImage3: normalImage3,
+      hoverImage3: hoverImage3,
+      image3: normalImage3,
 
       // 其他数据...
     };
   },
   computed: {
     page1Link() {
-      return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";
+      return "https://weibo.com/u/7847997743";
     },
     page2Link() {
-      return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";
+      return "https://space.bilibili.com/6725189?spm_id_from=333.1007.0.0";
     },
     page3Link() {
       return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";
@@ -144,8 +149,8 @@ export default {
 .icon {
   position: absolute;
   top: 80px;
-
   left: 1400px;
+  cursor: pointer;
 }
 .icon img {
   margin: 10px;
