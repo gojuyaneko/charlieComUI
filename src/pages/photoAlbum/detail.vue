@@ -2,16 +2,20 @@
   <div class="bgArea">
     <div class="photoArea">
       <div class="flex">
-        <div class="left"  @mouseenter="changeImg(true)" @mouseleave="changeImg(false)">
-          <div :class="isUp ? 'border' : 'border-cover'" >
+        <div
+          class="left"
+          @mouseenter="changeImg(true)"
+          @mouseleave="changeImg(false)"
+        >
+          <div :class="isUp ? 'border' : 'border-cover'">
             <img :src="icon1" class="itemImg" />
           </div>
-          <div :class="!isUp ? 'border' : 'border-cover'" >
+          <div :class="!isUp ? 'border' : 'border-cover'">
             <img :src="icon2" class="itemImg" />
           </div>
         </div>
         <div class="right">
-          <div class="title">时与玫瑰</div>
+          <div class="title">{{ name }}</div>
           <div class="border">
             <div class="attr">
               <div class="main-attr">
@@ -101,16 +105,21 @@ export default {
       info: {
         imgUrl: "",
         title: "时与玫瑰",
-        level: 6
+        level: 6,
       },
-      isUp: true
+      isUp: true,
+      name: "",
     };
+  },
+  created() {
+    this.name = this.$route.query.name;
   },
   methods: {
     changeImg(flag) {
-      this.isUp = flag
-    }
-  }
+      this.isUp = flag;
+    },
+    getInfo() {},
+  },
 };
 </script>
 

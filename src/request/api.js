@@ -10,3 +10,4 @@ export const getTP = (p) => get(baseUrl + "tracks", p);
 export const getPP = (p) => get(baseUrl + "profiledetail", p);
 export const getDetail = (p) => get(baseUrl + "charlie_details", p); // 更多细节
 export const getGoodsList = (p) => get(baseUrl + "guzi", p); //周边
+export const getMemoriesAlbum = (p) => get(baseUrl + "memoriesAlbum", p); // 灵犀相册

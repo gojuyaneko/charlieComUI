@@ -1,6 +1,6 @@
 <template>
   <div class="bgArea">
-    <div class="photoArea">
+    <div class="photoArea" v-if="photoList.length">
       <div class="photoTitle">灵犀相册</div>
       <div class="photoList">
         <div v-for="(item, index) in photoList" :key="index">
@@ -14,8 +14,13 @@
             />
           </div>
           <div class="listArea">
-            <div class="photoItem" v-for="(it, idx) in item.list" :key="idx" @click="toDetail(item)">
-              <img src="" class="itemImg" />
+            <div
+              class="photoItem"
+              v-for="(it, idx) in item.list"
+              :key="idx"
+              @click="toDetail(it)"
+            >
+              <img :src="it.file_path" class="itemImg" />
               <div class="itemInfo">
                 <div class="itemIcons">
                   <div class="itemDotSmall"></div>
@@ -45,63 +50,58 @@
 </template>
 
 <script>
+import { getMemoriesAlbum } from "@/request/api";
 export default {
   name: "photoAlbum",
   data() {
     return {
-      photoList: [
-        {
-          id: 1,
-          level: 6,
-          list: [
-            {
-              cid: 1,
-              name: 222,
-            },
-            {
-              cid: 1,
-              name: 222,
-            },
-            {
-              cid: 1,
-              name: 222,
-            },
-            {
-              cid: 1,
-              name: 222,
-            },
-            {
-              cid: 1,
-              name: 222,
-            },
-            {
-              cid: 1,
-              name: 222,
-            },
-            {
-              cid: 1,
-              name: 222,
-            },
-          ],
-        },
-        {
-          id: 2,
-          level: 5,
-          list: [
-            {
-              cid: 1,
-              name: 222,
-            },
-          ],
-        },
-      ],
+      photoList: [],
     };
+  },
+  mounted() {
+    this.getList();
   },
   methods: {
     toDetail(data) {
-      this.$router.push({ path: '/photoAlbum/detail', query: {id: 1} })
-    }
-  }
+      this.$router.push({
+        path: "/photoAlbum/detail",
+        query: { name: data.name },
+      });
+    },
+    getList() {
+      getMemoriesAlbum().then((res) => {
+        let arr = [
+          { level: 6, list: [] },
+          { level: 5, list: [] },
+          { level: 4, list: [] },
+          { level: 3, list: [] },
+          { level: 2, list: [] },
+          { level: 1, list: [] },
+        ];
+        res?.map((item) => {
+          if (item.start_level == "6") {
+            arr[0]["list"].push(item);
+          }
+          if (item.start_level == "5") {
+            arr[1]["list"].push(item);
+          }
+          if (item.start_level == "4") {
+            arr[2]["list"].push(item);
+          }
+          if (item.start_level == "3") {
+            arr[3]["list"].push(item);
+          }
+          if (item.start_level == "2") {
+            arr[4]["list"].push(item);
+          }
+          if (item.start_level == "1") {
+            arr[5]["list"].push(item);
+          }
+        });
+        this.photoList = arr;
+      });
+    },
+  },
 };
 </script>
 
@@ -167,7 +167,7 @@ export default {
   background: url("../../assets/photoAlbum/bgItem.png") 100% 100%;
 }
 
-.photoItem:nth-child(5) {
+.photoItem:nth-child(5n) {
   margin-right: 0;
 }
 
