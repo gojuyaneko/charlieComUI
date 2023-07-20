@@ -100,6 +100,30 @@ export default {
       ],
     };
   },
+  watch: {
+    $route(to, from) {
+      this.scrollToRef();
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.scrollToRef();
+    });
+  },
+  methods: {
+    scrollToRef() {
+      const ref = this.$route.query.ref;
+      if (ref) {
+        const element = this.$refs[ref];
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+    },
+  },
 };
 </script>
 

@@ -34,7 +34,7 @@
             v-for="childItems in item.childItems"
             :index="childItems.nextUrl"
             :key="childItems.name"
-            :route="{ path: childItems.nextUrl, query: childItems.query }"
+            @click="gotoUrl(childItems.nextUrl, childItems.ref)"
           >
             <span> {{ childItems.name }} </span>
           </el-menu-item>
@@ -66,7 +66,8 @@ export default {
             },
             {
               name: "记忆收藏",
-              nextUrl: "/#",
+              nextUrl: "/",
+              ref: "pcBg4",
             },
           ],
         },
@@ -168,8 +169,12 @@ export default {
   },
 
   methods: {
-    gotoUrl(url) {
-      this.$router.push(url);
+    gotoUrl(url, ref) {
+      if (ref) {
+        this.$router.push({ path: url, query: { ref } });
+      } else {
+        this.$router.push({ path: url });
+      }
     },
   },
 };

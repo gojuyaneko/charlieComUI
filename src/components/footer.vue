@@ -97,10 +97,10 @@ export default {
       return "https://weibo.com/u/7847997743";
     },
     page2Link() {
-      return "https://space.bilibili.com/6725189?spm_id_from=333.1007.0.0";
+      return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";
     },
     page3Link() {
-      return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";
+      return "https://space.bilibili.com/6725189?spm_id_from=333.1007.0.0";
     },
   },
 };
@@ -125,7 +125,7 @@ export default {
 .name {
   position: absolute;
   top: 10px;
-  left: 40%;
+  left: 43%;
 }
 .name img {
   width: 322px;
@@ -141,7 +141,6 @@ export default {
 .email {
   position: absolute;
   top: 80px;
-
   left: 850px;
   width: 290px;
   height: 100px;
