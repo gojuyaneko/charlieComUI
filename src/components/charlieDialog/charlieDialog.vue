@@ -13,7 +13,7 @@
         </div>
         <div class="com-dia-right">
           <h4 class="com-dia-title"> {{ diaTitle }}</h4>
-          <article class="com-dia-content" ref="diaCon">
+          <article class="com-dia-content" ref="dia">
             <charlie-dia-arti v-bind="$attrs" v-on="$listeners"></charlie-dia-arti>
           </article>
           <charlie-dia-menu v-bind="$attrs" v-on="$listeners" @changeChap="changeChap"> </charlie-dia-menu>

@@ -20,9 +20,6 @@ export default {
   margin: 0;
   padding: 0;
 }
-::-webkit-scrollbar {
-  display: none;
-}
 .sticky {
   position: sticky;
   top: 0;

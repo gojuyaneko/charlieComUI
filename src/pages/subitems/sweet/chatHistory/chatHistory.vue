@@ -142,6 +142,18 @@ export default {
       })
     }
   },
+  beforeRouteEnter(to, from, next) {
+    if(from.name !== 'chatdetail') {
+      next(vm => {
+        vm.selectValue = 'lingXi'
+        vm.$refs['chlayout'].freshPage()
+      })
+    } else {
+      console.log(from)
+
+      next()
+    }
+  }
 };
 </script>
 

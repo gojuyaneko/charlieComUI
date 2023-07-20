@@ -126,6 +126,7 @@ export default {
   font-size: 20px;
   padding-right: 60px;
   color: white;
+  font-family: 'nansongshuju';
 }
 .com-dia-main {
   display: flex;

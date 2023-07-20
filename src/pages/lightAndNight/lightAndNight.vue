@@ -240,7 +240,7 @@ export default {
   },
   activated () {
     this.getMenuList()
-    this.getContent(6, '6-8')
+    this.getContent(this.$route.query.chap, this.$route.query.subchap)
   }
 };
 </script>

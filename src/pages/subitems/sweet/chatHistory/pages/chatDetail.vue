@@ -88,7 +88,7 @@ export default {
         this.chDetailData = res.chatHistory
       })
     }
-  },
+  }
 };
 </script>
 
@@ -102,6 +102,7 @@ export default {
   position: relative;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  font-family: 'nansongshuju';
   .chat-detail-bg {
     width: 100%;
     height: 100%;
