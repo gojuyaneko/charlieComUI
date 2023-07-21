@@ -64,7 +64,7 @@
 
 <script>
 
-import { getGoodsList } from "@/request/api";
+import { getGuziList } from "@/request/api";
 export default {
   el: "#bagdeDetails",
   // components:{encounterContent},
@@ -99,8 +99,7 @@ export default {
   },
   methods: {
     getList(type) {
-      getGoodsList({ type }).then(res => {
-        // console.log(res);
+      getGuziList({ type }).then(res => {
         this.goodsContent = res
         this.index = 0;
       });

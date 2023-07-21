@@ -34,6 +34,7 @@
             v-for="childItems in item.childItems"
             :index="childItems.nextUrl"
             :key="childItems.name"
+            :route="{path:childItems.nextUrl, query: childItems.query}"
             @click="gotoUrl(childItems.nextUrl, childItems.ref)"
           >
             <span> {{ childItems.name }} </span>
