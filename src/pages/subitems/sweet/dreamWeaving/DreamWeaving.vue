@@ -2,35 +2,36 @@
   <div class="dream_weaving">
       <div class="titles">
         <ul class="btns">
-          <li class="angel-btn" @click="meetVisible=true;"></li>
-          <li class="evil-btn" @click="skyVisible=true;"></li>
+          <li class="angel-btn" tabindex="0"  @click="meetVisible=true;show(0,0)" :class="Index===0?'active':''"></li>
+          <li class="evil-btn" tabindex="0"  @click="skyVisible=true;show(1,0)" :class="Index===1?'active':''"></li>
         </ul>
       </div>
 
     <div class="angel-dia">
       <el-dialog custom-class="meet" :visible.sync="meetVisible" v-if="meetVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index" v-show="item.Index===0 && item.sessionIndex===0 ">
-            <div v-for="(item,index) in item.subContent" :key="index" class="card-text">
+          <div v-for="( item,index) in ContentText" :key="index">
+            <div v-for="(item,index) in subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
           </div>
         </div>
         <div class="diapage">
+          <dw-pagi4 @changeCurPa="getContent_meet"></dw-pagi4>
             <ul class="elements4">
               <li class="co">第</li>
               <li class="ch">节</li>
             </ul>
-          <dw-pagi4 @changeCurPa="getContent_meet"></dw-pagi4>
+
           </div>
-        <a class="next-btn" @click="tripVisible=true;meetVisible=false" ></a>
+        <a class="trip-btn" @click="tripVisible=true;meetVisible=false; show(0,1)" :class="Index===0?'active':''" ></a>
 
       </el-dialog>
 
       <el-dialog custom-class="trip" :visible.sync="tripVisible" v-if="tripVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===0 && item.sessionIndex===1 ">
-            <div v-for="( item,index) in item.subContent" :key="index" class="card-text" >
+          <div v-for="( item,index) in ContentText" :key="index">
+            <div v-for="( item,index) in subContent" :key="index" class="card-text" >
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
           </div>
@@ -42,15 +43,15 @@
             </ul>
           <dw-pagi4 @changeCurPa="getContent_meet"></dw-pagi4>
           </div>
-          <a class="next-btn" @click="meetVisible=true;tripVisible=false"></a>
+          <a class="meet-btn" @click="meetVisible=true;tripVisible=false;show(0,0)" :class="Index===0?'active':''"></a>
       </el-dialog>
     </div>
 
     <div class="evil-dia">
       <el-dialog custom-class="sky" :visible.sync="skyVisible" v-if="skyVisible">
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===0 ">
-            <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
+          <div v-for="( item,index) in ContentText" :key="index">
+            <div v-for="( item,index) in subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
           </div>
@@ -62,14 +63,14 @@
             </ul>
           <dw-pagi6 @changeCurPa="getContent_meet"></dw-pagi6>
           </div>
-          <a class="next-btn" @click="moonVisible=true;skyVisible=false"></a>
+          <a class="moon-btn" @click="moonVisible=true;skyVisible=false; show(1,1)" :class="Index===1?'active':''"></a>
 
       </el-dialog>
 
       <el-dialog custom-class="moon" :visible.sync="moonVisible"  v-if="moonVisible" >
         <div class="dia-text">
-          <div v-for="( item,index) in ContentText" :key="index"  v-show="item.Index===1 && item.sessionIndex===1 ">
-            <div v-for="( item,index) in item.subContent" :key="index" class="card-text">
+          <div v-for="( item,index) in ContentText" :key="index">
+            <div v-for="( item,index) in subContent" :key="index" class="card-text">
               <h4 :datatype="item.type">{{item.content}}</h4>
             </div>
           </div>
@@ -81,7 +82,7 @@
             </ul>
           <dw-pagi6 @changeCurPa="getContent_meet"></dw-pagi6>
           </div>
-          <a class="next-btn" @click="skyVisible=true;moonVisible=false"></a>
+          <a class="sky-btn" @click="skyVisible=true;moonVisible=false;show(1,0)" :class="Index===1?'active':''"></a>
       </el-dialog>
     </div>
 
@@ -92,6 +93,7 @@
 <script>
 import dwPagi4 from '../dreamWeaving/dwPagi4.vue'
 import dwPagi6 from  '../dreamWeaving/dwPagi6.vue'
+import {getDW} from "@/request/api";
 export default {
   components: {dwPagi4,dwPagi6},
   data(){
@@ -100,129 +102,50 @@ export default {
       skyVisible:false,
       tripVisible:false,
       moonVisible:false,
-      ContentText:[
-        {
-          Index:0,
-          sessionIndex:0,
-          currentPage:1,
-          subContent:[
-        {
-          type:"intro",
-          content:"刚走进餐馆坐下，我的肚子就不争气的叫了一声 啊啊啊啊啊啊啊啊啊啊啊啊"
-        },
-        {
-          type:"choice",
-          content: "来一份Charlie烤鸡"
-        },
-        {
-          type:"choice-content",
-          content: "没有人能抵御烧烤的香味"
-        },
-        {
-          type: "choice",
-          content: "来一份Charlie啤酒"
-        },
-        {
-          type: "choice-content",
-          content: "店主呈上酒杯"
-        },
-
-      ],
-        },
-          {
-          Index:0,
-          sessionIndex: 1,
-          currentPage:1,
-          subContent:[
-        {
-          type:"intro",
-          content:"刚走进餐馆坐下111，我的肚子就不争气的叫了一声 啊啊啊啊啊啊啊啊啊啊啊啊"
-        },
-        {
-          type:"choice",
-          content: "来一份Charlie烤鸡"
-        },
-        {
-          type:"choice-content",
-          content: "没有人能抵御烧烤的香味"
-        },
-        {
-          type: "choice",
-          content: "来一份Charlie啤酒"
-        },
-        {
-          type: "choice-content",
-          content: "店主呈上酒杯"
-        },
-
-      ],
-        },
-          {
-          Index:1,
-          sessionIndex: 0,
-          currentPage:1,
-          subContent:[
-        {
-          type:"intro",
-          content:"刚走进餐馆坐下333，我的肚子就不争气的叫了一声 啊啊啊啊啊啊啊啊啊啊啊啊"
-        },
-        {
-          type:"choice",
-          content: "来一份Charlie烤鸡"
-        },
-        {
-          type:"choice-content",
-          content: "没有人能抵御烧烤的香味"
-        },
-        {
-          type: "choice",
-          content: "来一份Charlie啤酒"
-        },
-        {
-          type: "choice-content",
-          content: "店主呈上酒杯"
-        },
-
-      ],
-        },
-          {
-          Index:1,
-          sessionIndex: 1,
-          currentPage:1,
-          subContent:[
-        {
-          type:"intro",
-          content:"刚走进餐馆坐下5555，我的肚子就不争气的叫了一声 啊啊啊啊啊啊啊啊啊啊啊啊"
-        },
-        {
-          type:"choice",
-          content: "来一份Charlie烤鸡"
-        },
-        {
-          type:"choice-content",
-          content: "没有人能抵御烧烤的香味"
-        },
-        {
-          type: "choice",
-          content: "来一份Charlie啤酒"
-        },
-        {
-          type: "choice-content",
-          content: "店主呈上酒杯"
-        },
-
-      ],
-        },
-
-      ],
+      currentPage:1,
+      Index:0,
+      sessionIndex:0,
+      ContentText:[],
+      subContent:[],
     }
   },
-    mounted() {},
+    mounted() {
+    this.getPara()
+    },
     methods: {
       getContent_meet (currentPage) {
+        this.currentPage = currentPage
         console.log(currentPage)
-      }
+        this.getPara()
+      },
+      show(value,subValue) {
+      this.Index === value ? this.isShow = !this.isShow : this.isShow = true
+      this.Index = value
+      this.sessionIndex = subValue
+      this.getPara()
+    },
+      getPara() {
+      getDW({cardindex:this.Index,sessionIndex:this.sessionIndex,currentPage:this.currentPage}).then((res) => {
+        this.subContent=[]
+        this.ContentText=[]
+            for( let i in res.subContent) {
+              let dia= {
+                type: res.subContent[i]["type"],
+                content:res.subContent[i]["content"],
+              }
+              console.log(dia)
+              this.subContent.push(dia)
+            }
+            let item = {
+              sessionIndex:this.sessionIndex,
+              cardindex:this.Index,
+              currentPage:this.currentPage
+            }
+            this.ContentText.push(item)
+
+      })
     }
+  }
 }
 </script>
 
@@ -294,51 +217,50 @@ export default {
 }
 
 ::v-deep .el-dialog__headerbtn .el-dialog__close:hover{
-  border-style: solid ;
-  border-radius: 5px;
+  transform: scale(1.05);
 }
 
 ::v-deep .el-dialog__wrapper .meet {
   background:url("./image/meet.png") no-repeat;
   background-size: 100% 100%;
-  top: 96px;
+  top: 110px;
   margin-left: 9.5%;
   position: absolute;
   height:650px;
-  width: 1500px;
+  width: 1550px;
   background-position: center;
 }
 
 ::v-deep .el-dialog__wrapper .trip {
   background:url("./image/trip.png") no-repeat;
   background-size: 100% 100%;
-  top: 96px;
+  top: 110px;
   margin-left: 9.5%;
   position: absolute;
   height:650px;
-  width: 1500px;
+  width: 1550px;
   background-position: center;
 }
 
 ::v-deep .el-dialog__wrapper .sky {
   background:url("./image/sky.png") no-repeat;
   background-size: 100% 100%;
-  top: 96px;
+  top: 110px;
   margin-left: 9.5%;
   position: absolute;
   height:650px;
-  width: 1500px;
+  width: 1550px;
   background-position: center;
 }
 
 ::v-deep .el-dialog__wrapper .moon {
   background: url("./image/moon.png") no-repeat;
   background-size: 100% 100%;
-  top: 96px;
+  top: 110px;
   margin-left: 9.5%;
   position: absolute;
-  height: 650px;
-  width: 1500px;
+  height:650px;
+  width: 1550px;
   background-position: center;
 }
 
@@ -350,7 +272,7 @@ export default {
 
 
 .dia-text {
-  width: 890px;
+  width: 940px;
   height: 500px;
   position: absolute;
   top: 40px;
@@ -361,7 +283,7 @@ export default {
 .card-text {
   display: flex;
   flex-direction: row;
-  width: 750px;
+  width: 800px;
 }
 
 h4 {
@@ -370,12 +292,13 @@ h4 {
   margin-bottom: 10px;
   top:40px;
   left:-20px;
+  text-align: left;
+  line-height: 35px;
 }
 
 h4[datatype="choice"]  {
   font-family: "nansongshuju";
   color: #848484;
-
 }
 
 ::-webkit-scrollbar {
@@ -390,9 +313,22 @@ h4[datatype="choice"]  {
   -webkit-border-radius: 6px;
 }
 
-.next-btn {
-  background-image: url("./image/下一幕.png");
-  background-size: 100% 100%;
+.meet-btn {
+  background-image: url("./image/meet1.png");
+}
+.moon-btn {
+  background-image: url("./image/moon1.png");
+}
+
+.sky-btn {
+  background-image: url("./image/sky1.png");
+}
+
+.trip-btn {
+  background-image: url("./image/trip1.png");
+}
+.meet-btn, .moon-btn, .sky-btn, .trip-btn {
+    background-size: 100% 100%;
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -433,10 +369,20 @@ h4[datatype="choice"]  {
 
 .co {
   margin-right: 150px;
+  font-family: "nansongshuju";
 }
 
 .co1 {
   margin-right: 218px;
+  font-family: "nansongshuju";
+}
+
+.ch {
+  font-family: "nansongshuju";
+}
+
+.ch1 {
+  font-family: "nansongshuju";
 }
 
 </style>

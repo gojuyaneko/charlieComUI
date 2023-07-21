@@ -10,7 +10,7 @@
           font-family: 'nansongshuju';
           color: #848484;
           text-align: center;
-          font-size: 18px;
+          font-size: 15px;
           margin-top: 20px;
           letter-spacing: 3px;
         "
@@ -33,7 +33,7 @@
           letter-spacing: 4px;
         "
       >
-        CharlieLovesU.163.com
+        CharlieLovesU@163.com
       </div>
     </div>
 
@@ -97,10 +97,10 @@ export default {
       return "https://weibo.com/u/7847997743";
     },
     page2Link() {
-      return "https://space.bilibili.com/6725189?spm_id_from=333.1007.0.0";
+      return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";
     },
     page3Link() {
-      return "https://www.xiaohongshu.com/user/profile/5ac8e151e8ac2b7691170160";
+      return "https://space.bilibili.com/6725189?spm_id_from=333.1007.0.0";
     },
   },
 };
@@ -125,7 +125,7 @@ export default {
 .name {
   position: absolute;
   top: 10px;
-  left: 40%;
+  left: 43%;
 }
 .name img {
   width: 322px;
@@ -141,7 +141,6 @@ export default {
 .email {
   position: absolute;
   top: 80px;
-
   left: 850px;
   width: 290px;
   height: 100px;
@@ -167,5 +166,25 @@ export default {
 }
 .text {
   font-family: "nansongshuju";
+}
+.pc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aboutus {
+  flex: 1;
+  text-align: center;
+}
+
+.email {
+  flex: 1;
+  text-align: center;
+}
+
+.icon {
+  flex: 1;
+  text-align: center;
 }
 </style>

@@ -6,8 +6,12 @@ export const getDNMenu = p => get(baseUrl + 'dayandnight', p) // 主线菜单接
 export const getWmAll = p => get(baseUrl + 'moments', p) // 朋友圈总览接口
 export const getVP = p=>get(baseUrl + 'volumePage', p)
 export const getChat = p => get(baseUrl + 'chat', p) // 聊天记录总览接口
+export const getVC = p => get(baseUrl + 'videocall', p) // 总览接口
+export const getFurniture = p => get(baseUrl + 'studio/furniture', p) // 家具接口
 export const getRP = (p) => get(baseUrl + "rewinds", p);
 export const getTP = (p) => get(baseUrl + "tracks", p);
+export const getDW = (p) => get(baseUrl + "dreamweaving", p);
+
 export const getPP = (p) => get(baseUrl + "profiledetail", p);
 export const getDetail = (p) => get(baseUrl + "charlie_details", p); // 更多细节
 export const getGoodsList = (p) => get(baseUrl + "guzi", p); //周边

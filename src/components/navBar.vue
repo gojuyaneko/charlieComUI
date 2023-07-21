@@ -34,7 +34,7 @@
             v-for="childItems in item.childItems"
             :index="childItems.nextUrl"
             :key="childItems.name"
-            :route="{ path: childItems.nextUrl, query: childItems.query }"
+            @click="gotoUrl(childItems.nextUrl, childItems.ref)"
           >
             <span> {{ childItems.name }} </span>
           </el-menu-item>
@@ -66,7 +66,8 @@ export default {
             },
             {
               name: "记忆收藏",
-              nextUrl: "/studio/chat",
+              nextUrl: "/",
+              ref: "pcBg4",
             },
           ],
         },
@@ -78,10 +79,7 @@ export default {
               name: "家具",
               nextUrl: "/studio/furniture",
             },
-            {
-              name: "陪伴",
-              nextUrl: "/studio/accompany",
-            },
+
             {
               name: "闲聊",
               nextUrl: "/studio/chat",
@@ -161,21 +159,18 @@ export default {
         },
         {
           name: "联系我们",
-          nextUrl: "/1",
+          nextUrl: "/us",
         },
       ],
     };
   },
-  mounted() {},
+
   methods: {
-    gotoUrl(url) {
-      if (this.$router.path !== "/") {
-        if (url === "/") {
-          this.$router.push({ path: url });
-          this.$nextTick(() => {
-            this.$refs.pcBg4.scrollIntoView();
-          });
-        }
+    gotoUrl(url, ref) {
+      if (ref) {
+        this.$router.push({ path: url, query: { ref } });
+      } else {
+        this.$router.push({ path: url });
       }
     },
   },
@@ -300,7 +295,7 @@ export default {
   position: absolute;
   padding: 0px;
   border-radius: 0px;
-  left: 15px;
+  left: 8px;
   min-width: 125px;
   -webkit-box-shadow: 0 0px 0px 0 white !important;
   box-shadow: 0 0px 0px 0 white !important;

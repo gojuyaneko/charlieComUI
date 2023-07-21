@@ -42,6 +42,8 @@ export default {
     font-weight: 400;
     min-width: 32px;
     color: grey;
+    font-family: "nansongshuju";
+    z-index: 2;
   }
   .el-pager li:hover {
     color:#7C69A1;
@@ -60,6 +62,7 @@ export default {
     background: transparent;
     color:#7C69A1;
     display: inline-block;
+    font-family: "nansongshuju";
   }
   .el-pagination span:not([class*=suffix])  {
     font-size: 20px;

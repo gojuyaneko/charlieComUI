@@ -32,7 +32,7 @@
     <div class="js" :class="{ 'gold-border': showPopup }">
       <img
         src="@/assets/aboutCharlie/吉叔.png"
-        @click="setSelectedCharacter('吉叔')"
+        @click="setSelectedCharacter('吉叔（吉修）')"
         alt="吉叔"
       />
       <div class="popup" v-show="showPopup" @click="showPopup = false">
@@ -77,7 +77,7 @@
     <div class="mk" :class="{ 'gold-border': showPopup }">
       <img
         src="@/assets/aboutCharlie/马克.png"
-        @click="setSelectedCharacter('马克')"
+        @click="setSelectedCharacter('马克（Mark Alexander）')"
         alt="羲和"
       />
       <div class="popup" v-show="showPopup" @click="showPopup = false">
@@ -91,7 +91,7 @@
     <div class="stz" :class="{ 'gold-border': showPopup }">
       <img
         src="@/assets/aboutCharlie/孙泰中.png"
-        @click="setSelectedCharacter('孙泰中')"
+        @click="setSelectedCharacter('孙泰中（已故）')"
         alt="孙泰中"
       />
       <div class="popup" v-show="showPopup" @click="showPopup = false">
@@ -119,7 +119,7 @@
     <div class="hgh" :class="{ 'gold-border': showPopup }">
       <img
         src="@/assets/aboutCharlie/何国恒.png"
-        @click="setSelectedCharacter('何国恒')"
+        @click="setSelectedCharacter('何国恒（老何）')"
         alt="羲和"
       />
       <div class="popup" v-show="showPopup" @click="showPopup = false">
@@ -246,11 +246,25 @@
         ></myShip>
       </div>
     </div>
+    <div class="bs" :class="{ 'gold-border': showPopup }">
+      <img
+        src="@/assets/aboutCharlie/BensonSteven.png"
+        @click="setSelectedCharacter('Benson Steven')"
+        alt="克勒曼"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
 
     <div class="mzy" :class="{ 'gold-border': showPopup }">
       <img
         src="@/assets/aboutCharlie/孟泽洋.png"
-        @click="setSelectedCharacter('孟泽洋')"
+        @click="setSelectedCharacter('孟泽洋 Katy')"
         alt="孟泽洋"
       />
       <div class="popup" v-show="showPopup" @click="showPopup = false">
@@ -338,6 +352,21 @@ export default {
   border: 5px solid #ba9c58;
   border-radius: 50%;
 }
+
+.bs img {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  top: 200px;
+  right: 120px;
+  cursor: pointer;
+}
+.bs img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
+
 .js img {
   position: absolute;
   height: 206px;
@@ -572,8 +601,8 @@ export default {
   width: 1272px;
   height: 540px;
 }
-
-.gold-border {
-  background-color: pink;
+.popup .popup-content {
+  left: 800px;
+  top: 330px;
 }
 </style>

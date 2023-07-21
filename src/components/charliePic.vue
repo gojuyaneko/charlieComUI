@@ -10,7 +10,7 @@
           :key="index"
           :class="['carousel-item', { active: index === currentIndex }]"
         >
-          <router-link :to="item.link">
+          <router-link :to="{path:'./lightandnight', query:{chap: item.chap, subchap: item.subchap}}">
             <img :src="item.url" alt="" />
           </router-link>
         </div>
@@ -50,19 +50,23 @@ export default {
       imageData: [
         {
           url: require("@/assets/HomePage/7章.png"),
-          link: "./lightandnight",
+          chap: 7,
+          subchap:'7-1'
         },
         {
           url: require("@/assets/HomePage/10章.png"),
-          link: "/detail/2",
+          chap: 10,
+          subchap:'10-8'
         },
         {
           url: require("@/assets/HomePage/14章.png"),
-          link: "/detail/3",
+          chap: 14,
+          subchap:'14-1'
         },
         {
           url: require("@/assets/HomePage/新生3.png"),
-          link: "/detail/3",
+          chap: 21,
+          subchap:'3-2'
         },
       ],
     };

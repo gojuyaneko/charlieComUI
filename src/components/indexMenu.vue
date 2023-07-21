@@ -92,7 +92,28 @@ ul img {
   position: absolute;
   width: 35px;
   height: 30px;
-  top: 42%;
-  left: 345px;
+  top: 50%;
+  right: -10%;
+  transform: translate(-50%, -50%);
+}
+.pc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aboutus {
+  flex: 1;
+  text-align: center;
+}
+
+.email {
+  flex: 1;
+  text-align: center;
+}
+
+.icon {
+  flex: 1;
+  text-align: center;
 }
 </style>
