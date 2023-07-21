@@ -108,7 +108,7 @@ export default {
     height: 100%;
     background: url("../../../../../assets/detailbg.png") no-repeat;
     background-size: 100% 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     position: absolute;
     padding: 0 210px;
     padding-top: 10%;

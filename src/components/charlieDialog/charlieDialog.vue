@@ -152,7 +152,7 @@ export default {
 .com-dia-content {
   height: 80%;
   margin-top: 3%;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 /* 浏览器滚动条样式 */
 ::-webkit-scrollbar {

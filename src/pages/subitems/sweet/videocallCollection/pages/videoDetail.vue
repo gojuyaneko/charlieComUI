@@ -1,14 +1,14 @@
 <template>
   <div class="video-detail">
     <div class="video-detail-bg" ref="videoBg" @click.stop="choiceChoose">
-      <main class="ch-detail-main">
+      <main class="vc-detail-main">
         <a
-          class="ch-detail-video"
+          class="vc-detail-video"
           target="_blank"
-          href="http://www.bilibili.com"
+          :href="videoUrl"
         >
         </a>
-        <div class="ch-detail-design"> Moments of Charlie</div>
+        <div class="detail-design"> Moments of Charlie</div>
         <div class="vc-detail-box">
           <div class="vc-detail-left">
             <img class="vc-detail-img" src="../../../../../assets/video/c-01.png" alt="">
@@ -16,15 +16,13 @@
           </div>
           <div class="vc-content">
             <span class="vc-content-name">查理苏</span>
-            <div>
-              <div v-for="(item, index) in chDetailData" :key="index" class="ch-vc-section">
-                <div class="ch-dt-sec-main" :data-person="item.name">
-                  <div class="ch-dt-normal-text">
-                    <p>{{ item.content[0].selfContent }}</p>
+              <div class="vc-section">
+                <div class="dt-sec-main" data-person="查理苏">
+                  <div class="dt-normal-text" v-for="(content, iindex) in chDetailData.content" :key="'con' +iindex">
+                    <p>{{ content }}</p>
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </main>
@@ -33,637 +31,32 @@
 </template>
 
 <script>
-import VideoCall from '../../../../../components/videoCall.vue'
+import { getVC} from '@/request/api';
+
 export default {
-  components: {VideoCall},
+  components: {},
   props: {},
   data() {
     return {
-      deActiveName:'',
-      chDetailData: [
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "choice", // normal无选项，choice有选项
-          name:'我',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: true,
-              selfContent: "[惊]",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: [
-                {
-                  content: "回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent:
-                "呜呜呜，我的手比脑子快一步，还没反应过来就把红包给抢了",
-              reply: [
-                {
-                  content: "1回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "1完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "谢谢查医生，红包我就先收下了",
-              reply: [
-                {
-                  content: "2回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "2完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "完美啊，你的名字是charlie",
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: true,
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "1完美啊，你的名字是charlie",
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "choice", // normal无选项，choice有选项
-          name:'我',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: true,
-              selfContent: "",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: [
-                {
-                  content: "回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent:
-                "呜呜呜，我的手比脑子快一步，还没反应过来就把红包给抢了",
-              reply: [
-                {
-                  content: "1回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "1完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "谢谢查医生，红包我就先收下了",
-              reply: [
-                {
-                  content: "2回复得很及时，看来不在忙",
-                },
-                {
-                  content:
-                    "2完美的男人，完美的男人，完美的男人，完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人完美的男人",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "让我想想，亲爱的未婚妻现在有没有在想我呢？",
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "choice", // normal无选项，choice有选项
-          name:'我',
-          content: [
-            {
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "你怎么知道？！",
-              reply: "",
-            },
-            {
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "最近好忙，满脑子都是工作...",
-              reply: "",             
-            },
-            {
-              ifVideo:false,
-              ifImg: false,
-              selfContent: "你呢，想我了吗？",
-              reply: "",
-            }
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo: false,
-              ifImg: false,
-              selfContent: "[红包]在忙吗？",
-              img: require('../../../../../assets/meme/shock.png'),
-              reply: "",
-            },
-          ],
-        },
-        {
-          type: "nomarl", // normal无选项，choice有选项
-          name:'查理苏',
-          content: [
-            {
-              ifVoice: false,
-              ifVideo:true,
-              ifImg: false,
-              video:{
-                name:'工作再忙，也要好好休息...',
-                url:'http//www.bilibili.com',
-                code:'V1234'
-              },
-              selfContent: "",
-              reply: "",
-            },
-          ],
-        }
-      ],
-      contentIndex:1
+      chDetailData: [],
+      entry: 1,
+      videoUrl: ''
     };
   },
   mounted() {
-    console.log(this.$route.query)
+  },
+  activated() {
+    this.getContent()
   },
   methods: {
-    choiceChoose (e) {
-      let scrollMain = this.$refs.videoBg
-      if(this.contentIndex<this.chDetailData.length)
-        this.contentIndex++
-        this.$nextTick(() => {
-          scrollMain.scrollTo({top:scrollMain.scrollHeight,behavior: 'smooth'})
-        })
-        console.log(this.contentIndex)
+    getContent() {
+      this.entry = this.$route.query.name
+      this.chDetailData = []
+      this.videoUrl = ''
+      getVC({entry: this.entry }).then((res) => {
+        this.chDetailData = res
+        this.videoUrl = res.videoLink
+      })
     }
   },
 };
@@ -691,21 +84,21 @@ export default {
     box-sizing: border-box;
     top: 0;
     left: 0;
-    .ch-detail-main {
+    .vc-detail-main {
       position: relative;
-      .ch-detail-section {
+      .detail-section {
         background-color: white;
         padding: 10px 50px 25px 50px;
         position: relative;
         box-shadow: 0.3em 0.3em 0.5em rgba(0,0,0,0.2);
         margin-bottom: 3%;
-        .ch-dt-sec-main {
+        .dt-sec-main {
           padding: 0 76px;
           font-size: 18px;
           margin:5px 0  5px 40px; 
         }
       }
-      .ch-detail-design {
+      .detail-design {
         position: absolute;
         top: -8vh;
         right: 26px;
@@ -750,7 +143,7 @@ export default {
     .vc-content {
       height: 66.8vh;
       margin-left: 180px;
-      overflow-y: scroll;
+      overflow-y: auto;
       flex-grow: 1;
       position: relative;
       padding: 20px 0;
@@ -763,7 +156,7 @@ export default {
     }
   }
 }
-.ch-detail-video {
+.vc-detail-video {
   display: inline-block;
   width: 148px;
   height: 47px;
@@ -775,17 +168,20 @@ export default {
   transform: translateY(-150%);
 }
 
-.ch-vc-section {
+.vc-section {
   position: relative;
   margin-left: 70px;
   line-height: 1.2;
-  .ch-dt-sec-header {
+  .dt-sec-header {
     width: 100%;
     height: 76px;
   }
-  .ch-dt-sec-main {
+  .dt-sec-main {
     font-size: 18px;
   }
+}
+.dt-normal-text {
+  margin-bottom: 10px;
 }
 /* 浏览器滚动条样式 */
 ::-webkit-scrollbar {

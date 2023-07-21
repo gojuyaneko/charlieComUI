@@ -138,7 +138,6 @@ export default {
       getChat({type: this.selectValue}).then((res)=>{
         this.pageSize = res.totalNum
         this.layoutData = res
-        console.log(res)
       })
     }
   },
@@ -149,8 +148,6 @@ export default {
         vm.$refs['chlayout'].freshPage()
       })
     } else {
-      console.log(from)
-
       next()
     }
   }

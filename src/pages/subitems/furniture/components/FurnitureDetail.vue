@@ -129,7 +129,6 @@ export default {
     position: relative;
     display: inline-block;
     background-size: 100%;
-    background: url('../image/furniture-default.png') no-repeat;
 
     .next-btn {
       bottom: 45px;
@@ -167,7 +166,7 @@ export default {
 
       &-text {
         margin-bottom: 3px;
-        font-size: 16px;
+        font-size: 18px;
       }
     }
   }

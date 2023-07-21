@@ -2,9 +2,9 @@
   <div class="video-call-layout">
     <div>
       <ul class="vc-layout-ul">
-        <li class="vc-layout-li" v-for="(item, index) in layoutData.data.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index" @click="goToNext(item.name)">
-          <div class="vc-layout-name" :data-icon="item.dtype">{{item.name}}</div>
-          <div class="vc-layout-content">{{ item.content }}</div>
+        <li class="vc-layout-li" v-for="(item, index) in layoutData.data.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index" @click="goToNext(item.entry)">
+          <div class="vc-layout-name">{{item.name}}</div>
+          <div class="vc-layout-content">{{ item.content[0] }}</div>
         </li>
       </ul>
       <div class="vc-layout-box">
@@ -18,11 +18,13 @@
 import charliePagination from '@/components/charliePagination.vue';
 export default {
   components: {charliePagination},
-  props: { layoutData: Object },
+  props: { layoutData: {
+    type: Object
+  } },
   data() {
     return {
       currentPage:1,
-      pagesize:6,
+      pagesize:8,
     };
   },
   mounted() {},
@@ -34,6 +36,7 @@ export default {
       this.currentPage =1
     },
     goToNext(name){
+      console.log(name)
       this.$router.push(
         {
           path:'/videocallcollection/vcdetail',
@@ -49,22 +52,22 @@ export default {
 
 <style scoped lang="scss">
 .video-call-layout {
-  
+  font-family: 'nansongshuju';
   .vc-layout-ul {
     display: grid;
     grid-template-columns: 750px 750px;
-    grid-template-rows: 200px 200px 200px;
+    grid-template-rows: 130px 130px 130px 130px;
     .vc-layout-li {
       box-sizing: border-box;
       width: 730px;
-      height: 165px;
-      padding: 30px 4px 6px 60px;
+      height: 105px;
+      padding: 15px 4px 6px 60px;
       background-image: linear-gradient(rgba(181,168,205,.89),rgba(219,206,233,.89)) ;
       box-shadow: 0.35em .35em .5em rgba(0, 0, 0, 0.1);
       cursor: pointer;
       .vc-layout-name {
         position: relative;
-        font-size: 36px;
+        font-size: 30px;
         width: 640px;
       }
       .vc-layout-name::after{
@@ -107,6 +110,7 @@ export default {
     z-index: 3;
   }
   .vc-layout-content {
+    font-size: 16px;
     margin-left: 40px;
     margin-top: 10px;
     color: rgb(122,122,122);

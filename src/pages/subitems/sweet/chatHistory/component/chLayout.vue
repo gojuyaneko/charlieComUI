@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       currentPage:1,
-      pagesize:6,
+      pagesize:8,
     };
   },
   mounted() {
@@ -50,22 +50,22 @@ export default {
 
 <style scoped lang="scss">
 .chat-history-layout {
-  
+  font-family: 'nansongshuju';
   .ch-layout-ul {
     display: grid;
     grid-template-columns: 750px 750px;
-    grid-template-rows: 200px 200px 200px;
+    grid-template-rows: 130px 130px 130px 130px;
     .ch-layout-li {
       box-sizing: border-box;
       width: 730px;
-      height: 165px;
-      padding: 30px 4px 6px 60px;
+      height: 105px;
+      padding: 15px 4px 6px 60px;
       background-image: linear-gradient(rgba(181,168,205,.89),rgba(219,206,233,.89)) ;
       box-shadow: 0.35em .35em .5em rgba(0, 0, 0, 0.1);
       cursor: pointer;
       .ch-layout-name {
         position: relative;
-        font-size: 36px;
+        font-size: 30px;
         width: 640px;
       }
       .ch-layout-name::after{
@@ -110,6 +110,7 @@ export default {
   .ch-layout-content {
     margin-left: 40px;
     margin-top: 10px;
+    font-size: 16px;
     color: rgb(122,122,122);
   }
 }

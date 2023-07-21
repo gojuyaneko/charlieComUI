@@ -2,7 +2,12 @@
   <div class="record-detail">
     <div class="icon"></div>
     <div class="close" @click="close">×</div>
-    <div class="sub-title"></div>
+    <div class="sub-title">
+      <h4 class="sub-title-h4">{{ musicDetail.name }}</h4>
+      <div class="sub-title-p" v-for="(detail, dindex) in musicDetail.details" :key="'de'+dindex">
+        {{ detail }}
+      </div>
+    </div>
     <div class="record-body">
       <div class="title"></div>
       <div class="players">
@@ -10,6 +15,8 @@
           <div class="item-icon" :class="active === item.name ? 'item-active' : ''" @click="change(item)"></div>
           <div class="item-index">{{index | numFilter}}</div>
           <div class="item-name">{{item.name}}</div>
+          <audio class="item-music" :src="item.music" :ref="`audio${item.num}`">
+          </audio>
         </div>
       </div>
     </div>
@@ -17,15 +24,13 @@
 </template>
 
 <script>
+import { getVinyl } from '@/request/api'
+
 export default {
   props: {
     isVisible: {
       type: Boolean,
       default: false
-    },
-    playerList: {
-      type: Array,
-      default: () => []
     }
   },
   filters: {
@@ -35,17 +40,46 @@ export default {
   },
   data() {
     return {
-      active: ''
+      active: '',
+      playerList: [
+      ],
+      musicDetail: {
+        name: '',
+        details: []
+      }
     }
+  },
+  mounted () {
+    this.getMusicList()
   },
   methods: {
     change(e) {
-      this.active = e.name
+      console.log(e)
+      if(this.active === e.name) {
+        
+        this.active = ''
+        this.$refs[`audio${e.num}`][0].pause()
+      } else {
+        this.active = e.name
+        this.musicDetail.name = e.name
+        this.musicDetail.details = e.details
+        console.log(this.$refs)
+        this.$refs[`audio${e.num}`][0].play()
+      }
       // 这里做音频播放
     },
     close() {
       // 暂停播放器先
       this.$emit('update:isVisible', false)
+    },
+    getMusicList() {
+      this.playerList = []
+      getVinyl().then((res) => {
+        console.log(res)
+        this.playerList = res
+        this.musicDetail.name = res[0].name
+        this.musicDetail.details = res[0].details
+      })
     }
   }
 }
@@ -86,11 +120,22 @@ export default {
   .sub-title {
     left: 650px;
     bottom: 90px;
-    width: 169px;
+    width: 249px;
     height: 151px;
     position: absolute;
-    background-size: 100%;
-    background-image: url('../image/sub-title.png');
+    font-family: 'nansongshuju';
+    &-h4 {
+      font-size: 30px;
+      background-image:-webkit-linear-gradient( left, rgb(235, 219, 183) 20% ,rgb(103,87,50)  60%);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin-bottom: 20px;
+    }
+    &-p {
+      font-size: 18px;
+      color: rgb(214, 179, 103);
+      margin-bottom: 8px;
+    }
   }
   .record-body {
     top: 70px;
@@ -106,7 +151,7 @@ export default {
       margin-top: 60px;
     }
     .item {
-      height: 50px;
+      height: 40px;
       margin-bottom: 30px;
       position: relative;
       font-family: nansongshuju;
@@ -120,6 +165,10 @@ export default {
         color: rgb(214, 179, 103);
         margin-top: 3px;
         font-weight: 500;
+      }
+      &-music {
+        width: 100%;
+        height: 20px;
       }
       &-icon {
         top: 8px;

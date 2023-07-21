@@ -270,7 +270,7 @@ export default {
 .td-dialog-content {
   width: 960px;
   height: 530px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .td-dialog-div {
   display: flex;
