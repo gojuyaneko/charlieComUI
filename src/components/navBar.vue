@@ -79,10 +79,7 @@ export default {
               name: "家具",
               nextUrl: "/studio/furniture",
             },
-            {
-              name: "陪伴",
-              nextUrl: "/studio/accompany",
-            },
+
             {
               name: "闲聊",
               nextUrl: "/studio/chat",
@@ -162,7 +159,7 @@ export default {
         },
         {
           name: "联系我们",
-          nextUrl: "/1",
+          nextUrl: "/us",
         },
       ],
     };

@@ -8,8 +8,7 @@ const DreamWeaving = () =>
 const lightAndNight = () => import("../pages/lightAndNight/lightAndNight.vue");
 const allGoods = () => import("../pages/subitems/goods/allGoods.vue");
 const badge = () => import("../pages/subitems/goods/badge.vue");
-const encounter = () =>
-  import("../pages/MemoryCollect/encounter/encounter");
+const encounter = () => import("../pages/MemoryCollect/encounter/encounter");
 const wechatMoments = () =>
   import("../pages/subitems/sweet/wechatMoments/wechatMoments.vue");
 const charlieFurniture = () =>
@@ -31,12 +30,14 @@ const videoDetail = () =>
 const aboutCharlie = () => import("../pages/aboutCharlie.vue");
 const charaDetail = () => import("../pages/aboutCharlie/charaDetail.vue");
 const relationship = () => import("../pages/aboutCharlie/relationship.vue");
-const rewindPage = () => import("../pages/MemoryCollect/listen/rewind/rewindPage.vue");
-const volumePage = () => import("../pages/MemoryCollect/listen/volume/volumePage.vue");
+const rewindPage = () =>
+  import("../pages/MemoryCollect/listen/rewind/rewindPage.vue");
+const volumePage = () =>
+  import("../pages/MemoryCollect/listen/volume/volumePage.vue");
 const photoAlbum = () => import("../pages/photoAlbum/index.vue"); // 灵犀相册
-const photoAlbumDetail = () => import("../pages/photoAlbum/detail.vue")
+const photoAlbumDetail = () => import("../pages/photoAlbum/detail.vue");
+const aboutUs = () => import("../pages/us.vue");
 
-charaDetail;
 Vue.use(Router);
 export default new Router({
   // mode: "history",
@@ -158,9 +159,14 @@ export default new Router({
       component: photoAlbum,
     },
     {
-      path: '/photoAlbum/detail',
-      name: 'photoAlbumDetail',
+      path: "/photoAlbum/detail",
+      name: "photoAlbumDetail",
       component: photoAlbumDetail,
+    },
+    {
+      path: "/us",
+      name: "aboutUs",
+      component: aboutUs,
     },
   ],
 });

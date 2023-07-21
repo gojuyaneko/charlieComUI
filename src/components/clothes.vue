@@ -37,7 +37,7 @@ export default {
       // 当前偏移量
       offset: 0,
       // 每个图片的宽度
-      itemWidth: 1655,
+      itemWidth: 1870,
       // 可见图片数量
       visibleItems: 1,
     };
@@ -67,11 +67,12 @@ export default {
 <style scoped>
 .slider {
   position: relative;
+  left: 40px;
   overflow: hidden;
 }
 .slider-inner {
   display: flex;
-  width: 1700px;
+  width: 1680px;
   transition: transform 0.3s ease-in-out;
 }
 .slider-item {
@@ -94,7 +95,6 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   background-color: transparent;
-
   border: none;
   outline: none;
   cursor: pointer;
@@ -106,9 +106,9 @@ export default {
   height: 53px;
 }
 .slider-btn-prev {
-  left: -85px;
+  left: -55px;
 }
 .slider-btn-next {
-  right: -85px;
+  right: -125px;
 }
 </style>

@@ -167,4 +167,24 @@ export default {
 .text {
   font-family: "nansongshuju";
 }
+.pc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aboutus {
+  flex: 1;
+  text-align: center;
+}
+
+.email {
+  flex: 1;
+  text-align: center;
+}
+
+.icon {
+  flex: 1;
+  text-align: center;
+}
 </style>
