@@ -106,8 +106,8 @@ export default {
   position: absolute;
   width: 820px;
   height: 500px;
-  top: 350px;
-  left: 700px;
+  top: 335px;
+  left: 790px;
   font-size: 18px;
   font-family: "nansongshuju";
   text-align: right;
