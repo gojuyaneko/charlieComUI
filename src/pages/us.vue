@@ -5,7 +5,6 @@
         <div class="text">
           <p class="item">微博：CharlieLove频道</p>
           <p class="item">邮箱： CharlieLovesU@163.com</p>
-
           <p class="item">哔哩哔哩：CharlieLove频道</p>
           <p class="item">小红书：伪装现充</p>
         </div>

@@ -208,12 +208,12 @@ ul {
   vertical-align: middle;
   margin-right: 10px; /* 根据需要调整图片与文字之间的间距 */
 }
-.pc-submenu .submenu-icon {
+.pc-submenu .submenu-icon img {
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px; /* 根据需要调整图片与文字之间的间距 */
   position: absolute; /* 添加绝对定位 */
-  top: 40%; /* 垂直居中 */
+  top: 50%; /* 垂直居中 */
   right: -27px; /* 调整距离右侧的位置 */
   transform: translateY(-50%); /* 垂直居中 */
 }
