@@ -83,15 +83,15 @@
             </div>
             <div class="cell-group">
               <div class="cell left-align" style="color: #b6a1dc">Sammy</div>
-              <div class="cell left-align">Zon</div>
+              <div class="cell left-align">姜迎</div>
             </div>
             <div class="cell-group">
               <div class="cell left-align" style="color: #b6a1dc">wqr_冉</div>
-              <div class="cell left-align">苏格曼</div>
+              <div class="cell left-align">ining</div>
             </div>
             <div class="cell-group">
               <div class="cell left-align">Winnie</div>
-              <div class="cell left-align">KAISXXI</div>
+              <div class="cell left-align">Hui</div>
             </div>
           </div>
           <div class="row">
