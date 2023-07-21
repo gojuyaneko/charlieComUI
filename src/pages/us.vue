@@ -125,6 +125,7 @@
         </div>
       </div>
     </div>
+    <myFooter> </myFooter>
   </div>
 </template>
 
@@ -141,7 +142,6 @@ export default {
 .page {
   width: 100%;
   height: 100%;
-  overflow: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
