@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :class="{ zjp: true, 'gold-border': showPopup }">
+    <div class="zzp">
       <img
         src="@/assets/aboutCharlie/查兆澎.png"
         @click="setSelectedCharacter('查兆澎')"
@@ -14,7 +14,8 @@
         ></myShip>
       </div>
     </div>
-    <div class="xh" :class="{ 'gold-border': showPopup }">
+
+    <div class="xh">
       <img
         src="@/assets/aboutCharlie/羲和.png"
         @click="setSelectedCharacter('羲和')"
@@ -29,7 +30,7 @@
       </div>
     </div>
 
-    <div class="js" :class="{ 'gold-border': showPopup }">
+    <div class="js">
       <img
         src="@/assets/aboutCharlie/吉叔.png"
         @click="setSelectedCharacter('吉叔（吉修）')"
@@ -44,7 +45,7 @@
       </div>
     </div>
 
-    <div class="zlf" :class="{ 'gold-border': showPopup }">
+    <div class="zlf">
       <img
         src="@/assets/aboutCharlie/查理芬.png"
         @click="setSelectedCharacter('查理芬')"
@@ -59,7 +60,7 @@
       </div>
     </div>
 
-    <div class="alan" :class="{ 'gold-border': showPopup }">
+    <div class="alan">
       <img
         src="@/assets/aboutCharlie/alan.png"
         @click="setSelectedCharacter('Alan')"
@@ -74,7 +75,7 @@
       </div>
     </div>
 
-    <div class="mk" :class="{ 'gold-border': showPopup }">
+    <div class="mk">
       <img
         src="@/assets/aboutCharlie/马克.png"
         @click="setSelectedCharacter('马克（Mark Alexander）')"
@@ -88,7 +89,7 @@
         ></myShip>
       </div>
     </div>
-    <div class="stz" :class="{ 'gold-border': showPopup }">
+    <div class="stz">
       <img
         src="@/assets/aboutCharlie/孙泰中.png"
         @click="setSelectedCharacter('孙泰中（已故）')"
@@ -102,7 +103,7 @@
         ></myShip>
       </div>
     </div>
-    <div class="axn" :class="{ 'gold-border': showPopup }">
+    <div class="axn">
       <img
         src="@/assets/aboutCharlie/埃西诺.png"
         @click="setSelectedCharacter('埃西诺')"
@@ -116,7 +117,7 @@
         ></myShip>
       </div>
     </div>
-    <div class="hgh" :class="{ 'gold-border': showPopup }">
+    <div class="hgh">
       <img
         src="@/assets/aboutCharlie/何国恒.png"
         @click="setSelectedCharacter('何国恒（老何）')"
@@ -131,7 +132,7 @@
       </div>
     </div>
 
-    <div class="shy" :class="{ 'gold-border': showPopup }">
+    <div class="shy">
       <img
         src="@/assets/aboutCharlie/时晏.png"
         @click="setSelectedCharacter('时晏')"
@@ -174,7 +175,7 @@
         ></myShip>
       </div>
     </div>
-    <div class="ow" :class="{ 'gold-border': showPopup }">
+    <div class="ow">
       <img
         src="@/assets/aboutCharlie/欧文.png"
         @click="setSelectedCharacter('欧文')"
@@ -189,7 +190,7 @@
       </div>
     </div>
 
-    <div class="la" :class="{ 'gold-border': showPopup }">
+    <div class="la">
       <img
         src="@/assets/aboutCharlie/莱昂.png"
         @click="setSelectedCharacter('莱昂')"
@@ -204,7 +205,7 @@
       </div>
     </div>
 
-    <div class="xlj" :class="{ 'gold-border': showPopup }">
+    <div class="xlj">
       <img
         src="@/assets/aboutCharlie/雪莉酒.png"
         @click="setSelectedCharacter('雪莉酒')"
@@ -218,7 +219,7 @@
         ></myShip>
       </div>
     </div>
-    <div class="dnns" :class="{ 'gold-border': showPopup }">
+    <div class="dnns">
       <img
         src="@/assets/aboutCharlie/丹尼医生.png"
         @click="setSelectedCharacter('丹尼医生')"
@@ -232,7 +233,7 @@
         ></myShip>
       </div>
     </div>
-    <div class="klm" :class="{ 'gold-border': showPopup }">
+    <div class="klm">
       <img
         src="@/assets/aboutCharlie/克勒曼.png"
         @click="setSelectedCharacter('克勒曼')"
@@ -246,7 +247,7 @@
         ></myShip>
       </div>
     </div>
-    <div class="bs" :class="{ 'gold-border': showPopup }">
+    <div class="bs">
       <img
         src="@/assets/aboutCharlie/BensonSteven.png"
         @click="setSelectedCharacter('Benson Steven')"
@@ -261,7 +262,7 @@
       </div>
     </div>
 
-    <div class="mzy" :class="{ 'gold-border': showPopup }">
+    <div class="mzy">
       <img
         src="@/assets/aboutCharlie/孟泽洋.png"
         @click="setSelectedCharacter('孟泽洋 Katy')"
@@ -326,12 +327,12 @@ export default {
 };
 </script>
 <style>
-.zjp img:hover {
+.zzp img:hover {
   background-color: #513c74;
   border: 5px solid #ba9c58;
   border-radius: 50%;
 }
-.zjp img {
+.zzp img {
   position: absolute;
   height: 246px;
   width: 246px;
@@ -600,9 +601,5 @@ export default {
 .popup {
   width: 1272px;
   height: 540px;
-}
-.popup .popup-content {
-  left: 800px;
-  top: 330px;
 }
 </style>

@@ -82,7 +82,7 @@ export default {
   z-index: 1;
   position: absolute;
   top: 250px;
-  left: 500px;
+  left: 490px;
   width: 291px;
   height: 424px;
   font-size: 100px;
