@@ -141,7 +141,7 @@ export default {
 <style>
 .page {
   width: 100%;
-  height: 100%;
+  height: 1080px;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
