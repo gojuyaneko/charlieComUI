@@ -69,7 +69,7 @@ export default {
       });
     },
     getList() {
-      getMemoriesAlbum().then((res) => {
+      getMemoriesAlbum({type:'default'}).then((res) => {
         let arr = [
           { level: 6, list: [] },
           { level: 5, list: [] },
@@ -159,12 +159,12 @@ export default {
 
 .photoItem {
   cursor: pointer;
-  background: pink;
   width: 274px;
   height: 462px;
   margin-bottom: 60px;
   margin-right: 40px;
-  background: url("../../assets/photoAlbum/bgItem.png") 100% 100%;
+  background: url("../../assets/photoAlbum/bgItem.png");
+  background-size: cover;
 }
 
 .photoItem:nth-child(5n) {
@@ -175,7 +175,6 @@ export default {
   margin: 20px 15px 0 15px;
   width: 244px;
   height: 375px;
-  background: #fff;
 }
 
 .itemInfo {
