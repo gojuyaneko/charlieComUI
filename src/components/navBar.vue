@@ -73,7 +73,7 @@ export default {
         },
         {
           name: "工作室",
-          nextUrl: "/studio",
+          nextUrl: "/studio/furniture",
           childItems: [
             {
               name: "家具",
@@ -88,7 +88,7 @@ export default {
         },
         {
           name: "甜蜜互动",
-          nextUrl: "/interaction",
+          nextUrl: "/wechatmoments",
           childItems: [
             {
               name: "朋友圈",
@@ -114,7 +114,7 @@ export default {
         },
         {
           name: "官方周边",
-          nextUrl: "",
+          nextUrl: "/allGoods",
           childItems: [
             {
               name: "总览",
