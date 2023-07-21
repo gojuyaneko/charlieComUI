@@ -8,23 +8,23 @@
           @mouseleave="changeImg(false)"
         >
           <div :class="isUp ? 'border' : 'border-cover'">
-            <img :src="icon1" class="itemImg" />
+            <img :src="info.file_path2" class="itemImg" />
           </div>
           <div :class="!isUp ? 'border' : 'border-cover'">
-            <img :src="icon2" class="itemImg" />
+            <img :src="info.file_path" class="itemImg" />
           </div>
         </div>
         <div class="right">
-          <div class="title">{{ name }}</div>
+          <div class="title">{{ info.name }}</div>
           <div class="border">
             <div class="attr">
               <div class="main-attr">
                 <div class="attr-info">
                   <span>主属性：</span>
                   <div class="attr-info-right">
-                    <img class="icon-style" :src="icon1" />
-                    <span>信任</span>
-                    <span>729</span>
+                    <img class="icon-style" :src="mainAttribute.icon" />
+                    <span>{{ mainAttribute.name }}</span>
+                    <span>{{ mainAttribute.value }}</span>
                   </div>
                 </div>
                 <div class="attr-info">
@@ -32,7 +32,7 @@
                   <div class="starList">
                     <img
                       class="star"
-                      v-for="(it, idx) in info.level"
+                      v-for="(it, idx) in +info.start_level"
                       :key="idx"
                       src="@/assets/photoAlbum/star.png"
                       alt
@@ -41,50 +41,41 @@
                 </div>
                 <div class="attr-info">
                   <span>等级上限：</span>
-                  <span>90级</span>
+                  <span>{{ info.level }}级</span>
                 </div>
                 <div class="attr-info">
                   <span>铭迹技能：</span>
-                  <span>[头脑风暴]</span>
+                  <span>[{{ info.skill }}]</span>
                 </div>
               </div>
-
               <div class="detail-attr">
                 <div>基础属性：</div>
                 <div class="attr-list">
-                  <div class="attr-info-right">
-                    <img class="icon-style" :src="icon3" />
-                    <span class="space">信任</span>
-                    <span>729</span>
-                  </div>
-                  <div class="attr-info-right">
-                    <img class="icon-style" :src="icon1" />
-                    <span class="space">果决</span>
-                    <span>729</span>
-                  </div>
-                  <div class="attr-info-right">
-                    <img class="icon-style" :src="icon4" />
-                    <span class="space">无畏</span>
-                    <span>729</span>
-                  </div>
-                  <div class="attr-info-right">
-                    <img class="icon-style" :src="icon2" />
-                    <span class="space">专注</span>
-                    <span>729</span>
+                  <div
+                    class="attr-info-right"
+                    v-for="(item, index) in attributeList"
+                    :key="index"
+                  >
+                    <img class="icon-style" :src="item.icon" />
+                    <span class="space">{{ item.name }}</span>
+                    <span>{{ info.value }}</span>
                   </div>
                 </div>
                 <div>相关内容：</div>
                 <div class="attr-list">
-                  <div class="attr-words">约会·时与玫瑰</div>
-                  <div class="attr-words">短信·词语接龙</div>
-                  <div class="attr-words">短信·此物最相思</div>
-                  <div class="attr-words">朋友圈·杰克苏</div>
+                  <div
+                    class="attr-words"
+                    v-for="item in info.detailList"
+                    :key="item.id"
+                  >
+                    {{ item.detail }}
+                  </div>
                 </div>
               </div>
             </div>
             <div class="des">
               <div>获取途径：</div>
-              <div class="attr-words">限时收信·巴洛克梦境</div>
+              <div class="attr-words">{{ info.source }}</div>
             </div>
           </div>
         </div>
@@ -94,31 +85,60 @@
 </template>
 
 <script>
+import { getMemoriesAlbum } from "@/request/api";
 export default {
   name: "photoAlbumDetail",
   data() {
     return {
-      icon1: require("@/assets/photoAlbum/icon01.png"),
-      icon2: require("@/assets/photoAlbum/icon02.png"),
-      icon3: require("@/assets/photoAlbum/icon03.png"),
-      icon4: require("@/assets/photoAlbum/icon04.png"),
-      info: {
-        imgUrl: "",
-        title: "时与玫瑰",
-        level: 6,
-      },
-      isUp: true,
-      name: "",
+      // icon1: require("@/assets/photoAlbum/icon01.png")
+      info: {},
+      isUp: false,
+      mainAttribute: {},
+      attributeList: [
+        { name: "果决", field: "risoluto", value: "", icon: require("@/assets/photoAlbum/icon01.png") },
+        { name: "专注", field: "concentration", value: "", icon: require("@/assets/photoAlbum/icon02.png") },
+        { name: "信任", field: "trust", value: "", icon: require("@/assets/photoAlbum/icon03.png") },
+        { name: "无畏", field: "fearless", value: "", icon: require("@/assets/photoAlbum/icon04.png") },
+        { name: "真挚", field: "earnest", value: "", icon: require("@/assets/photoAlbum/icon05.png") },
+        { name: "快乐", field: "happiness", value: "", icon: require("@/assets/photoAlbum/icon06.png") },
+      ],
     };
   },
-  created() {
-    this.name = this.$route.query.name;
+  activated() {
+    this.getInfo(this.$route.query.name);
   },
   methods: {
     changeImg(flag) {
       this.isUp = flag;
     },
-    getInfo() {},
+    getInfo(name) {
+      getMemoriesAlbum({ name }).then((res) => {
+        let obj = res?.[0] || {};
+        // 二段图
+        if (res?.[0]?.file_path != res?.[1]?.file_path) {
+          obj.file_path2 = res?.[1]?.file_path;
+        }
+        let arr = [];
+        this.attributeList.map((item) => {
+          // 主属性
+          if (item.name == obj.attribute) {
+            this.mainAttribute = {
+              ...item,
+              value: obj[item.field],
+            };
+          }
+          // 其他属性
+          if (obj[item.field]) {
+            arr.push({
+              ...item,
+              value: obj[item.field],
+            });
+          }
+        });
+        this.attributeList = arr;
+        this.info = obj;
+      });
+    },
   },
 };
 </script>
