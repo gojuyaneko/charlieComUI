@@ -65,14 +65,14 @@ export default {
   width: 1272px;
   height: 540px;
   top: 40px;
-  left: 100px;
+  left: 30px;
 }
 
 .charaPic {
   z-index: 1;
   position: absolute;
   top: 50px;
-  left: 10px;
+  left: -80px;
   width: 291px;
   height: 424px;
   font-size: 100px;
@@ -92,7 +92,7 @@ export default {
 .popup {
   position: fixed;
   top: 0;
-  left: 0;
+  left: -30px;
   width: 100%;
   height: 100%;
   z-index: 999;
@@ -107,7 +107,7 @@ export default {
   width: 820px;
   height: 500px;
   top: 335px;
-  left: 790px;
+  left: 690px;
   font-size: 18px;
   font-family: "nansongshuju";
   text-align: right;

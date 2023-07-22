@@ -11,6 +11,7 @@
         <div class="bg">
           <img src="./../assets/HomePage/剪影.png" />
         </div>
+
         <div class="title">
           <img src="./../assets/HomePage/标题.png" />
         </div>
@@ -19,7 +20,7 @@
           <div class="line"></div>
 
           <div class="row ep">
-            <div class="cell right-align ro">
+            <div class="cell right-align ro" style="color: #f2d79c">
               出品人<br />
               Executive Producer
             </div>
@@ -28,7 +29,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="cell right-align ro">
+            <div class="cell right-align ro" style="color: #f2d79c">
               视觉设计师<br />
               Visual Designers
             </div>
@@ -49,7 +50,7 @@
             </div>
           </div>
           <div class="row front-end">
-            <div class="cell right-align ro">
+            <div class="cell right-align ro" style="color: #f2d79c">
               前端开发者<br />
               Front-end Developers
             </div>
@@ -67,7 +68,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="cell right-align ro">
+            <div class="cell right-align ro" style="color: #f2d79c">
               后端开发者<br />
               Back-end Developers
             </div>
@@ -85,7 +86,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="cell right-align ro">
+            <div class="cell right-align ro" style="color: #f2d79c">
               素材整理<br />
               Data Collectors
             </div>
@@ -133,7 +134,6 @@ export default {
   margin-top: 60px !important;
 }
 .ro {
-  color: #f2d79c;
   text-align: right;
   width: 150px !important;
 }
@@ -253,7 +253,7 @@ export default {
 .line {
   position: absolute;
   top: 40px;
-  left: 180px;
+  left: 200px;
   height: 490px;
   width: 1px;
   border-right: solid #f2d79c 3px;

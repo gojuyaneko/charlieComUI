@@ -176,50 +176,28 @@ ul {
   font-family: "nansongshuju";
   text-align: right;
 }
-.pc-submenu img {
-  position: absolute;
-  width: 30px;
-  height: 25px;
-  top: 43%;
-  right: -15%;
-}
+
 .pc-menu span img {
   position: absolute;
   width: 35px;
   height: 30px;
   top: 40%;
-  right: -5%;
+  right: 0px;
 }
-.pc-submenu ul img {
+
+.menu-icon img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.pc-submenu .submenu-icon img {
+  width: 35px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
   position: absolute;
-  width: 35px;
-  height: 30px;
-  top: 40%;
-  right: -5%;
-}
-.menu-icon {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px; /* 根据需要调整图片与文字之间的间距 */
-}
-
-.submenu-icon {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px; /* 根据需要调整图片与文字之间的间距 */
-}
-.pc-submenu .submenu-icon img {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px; /* 根据需要调整图片与文字之间的间距 */
-  position: absolute; /* 添加绝对定位 */
   top: 50%; /* 垂直居中 */
-  right: -27px; /* 调整距离右侧的位置 */
-  transform: translateY(-50%); /* 垂直居中 */
-}
-
-.pc-submenu .submenu-icon img {
-  width: 35px;
-  height: 30px;
+  right: 0px;
+  transform: translate(calc(50%+1px), -50%);
 }
 </style>
