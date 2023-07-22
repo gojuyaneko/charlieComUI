@@ -83,7 +83,7 @@ export default {
 
             {
               name: "闲聊",
-              nextUrl: "/studio/chat",
+              nextUrl: "/smalltalk",
             },
           ],
         },

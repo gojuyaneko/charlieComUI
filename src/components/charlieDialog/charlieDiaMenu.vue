@@ -18,7 +18,7 @@ export default {
   components: {},
   props: { 
     diaBtnData: Array,
-    menuData:Array
+    menuData:Array,
   },
   data() {
     return {
@@ -28,7 +28,7 @@ export default {
     };
   },
   activated(){
-    this.activeIndex='6-8'
+    this.activeIndex=this.$route.query.subchap
   },
   methods: {
     controlShow(){

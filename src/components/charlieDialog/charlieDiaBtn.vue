@@ -11,7 +11,7 @@ export default {
   components: {},
   props: { 
     diaBtnData:Array,
-    diaBtnImg:Array,
+    btnIndex: Number
     },
   data() {
     return {
@@ -24,8 +24,7 @@ export default {
   },
   methods: {
     pushYoN(){
-      console.log(this.yesOrNo)
-      this.$emit('getYoN',this.yesOrNo)
+      this.$emit('getYoN',this.yesOrNo,this.btnIndex)
     }
   }
 };

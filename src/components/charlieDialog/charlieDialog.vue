@@ -26,8 +26,9 @@
 <script> 
 import CharlieDiaArti from './charlieDiaArti.vue';
 import charlieDiaMenu from './charlieDiaMenu.vue';
+import charlieDiaPic from './charlieDiaPic.vue';
 export default {
-  components: {CharlieDiaArti, charlieDiaMenu},
+  components: {CharlieDiaArti, charlieDiaMenu, charlieDiaPic},
   props:{
     videoUrl:String, // 传入地址链接需为完整地址，如 http://www.bilibili.com
     asideImg:String,
@@ -35,8 +36,6 @@ export default {
   }, 
   data() {
     return {
-      quarter:'Quarter01',
-      chapter: 6
     };
   },
   methods: {
@@ -114,7 +113,6 @@ export default {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 612px;
 }
 
 .com-dia-video {
@@ -158,14 +156,14 @@ export default {
 ::-webkit-scrollbar {
   width: 20px;
   border:1px solid #d6b367;
-  border-radius: 6px;
+  border-radius: 10px;
 }
 // ::-webkit-scrollbar-track {
 //   background-color: #efedf4ad;
 // }
 ::-webkit-scrollbar-thumb {
   background-color: #d6b36788;
-  border-radius: 6px;
+  border-radius: 10px;
   width: 18px;
   border: 3px solid transparent;
   background-clip: content-box;

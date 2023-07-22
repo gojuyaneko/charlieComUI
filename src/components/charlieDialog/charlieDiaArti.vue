@@ -3,22 +3,22 @@
     <div v-for="(item, index) in diaContent" :key="index" class="com-dia-div">
       <div class="com-dia-main" v-if="item.para_type === 'normal'">
         <span class="com-dia-span">
-          <span v-if="item.tag !== 'me'" :data-tag="item.tag">
+          <span v-if="item.speaker !== '我'" :data-speaker="item.speaker">
             {{ item.speaker }}</span
           >
         </span>
         <div class="com-dia-text">
           <p
             class="com-dia-p"
-            :data-tag-p="item.tag"
-            v-for="(cnt, index) in item.content"
-            :key="index"
+            :data-speaker-p="item.speaker"
+            v-for="(cnt, iindex) in item.content"
+            :key="'cnt3'+iindex"
           >
             {{ cnt }}
           </p>
         </div>
         <span class="com-dia-span">
-          <span v-if="item.tag === 'me'" :data-tag="item.tag">
+          <span v-if="item.speaker === 'me'" :data-speaker="item.speaker">
             {{ item.speaker }}
           </span>
         </span>
@@ -27,6 +27,7 @@
         <charlie-dia-btn
           v-bind="$attrs"
           :diaBtnData="item.xuanxiang"
+          :btnIndex="index"
           class="com-dia-btn"
           @getYoN="chooseCnt"
         ></charlie-dia-btn>
@@ -34,26 +35,26 @@
         <div v-if="item.xuanxiang[0].para_type === choice">
           <div
             class="com-dia-main"
-            v-for="(chooseItem, index) in item.xuanxiang[0].choice_para"
-            :key="index"
+            v-for="(chooseItem, cindex) in item.xuanxiang[0].choice_para"
+            :key="'c'+cindex"
           >
             <span class="com-dia-span">
-              <span v-if="chooseItem.tag !== 'me'" :data-tag="chooseItem.tag">
+              <span v-if="chooseItem.speaker !== '我'" :data-speaker="chooseItem.speaker">
                 {{ chooseItem.speaker }}</span
               >
             </span>
             <div class="com-dia-text">
               <p
                 class="com-dia-p"
-                :data-tag-p="chooseItem.tag"
-                v-for="(cnt, index) in chooseItem.content"
-                :key="index"
+                :data-speaker-p="chooseItem.speaker"
+                v-for="(cnt, cntindex) in chooseItem.content"
+                :key="'cnt'+cntindex"
               >
                 {{ cnt }}
               </p>
             </div>
             <span class="com-dia-span">
-              <span v-if="chooseItem.tag === 'me'" :data-tag="chooseItem.tag">
+              <span v-if="chooseItem.speaker === '我'" :data-speaker="chooseItem.speaker">
                 {{ chooseItem.speaker }}
               </span>
             </span>
@@ -62,26 +63,26 @@
         <div v-if="item.xuanxiang[1].para_type === choice">
           <div
             class="com-dia-main"
-            v-for="(chooseItem, index) in item.xuanxiang[1].choice_para"
-            :key="index"
+            v-for="(chooseItem, csindex) in item.xuanxiang[1].choice_para"
+            :key="'choose'+csindex"
           >
             <span class="com-dia-span">
-              <span v-if="chooseItem.tag !== 'me'" :data-tag="chooseItem.tag">
+              <span v-if="chooseItem.speaker !== '我'" :data-speaker="chooseItem.speaker">
                 {{ chooseItem.speaker }}</span
               >
             </span>
             <div class="com-dia-text">
               <p
                 class="com-dia-p"
-                :data-tag-p="chooseItem.tag"
-                v-for="(cnt, index) in chooseItem.content"
-                :key="index"
+                :data-speaker-p="chooseItem.speaker"
+                v-for="(cnt, cntindex) in chooseItem.content"
+                :key="'cnt2' +cntindex"
               >
                 {{ cnt }}
               </p>
             </div>
             <span class="com-dia-span">
-              <span v-if="chooseItem.tag === 'me'" :data-tag="chooseItem.tag">
+              <span v-if="chooseItem.speaker === '我'" :data-speaker="chooseItem.speaker">
                 {{ chooseItem.speaker }}
               </span>
             </span>
@@ -102,15 +103,15 @@ export default {
   data() {
     return {
       diaTitle: "",
-      choice:''
+      choice:'',
     };
   },
   mounted() {
-
+    console.log(this.choice)
   },
   methods: {
-    chooseCnt(choice) {
-      this.choice = choice
+    chooseCnt(choice, index) {
+      this.choice= choice
     }
   },
   watch: {
@@ -138,26 +139,27 @@ export default {
 }
 .com-dia-p {
   font-size: 20px;
+  margin-bottom: 8px;
 }
 .com-dia-span {
   width: 105px;
   color: rgb(214, 179, 103);
 }
-span[data-tag="me"] {
+span[data-speaker="我"] {
   color: #eb4982;
   margin-left: 55px;
 }
-span[data-tag="charlie"] {
+span[data-speaker="查理苏"] {
   color: #674d97;
   margin-right: 35px;
 }
-span[data-tag="pb"] {
+span[data-speaker="旁白"] {
   display: none;
 }
-p[data-tag-p="pb"] {
+p[data-speaker-p="旁白"] {
   color: #848484;
 }
-p[data-tag-p="me"] {
+p[data-speaker-p="我"] {
   text-align: right;
 }
 .com-dia-btn {

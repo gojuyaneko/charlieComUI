@@ -36,7 +36,8 @@ module.exports = {
           ],
         },
       },
-    },
+    }
+    
   },
   productionSourceMap: true,
   // productionSourceMap: process.env.NODE_ENV === 'development',

@@ -17,4 +17,4 @@ export const getDetail = (p) => get(baseUrl + "charlie_details", p); // 更多�
 export const getGuziList = (p) => get(baseUrl + "guzi", p); //周边
 export const getMemoriesAlbum = (p) => get(baseUrl + "memoriesAlbum", p); // 灵犀相册
 export const getVinyl = (p) => get(baseUrl + "vinyl", p); // 唱片接口
-
+export const getTalk = (p) => get(baseUrl + "talk", p); // 唱片接口

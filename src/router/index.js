@@ -37,6 +37,9 @@ const volumePage = () =>
 const photoAlbum = () => import("../pages/photoAlbum/index.vue"); // 灵犀相册
 const photoAlbumDetail = () => import("../pages/photoAlbum/detail.vue");
 const aboutUs = () => import("../pages/us.vue");
+const dateAll = () => import("../pages/MemoryCollect/date/dateAll.vue");
+const dateDetail = () => import("../pages/MemoryCollect/date/pages/dateDetail.vue");
+const smallTalk= () => import("../pages/subitems/smallTalk/smalltalk.vue");
 
 Vue.use(Router);
 export default new Router({
@@ -168,5 +171,20 @@ export default new Router({
       name: "aboutUs",
       component: aboutUs,
     },
+    {
+      path: "/date",
+      name: "date",
+      component: dateAll,
+    },
+    {
+      path: "/date/datedetail",
+      name: "datedetail",
+      component: dateDetail,
+    },
+    {
+      path: "/smalltalk",
+      name: "smalltalk",
+      component: smallTalk,
+    }
   ],
 });
