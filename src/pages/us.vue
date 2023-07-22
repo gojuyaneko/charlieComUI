@@ -18,21 +18,17 @@
         <div class="table">
           <div class="line"></div>
 
-          <div class="row" style="width: 362px">
-            <div
-              class="cell right-align"
-              style="color: #f2d79c; text-align: right; width: 150px"
-            >
+          <div class="row ep">
+            <div class="cell right-align ro">
               出品人<br />
               Executive Producer
             </div>
-            <div class="cell left-align" style="color: #b6a1dc">伪装现充</div>
+            <div class="cell left-align roo" style="color: #b6a1dc">
+              伪装现充
+            </div>
           </div>
           <div class="row">
-            <div
-              class="cell right-align"
-              style="color: #f2d79c; text-align: right; width: 150px"
-            >
+            <div class="cell right-align ro">
               视觉设计师<br />
               Visual Designers
             </div>
@@ -52,11 +48,8 @@
               <div class="cell left-align">Yana Yang</div>
             </div>
           </div>
-          <div class="row" style="margin-top: 60px">
-            <div
-              class="cell right-align"
-              style="color: #f2d79c; text-align: right; width: 150px"
-            >
+          <div class="row front-end">
+            <div class="cell right-align ro">
               前端开发者<br />
               Front-end Developers
             </div>
@@ -74,10 +67,7 @@
             </div>
           </div>
           <div class="row">
-            <div
-              class="cell right-align"
-              style="color: #f2d79c; text-align: right; width: 150px"
-            >
+            <div class="cell right-align ro">
               后端开发者<br />
               Back-end Developers
             </div>
@@ -95,10 +85,7 @@
             </div>
           </div>
           <div class="row">
-            <div
-              class="cell right-align"
-              style="color: #f2d79c; text-align: right; width: 150px"
-            >
+            <div class="cell right-align ro">
               素材整理<br />
               Data Collectors
             </div>
@@ -139,6 +126,24 @@ export default {
 </script>
 
 <style>
+.ep {
+  width: 362px;
+}
+.front-end {
+  margin-top: 60px !important;
+}
+.ro {
+  color: #f2d79c;
+  text-align: right;
+  width: 150px !important;
+}
+.roo {
+  color: #f2d79c;
+  text-align: left;
+  position: relative;
+  right: 362px;
+  width: 150px;
+}
 .page {
   width: 100%;
   height: 1080px;
@@ -250,7 +255,7 @@ export default {
   top: 40px;
   left: 180px;
   height: 490px;
-  width: 10px;
+  width: 1px;
   border-right: solid #f2d79c 3px;
 }
 </style>

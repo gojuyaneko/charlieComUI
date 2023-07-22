@@ -5,16 +5,7 @@
     </div>
     <div class="aboutus">
       <div class="title">关于我们</div>
-      <div
-        style="
-          font-family: 'nansongshuju';
-          color: #848484;
-          text-align: center;
-          font-size: 15px;
-          margin-top: 20px;
-          letter-spacing: 3px;
-        "
-      >
+      <div class="content">
         本站部分素材来源于北极光工作室-《光与夜之恋》，<br />
 
         仅供交流学习使用，不用于任何商业用途
@@ -23,18 +14,7 @@
 
     <div class="email">
       <div class="title">反馈邮箱</div>
-      <div
-        style="
-          font-family: 'nansongshuju';
-          color: #848484;
-          text-align: center;
-          font-size: 18px;
-          margin-top: 35px;
-          letter-spacing: 4px;
-        "
-      >
-        CharlieLovesU@163.com
-      </div>
+      <div class="content">CharlieLovesU@163.com</div>
     </div>
 
     <div class="icon">
@@ -124,6 +104,8 @@ export default {
 }
 .name {
   position: absolute;
+  padding-bottom: 30px;
+
   top: 10px;
   left: 43%;
 }
@@ -132,21 +114,24 @@ export default {
   height: 34px;
 }
 .aboutus {
-  position: absolute;
+  /* padding-right: 35px; */
+  padding-left: 115px;
+  padding-top: 50px;
   top: 80px;
-  left: 0px;
+  left: 30px;
   width: 740px;
   height: 100px;
 }
 .email {
-  position: absolute;
+  padding-left: 0px;
+  padding-top: 50px;
   top: 80px;
-  left: 850px;
   width: 290px;
   height: 100px;
 }
 .icon {
-  position: absolute;
+  padding-right: 50px;
+  padding-top: 50px;
   top: 80px;
   left: 1400px;
   cursor: pointer;
@@ -164,8 +149,14 @@ export default {
   font-family: "nansongshuju";
   letter-spacing: 2px;
 }
-.text {
+
+.content {
   font-family: "nansongshuju";
+  color: #848484;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 20px;
+  letter-spacing: 3px;
 }
 .pc-footer {
   display: flex;

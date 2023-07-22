@@ -1,9 +1,10 @@
 <template>
   <div>
-    <div class="slider">
+    <div class="slider" ref="slider">
       <div
         class="slider-inner"
-        :style="{ transform: 'translateX(' + offset + 'px)' }"
+        :class="['slider-inner', { 'slider-offset': offset !== 0 }]"
+        :style="{ transform: `translateX(${offset}px)` }"
       >
         <div class="slider-item" v-for="(item, index) in items" :key="index">
           <img :src="item" alt="slider-img" />
@@ -24,7 +25,6 @@ export default {
   name: "clothesSlider",
   data() {
     return {
-      // 图片列表
       items: [
         require("./../assets/aboutCharlie/男人衣柜/组1.png"),
         require("./../assets/aboutCharlie/男人衣柜/组2.png"),
@@ -34,32 +34,35 @@ export default {
         require("./../assets/aboutCharlie/男人衣柜/组6.png"),
         require("./../assets/aboutCharlie/男人衣柜/组7.png"),
       ],
-      // 当前偏移量
-      offset: 0,
-      // 每个图片的宽度
-      itemWidth: 1870,
-      // 可见图片数量
-      visibleItems: 1,
+      currentIndex: 0,
+      itemWidth: 1655,
+      sliderWidth: 0,
     };
   },
+  computed: {
+    offset() {
+      return -this.currentIndex * (this.sliderWidth / this.visibleItems);
+    },
+    visibleItems() {
+      return Math.floor(this.sliderWidth / this.itemWidth);
+    },
+  },
   methods: {
-    // 向左滑动
     prev() {
-      this.offset += this.itemWidth;
-      if (this.offset > 0) {
-        this.offset = -(this.items.length - this.visibleItems) * this.itemWidth;
+      this.currentIndex--;
+      if (this.currentIndex < 0) {
+        this.currentIndex = this.items.length - 1;
       }
     },
-    // 向右滑动
     next() {
-      this.offset -= this.itemWidth;
-      if (
-        this.offset <
-        -(this.items.length - this.visibleItems) * this.itemWidth
-      ) {
-        this.offset = 0;
+      this.currentIndex++;
+      if (this.currentIndex >= this.items.length) {
+        this.currentIndex = 0;
       }
     },
+  },
+  mounted() {
+    this.sliderWidth = this.$refs.slider.offsetWidth;
   },
 };
 </script>
@@ -70,6 +73,10 @@ export default {
   left: 40px;
   overflow: hidden;
 }
+.slider-offset {
+  transform: translateX(-100%);
+}
+
 .slider-inner {
   display: flex;
   width: 1680px;
