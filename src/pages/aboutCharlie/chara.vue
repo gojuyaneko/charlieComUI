@@ -587,18 +587,10 @@ export default {
   border: 5px solid #ba9c58;
   border-radius: 50%;
 }
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .popup {
+  position: fixed;
+
   width: 1272px;
   height: 540px;
 }

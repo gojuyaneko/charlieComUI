@@ -4,7 +4,7 @@
       <div
         class="slider-inner"
         :class="['slider-inner', { 'slider-offset': offset !== 0 }]"
-        :style="{ transform: `translateX(${offset}px)` }"
+        :style="{ transform: transformOffset }"
       >
         <div class="slider-item" v-for="(item, index) in items" :key="index">
           <img :src="item" alt="slider-img" />
@@ -46,6 +46,9 @@ export default {
     visibleItems() {
       return Math.floor(this.sliderWidth / this.itemWidth);
     },
+    transformOffset() {
+      return `translate3d(${this.offset}px, 0, 0)`;
+    },
   },
   methods: {
     prev() {
@@ -73,14 +76,17 @@ export default {
   left: 40px;
   overflow: hidden;
 }
-.slider-offset {
-  transform: translateX(-100%);
-}
-
 .slider-inner {
   display: flex;
   width: 1680px;
   transition: transform 0.3s ease-in-out;
+  -moz-transition: -moz-transform 0.3s ease-in-out;
+  -ms-transition: -ms-transform 0.3s ease-in-out;
+}
+.slider-offset {
+  transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
 }
 .slider-item {
   flex: 0 0 auto;

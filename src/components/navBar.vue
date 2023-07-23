@@ -1,7 +1,9 @@
 <template>
   <div class="pc-nav-theme">
     <span class="nav-theme">
-      <img src="./../assets/HomePage/CharlieLove2.png" />
+      <router-link to="/">
+        <img src="./../assets/HomePage/CharlieLove2.png" />
+      </router-link>
     </span>
     <img
       src="../assets/HomePage/Page1/多边形1拷贝.png"
@@ -34,7 +36,7 @@
             v-for="childItems in item.childItems"
             :index="childItems.nextUrl"
             :key="childItems.name"
-            :route="{path:childItems.nextUrl, query: childItems.query}"
+            :route="{ path: childItems.nextUrl, query: childItems.query }"
             @click="gotoUrl(childItems.nextUrl, childItems.ref)"
           >
             <span> {{ childItems.name }} </span>
@@ -124,6 +126,7 @@ export default {
             {
               name: "徽章类",
               nextUrl: "/badge",
+              ref: "徽章",
               query: {
                 type: "徽章",
               },
@@ -131,6 +134,7 @@ export default {
             {
               name: "亚克力类",
               nextUrl: "/badge",
+              ref: "亚克力类",
               query: {
                 type: "亚克力类",
               },
@@ -138,6 +142,7 @@ export default {
             {
               name: "卡片类",
               nextUrl: "/badge",
+              ref: "纸片类",
               query: {
                 type: "纸片类",
               },
@@ -145,6 +150,7 @@ export default {
             {
               name: "生活用品",
               nextUrl: "/badge",
+              ref: "生活用品类",
               query: {
                 type: "生活用品类",
               },
@@ -152,6 +158,7 @@ export default {
             {
               name: "套装",
               nextUrl: "/badge",
+              ref: "礼盒",
               query: {
                 type: "礼盒",
               },
