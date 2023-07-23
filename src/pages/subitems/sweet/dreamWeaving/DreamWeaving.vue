@@ -112,7 +112,11 @@ export default {
     mounted() {
     this.getPara()
     },
-    methods: {
+  activated() {
+    this.getContent_meet (this.currentPage)
+    this.getPara()
+  },
+  methods: {
       getContent_meet (currentPage) {
         this.currentPage = currentPage
         console.log(currentPage)
@@ -133,7 +137,6 @@ export default {
                 type: res.subContent[i]["type"],
                 content:res.subContent[i]["content"],
               }
-              console.log(dia)
               this.subContent.push(dia)
             }
             let item = {

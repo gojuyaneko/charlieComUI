@@ -131,10 +131,10 @@ export default {
   width: 540px;
   height: 300px;
   background-size: 100% 100%;
-  position: relative;
+  position: fixed;
   box-sizing: border-box;
   cursor: pointer;
-  top:370px;
+  top:400px;
   left: 1320px;
 }
 .change .border {

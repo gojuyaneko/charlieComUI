@@ -71,7 +71,7 @@ export default {
             },
             {
               name: "胶片",
-              nextUrl: "film",
+              nextUrl: "/filmPage",
             },
             {
               name: "轨迹",

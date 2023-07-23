@@ -11,7 +11,7 @@ export const getFurniture = p => get(baseUrl + 'studio/furniture', p) // 家具�
 export const getRP = (p) => get(baseUrl + "rewinds", p);
 export const getTP = (p) => get(baseUrl + "tracks", p);
 export const getDW = (p) => get(baseUrl + "dreamweaving", p);
-
+export const getF = (p) => get(baseUrl + "film", p);
 export const getPP = (p) => get(baseUrl + "profiledetail", p);
 export const getDetail = (p) => get(baseUrl + "charlie_details", p); // 更多细节
 export const getGuziList = (p) => get(baseUrl + "guzi", p); //周边
