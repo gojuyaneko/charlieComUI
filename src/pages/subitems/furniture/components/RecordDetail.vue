@@ -54,16 +54,16 @@ export default {
   },
   methods: {
     change(e) {
-      console.log(e)
+      for( let i in this.playerList) {
+        this.$refs[`audio${this.playerList[i].num}`][0].pause()
+      }
       if(this.active === e.name) {
-        
         this.active = ''
         this.$refs[`audio${e.num}`][0].pause()
       } else {
         this.active = e.name
         this.musicDetail.name = e.name
         this.musicDetail.details = e.details
-        console.log(this.$refs)
         this.$refs[`audio${e.num}`][0].play()
       }
       // 这里做音频播放

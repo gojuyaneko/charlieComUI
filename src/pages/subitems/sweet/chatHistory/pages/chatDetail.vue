@@ -2,16 +2,17 @@
   <div class="chat-detail">
     <div class="chat-detail-bg" ref="chatBg" @click.stop="choiceChoose">
       <main class="ch-detail-main" >
-        <a
+        <!-- <a
           class="ch-detail-video"
           target="_blank"
           href="http://www.bilibili.com"
         >
-        </a>
+        </a> -->
         <div class="ch-detail-design"> Moments of Charlie</div>
         <section v-for="(item, index) in chDetailData" :key="index" class="ch-detail-section" v-show="index<contentIndex">
           <div class="ch-dt-sec-header" :data-person="item.speaker">
-            <picture :data-person="item.speaker"><img  class="ch-dt-header-img"  src="../../../../../assets/charlieprofile.png" alt=""></picture>
+            <picture :data-person="item.speaker" v-if="item.speaker === '查理苏'"><img  class="ch-dt-header-img"  src="../../../../../assets/chcharlie.jpg" alt=""></picture>
+            <picture :data-person="item.speaker" v-else><img  class="ch-dt-header-img"  src="../../../../../assets/chme.jpg" alt=""></picture>
           </div>
           <div class="ch-dt-sec-main " @click.stop="">
             <div v-for="(firstItem, findex) in item.content" :key="'fi'+findex">
@@ -44,7 +45,8 @@
                 </el-collapse-item>
               </el-collapse>
             </div>
-          </div>          
+          </div>
+          <div class="click-to-next" v-show="index>=contentIndex -1&&chDetailData.length>index + 1 ">请点击空白处继续</div>
         </section>
       </main>
     </div>
@@ -287,6 +289,12 @@ export default {
           color: #674d97;
           font-family: 'nansongshuju';
         }
+}
+.click-to-next {
+  font-size: 16px;
+  text-align: center;
+  color: rgb(151, 151, 151);
+  transform: translateY(calc(30px + 100%));
 }
 ::-webkit-scrollbar {
   display: none;

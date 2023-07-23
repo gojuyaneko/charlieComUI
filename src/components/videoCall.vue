@@ -228,7 +228,7 @@ export default {
       height: 10px;
       z-index: 3;
       font-size: 25px;
-      margin-right: 10px;
+      margin-right: 20px;
       color: rgb(235, 73, 130);
     }
 

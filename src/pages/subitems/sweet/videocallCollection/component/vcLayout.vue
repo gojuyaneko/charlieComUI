@@ -4,7 +4,7 @@
       <ul class="vc-layout-ul">
         <li class="vc-layout-li" v-for="(item, index) in layoutData.data.slice((currentPage-1)*pagesize,currentPage*pagesize)" :key="index" @click="goToNext(item.entry)">
           <div class="vc-layout-name">{{item.name}}</div>
-          <div class="vc-layout-content">{{ item.content[0] }}</div>
+          <div class="vc-layout-content">{{ item.content }}</div>
         </li>
       </ul>
       <div class="vc-layout-box">

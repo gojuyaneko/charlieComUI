@@ -123,5 +123,8 @@ export default {
     .el-table--enable-row-transition .el-table__body td.el-table__cell {
       cursor: pointer;
     }
+    .el-table td.el-table__cell div {
+      color: #3b3b3b!important;
+    }
   }
 </style>

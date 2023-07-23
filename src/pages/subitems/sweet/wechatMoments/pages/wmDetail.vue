@@ -4,7 +4,7 @@
       <main class="wm-detail-main">
         <section class="wm-detail-section">
           <div class="wm-dt-f-header">
-            <picture><img class="wm-dt-header-img margin-right" src="../../../../../assets/charlieprofile.png" alt=""></picture>
+            <picture><img class="wm-dt-header-img margin-right" src="../../../../../assets/wmcharlie.jpg" alt=""></picture>
             <span class="wm-dt-header-span">{{fisrtPerson}}</span>
           </div>
           <div class="wm-dt-sec-main">
@@ -17,7 +17,7 @@
         <section class="wm-detail-section">
           <div class="wm-dt-sec-header item-right">
             <span class="wm-dt-header-span margin-right pink">{{secondPerson}}</span>
-            <picture><img class="wm-dt-header-img" src="../../../../../assets/charlieprofile.png" alt=""></picture>
+            <picture><img class="wm-dt-header-img" src="../../../../../assets/wmme.jpg"></picture>
           </div>
           <div class="wm-dt-sec-main ">
             <el-collapse v-model="deActiveName" accordion>
