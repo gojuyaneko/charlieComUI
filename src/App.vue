@@ -2,7 +2,8 @@
   <div id="app">
     <myNavbar class="sticky"> </myNavbar>
     <div class="position-absolute">
-      <KeepAlive>
+      <!-- photoAlbumDetail需要根据接口数据渲染页面v-if、else，放在activated请求会出现1-2s的v-if渲染不正确 -->
+      <KeepAlive exclude="photoAlbumDetail">
         <router-view></router-view>
       </KeepAlive>
     </div>

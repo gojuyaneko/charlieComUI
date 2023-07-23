@@ -2,15 +2,27 @@
   <div class="bgArea">
     <div class="photoArea">
       <div class="flex">
+        <!-- 有两段卡面 -->
         <div
           class="left"
           @mouseenter="changeImg(true)"
           @mouseleave="changeImg(false)"
+          v-if="info.file_path2"
         >
           <div :class="isUp ? 'border' : 'border-cover'">
             <img :src="info.file_path2" class="itemImg" />
           </div>
           <div :class="!isUp ? 'border' : 'border-cover'">
+            <img :src="info.file_path" class="itemImg" />
+          </div>
+        </div>
+        <!-- 只有一段卡面 -->
+        <div
+          class="left"
+          style="cursor: default"
+          v-else
+        >
+          <div class="border-cover-one">
             <img :src="info.file_path" class="itemImg" />
           </div>
         </div>
@@ -90,7 +102,6 @@ export default {
   name: "photoAlbumDetail",
   data() {
     return {
-      // icon1: require("@/assets/photoAlbum/icon01.png")
       info: {},
       isUp: false,
       mainAttribute: {},
@@ -104,7 +115,7 @@ export default {
       ],
     };
   },
-  activated() {
+  mounted() {
     this.getInfo(this.$route.query.name);
   },
   methods: {
@@ -157,7 +168,6 @@ export default {
 .photoArea {
   width: 1534px;
   margin: auto;
-  /* padding: 140px 0 200px 0; */
   display: flex;
   align-items: center;
   height: 100vh;
@@ -177,6 +187,7 @@ export default {
   box-sizing: border-box;
   cursor: pointer;
 }
+
 .left .border {
   width: 432px;
   height: 611px;
@@ -201,26 +212,34 @@ export default {
   overflow: hidden;
   filter: contrast(0.5);
 }
+
+.left .border-cover-one {
+  width: 429px;
+  height: 608px;
+  border-radius: 3px;
+  border: 2px solid #ccaa61;
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  left: 52px;
+  overflow: hidden;
+}
+
 .left:hover .border-cover {
   transition: all 0.3s;
 }
-.left .border img {
+.itemImg {
   width: 100%;
   height: 100%;
   background: #fff;
 }
-.left .border-cover img {
-  width: 100%;
-  height: 100%;
-  background: #fff;
-}
+
 .flex .right {
   position: relative;
 }
 .right .title {
   font-size: 82px;
   font-family: nansongshuju;
-  /* color: #decb9b; */
   margin-bottom: 18px;
   text-align: right;
   background: linear-gradient(
