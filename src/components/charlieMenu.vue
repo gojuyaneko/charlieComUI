@@ -100,20 +100,18 @@ export default {
     };
   },
   mounted() {},
-  activated(){
-  },
+  activated() {},
   methods: {
-    goTo(url,n,i) {
-      let name = n === undefined ? 'others' : n
-      let index = i === undefined ? -1 : i
-      if(name === '< 邂逅') {
+    goTo(url, n, i) {
+      let name = n === undefined ? "others" : n;
+      let index = i === undefined ? -1 : i;
+      if (name === "< 邂逅") {
         this.$router.push({
-          path:url,
-          query:{encounterIndex:index}
+          path: url,
+          query: { encounterIndex: index },
         });
-      }
-      else {
-        this.$router.push(url)
+      } else {
+        this.$router.push(url);
       }
     },
     boxPadding1(index) {
@@ -179,13 +177,7 @@ ul {
   font-family: "nansongshuju";
   text-align: right;
 }
-.pc-submenu img {
-  position: absolute;
-  width: 30px;
-  height: 25px;
-  top: 43%;
-  right: -15%;
-}
+
 .pc-menu span img {
   position: absolute;
   width: 35px;
@@ -205,23 +197,16 @@ ul {
   vertical-align: middle;
   margin-right: 10px; /* 根据需要调整图片与文字之间的间距 */
 }
-.submenu-icon {
-  width: 26px;
-  height: 24px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 0px; /* 根据需要调整图片与文字之间的间距 */
-}
+
 .pc-submenu .submenu-icon img {
+  width: 35px;
+  height: 30px;
+  margin-right: 0px;
   display: inline-block;
   vertical-align: middle;
   position: absolute; /* 添加绝对定位 */
   top: 50%; /* 垂直居中 */
   right: 0; /* 调整距离右侧的位置 */
   transform: translate(calc(50% + 1px), -50%); /* 垂直居中 */
-}
-.pc-submenu .submenu-icon img {
-  width: 35px;
-  height: 30px;
 }
 </style>
