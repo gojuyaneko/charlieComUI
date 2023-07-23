@@ -20,6 +20,7 @@
 import btnList from './components/btnList'
 import RecordDetail from './components/RecordDetail.vue'
 import FurnitureDetail from './components/FurnitureDetail.vue'
+
 export default {
   components: {
     RecordDetail,

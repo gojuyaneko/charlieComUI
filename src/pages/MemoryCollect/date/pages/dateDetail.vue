@@ -14,10 +14,10 @@
               @mouseleave="changeImg(false)"
             >
               <div :class="isUp ? 'border' : 'border-cover'">
-                <img :src="info.file_path2" class="itemImg" />
+                <img :src="imgList[1]" class="itemImg" />
               </div>
               <div :class="!isUp ? 'border' : 'border-cover'">
-                <img :src="info.file_path" class="itemImg" />
+                <img :src="imgList[0]" class="itemImg" />
               </div>
             </div>
           </div>
@@ -38,13 +38,9 @@
 import CharlieDiaArti from '../../../../components/charlieDialog/charlieDiaArti';
 import charlieDiaMenu from '../../../../components/charlieDialog/charlieDiaMenu.vue';
 import charlieDiaPic from '../../../../components/charlieDialog/charlieDiaPic.vue';
-import { getMemoriesAlbum } from "@/request/api";
-import { getDNMenu } from "@/request/api";
+import { getDateDetail } from "@/request/api";
 export default {
   props:{
-    videoUrl:String, // 传入地址链接需为完整地址，如 http://www.bilibili.com
-    asideImg:String,
-    diaTitle:String,
     pageType: String
   },
   data() {
@@ -60,16 +56,31 @@ export default {
   },
   components: { CharlieDiaArti,  charlieDiaMenu, charlieDiaPic},
   methods: {
-    getContent(chap, data) {
-      getDNMenu({ chap: chap, subchap: data }).then((res) => {
-        this.diaTitle = res.chap_title
-        this.diaContent = res.para
-        this.videoUrl = res.videoUrl
-      })
-    },
-    getMenuList() {
-      getDNMenu().then((res) => {
-        this.menuData = res
+    getContent(chap,data) {
+      this.diaContent = []
+      getDateDetail({dateIndex: this.$route.query.index}).then((res) => {
+        console.log(res)
+        this.videoUrl = res.dateUrl
+        this.imgList = res.dateImgList
+        this.diaTitle = res.dateName
+        this.menuData = [{
+          chap_name: '请选择约会小节',
+          chap_num: 0,
+          subchap:res.dateMenu}]
+          let content = []
+          for(let i in res.dateText) {
+            if(res.dateText[i][data]) {
+              content = res.dateText[i][data].dateContent
+              for(let j in content) {
+                let item = {
+                  para_type: 'normal',
+                  speaker: content[j].name,
+                  content: [content[j].content]
+                }
+                this.diaContent.push(item)
+              }
+            }
+          }
       })
     },
     changeChap() {
@@ -83,20 +94,10 @@ export default {
     },
     changeImg(flag) {
       this.isUp = flag;
-    },
-    getInfo(name) {
-      getMemoriesAlbum({ name }).then((res) => {
-        let obj = res?.[0] || {};
-        // 二段图
-        if (res?.[0]?.file_path != res?.[1]?.file_path) {
-          obj.file_path2 = res?.[1]?.file_path;
-        }
-        this.info = obj;
-      });
     }
   },
   activated() {
-    this.getInfo('时与玫瑰');
+    this.getContent(0, '开头')
     this.getMenuList()
     this.getContent(this.$route.query.chap, this.$route.query.subchap)
   }
@@ -224,7 +225,6 @@ export default {
   cursor: pointer;
 }
 .left .border {
-  width: 330px;
   height: 502px;
   border-radius: 3px;
   border: 2px solid #ccaa61;
@@ -238,6 +238,7 @@ export default {
 }
 .left .border-cover {
   height: 502px;
+  background-size: 100%;
   border-radius: 3px;
   border: 2px solid #ccaa61;
   position: absolute;

@@ -3,13 +3,12 @@
 
   <div class="homepage">
     <!-- 首页背景 -->
-
+    <audio :src="au" autoplay></audio>
     <div class="pc-homepage-background">
       <div class="pc-homepage-background-h">
         <div class="pc-myIndex">
           <myIndex :sections="sections"> </myIndex>
         </div>
-
         <div class="pc-charlie-portrait">
           <img src="../assets/HomePage/Page1/查理.png" alt="" />
         </div>
@@ -98,6 +97,7 @@ export default {
           ref: "pcBg4",
         },
       ],
+      au: require('../assets/loadau.mp3')
     };
   },
   watch: {

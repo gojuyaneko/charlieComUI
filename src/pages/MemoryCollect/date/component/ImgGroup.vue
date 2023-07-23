@@ -1,7 +1,7 @@
 <template>
-  <div class=''>
-    <ul class="img-group-grid">
-      <li :class="`img-group-li${classIndex}`" :data-index="index" v-for="(item, index) in imgList" :key="index">
+  <div class='' >
+    <ul class="img-group-grid" >
+      <li :class="`img-group-li${classIndex}`" :data-index="index" v-for="(item, index) in imgList" :key="index" >
         <img class="img-group-img" :src="item.img" alt="" @click="displayDetail(item.index)" >
         <div class="img-group-text">{{ item.name }}</div>
       </li>
@@ -10,16 +10,18 @@
 </template>
 
 <script>
-
+import { getDate } from '@/request/api'; 
+import { watch } from 'vue';
 export default {
   components: {},
   props: {
-    classIndex: Number
+    classIndex: Number,
+    currentPage: Number
   },
   data() {
     return {
-      imgList: []
-    };
+      imgList: [],
+    }
   },
   //方法集合
   methods: {
@@ -30,49 +32,24 @@ export default {
           index: index
         }
       })
+    },
+    getDateAll() {
+      this.imgList = []
+      getDate().then((res) => {
+        let i = this.currentPage * 2 +this.classIndex
+        this.imgList = res[0].data.imgGroup[i]
+      })
     }
   },
   mounted() {
-    let img1 = require('../../../../assets/meme/shock.png')
-    let img2 = require('../../../../assets/meme/shock.png')
-    let img3 = require('../../../../assets/meme/shock.png')
-    let img4 = require('../../../../assets/meme/shock.png')
-    let img5 = require('../../../../assets/meme/shock.png')
-    let img6 = require('../../../../assets/meme/shock.png')
-    this.imgList = [
-      {
-        name: '铂金风度',
-        img: img1,
-        index: 1
-      },
-      {
-        name: '缠绵游戏',
-        img: img2,
-        index: 2
-      },
-      {
-        name: '蝴蝶效应',
-        img: img3,
-        index: 3
-      },
-      {
-        name: '蝴蝶效应',
-        img: img4,
-        index: 4
-      },
-      {
-        name: '蝴蝶效应',
-        img: img5,
-        index: 5
-      },
-      {
-        name: '蝴蝶效应',
-        img: img6,
-        index: 6
-      }
-    ]
+    console.log(this.currentPage * 2 +this.classIndex)
+    this.getDateAll()
   },
-  activated() { },
+  watch: {
+    currentPage() {
+      this.getDateAll()
+    }
+  }
 }
 </script>
 
@@ -81,14 +58,18 @@ export default {
   display: grid;
   grid-template-rows: 250px 250px 250px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 5px;
+  row-gap: 5px;
+  column-gap: 5px;
   .img-group-li0 {
     position: relative;
     cursor: pointer;
+    overflow: hidden;
+    margin-right: 5px;
   }
   .img-group-li1 {
     position: relative;
     cursor: pointer;
+    overflow: hidden;
   }
   .img-group-li0[data-index="3"] {
     grid-row: 2 / 4;
@@ -100,8 +81,7 @@ export default {
   }
   .img-group-img {
     width: 100%;
-    height: 100%;
-    background-size: contain;
+    background-size: cover;
   }
   .img-group-text {
     width: 100%;
@@ -112,7 +92,7 @@ export default {
     bottom: 0;
     left: 0;
     text-align: center;
-    background-color: blue;
+    background: linear-gradient(#e6646400, rgb(45, 38, 52)90%);
   }
 }
 </style>

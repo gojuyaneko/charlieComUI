@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" /> -->
-    <!-- <meta property="og:locale" content="zh_CN" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="首页标题" />
-  <meta property="og:description" content="分享简介" />
-  <meta property="og:url" content="查理苏网页绝对地址" />
-  <meta property="og:site_name" content="查理苏网站名字" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:label1" content="预计所需浏览时间" />
-  <meta name="twitter:data1" content="3分" /> -->
-    <!-- <link rel="canonical" href="查理苏网页绝对地址" /> -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="首页标题" />
+    <meta property="og:description" content="分享简介" />
+    <meta property="og:url" content="http://charlielove.cn/" />
+    <meta property="og:site_name" content="CharlieLove" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:label1" content="12分" />
+    <meta name="twitter:data1" content="3分" />
+    <link rel="canonical" href="http://charlielove.cn/" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <link rel="stylesheet" href="https://unpkg.com/element-ui@2.15.13/lib/theme-chalk/index.css">
     <meta
@@ -27,17 +27,18 @@
         padding:0;
       }
       .loading-ani {
-        background-color: rgb(14, 7, 13);
-        width: 100%;
-        height: 100%;
+        background-image: url('./bg.jpg');
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
         position: relative;
       }
       .load-gif {
-        width: 600px;
+        width: 500px;
         position: absolute;
-        bottom: 50%;
+        top: 50%;
         left: 50%;
-        transform: translate(50%, -50%);
+        transform: translate(-50%, -50%);
       }
     </style>
   </head>
@@ -52,7 +53,7 @@
     </noscript>
     <div id="app">
       <div class="loading-ani">
-        <!-- <img src="./loading.gif" alt="" class="load-gif"> -->
+        <img src="./loading.gif" alt="" class="load-gif">
       </div>
     </div>
   </body>

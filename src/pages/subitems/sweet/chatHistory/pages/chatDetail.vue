@@ -67,7 +67,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$route.query.name)
   },
   activated(){
     this.getContent()
@@ -86,7 +85,6 @@ export default {
       this.deActiveName = []
       this.chDetailData = []
       getChat({indexcode: this.$route.query.name}).then((res) =>{
-        console.log(res.chatHistory)
         this.chDetailData = res.chatHistory
       })
     }

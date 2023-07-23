@@ -1,8 +1,8 @@
 <template>
-  <div class='date-all' v-loading="loaging">
+  <div class='date-all' >
       <div class="date-box">
           <i class="font-arrow el-icon-d-arrow-left" @click="changePage(-1)"></i>
-        <ImgGroup :classIndex="index" class="data-imggroup"  v-for="(item, index) in imgGroup.slice((currentPage)*pagesize,(currentPage+1)*pagesize)" :key="'ig'+index"></ImgGroup>
+        <ImgGroup :classIndex="index" :currentPage="currentPage"  class="data-imggroup"  v-for="(item, index) in imgGroup.slice((currentPage)*pagesize,(currentPage+1)*pagesize)" :key="'ig'+index"></ImgGroup>
           <i class="back-arrow el-icon-d-arrow-right" @click="changePage(1)"></i>
       </div>
     
@@ -11,6 +11,7 @@
 
 <script>
 import ImgGroup from './component/ImgGroup'
+import { getDate } from '@/request/api'; 
 export default {
   components: {ImgGroup},
   data() {
@@ -20,8 +21,7 @@ export default {
       ],
       currentPage:0,
       pagesize:2,
-      tolNum: 17,
-      loaging: true
+      tolNum: 17
     };
   },
 //方法集合
@@ -29,15 +29,21 @@ export default {
     changePage (dir) {
       let pages = Math.ceil(this.tolNum / 2)
       this.currentPage = (this.currentPage + dir + pages) % pages
-      console.log(this.currentPage)
+    },
+    getDateAll() {
+      this.imgGroup = []
+      getDate().then((res) => {
+        console.log(res)
+        this.imgGroup = res[0].data.imgGroup
+        this.tolNum = this.imgGroup.length
+      })
     }
   },
   mounted() {
-    this.$nextTick(() => {
-    this.loaging =false
-})
   },
-  activated() {},
+  activated() {
+    this.getDateAll()
+  },
 }
 </script>
 

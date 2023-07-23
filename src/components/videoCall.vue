@@ -10,10 +10,17 @@
     <el-dialog :visible.sync="dialogVisible" width="70%" :center="true">
       <div slot="title">
         <div class="ch-vc-title"><img class="ch-vc-title-left" src="../assets/calldetailleft.png" alt="">通话详情<img class="ch-vc-title-right" src="../assets/calldetailright.png" alt=""></div>
+        <a
+          class="ch-vc-video"
+          target="_blank"
+          :href="callUrl"
+        >
+        </a>
       </div>
       <div v-for="(item, index) in chDetailData" :key="index" class="ch-vc-section">
         <div class="ch-dt-sec-header" :data-person="item.speaker">
-          <picture :data-person="item.speaker"><img class="ch-dt-header-img" src="../assets/charlieprofile.png" alt="">
+          <picture :data-person="item.speaker" v-if="item.speaker === '查理苏'"><img class="ch-dt-header-img" src="../assets/chcharlie.jpg" alt=""></picture>
+          <picture :data-person="item.speaker" v-else><img class="ch-dt-header-img" src="../assets/chme.jpg" alt="">
           </picture>
         </div>
         <div class="ch-dt-sec-main" :data-person="item.speaker" v-for="(content, iindex) in item.content" :key="'cn'+iindex">
@@ -34,7 +41,7 @@ export default {
   props: { 
     callName: String,
     vcCode: String,
-
+    callUrl: String
   },
   mounted () {
     this.getContent()
@@ -256,6 +263,16 @@ export default {
 }
 .ch-dt-sec-main[data-person='我'] {
   text-align: right;
+}
+.ch-vc-video {
+  display: inline-block;
+  width: 148px;
+  height: 47px;
+  background-image: url("../assets/watchvideo.png");
+  background-size: 100% 100%;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 ::-webkit-scrollbar {
   display: none;
