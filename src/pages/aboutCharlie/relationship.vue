@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="bg">
+    <div class="mybg">
       <img src="@/assets/aboutCharlie/矩形2拷贝3.png" />
     </div>
     <div class="charaPic">
@@ -54,11 +54,11 @@ export default {
 </script>
 
 <style>
-.bg {
+.mybg {
   width: 100%;
   height: 100%;
 }
-.bg img {
+.mybg img {
   position: relative;
   z-index: 0;
   background-color: rgba(77, 55, 117, 0.7) !important;

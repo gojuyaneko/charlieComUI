@@ -104,36 +104,43 @@ export default {
 }
 .name {
   position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding-bottom: 30px;
 
   top: 10px;
-  left: 43%;
 }
 .name img {
   width: 322px;
   height: 34px;
 }
 .aboutus {
-  /* padding-right: 35px; */
-  padding-left: 115px;
+  position: absolute;
+  transform: translate(-50%, -50%);
   padding-top: 50px;
-  top: 80px;
-  left: 30px;
+  top: 90px;
+  left: 20%;
   width: 740px;
   height: 100px;
 }
 .email {
-  padding-left: 0px;
+  position: absolute;
+  top: 90px;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding-top: 50px;
-  top: 80px;
   width: 290px;
   height: 100px;
 }
 .icon {
-  padding-right: 50px;
+  position: absolute;
+  left: 78%;
+  transform: translate(-50%, -50%);
   padding-top: 50px;
-  top: 80px;
-  left: 1400px;
+  top: 90px;
+
   cursor: pointer;
 }
 .icon img {
