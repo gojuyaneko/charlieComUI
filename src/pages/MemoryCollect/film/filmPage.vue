@@ -203,6 +203,7 @@ export default {
   top:535px;
   left: 615px;
   position: relative;
+  font-size: 18px;
 }
 
 .number {
