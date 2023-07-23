@@ -128,6 +128,7 @@ export default {
             }
             let item = {
               sessionIndex:this.Index,
+              videoUrl:res.video
             }
             this.contentDataList.push(item)
 
