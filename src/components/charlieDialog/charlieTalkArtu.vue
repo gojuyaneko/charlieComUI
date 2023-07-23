@@ -18,7 +18,7 @@
           </p>
         </div>
         <span class="com-dia-span">
-          <span v-if="item.speaker === 'me'" :data-speaker="item.speaker">
+          <span v-if="item.speaker === '我'" :data-speaker="item.speaker">
             {{ item.speaker }}
           </span>
         </span>
