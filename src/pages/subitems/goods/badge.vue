@@ -72,7 +72,7 @@ export default {
     $route: {
       handler(a, b) {
         // 这里的this.initData()就是自己项目接口调用的方法，可以根据自己的项目修改成对应的方法
-        this.getList(a.query.type);
+        this.getList(a.query.ref);
       },
       deep: true,
       immediate: true,
