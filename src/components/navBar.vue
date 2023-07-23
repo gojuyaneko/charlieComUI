@@ -1,7 +1,9 @@
 <template>
   <div class="pc-nav-theme">
     <span class="nav-theme">
-      <img src="./../assets/HomePage/CharlieLove2.png" />
+      <router-link to="/#">
+        <img src="./../assets/HomePage/CharlieLove2.png" />
+      </router-link>
     </span>
     <img
       src="../assets/HomePage/Page1/多边形1拷贝.png"
@@ -34,7 +36,7 @@
             v-for="childItems in item.childItems"
             :index="childItems.nextUrl"
             :key="childItems.name"
-            :route="{path:childItems.nextUrl, query: childItems.query}"
+            :route="{ path: childItems.nextUrl, query: childItems.query }"
             @click="gotoUrl(childItems.nextUrl, childItems.ref)"
           >
             <span> {{ childItems.name }} </span>
