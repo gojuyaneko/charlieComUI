@@ -104,12 +104,10 @@ export default {
 }
 .name {
   position: absolute;
-  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding-bottom: 30px;
-
-  top: 10px;
+  top: 30%;
 }
 .name img {
   width: 322px;
@@ -119,14 +117,14 @@ export default {
   position: absolute;
   transform: translate(-50%, -50%);
   padding-top: 50px;
-  top: 90px;
+  top: 130px;
   left: 20%;
   width: 740px;
   height: 100px;
 }
 .email {
   position: absolute;
-  top: 90px;
+  top: 130px;
 
   left: 50%;
   transform: translate(-50%, -50%);
@@ -136,10 +134,10 @@ export default {
 }
 .icon {
   position: absolute;
+  top: 130px;
   left: 78%;
   transform: translate(-50%, -50%);
   padding-top: 50px;
-  top: 90px;
 
   cursor: pointer;
 }

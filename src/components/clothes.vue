@@ -44,7 +44,7 @@ export default {
       return -this.currentIndex * (this.sliderWidth / this.visibleItems);
     },
     visibleItems() {
-      return Math.floor(this.sliderWidth / this.itemWidth);
+      return Math.floor(this.sliderWidth / this.itemWidth) || 1;
     },
     transformOffset() {
       return `translate3d(${this.offset}px, 0, 0)`;
