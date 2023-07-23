@@ -6,7 +6,7 @@
         <div class="productPic">
           <div class="productImage">
             <div class="badgeImage">
-              <img src="./images/goods/长梦烬余痕徽章.png" alt="" />
+              <img :src="goodsContent[index].file_path" alt="" />
             </div>
           </div>
           <div class="productSlider">
@@ -15,10 +15,9 @@
                 v-for="(item, index) in goodsContent"
                 :key="item.id"
                 :src="item.file_path"
-                :alt="item.name"
+                :alt="item.name" 
                 @click="handle(index)"
               />
-              <img src="./images/goods/满赠透卡.png" alt="Image 2" />
             </div>
           </div>
         </div>
