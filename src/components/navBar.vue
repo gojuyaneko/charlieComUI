@@ -1,7 +1,7 @@
 <template>
   <div class="pc-nav-theme">
     <span class="nav-theme">
-      <router-link to="/#">
+      <router-link to="/">
         <img src="./../assets/HomePage/CharlieLove2.png" />
       </router-link>
     </span>
