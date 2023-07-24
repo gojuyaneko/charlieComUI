@@ -6,8 +6,8 @@
           <img class="com-dia-star2" src="../../../assets/bgstar.png" />
           <div class="com-dia-main">
             <div class="com-dia-left">
-              <a class="com-dia-video" target="_blank" :href="videoUrl">
-              </a>
+              <!-- <a class="com-dia-video" target="_blank" :href="videoUrl">
+              </a> -->
               <div
                 class="left"
               >

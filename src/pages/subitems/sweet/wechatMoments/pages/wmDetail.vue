@@ -66,6 +66,7 @@ export default {
   },
   mounted() { },
   activated () {
+    this.deActiveName = ['']
     this.getWmContent()
   },
   methods: {
