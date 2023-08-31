@@ -6,8 +6,8 @@
         <span v-if="item.speaker !== '我' && item.speaker !== '查理苏'" :data-person="item.speaker" style="color:#b99e63;margin-right: 25px;">{{item.speaker }}</span>
         <span v-if="item.speaker === '查理苏'" :data-person="item.speaker">{{item.speaker }}</span>
       </span>
-      <p class="dialog-p" :data-person-p="item.speaker" v-if="item.speaker !== '我' && item.speaker!=='旁白'" style="text-align: left">{{ subitem}}</p>
-      <p class="dialog-p" :data-person-p="item.speaker" v-if="item.speaker === '我' || item.speaker==='旁白'">{{ subitem}}</p>
+      <p class="dialog-p" :data-person-p="item.speaker" v-if="item.speaker !== '我'" style="text-align: left">{{ subitem}}</p>
+      <p class="dialog-p" :data-person-p="item.speaker" v-if="item.speaker === '我'">{{ subitem}}</p>
       <span class="dialog-span"><span v-if="item.speaker === '我'" :data-person="item.speaker">{{ item.speaker }}</span></span>
     </div>
   </div>
@@ -38,7 +38,7 @@ export default {
   font-family: "nansongshuju";
 }
 .dialog-p {
-  width: 600px;
+  width: 700px;
   margin-bottom: 20px;
 }
 .dialog-span {
@@ -58,7 +58,6 @@ span[data-person="旁白"] {
 }
 p[data-person-p="旁白"] {
   color: #848484;
-  text-indent: 2em;
 }
 
 p[data-person-p="查理苏"] {

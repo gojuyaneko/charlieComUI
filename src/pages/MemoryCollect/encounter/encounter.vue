@@ -1,6 +1,6 @@
 <template>
   <div class="encounter">
-    <!-- <div class="next" @click="change()" :class="{active:Index}"></div> -->
+    <div class="next" @click="change()" :class="{active:Index}"></div>
     <rescueTrip v-show="Index===0"></rescueTrip>
     <unknownErosion v-show="Index===1"></unknownErosion>
     <truthCameout v-show="Index===2"></truthCameout>
@@ -8,13 +8,13 @@
 </template>
 
 <script>
-///import rescueTrip from "@/pages/MemoryCollect/encounter/components/rescueTrip"
-// import unknownErosion from "@/pages/MemoryCollect/encounter/components/unknownErosion";
-// import truthCameout from "@/pages/MemoryCollect/encounter/components/truthCameout";
+import rescueTrip from "@/pages/MemoryCollect/encounter/components/rescueTrip"
+import unknownErosion from "@/pages/MemoryCollect/encounter/components/unknownErosion";
+import truthCameout from "@/pages/MemoryCollect/encounter/components/truthCameout";
 
 
 export default {
-  ///components: {rescueTrip,unknownErosion,truthCameout},
+  components: {rescueTrip,unknownErosion,truthCameout},
 
   data() {
     return {
@@ -47,7 +47,7 @@ export default {
   text-align: center;
   width: 100%;
   height: 100%;
-  background: url('./邂逅1/bg1.png') no-repeat;
+  background: url('./邂逅1/bg.png') no-repeat;
   background-size: cover;
   background-position: center;
 }

@@ -1,34 +1,29 @@
 <template>
   <div>
     <div class="major-title">
-      <div class="content">{{ majorTitle }}</div>
+      <div class="content" v-for="(item,index) in subChaplist" :key="index" v-show="item.majorIndex===Index">
+        <img :src="item.majorTitle" alt="" class="title-img"/>
+      </div>
     </div>
     <ul class="minor-titles">
       <span class="title1" tabindex="1"
-            @click="show(1);
-            choiceshow=false;
-            buffer=true; buffer1=true;
-            firstChoice=0;
-            secondChoice=0"
-            :class="Index===1? 'active':''"></span>
+            @click="show(0); preIndex=-1"
+            :class="Index===0? 'active':''"></span>
       <span class="title2" tabindex="2"
-            @click="show(2);
-            choiceshow1=false;buffer=true;
-            thirdChoice=0;"
-            :class="Index===2? 'active':''"></span>
+            @click="show(1); preIndex=-1"
+            :class="Index===1? 'active':''"></span>
       <span class="title3" tabindex="3"
-            @click="show(3)
-            choiceshow2=false;buffer=true;
-            fourthChoice=0;"
-            :class="Index===3? 'active':''"></span>
+            @click="show(2);preIndex=-1"
+            :class="Index===2? 'active':''"></span>
     </ul>
     <div class="text-bg">
-      <ul class="choice"  v-for="(choiceGroup, index) in choiceList" :key="'choiceG'+index" v-show="fontIndex === index&&isBottom&&chooseRigt">
-        <li class="goaway" @click=" changeContent(index, choiceindex)" v-for="(choice, choiceindex) in choiceGroup" :key="'choice'+choiceindex">{{ choice.choiceTitle }} </li>
+      <ul class="choice"  v-for="(choiceGroup, index) in choiceList" :key="'choiceG'+index" v-show="fontIndex === index&&isBottom&&chooseRigt && chapIndex===Index">
+        <li class="el-button" @click=" changeContent(index, choiceindex)" v-for="(choice, choiceindex) in choiceGroup" :key="'choice'+choiceindex" style="margin-bottom: 10px;">{{ choice.choiceTitle }} </li>
       </ul>
-      <div class="reload" @click=" backToPre()" v-show="!chooseRigt&&isBottom">重新选择 </div>
+      <div class="reload" @click="backToPre()" v-show="!chooseRigt&&isBottom">重新选择</div>
       <div class="text" @scroll="choiceEvent" >
-          <encounterContent :sendName="item.subContent" v-show="preIndex +1 >= item.sessionIndex" v-for="(item,index) in contentDataList" :key="'content1'+ index"></encounterContent>
+        <!-- 这里我想设置每个小节内容根据this.Index来切换，但是chapIndex不晓得怎么设置，如果要求后端一起返回的话下面的methods我就有点改不好:(-->
+          <encounterContent :sendName="item.subContent" v-show="preIndex +1 >= item.sessionIndex && chapIndex===Index" v-for="(item,index) in contentDataList" :key="'content1'+ index"></encounterContent>
       </div>
 
     </div>
@@ -39,403 +34,36 @@
 <script>
 import encounterContent from "@/pages/MemoryCollect/encounter/components/encounterContent.vue";
 import axios from "axios";
+
 export default {
   components:{encounterContent},
   data() {
     return {
-      contentDataList:[
+      Index:0,
+      contentDataList: [],
+      // 数据使用public/testText.json中的数据
+      subChaplist:[
         {
-          sessionIndex:1,
-          subContent: [
-        {
-          name: "旁白",
-          content:
-            "嘀——"
+          majorIndex:0,
+          majorTitle:require("../邂逅1/content1.png")
         },
         {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
+          majorIndex:1,
+          majorTitle:require("../邂逅1/content2.png")
         },
         {
-          name: "查理苏",
-          content:
-            "血压尿量如何？",
-        },
-        {
-          name: "??",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
+          majorIndex:2,
+          majorTitle:require("../邂逅1/content3.png")
+        }
       ],
-          choiceContent:[
-            {
-              firstNum:1,
-              subContent:[
-          {
-          name: "旁白",
-          content:
-            "嘀——12345"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-      ],
-            },
-            {
-              firstNum:2,
-              subContent:[
-          {
-          name: "旁白",
-          content:
-            "嘀——67890"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-      ],
-            },
-            {
-              secondNum:1,
-              subContent:[
-          {
-          name: "旁白",
-          content:
-            "嘀——66666"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-      ],
-            },
-            {
-              secondNum:2,
-              subContent:[
-          {
-          name: "旁白",
-          content:
-            "嘀——7777"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-      ],
-            },
-          ],
-        },
-        {
-          sessionIndex: 2,
-          subContent: [
-        {
-          name: "旁白",
-          content:
-            "嘀——live"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-        {
-          name: "查理苏",
-          content:
-            "血压尿量如何？",
-        },
-        {
-          name: "??",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-      ],
-          choiceContent: [
-            {
-              firstNum: 1,
-              subContent: [
-          {
-          name: "旁白",
-          content:
-            "嘀——he"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-      ],
-            },
-            {
-              firstNum: 2,
-              subContent: [
-          {
-          name: "旁白",
-          content:
-            "嘀——me"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-      ],
-            }
-          ],
-        },
-        {
-          sessionIndex: 3,
-          subContent: [
-        {
-          name: "旁白",
-          content:
-            "嘀——live"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-        {
-          name: "查理苏",
-          content:
-            "血压尿量如何？",
-        },
-        {
-          name: "??",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-        {
-          name: "我",
-          content:
-            "饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪。饿了想吃饭，不想上班，想打王国之泪",
-        },
-        {
-          name: "查理苏",
-          content:
-            "完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人，完美的男人。",
-        },
-        {
-          name: "旁白",
-          content:
-            "你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富，你会暴富。",
-        },
-      ],
-          choiceContent: [
-            {
-              firstNum: 1,
-              subContent: [
-          {
-          name: "旁白",
-          content:
-            "嘀——yes"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-      ],
-            },
-            {
-              firstNum: 2,
-              subContent: [
-          {
-          name: "旁白",
-          content:
-            "嘀——no"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-      ],
-            },
-            {
-              firstNum: 3,
-              subContent: [
-          {
-          name: "旁白",
-          content:
-            "嘀——hesitate"
-        },
-        {
-          name: "护士",
-          content:
-            "查医生，7号床发生窦性心动过速！心率已达160次！",
-        },
-      ],
-
-            }
-          ]
-        },
-
-      ], // 数据使用public/testText.json中的数据
-      choiceList: [
-      ], // 后端传输过来的所有选项列表
-      majorTitle: '原来是你？逃婚小姐', // 后端给你标题,取用testText中的标题
+      choiceList: [], // 后端传输过来的所有选项列表
       preIndex: -1, //文章段落进行标志，表明最新文章进度
       fontIndex: -1, //选项进行标志，表明下一个该出现choiceList的第几组组
       resData: [], // 储存后端传输数据内容，主要用于替换选项内容
       chooseRigt: true, // 是否选择了正确的选项
-      isBottom: false // 是否到达底部
+      isTop:true,
+      isBottom: false, // 是否到达底部
+      chapIndex:0//目前我就先设置了小节索引是0 只有第一个小节能显示
     }
   },
   methods: {
@@ -449,10 +77,11 @@ export default {
         this.fontIndex = this.preIndex+ 1 // 选项初始为-1，第一次滑动到底部时出现choiceList[0]的选项组 ，当滑动到底部时自动进行到下一组选项
       }
     },
+
     initContent (data) { // 初始化文章内容，默认选项选择正确，规定第一个选项即xuanxiang[0]为正确/最优选项
       this.contentDataList = []
       for (let i in data) {
-        if(data[i].para_type  !== 'choice') {
+        if (data[i].para_type !== 'choice') {
           let item = {
             sessionIndex: i,
             subContent: data[i].normalContent
@@ -460,10 +89,10 @@ export default {
           this.contentDataList.push(item)
         } else {
           let choiceItem = data[i].xuanxiang[0]
-            let item = {
-              sessionIndex: i,
-              subContent: choiceItem.choice_para
-            }            
+          let item = {
+            sessionIndex: i,
+            subContent: choiceItem.choice_para
+          }
           this.contentDataList.push(item)
         }
       }
@@ -487,14 +116,15 @@ export default {
       this.fontIndex = this.preIndex + 1 // 回退选项，段落进行标志在选择选项时自动行进至当前选项前一步
     },
     getTestText () {
-      axios.get('../testText.json').then((res) => { // 获取testText文本内容，实际使用接口时替换为接口
-        this.resData = res.data.para //  保存后端传过来的文本
+      axios.get('../testText.json',).then((res) => { // 获取testText文本内容，实际使用接口时替换为接口
+        this.resData = res.data.para//  保存后端传过来的文本
         let data = res.data.para // 暂存文本
+        //this.chapIndex = res.data.chapIndex
         this.choiceList = [] // 初始化选择组列表
         this.initContent(data) // 初始化前端使用文本
         for (let i in data) {
           if(data[i].para_type  === 'choice') { // 若该段落为choice，则压进choiceList数组
-            let choiceIndex = 0 
+            let choiceIndex = 0
             let item = []
             for ( let j in data[i].xuanxiang){ // 遍历选项
               let choice = {
@@ -503,11 +133,12 @@ export default {
                 choiceTitle: data[i].xuanxiang[j].choice_name, // 选项标题
               }
               choiceIndex++
-              item.push(choice)      
+              item.push(choice)
             }
-          this.choiceList.push(item) 
+          this.choiceList.push(item)
+            }
           }
-        }
+
       })
     },
   },
@@ -537,6 +168,14 @@ export default {
   left: 110px;
   height: 20px;
   width: 188px;
+}
+
+.title-img {
+  background-size: 100% 100%;
+  position: relative;
+  top:0;
+  left: 0;
+  height: 21px;
 }
 .video-btn {
   background-image: url("../邂逅1/video.png");
@@ -634,87 +273,37 @@ export default {
   overflow-y: scroll;
   position: absolute;
   top:150px;
-  left:110px
+  left:120px
 }
 
 .choice {
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: fixed;
   float: left;
-  top: 400px;
-  left: 30px;
+  bottom:155px;
+  left: 270px;
+  margin-bottom: 50px;
 }
 
-.choice1 {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  float: left;
-  top: 250px;
-  left: 30px;
-}
-.goaway {
-  background: url("../邂逅1/goaway.png");
-  margin-bottom: 25px;
-  color: white;
-}
-
-.stay {
-  background: url("../邂逅1/stay.png");
-}
-
-.away {
-  background: url("../邂逅1/away.png");
-  margin-bottom: 25px;
-}
-.stay1 {
-    background: url("../邂逅1/stay1.png");
-}
-
-.he {
-  background: url("../邂逅1/he.png");
-  margin-bottom: 25px;
-}
-
-.me {
-  background: url("../邂逅1/me.png");
-}
-
-.yes {
-  background: url("../邂逅1/yes.png");
-  margin-bottom: 25px;
-}
-
-.no {
-  background: url("../邂逅1/no.png");
-
-}
-
-.hesitate {
-  background: url("../邂逅1/hesitate.png");
-  margin-bottom: 25px;
-}
-
-.goaway, .away, .stay, .stay1,.he,.me,.yes,.no,.hesitate {
-  background-size: 100% 100%;
-  height: 132px;
-  width: 46px;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-}
 
 .reload {
-  background: url("../邂逅1/reload.png");
-  background-size: 100% 100%;
-  height: 129px;
-  width: 43px;
-  display: inline-block;
-  position: relative;
+  background-color: transparent;
+  flex-direction: column;
   cursor: pointer;
-  top:530px;
-  left:-790px;
+  color:#b99e63;
+  writing-mode: tb-rl;
+  font-family: "nansongshuju";
+  font-size: 14px;
+  padding: 30px 6px;
+  margin: 0 0 30px 10px;
+  border: 1.5px solid #b99e63;
+  border-radius: 35px;
+  display: flex;
+  position: fixed;
+  left:270px;
+  top:700px;
+
 }
 ::-webkit-scrollbar {
   width: 25px;
@@ -728,7 +317,20 @@ export default {
   background-clip: content-box;
   background-color: rgb(185,158,99,0.5);
   border-radius: 10px;
+}
 
+.el-button {
+  background-color: transparent;
+  flex-direction: column;
+  cursor: pointer;
+  color:#b99e63;
+  writing-mode: tb-rl;
+  font-family: "nansongshuju";
+  font-size: 14px;
+  padding: 30px 6px;
+  margin: 0 0 30px 10px;
+  border: 1.5px solid #b99e63;
+  border-radius: 35px;
 }
 
 

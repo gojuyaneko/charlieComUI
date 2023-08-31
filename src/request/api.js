@@ -20,3 +20,4 @@ export const getVinyl = (p) => get(baseUrl + "vinyl", p); // 唱片接口
 export const getTalk = (p) => get(baseUrl + "talk", p); // 闲聊接口
 export const getDate = (p) => get(baseUrl + "dateOverview", p); // 约会总览接口
 export const getDateDetail = (p) => get(baseUrl + "date_details", p); // 约会详情接口
+export const getRT = (p) => get(baseUrl + "rescueTrip", p); // 邂逅1详情接口

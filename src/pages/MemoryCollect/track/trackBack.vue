@@ -124,7 +124,7 @@ export default {
                 name: res.subContent[i]["name"],
                 content:res.subContent[i]["content"],
               }
-              console.log(res.subContent[i])
+              //console.log(res.subContent[i])
               this.subContent.push(dia)
             }
             let item = {
