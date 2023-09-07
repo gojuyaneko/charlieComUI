@@ -1,6 +1,4 @@
-
-    {
-    "chapIndex": 0,
+{
     "para": [
         {
             "para_type": "normal",
@@ -64,7 +62,7 @@
             "para_type": "choice",
             "xuanxiang": [
                 {
-                    "choice_name": "直接走开",
+                    "choice_name": "走开。",
                     "choice_para": [
                         {
                             "content": [
@@ -108,7 +106,7 @@
                     "para_type": "light"
                 },
                 {
-                    "choice_name": "果断留下",
+                    "choice_name": "留下",
                     "choice_para": [
                         {
                             "content": [
@@ -298,5 +296,6 @@
                 }
             ]
         }
-    ]
-    }
+    ],
+    "videoUrl": "https://www.bilibili.com/video/BV1tA411y7VN?p=43"
+}

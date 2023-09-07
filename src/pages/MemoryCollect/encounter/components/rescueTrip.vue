@@ -7,33 +7,34 @@
     </div>
     <ul class="minor-titles">
       <span class="title1" tabindex="1"
-            @click="show(0); preIndex=-1"
+            @click="show(0);"
             :class="Index===0? 'active':''"></span>
       <span class="title2" tabindex="2"
-            @click="show(1); preIndex=-1"
+            @click="show(1);"
             :class="Index===1? 'active':''"></span>
       <span class="title3" tabindex="3"
-            @click="show(2);preIndex=-1"
+            @click="show(2);"
             :class="Index===2? 'active':''"></span>
     </ul>
     <div class="text-bg">
-      <ul class="choice"  v-for="(choiceGroup, index) in choiceList" :key="'choiceG'+index" v-show="fontIndex === index&&isBottom&&chooseRigt && chapIndex===Index">
-        <li class="el-button" @click=" changeContent(index, choiceindex)" v-for="(choice, choiceindex) in choiceGroup" :key="'choice'+choiceindex" style="margin-bottom: 10px;">{{ choice.choiceTitle }} </li>
+      <ul class="choice"  v-for="(choiceGroup, index) in choiceList" :key="'choiceG'+index" v-show="fontIndex === index&&isBottom&&chooseRigt">
+        <li class="choiceBtn" @click=" changeContent(index, choiceindex)" v-for="(choice, choiceindex) in choiceGroup" :key="'choice'+choiceindex" style="margin-bottom: 10px;">{{ choice.choiceTitle }} </li>
       </ul>
       <div class="reload" @click="backToPre()" v-show="!chooseRigt&&isBottom">重新选择</div>
       <div class="text" @scroll="choiceEvent" >
-        <!-- 这里我想设置每个小节内容根据this.Index来切换，但是chapIndex不晓得怎么设置，如果要求后端一起返回的话下面的methods我就有点改不好:(-->
-          <encounterContent :sendName="item.subContent" v-show="preIndex +1 >= item.sessionIndex && chapIndex===Index" v-for="(item,index) in contentDataList" :key="'content1'+ index"></encounterContent>
+          <encounterContent :sendName="item.subContent" v-show="preIndex +1 >= item.sessionIndex " v-for="(item,index) in contentDataList" :key="'content1'+ index"></encounterContent>
       </div>
 
     </div>
-    <a class="video-btn" target="_blank" href="http://www.bilibili.com"></a>
+    <a class="video-btn" target="_blank" :href="this.videoUrl"></a>
   </div>
 </template>
 
 <script>
 import encounterContent from "@/pages/MemoryCollect/encounter/components/encounterContent.vue";
+import {getRT} from "@/request/api";
 import axios from "axios";
+
 
 export default {
   components:{encounterContent},
@@ -63,13 +64,14 @@ export default {
       chooseRigt: true, // 是否选择了正确的选项
       isTop:true,
       isBottom: false, // 是否到达底部
-      chapIndex:0//目前我就先设置了小节索引是0 只有第一个小节能显示
+      videoUrl:''
     }
   },
   methods: {
     show(value) {
-      this.Index === value ? this.isShow = !this.isShow : this.isShow = true
       this.Index = value
+      let url =`../testText${this.Index+1}.json` // 向后端发送请求时，就把index当做参数传就可以了 new
+      this.getTestText(url) //new
     },
     choiceEvent({target:{scrollTop, clientHeight, scrollHeight}}) {
       if (scrollTop + clientHeight >= scrollHeight - 2) {
@@ -96,6 +98,12 @@ export default {
           this.contentDataList.push(item)
         }
       }
+      this.preIndex = -1
+      this.fontIndex = -1
+      this.isBottom = false
+      this.chooseRigt = true
+      //这里如果加了这一行的话 就不显示选项
+      //this.$refs.scrollBox.scrollTop = 0
     },
     changeContent (index, j) { // 替换选项内容，
       this.preIndex = index // 段落进行标志在选择选项时自动行进至当前选项后一步
@@ -115,9 +123,12 @@ export default {
       this.preIndex-- // 回退文本
       this.fontIndex = this.preIndex + 1 // 回退选项，段落进行标志在选择选项时自动行进至当前选项前一步
     },
-    getTestText () {
-      axios.get('../testText.json',).then((res) => { // 获取testText文本内容，实际使用接口时替换为接口
+    getTestText (url) {
+      axios.get('../testText1.json').then((res) => {
+        console.log(url)
+      //getRT({xhChap:0,subChap:this.Index}).then((res) => { // 获取testText文本内容，实际使用接口时替换为接口
         this.resData = res.data.para//  保存后端传过来的文本
+        this.videoUrl = res.data.videoUrl
         let data = res.data.para // 暂存文本
         //this.chapIndex = res.data.chapIndex
         this.choiceList = [] // 初始化选择组列表
@@ -278,15 +289,41 @@ export default {
 
 .choice {
   display: flex;
-  flex-direction: column;
-  position: fixed;
+  position: relative;
   float: left;
-  bottom:155px;
-  left: 270px;
-  margin-bottom: 50px;
+  top:400px;
+  left: 35px;
+  background-color: transparent;
+  color:#b99e63;
+  writing-mode: tb-rl;
+  font-family: "nansongshuju";
+  font-size: 14px;
+
+}
+::-webkit-scrollbar {
+  width: 25px;
+}
+::-webkit-scrollbar-track {
+  box-shadow:inset 0 0 5px #b99e63;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border: 4.5px solid transparent;
+  background-clip: content-box;
+  background-color: rgb(185,158,99,0.5);
+  border-radius: 10px;
 }
 
-
+.choiceBtn {
+  background-color: transparent;
+  cursor: pointer;
+  color:#b99e63;
+  font-size: 14px;
+  padding: 30px 6px;
+  margin: 0 0 30px 10px;
+  border: 1.5px solid #b99e63;
+  border-radius: 35px;
+}
 .reload {
   background-color: transparent;
   flex-direction: column;
@@ -304,33 +341,6 @@ export default {
   left:270px;
   top:700px;
 
-}
-::-webkit-scrollbar {
-  width: 25px;
-}
-::-webkit-scrollbar-track {
-  box-shadow:inset 0 0 5px #b99e63;
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-  border: 4.5px solid transparent;
-  background-clip: content-box;
-  background-color: rgb(185,158,99,0.5);
-  border-radius: 10px;
-}
-
-.el-button {
-  background-color: transparent;
-  flex-direction: column;
-  cursor: pointer;
-  color:#b99e63;
-  writing-mode: tb-rl;
-  font-family: "nansongshuju";
-  font-size: 14px;
-  padding: 30px 6px;
-  margin: 0 0 30px 10px;
-  border: 1.5px solid #b99e63;
-  border-radius: 35px;
 }
 
 
