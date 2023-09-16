@@ -33,6 +33,7 @@ export default {
         require("./../assets/aboutCharlie/男人衣柜/组5.png"),
         require("./../assets/aboutCharlie/男人衣柜/组6.png"),
         require("./../assets/aboutCharlie/男人衣柜/组7.png"),
+        require("./../assets/aboutCharlie/男人衣柜/组8.png"),
       ],
       currentIndex: 0,
       itemWidth: 1655,
