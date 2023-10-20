@@ -276,6 +276,48 @@
         ></myShip>
       </div>
     </div>
+    <div class="jbz">
+      <img
+        src="@/assets/aboutCharlie/蒋部长.png"
+        @click="setSelectedCharacter('蒋部长')"
+        alt="蒋部长"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+    <div class="ws">
+      <img
+        src="@/assets/aboutCharlie/王受.png"
+        @click="setSelectedCharacter('王受')"
+        alt="王受"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
+    <div class="zhzh">
+      <img
+        src="@/assets/aboutCharlie/喳喳.png"
+        @click="setSelectedCharacter('喳喳')"
+        alt="喳喳"
+      />
+      <div class="popup" v-show="showPopup" @click="showPopup = false">
+        <myShip
+          :characterName="selectedCharacter.name"
+          :characterImg="selectedCharacter.img"
+          :characterDetail="selectedCharacter.detail"
+        ></myShip>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -340,6 +382,33 @@ export default {
   left: 470px;
   cursor: pointer;
 }
+.zhzh img {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  top: 600px;
+  left: 610px;
+  cursor: pointer;
+}
+.zhzh img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
+.jbz img {
+  position: absolute;
+  height: 135px;
+  width: 135px;
+  top: 250px;
+  left: 810px;
+  cursor: pointer;
+}
+.jbz img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
+
 .xh img {
   position: absolute;
   height: 230px;
@@ -544,6 +613,19 @@ export default {
   cursor: pointer;
 }
 .stz img:hover {
+  background-color: #513c74;
+  border: 5px solid #ba9c58;
+  border-radius: 50%;
+}
+.ws img {
+  position: absolute;
+  height: 130px;
+  width: 130px;
+  bottom: 300px;
+  right: 50px;
+  cursor: pointer;
+}
+.ws img:hover {
   background-color: #513c74;
   border: 5px solid #ba9c58;
   border-radius: 50%;
